@@ -1,0 +1,743 @@
+@import "fonts/fontface.css";
+/* =================== Getting the new tags to behave START ====================== */
+
+article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video {
+	display: block;
+}
+mark, rp, rt, ruby, summary, time {
+	display: inline
+}
+/* ==================== Getting the new tags to behave END ======================= */
+
+
+/* ========================= Global properties START ============================= */
+html, body {
+	height:100%;
+}
+html {
+	min-width:990px;
+}
+body {
+	background-color:#000000;
+	font-family: 'ArimoRegular';
+	font-size:12px;
+	line-height:18px;
+	color:#333333;
+}
+div {
+	border: 0 none;
+	font-size: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: top;
+}
+dl,hr,h1,h2,h3,h4,h5,h6,ol,ul,pre,table,address,fieldset,blockquote,article,p { margin-bottom: 20px;  }
+h1,h2,h3,h4,h5,h6,ol,ul,pre,table,address,fieldset,blockquote,article,p { font-family:'ArimoRegular'; font-weight:normal;}
+h1 {
+	font-size:40px;	
+	line-height:40px;
+	font-family: 'UbuntuBold';
+	letter-spacing:-1px;		
+}
+h2 {
+	font-size:32px;	
+	line-height:32px;	
+}
+h3 {	
+	font-size:24px;
+	line-height:28px;		
+}
+h4 {	
+	font-size:18px;	
+	line-height:18px;	
+}
+h5 {
+	font-size:14px;	
+	line-height:18px;
+}
+h6 {
+	font-size:13px;
+	line-height:18px;
+	
+}
+p {
+	line-height:18px;
+	
+}
+
+.color_orange {
+	color:#ee6b26;
+}
+.color_grey {
+	color:#333333;
+}
+.color_black {
+	color:#000000;
+}
+.color_white {
+	color:#ffffff;
+}
+.button, input[type="submit"], input[type="text"], textarea {
+	font-size:16px;
+	color:#333333;
+	box-shadow:inset 0 0 0px #aaaaaa, 2px 2px 1px #aaaaaa;
+	-khtml-box-shadow:inset 0 0 0px #aaaaaa, 2px 2px 1px #aaaaaa;
+	-moz-box-shadow:inset 0 0 0px #aaaaaa, 2px 2px 1px #aaaaaa;
+	-ms-box-shadow:inset 0 0 0px #aaaaaa, 2px 2px 1px #aaaaaa;
+	-o-box-shadow:inset 0 0 0px #aaaaaa, 2px 2px 1px #aaaaaa;
+	-webkit-box-shadow:inset 0 0 0px #aaaaaa, 2px 2px 1px #aaaaaa;
+	padding:12px 20px 12px 20px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+	background-color:#eeeeee;
+	font-family:'ArimoRegular';
+	-moz-transition:all 0.3s linear;
+	-webkit-transition:all 0.3s linear;
+	-o-transition:all 0.3s linear;
+	-ms-transition:all 0.3s linear;
+	transition:all 0.3s linear;
+	cursor:pointer;
+}
+.button:hover, input[type="submit"]:hover, input[type="text"]:hover, textarea:hover {
+	box-shadow:inset 0 0 15px #666666, 2px 2px 1px #aaaaaa;
+	-khtml-box-shadow:inset 0 0 15px #666666, 2px 2px 1px #aaaaaa;
+	-moz-box-shadow:inset 0 0 15px #666666, 2px 2px 1px #aaaaaa;
+	-ms-box-shadow:inset 0 0 15px #666666, 2px 2px 1px #aaaaaa;
+	-o-box-shadow:inset 0 0 15px #666666, 2px 2px 1px #aaaaaa;
+	-webkit-box-shadow:inset 0 0 15px #666666, 2px 2px 1px #aaaaaa;
+	background-color:#ffffff;
+	-moz-transition:all 0.3s linear;
+	-webkit-transition:all 0.3s linear;
+	-o-transition:all 0.3s linear;
+	-ms-transition:all 0.3s linear;
+	transition:all 0.3s linear;
+	color:#000000;
+}
+.button a {
+	font-size:16px;
+	color:#333333;
+	text-decoration:none;
+}
+.button a:hover {
+	color:#000000;
+}
+/* ========================= Global properties END =============================== */
+
+
+/* ========================= Global Structure START ============================== */
+#maincontainer {
+	width:100%;
+	position:fixed;	
+	height:100%;
+	margin:0 auto;	
+	z-index:1;
+	overflow:hidden;
+}
+#slideshow {
+    position:fixed;
+    height:100%;
+	opacity:0.7;
+	
+}
+
+#slideshow IMG {
+    position:fixed;
+    top:0;
+    z-index:8;
+    opacity:0.0;
+	
+}
+
+#slideshow IMG.active {
+    z-index:10;
+    opacity:1.0;
+}
+
+#slideshow IMG.last-active {
+    z-index:9;
+}
+
+
+#main {
+	width:990px;
+	margin:0 auto;
+	position:relative;
+	height:95%;
+	
+}
+/* ========================= Global Structure END ================================ */
+
+
+/* ====================== Left & Right alignment START =========================== */
+
+
+.align_left {
+	text-align: left;
+}
+.align_center {
+	text-align:center;
+}
+.align_right {
+	text-align:right;
+}
+.alignleft {
+	float: left;
+	margin-right:1.5em;
+}
+.alignleft_pic {
+	float:left;
+	margin-right:10px;
+	padding-top:0px;
+}
+.alignleft20 {
+	float:left;
+	margin-right:20px;
+}
+.alignright20 {
+	float:right;
+	margin-left:20px;
+}
+.alignright {
+	float: right;
+	margin-left:1.5em;
+}
+.topmargin {
+	margin-top:10px;
+}
+.imgcenter {
+	display: block;
+	margin: 10px auto 10px;
+}
+.aligncenter, div.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}
+.pic {
+	
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	
+}
+
+.pic:hover {
+	background:#ffffff;
+	-moz-transition: all 0.2s linear 0s;
+	-webkit-transition: all 0.2s linear 0s;
+	-o-transition: all 0.2s linear 0s;
+	opacity: 0.7;
+}
+
+.wrapper {
+	width: 100%;
+	overflow: hidden;
+}
+.clear {
+	clear: both;
+	margin-bottom:30px;
+}
+/* ====================== Left & Right alignment END ============================= */
+
+
+/* ============================== header START =================================== */
+header {
+	margin:40px auto;
+	position:relative;
+	height:auto;
+	z-index:222;
+}
+header a {
+	text-decoration:none;
+}
+header #logo h1 {
+	font-size:150px;
+	font-weight:normal;
+	text-decoration:none;
+	text-shadow:3px 3px 5px #000000;
+	text-align:center;
+	font-family: 'ArizoniaRegular';
+	line-height:50px;
+	margin-bottom:50px;
+}
+header .slogan {
+	text-shadow:3px 3px 5px #000000;
+	text-align:center;
+	font-size:40px;
+	line-height:40px;
+	font-family: 'UbuntuRegular';
+}
+/* =============================== header END ==================================== */
+
+
+/* ============================= container START =================================== */
+#content {
+	position:absolute;
+	left:316px;
+	top:20px;
+	overflow:hidden;
+	height:459px;
+	padding-left:4px;
+}
+#content>dd, #content>dt {
+	float:left;
+	margin:0 1px 0 0;
+	height:459px;
+	position:relative;
+}
+#content>dt {
+	z-index:5;
+	width:59px;
+	background:url(../images/main_nav.png) no-repeat;
+}
+#content>dd {
+	width:680px;
+	overflow:hidden;
+	position:relative;
+	z-index:1;
+}
+#content>dt a {
+	width:59px;
+	height:459px;
+	background:url(../images/main_nav.png) no-repeat;
+	display:block;
+}
+#content>.dt1 {
+	background-position:0 0;
+}
+#content>.dt1 a {
+	background-position:0 -459px;
+}
+#content>.dt2 {
+	background-position:-60px 0;
+}
+#content>.dt2 a {
+	background-position:-60px -459px;
+}
+#content>.dt3 {
+	background-position:-120px 0;
+}
+#content>.dt3 a {
+	background-position:-120px -459px;
+}
+#content>.dt4 {
+	background-position:-180px 0;
+}
+#content>.dt4 a {
+	background-position:-180px -459px;
+}
+#content>.dt5 {
+	background-position:-240px 0;
+}
+#content>.dt5 a {
+	background-position:-240px -459px;
+}
+#content .inner {
+	background-color:#FFFFFF;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	height:459px;
+	position:relative;
+}
+article {
+	padding:20px 30px;
+	width:610px;
+	max-width:610px;
+}
+/* ============================== container END ==================================== */
+
+
+/* ============================== main START ==================================== */
+
+#slider {
+	width:680px;
+	height:459px;	
+	background:url(../images/loading.gif) no-repeat 50% 50%;
+	position:relative;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+
+	
+}
+#slider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+		
+	
+}
+#slider a {
+	border:0;
+	display:block;
+	
+	
+	
+}
+.nivo-controlNav {
+	position:absolute;
+	left:260px;
+	bottom:-42px;
+}
+.nivo-controlNav a {
+	display:block;
+	width:18px;
+	height:18px;
+	background:url(../images/bullets.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+	margin-right:0px;
+	float:left;
+	left:320px;
+	bottom:60px;
+}
+.nivo-controlNav a.active {
+	background-position:0 -22px;
+}
+
+.nivo-directionNav a {
+	position:absolute;
+	top:206px;
+	z-index:99;
+	cursor:pointer;
+	width:48px;
+	height:48px;
+	text-indent: -500px;
+	overflow:hidden;
+	background: url(../images/slider_arrows.png) top left no-repeat;
+}
+
+
+
+.nivo-prevNav {
+	left:10px;
+}
+
+.nivo-prevNav:hover{
+	background-position: 0 -48px !important;
+}
+
+.nivo-nextNav {
+	right:10px;
+	background-position: -48px 0 !important;
+}
+.nivo-nextNav:hover{
+	background-position: -48px -48px !important;
+}
+
+/* ============================== main END ==================================== */
+
+/* ============================== Scroll Pane START ==================================== */
+
+.scroll-pane {
+	width: 610px;
+	overflow: auto;
+	float: left;
+	padding-right:20px;
+	
+}
+
+
+#pane1, #pane2, #pane3 {
+	height: 330px;
+}
+
+/* ============================== Scroll Pane END ==================================== */
+
+/* ============================== about us START ==================================== */
+
+
+
+
+.about li {
+	padding:0px 0px 20px 0px;
+	
+}
+
+.dropcapspot2 {
+	background: url(../images/dropcap.png) no-repeat scroll left center transparent;
+    display: block;
+    float: left;
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    padding-right: 5px;
+    position: relative;
+    text-align: center;
+    text-shadow: -1px 0 0 #1E1E1E;
+    top: 6px;
+    width: 40px;
+	font-weight:normal;
+
+}
+
+.dropcapspot2 {
+	top:0px;
+} 
+
+.about .col_left {
+	width:275px;
+	height:auto;
+	float:left;
+	margin-bottom:20px;
+}
+.about .col_right {
+	width:275px;
+	height:auto;
+	float:right;
+	margin-bottom:20px;
+}
+
+
+/* ============================== about us END ==================================== */
+
+
+/* ============================= work START ===================================== */
+
+#gallery {
+	height: 400px;
+	overflow:hidden;
+	padding-top:18px;
+}
+#gallery .viewport {
+	float: left;
+	width: 640px;
+	height: 220px;
+	overflow: hidden;
+	position: relative;
+}
+#gallery .gallery_nav {
+	padding-top:23px;
+	height:45px;
+	float:left;
+}
+#gallery .buttons {
+	display: block;
+	width:45px;
+	height:45px;
+	margin: 0 10px 0 0;
+	float: left;
+	background-position:left bottom;
+	background-repeat:no-repeat;
+	text-indent:-9999px
+}
+#gallery .prev {
+	background-image:url(../images/l_arrow.png)
+}
+#gallery .next {
+	background-image:url(../images/r_arrow.png);
+	margin-right:0
+}
+#gallery .buttons:hover {
+	background-position:left top
+}
+#gallery .disable {
+}
+#gallery .overview {
+	list-style: none;
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	left: 0;
+	top: 0;
+}
+#gallery .overview li {
+	float: left;
+	margin: 0 15px 0 0;
+	width: 190px;
+	height: 220px;
+}
+#gallery .overview li a {
+	text-decoration:none;
+}
+#gallery .overview img {
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+div.wrapper {
+	width:190px;
+	height:220px;
+	overflow:hidden;
+	position:relative;
+}
+/*generic style for all div */
+div.caption {
+	font-family:arial;
+	font-weight:normal;
+	font-size:14px;
+	background-color:#000000;
+	padding:15px 15px 0px 15px;
+	min-height:205px;
+	color:#ffffff;
+	line-height:16px;
+	text-decoration:none;
+	position:relative;
+	z-index:1111111111;
+}
+/*white fade*/
+ul li div.caption {
+	font-weight:normal;
+	font-size:13px;
+	position:relative;
+	opacity: .8;
+	padding:15px 15px 0px 15px;
+	min-height:205px;
+	color:#ffffff;
+	line-height:18px;
+	text-decoration:none;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+div.caption h4 {
+	
+	color:#FF6600;
+	
+}
+div.caption a {
+	font-weight:normal;
+	line-height:18px;
+	text-decoration:none;
+}
+div.caption a:hover {
+	text-decoration:none;
+}
+/* ============================= work END ===================================== */
+
+
+/* ============================= Services START ===================================== */
+
+
+.services {
+	width:100%;
+	height:auto;
+	float:left;
+	
+	
+}
+.services .col_left {
+	width:275px;
+	height:auto;
+	float:left;
+	
+}
+.services .col_right {
+	width:275px;
+	height:auto;
+	float:right;
+	
+}
+
+
+/* ============================= Services END ===================================== */
+
+
+/* ============================= Contact us START ===================================== */
+
+#contact_form {
+	width: 325px;
+	float:left;
+	padding-top:4px;
+	margin-right:41px;
+	overflow:hidden;
+}
+#contact_form .clearfix {
+	width:100%;
+	margin-bottom:9px;
+	position:relative
+}
+#contact_form input[type="text"], #contact_form textarea {
+	float:left;
+	margin:0;
+	
+	border:none;
+	padding:14px 18px;
+	color:#333333;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	position:relative;
+	width:266px;
+	outline:none;
+	font-family:'ArimoRegular';
+	font-size:13px;
+}
+#contact_form input[type="text"]:hover, #contact_form textarea:hover {
+	background:#686661;
+	color:#ffffff;
+}
+#contact_form textarea {
+	height:88px;
+	overflow:auto;
+	resize:none;
+}
+#contact_form .buttons {
+	margin-right:22px;
+	float:left;
+	
+}
+#contact_form input[type="submit"], input[type="reset"] {
+	width:90px;
+	margin:3px;
+	border:none;
+	color:#333333;
+}
+#contact_form input[type="submit"]:hover, input[type="reset"]:hover {
+	
+	color:#000000;
+}
+
+.msg {
+	font-size: 11px;
+	font-weight: normal;
+	color:#ee6b26;
+	margin-left:10px;
+}
+
+.contact {
+	width:180px;
+	height:auto;
+	float:right;
+}
+.contact ul {
+	padding:0px 0px 0px 0px;
+}
+.contact li {
+	display:inline-block;
+	padding:0px 5px 10px 0px;
+	line-height:22px;
+	font-size:14px;
+}
+.contact li a {
+	opacity: 1.0;
+}
+.contact li a:hover {
+	opacity: 0.5;
+}
+/* ============================== Contact us END ====================================== */
+
+
+/* ============================ footer START ===================================== */
+footer {
+	height:auto;
+	width:100%;
+	float:left;
+	padding:15px 0px 15px 0px;
+	position:relative;
+	z-index:1111111;
+}
+footer a {
+	color:#ffffff;
+}
+footer .privacy {
+	color:#ffffff;
+	text-align:center;
+	margin-left:-40px;
+}
+/* ============================= footer END ====================================== */
