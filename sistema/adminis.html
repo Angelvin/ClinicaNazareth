@@ -424,7 +424,7 @@
 </div>
 </div>
 
-    </div>
+    
   <div id="footerOuterSeparator"></div>
 
     <div id="divFooter" class="footerArea shadow">
@@ -442,7 +442,7 @@
 
         </div>
     </div>
-</div>
+
 <br /><br /><br />
 
 <script src="scripts/jquery.min.js" type="text/javascript"></script> 
@@ -459,39 +459,7 @@
 <script src="scripts/yoxview/jquery.yoxview-2.21.js" type="text/javascript"></script>
 <script type="text/javascript">$(document).ready(function () {$('.yoxview').yoxview({autoHideInfo:false,renderInfoPin:false,backgroundColor:'#ffffff',backgroundOpacity:0.8,infoBackColor:'#000000',infoBackOpacity:1});$('.yoxview a img').hover(function(){$(this).animate({opacity:0.7},300)},function(){$(this).animate({opacity:1},300)});});</script>
 
-<script type="text/javascript">
-$(document).ready(function() {
-    var panels = $('.user-infos');
-    var panelsButton = $('.dropdown-user');
-    panels.hide();
 
-    //Click dropdown
-    panelsButton.click(function() {
-        //get data-for attribute
-        var dataFor = $(this).attr('data-for');
-        var idFor = $(dataFor);
-
-        //current button
-        var currentButton = $(this);
-        idFor.slideToggle(400, function() {
-            //Completed slidetoggle
-            if(idFor.is(':visible'))
-            {
-                currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
-            }
-            else
-            {
-                currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
-            }
-        })
-    });
-
-
-    $('[data-toggle="tooltip"]').tooltip();
-
-    $('button').click(function(e) {
-        e.preventDefault();
-        alert("This is a demo.\n :-)");
-    });</script>
+  
 </body>
 </html>
