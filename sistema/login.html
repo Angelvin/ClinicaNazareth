@@ -114,6 +114,22 @@
     display: block;
     margin-top: 10px;
 }    </style>
+
+<script language="JavaScript" type="text/javascript">
+var porId=document.getElementById("correo").value;
+var porId2=document.getElementById("contra").value;
+if (porNombre=="admin" and por=="admin") {
+    var pagina="file:///C:/Users/Angel/Documents/ClinicaNazareth/sistema/indexmedico.html"
+function redireccionar() 
+{
+location.href=pagina
+} 
+};
+
+
+
+</script>
+
 </head>
 <body id="pageBody">
 
@@ -154,8 +170,8 @@
                 <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                     alt="">
                 <form class="form-signin">
-                <input  name:"correo" type="text" class="form-control" placeholder="Email" required autofocus>
-                <input name:"contra" type="password" class="form-control" placeholder="Password" required>
+                <input  name:"correo" id="correo"type="text" class="form-control" placeholder="Email" required autofocus>
+                <input name:"contra" id="contra"type="password" class="form-control" placeholder="Password" required>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                     Sign in</button>
                 <label class="checkbox pull-left">
