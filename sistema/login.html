@@ -122,7 +122,7 @@ if (porNombre=="admin" and por=="admin") {
     var pagina="file:///C:/Users/Angel/Documents/ClinicaNazareth/sistema/indexmedico.html"
 function redireccionar() 
 {
-location.href=pagina
+http.redireccionar=pagina
 } 
 };
 
@@ -170,8 +170,8 @@ location.href=pagina
                 <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                     alt="">
                 <form class="form-signin">
-                <input  name:"correo" id="correo"type="text" class="form-control" placeholder="Email" required autofocus>
-                <input name:"contra" id="contra"type="password" class="form-control" placeholder="Password" required>
+                <input  name:"correo" id="correo" type="text" class="form-control" placeholder="Email" required autofocus>
+                <input name:"contra" id="contra" type="password" class="form-control" placeholder="Password" required>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                     Sign in</button>
                 <label class="checkbox pull-left">
@@ -223,9 +223,6 @@ location.href=pagina
 <script src="scripts/yoxview/yox.js" type="text/javascript"></script>
 <script src="scripts/yoxview/jquery.yoxview-2.21.js" type="text/javascript"></script>
 <script type="text/javascript">$(document).ready(function () {$('.yoxview').yoxview({autoHideInfo:false,renderInfoPin:false,backgroundColor:'#ffffff',backgroundOpacity:0.8,infoBackColor:'#000000',infoBackOpacity:1});$('.yoxview a img').hover(function(){$(this).animate({opacity:0.7},300)},function(){$(this).animate({opacity:1},300)});});</script>
-<script type="text/javascript">
-    
-    if (input.correo ="admi" and input.contra="admi") {ref="http://../sistema/adminis.html"};
-</script>
+
 </body>
 </html>
