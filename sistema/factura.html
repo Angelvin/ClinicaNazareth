@@ -51,8 +51,18 @@
 
                     <!--Edit Site Name and Slogan here-->
 				  <div id="divLogo">
-                        <a href="index.html" id="divSiteTitle">Clínica Nazarethe</a><br />
-                      <a href="index.html" id="divTagLine">¡<span class="camera_full_width">Facturacion</span>!</a>
+            <div class="row">
+  <div class="col-md-8"><a href="index.html" id="divSiteTitle">Clínica Nazarethe</a><br />
+                      <a href="index.html" id="divTagLine">¡<span class="camera_full_width">Facturacion</span>!</a></div>
+  <div class="col-md-4">
+    
+    <ul class="pager">
+  
+  <li class="next"><a href="../sistema/login.html">Salir&rarr;</a></li>
+</ul>
+  </div>
+</div>
+                        
                     </div>
 
 	            </div>
@@ -76,12 +86,12 @@
   <li><a href="../sistema/RegistroP.html">Creacion Paciente</a></li>
   <li><a href="../sistema/BusquedaPaciente.html">Busqueda de paciente</a></li>
    <li><a href="../sistema/factura.html">Facturacion</a></li>
-     <li><a href="../sistema/pago.html">Pago</a></li>
+     
      </div>
   <div class="col-xs-12 col-sm-6 col-md-8">
    <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">Panel title</h3>
+    <h3 class="panel-title">Secretaria </h3>
   </div>
   <div class="panel-body">
    
@@ -128,7 +138,7 @@
 
     
         
-          <input type="submit" class="btn btn-success" name="btm_guardar" id="btm_guardar" value="Realizar">
+          <a href="../sistema/pago.html" arget="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">pagar</a>
           <input type="submit" class="btn btn-primary" name="btm_modificar" id="btm_modificar" value="gratis">
           
   </div>
