@@ -69,11 +69,13 @@
   
       <div class="col-xs-6 col-md-2">
        <ul class="nav nav-pills nav-stacked">
- <li class="active"><a href="../sistema/agenda_cita.html">Home</a></li>
-  <li><a href="file:///C:/Users/Zaid/Desktop/ClinicaNazareth-master/sistema/cita_agenda.html">agenda</a></li>
+ <li class="active"><a href="../sistema/cita_agenda.html">Home</a></li>
+  <li><a href="../sistema/cita_agenda.html">Agenda</a></li>
+  <li><a href="../sistema/cupoMedico.html">Horario de medico</a></li>
   <li><a href="../sistema/RegistroP.html">Creacion Paciente</a></li>
   <li><a href="../sistema/BusquedaPaciente.html">Busqueda de paciente</a></li>
    <li><a href="../sistema/factura.html">Facturacion</a></li>
+   <li><a href="../sistema/Constru.html">Informe</a></li>
    
 </ul>
      </div>
@@ -96,7 +98,7 @@
   </div>
   <div class="panel-body">
 <div>
-  <label>Citas programadas para hoy</label>
+  <label>Citas  para hoy</label>
   <table class="table table-condensed">
     <tr>
       <td>id</td>
@@ -106,6 +108,7 @@
       <td>apellido </td>
       <td>Motivo </td>
       <td>Especialidad</td>
+      <td>Medico</td>
       <td>hora </td>
     </tr>
     <tr class="danger">
@@ -116,6 +119,7 @@
       <td>alvarado</td>
       <td>infeccion </td>
       <td>general </td>
+      <td>Dr.karen </td>
       <td>8:00 </td>
        <td><input type="submit" class="btn btn-danger" name="btm_eliminar" id="btm_eliminar" value="En espera"> </td>
        <td><input type="submit" class="btn btn-primary" name="btm_eliminar" id="btm_eliminar" value="A consulta"> </td>
@@ -127,6 +131,7 @@
       <td>alvarez</td>
       <td>guzman</td>
       <td>Dolor de cabeza</td>
+      <td>Dr.Carlos </td>
       <td>general </td>
      <td>8:30 </td>
     </tr>
@@ -137,6 +142,7 @@
       <td>fuentes</td>
       <td>...</td>
       <td>Dolor de diente</td>
+      <td>Dr.Francisco</td>
       <td>odontologo </td>
       <td>9:00 </td>
     </tr>
@@ -144,7 +150,7 @@
 </div>   
    
 <div>
-  <label>Citas programadas para hoy en ausencia</label>
+  <label>Citas sin asistir</label>
   <table class="table table-condensed">
     <tr>
       <td>id</td>

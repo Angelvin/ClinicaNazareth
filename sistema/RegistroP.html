@@ -69,10 +69,14 @@
       <div class="col-xs-6 col-md-2">
        <ul class="nav nav-pills nav-stacked">
  <li class="active"><a href="../sistema/indexSecre.html">Home</a></li>
- <li ><a href="../sistema/agenda_cita.html">Agenda de cita</a></li>
+ <li ><a href="../sistema/cita_agendad.html">Agenda de cita</a></li>
+<li><a href="../sistema/cupoMedico.html">Horario de medico</a></li>
+ 
+
   <li><a href="../sistema/RegistroP.html">Creacion Paciente</a></li>
   <li><a href="../sistema/BusquedaPaciente.html">Busqueda de paciente</a></li>
    <li><a href="../sistema/factura.html">Facturacion</a></li>
+    <li><a href="../sistema/Constru.html">Informe</a></li>
 </ul>
      </div>
   <div class="col-xs-12 col-sm-6 col-md-8">
@@ -92,12 +96,12 @@
   </div>
   <div class="panel-body">
     <div class="row">
-  <div class="col-md-6" ><label>primer nombre</label><input class="form-control"  placeholder="jose"></div>
-  <div class="col-md-6"><label>segundo nombre</label><input class="form-control"></div>
+  <div class="col-md-6" ><label>primer nombre</label><input class="form-control"  placeholder="nombre"></div>
+  <div class="col-md-6"><label>segundo nombre</label><input class="form-control" placeholder="nombre"></div>
 </div>
 <div class="row">
-  <div class="col-md-6"><label>primer apellido</label><input class="form-control"  placeholder="Alvares"></div>
-  <div class="col-md-6"><label>segundo apellido</label><input class="form-control"></div>
+  <div class="col-md-6"><label>primer apellido</label><input class="form-control"  placeholder="apellido"></div>
+  <div class="col-md-6"><label>segundo apellido</label><input class="form-control" placeholder="apellido"></div>
 </div>
 <div class="row">
   <div class="col-xs-6 col-sm-4"><label>Fecha nacimiento</label>
@@ -162,23 +166,23 @@
 <div class="row">
   <div class="col-md-2"><label>Documento</label></div>
   <div class="col-md-6">
-    <input name="doc">
+    <input name="doc" placeholder="numero documento">
   </div>
 </div>
 <div class="row">
   <div class="col-md-2"><label>telefono</label></div>
   <div class="col-md-6">
-    <input name="tel">
+    <input name="tel" placeholder="numero">
   </div>
 </div>
 <div class="row">
   <div class="col-md-2"><label>correo</label></div>
   <div class="col-md-6">
-    <input type="text" class="form-control" placeholder="ejemplo@hotmail.com">
+    <input type="text" class="form-control" placeholder="ejemplo@ejemplo.com">
   </div>
 </div>
 <div class="row">
-  <div class="col-md-4"><label>calle</label><input type="text" class="form-control"></div>
+  <div class="col-md-4"><label>calle</label><input type="text" class="form-control" placeholder="nombre de calle"></div>
   <div class="col-md-4">
     <label>municipio</label>
     <select name="tratamiento" id="tratamiento">
@@ -204,7 +208,7 @@
   
 </div>
 
-<a href="../sistema/cita_agenda.html" target="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">Genererar cita</a> 
+<a href="../sistema/cita_agenda.html" target="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">Guardar y Genererar cita</a> 
           <input type="submit" class="btn btn-primary" name="btm_modificar" id="btm_modificar" value="Modificar">
          
 
