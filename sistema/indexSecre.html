@@ -47,7 +47,7 @@
 
                     <!--Edit Site Name and Slogan here-->
 				  <div id="divLogo">
-                        <a href="index.html" id="divSiteTitle">Clínica Nazarethe</a><br />
+                        <a href="index.html" id="divSiteTitle">Clínica Nazareth</a><br />
                       <a href="index.html" id="divTagLine">¡<span class="camera_full_width">Gestion de administracion</span>!</a>
 
                     </div>
@@ -71,11 +71,10 @@
        <ul class="nav nav-pills nav-stacked">
  <li class="active"><a href="../sistema/cita_agenda.html">Home</a></li>
   <li><a href="../sistema/cita_agenda.html">Agenda</a></li>
-  <li><a href="../sistema/cupoMedico.html">Horario de medico</a></li>
   <li><a href="../sistema/RegistroP.html">Creacion Paciente</a></li>
   <li><a href="../sistema/BusquedaPaciente.html">Busqueda de paciente</a></li>
    <li><a href="../sistema/factura.html">Facturacion</a></li>
-   <li><a href="../sistema/Constru.html">Informe</a></li>
+
    
 </ul>
      </div>
@@ -98,7 +97,7 @@
   </div>
   <div class="panel-body">
 <div>
-  <label>Citas  para hoy</label>
+  <H2>Citas  para hoy</H2>
   <table class="table table-condensed">
     <tr>
       <td>id</td>
@@ -121,7 +120,7 @@
       <td>general </td>
       <td>Dr.karen </td>
       <td>8:00 </td>
-       <td><input type="submit" class="btn btn-danger" name="btm_eliminar" id="btm_eliminar" value="En espera"> </td>
+      
        <td><input type="submit" class="btn btn-primary" name="btm_eliminar" id="btm_eliminar" value="A consulta"> </td>
     </tr>
     <tr>
@@ -131,8 +130,8 @@
       <td>alvarez</td>
       <td>guzman</td>
       <td>Dolor de cabeza</td>
-      <td>Dr.Carlos </td>
       <td>general </td>
+      <td>Dr.Carlos </td>
      <td>8:30 </td>
     </tr>
     <tr>
@@ -142,53 +141,61 @@
       <td>fuentes</td>
       <td>...</td>
       <td>Dolor de diente</td>
-      <td>Dr.Francisco</td>
       <td>odontologo </td>
+      <td>Dr.Francisco</td>
       <td>9:00 </td>
     </tr>
   </table>
 </div>   
    
 <div>
-  <label>Citas sin asistir</label>
+  <h2>Citas sin Asistir</h2>
   <table class="table table-condensed">
     <tr>
+      <td>Presente</td>
       <td>id</td>
       <td>nombre</td>
       <td>segundo nombre</td>
       <td>apellido</td>
       <td>apellido </td>
-
+<td>Medico</td>
  
     </tr>
     <tr class="success">
+
+
+      <td> Ingreso<input type="checkbox"></td>
       <td>1</td>
       <td>jaime</td>
       <td>antonio</td>
       <td>linarez</td>
       <td>alvarado</td>
-     
-       <td><input type="submit" class="btn btn-access" name="btm_eliminar" id="btm_eliminar" value="permitir"> </td>
+      <td>Dr.Francisco<input type="checkbox"></td>
+     <td><a href="../sistema/cita_agenda.html" target="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">Reprogramar</a></td>
+       <td><input type="submit" class="btn btn-access" name="btm_eliminar" id="btm_eliminar" value="Ir a consulta"> </td>
+<td><input type="submit" class="btn btn-danger" name="btm_eliminar" id="btm_eliminar" value="Cancelar"> </td>
     </tr>
     <tr>
+
+      <td> Ingreso<input type="checkbox"></td>
       <td>2</td>
       <td>ana</td>
       <td>arely</td>
       <td>sanchez</td>
       <td>guzman</td>
-
+<td>Dr.Francisco<input type="checkbox"></td>
     </tr>
     <tr>
+      <td> Ingreso<input type="checkbox"></td>
       <td>3</td>
       <td>antonieta</td>
       <td>maricela</td>
       <td>flores</td>
       <td>acosta</td>
-   
+   <td>Dr.Francisco<input type="checkbox"></td>
     </tr>
   </table>
-  <a href="../sistema/indexmedico.html" target="_blank" onClick="window.open(this.href, this.target, 'width=300,height=400'); return false;">Lanzar correctamente</a> 
-  <a href="../sistema/indexmedico.html" target="popup" onClick="window.open(this.href, this.target, 'width=700,height=900'); return false;">Lanzar correctamente</a> - See more 
+  
 </div>   
    
 <div class="row">
