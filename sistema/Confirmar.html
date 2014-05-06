@@ -32,7 +32,12 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />	
-	
+	  
+    
+    <link href="css/calendario.css" type="text/css" rel="stylesheet">
+    <script src="js/calendar.js" type="text/javascript"></script>
+    <script src="js/calendar-es.js" type="text/javascript"></script>
+    <script src="js/calendar-setup.js" type="text/javascript"></script>
 </head>
 <body id="pageBody">
 
@@ -47,9 +52,8 @@
 
                     <!--Edit Site Name and Slogan here-->
 				  <div id="divLogo">
-                        <a href="index.html" id="divSiteTitle">Clínica Nazareth</a><br />
-                      <a href="index.html" id="divTagLine">¡<span class="camera_full_width">Gestion de administracion</span>!</a>
-
+                        <a href="index.html" id="divSiteTitle">Clínica Nazarethe</a><br />
+                      <a href="index.html" id="divTagLine">¡<span class="camera_full_width">Estados de solicitud</span>!</a>
                     </div>
 
 	            </div>
@@ -69,144 +73,78 @@
   
       <div class="col-xs-6 col-md-2">
        <ul class="nav nav-pills nav-stacked">
- <li class="active"><a href="../sistema/indexsecre.html">Home</a></li>
-  <li><a href="../sistema/agendaSecre.html">Agenda</a></li>
-  <li><a href="../sistema/RegistroP.html">Creacion Paciente</a></li>
-  <li><a href="../sistema/BusquedaPaciente.html">Busqueda de paciente</a></li>
-   <li><a href="../sistema/factura.html">Facturacion</a></li>
 
-   
 </ul>
      </div>
   <div class="col-xs-12 col-sm-6 col-md-8">
    <div class="panel panel-primary">
   <div class="panel-heading">
-      <div class="row">
-  <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria:Lucia</h2></div>
-  <div class="col-xs-6 col-md-4">
-    <ul class="pager">
-      <li class="next"><a href="../sistema/login.html">Salir <span class="glyphicon glyphicon-off"></span></a></li>
- <li class="next"><a href="../sistema/Confirmar.html" target="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">Solicitud <span class="glyphicon glyphicon-envelope"></span></a></li>
-  
-</ul>
-
-
-  </div>
-</div>
-    
- 
+    <h3 class="panel-title">Confirmacion</h3>
   </div>
   <div class="panel-body">
-<div>
-  <H2>Citas  para hoy</H2>
   <table class="table table-condensed">
     <tr>
-      <td>id</td>
-      <td>nombre</td>
-      <td>segundo nombre</td>
-      <td>apellido</td>
-      <td>apellido </td>
-      <td>Motivo </td>
-      <td>Especialidad</td>
-      <td>Medico</td>
-      <td>hora </td>
+      <td>Correo</td>
+      <td>Nombre</td>
+      <td>Fecha de solicitud</td>
+      <td>Fecha de programacion</td>
+      <td>Telefono</td>
+      <td>Estado</td>
+      <td></td>
     </tr>
     <tr class="danger">
-      <td>1</td>
-      <td>jose</td>
-      <td>angel</td>
-      <td>gomez</td>
-      <td>alvarado</td>
-      <td>infeccion </td>
-      <td>general </td>
-      <td>Dr.karen </td>
-      <td>8:00 </td>
-      
-       <td><input type="submit" class="btn btn-primary" name="btm_eliminar" id="btm_eliminar" value="A consulta"> </td>
+      <td>ejemplo@ejmeplo</td>
+      <td>fabio</td>
+      <td>06/05/2014</td>
+<td>07/05/20014</td>
+      <td>22806019</td>
+      <td>sin confirmar</td>
+      <td><input type="submit" class="btn btn-primary" name="btm_eliminar" id="btm_eliminar" value="confirmar"></td>
+      <td><input type="submit" class="btn btn-danger" name="btm_eliminar" id="btm_eliminar" value="Cancelar"></td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>lili</td>
-      <td>ana</td>
-      <td>alvarez</td>
-      <td>guzman</td>
-      <td>Dolor de cabeza</td>
-      <td>general </td>
-      <td>Dr.Carlos </td>
-     <td>8:30 </td>
+      <td>ejemplo@ejmeplo</td>
+      <td>fabio</td>
+      <td>06/05/2014</td>
+<td>08/05/20014</td>
+      <td>22806019</td>
+      <td>confirmado</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="danger">
+      <td>ejemplo@ejmeplo</td>
+      <td>fabio</td>
+      <td>06/05/2014</td>
+<td>07/05/20014</td>
+      <td>22806019</td>
+      <td>sin confirmar</td>
+      <td><input type="submit" class="btn btn-primary" name="btm_eliminar" id="btm_eliminar" value="confirmar"></td>
+      <td><input type="submit" class="btn btn-danger" name="btm_eliminar" id="btm_eliminar" value="Cancelar"></td>
     </tr>
     <tr>
-      <td>3</td>
-      <td>denis</td>
-      <td>ingrid</td>
-      <td>fuentes</td>
-      <td>...</td>
-      <td>Dolor de diente</td>
-      <td>odontologo </td>
-      <td>Dr.Francisco</td>
-      <td>9:00 </td>
+      <td>ejemplo@ejmeplo</td>
+      <td>fabio</td>
+      <td>06/05/2014</td>
+<td>06/05/20014</td>      
+      <td>22806019</td>
+      <td>confirmar</td>
+      <td></td>
+      <td></td>
     </tr>
   </table>
-</div>   
-   
-<div>
-  <h2>Citas sin Asistir</h2>
-  <table class="table table-condensed">
-    <tr>
-      <td>Presente</td>
-      <td>id</td>
-      <td>nombre</td>
-      <td>segundo nombre</td>
-      <td>apellido</td>
-      <td>apellido </td>
-<td>Medico</td>
- 
-    </tr>
-    <tr class="success">
 
-
-      <td> Ingreso<input type="checkbox"></td>
-      <td>1</td>
-      <td>jaime</td>
-      <td>antonio</td>
-      <td>linarez</td>
-      <td>alvarado</td>
-      <td>Dr.Francisco<input type="checkbox"></td>
-     <td><a href="../sistema/cita_agenda.html" target="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">Reprogramar</a></td>
-       <td><input type="submit" class="btn btn-access" name="btm_eliminar" id="btm_eliminar" value="Ir a consulta"> </td>
-<td><input type="submit" class="btn btn-danger" name="btm_eliminar" id="btm_eliminar" value="Cancelar"> </td>
-    </tr>
-    <tr>
-
-      <td> Ingreso<input type="checkbox"></td>
-      <td>2</td>
-      <td>ana</td>
-      <td>arely</td>
-      <td>sanchez</td>
-      <td>guzman</td>
-<td>Dr.Francisco<input type="checkbox"></td>
-    </tr>
-    <tr>
-      <td> Ingreso<input type="checkbox"></td>
-      <td>3</td>
-      <td>antonieta</td>
-      <td>maricela</td>
-      <td>flores</td>
-      <td>acosta</td>
-   <td>Dr.Francisco<input type="checkbox"></td>
-    </tr>
-  </table>
   
-</div>   
-   
-<div class="row">
-  <div class="col-md-4"><label>crear paciente</label><img src="..\sistema\images\pacientes.png" class="img-responsive" alt="Responsive image"></div>
-  <div class="col-md-4"><label>Busqueda de paciente</label><img src="..\sistema\images\archivo.jpg" class="img-responsive" alt="Responsive image"></div>
-  <div class="col-md-4"><label>Facturacion</label><img src="..\sistema\images\paciente.jpg" class="img-responsive" alt="Responsive image"></div>
+
 </div>
     
+  
+
+
         
-  </div>
+          
+       
+          
 </div>
   </div>
 

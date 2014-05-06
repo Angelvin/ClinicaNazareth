@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
@@ -32,6 +32,28 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />	
+
+    <link href="css/calendario.css" type="text/css" rel="stylesheet">
+    <script src="js/calendar.js" type="text/javascript"></script>
+    <script src="js/calendar-es.js" type="text/javascript"></script>
+    <script src="js/calendar-setup.js" type="text/javascript"></script>
+    <STYLE>
+.hideable { position: relative; visibility: visible; }
+</STYLE>
+<SCRIPT>
+function Mostrar_Ocultar(hide) {
+if (document.layers)
+/*aqui se cambian los valores 'show' y 'hide' para cultarlo o mostrarlo
+aqui la variable  (hide) esta en show para ver los campos
+document.contenido.visibility = ****variable(hide)**** ? ****estado('show') ****y despues *****: 'hide'; */
+document.contenido.visibility = hide ? 'show' : 'hide';
+else {
+var g = document.all ? document.all.contenido :
+document.getElementById('contenido');
+g.style.visibility = hide ? 'visible' : 'hidden';
+}
+}
+</SCRIPT>
 	
 </head>
 <body id="pageBody">
@@ -95,6 +117,9 @@
 </div>
   </div>
   <div class="panel-body">
+  <div> <label >Crear Empleado</label>  <INPUT NAME="Accion" TYPE="checkbox"
+ONCLICK="Mostrar_Ocultar(this.checked);"
+></div>
     <div class="row">
   <div class="col-md-6" ><label>primer nombre</label><input class="form-control"  placeholder="nombre"></div>
   <div class="col-md-6"><label>segundo nombre</label><input class="form-control" placeholder="nombre"></div>
@@ -103,112 +128,130 @@
   <div class="col-md-6"><label>primer apellido</label><input class="form-control"  placeholder="apellido"></div>
   <div class="col-md-6"><label>segundo apellido</label><input class="form-control" placeholder="apellido"></div>
 </div>
+
 <div class="row">
-  <div class="col-xs-6 col-sm-4"><label>Fecha nacimiento</label>
-<select name="dia" id="dia">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-            <option>13</option>
-
-           
-          </select>
-       
-  </div>
- <div class="col-xs-6 col-sm-4">
-    <label>mes</label><select name="mes" id="mes">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-          </select>
+  <div class="col-xs-12 col-md-8" ><label>Fecha nacimiento</label><input type="text" name="ingreso1" id="ingreso1"  placeholder="seleccione la fecha" /> 
+        <img src="images/calendario.png" width="16" height="16" border="0" title="Fecha Inicial" id="lanzador1" > <script type="text/javascript"> 
+            Calendar.setup({ 
+             inputField     :    "ingreso1",     // id del campo de texto 
+             ifFormat     :     "%d-%m-%Y",     // formato de la fecha que se escriba en el campo de texto 
+                button     :    "lanzador1"     // el id del botón que lanzará el calendario 
+            }); 
+            </script></div>
+ <div class="col-xs-12 col-md-8"><label >Edad</label>...</div>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-md-2"><label >Documento</label>
 
   </div>
-  <!-- Optional: clear the XS cols if their content doesn't match in height -->
-  <div class="clearfix visible-xs"></div>
-  <div class="col-xs-6 col-sm-4">
-    
-    <label>año</label><select name="anio" id="anio">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-          </select>
+  <div class="col-xs-6 col-md-4">
+    <input class="form-control" placeholder="Documento">
+  </div>
+  <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">DUI</OPTION>
+<OPTION VALUE="2">NIC</OPTION>
+<OPTION VALUE="3">PASAPORTE</OPTION>
 
+</SELECT></div>
+</div>
+  <div class="row">
+  <div class="col-xs-6 col-md-2"><label >Telefono</label>
+
+  </div>
+  <div class="col-xs-6 col-md-4">
+    <input class="form-control" placeholder="NUMERO TELEFONO">
+  </div>
+  <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">FIJO</OPTION>
+<OPTION VALUE="2">CELULAR</OPTION>
+<OPTION VALUE="3">TRABAJO</OPTION>
+
+</SELECT></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-md-2"><label >Direccion</label></div>
+  <div class="col-xs-6 col-md-2"><input class="form-control" placeholder="Calle"></div>
+  <div class="col-xs-6 col-md-2"><label >Municipio</label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">PERSONAL</OPTION>
+<OPTION VALUE="2">TRABAJO</OPTION>
+
+
+</SELECT></div>
+  <div class="col-xs-6 col-md-2"><label >Departamento</label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">PERSONAL</OPTION>
+<OPTION VALUE="2">TRABAJO</OPTION>
+
+
+</SELECT></div>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-md-2"><label >Correo</label>
+
+  </div>
+  <div class="col-xs-6 col-md-4">
+    <input class="form-control" placeholder="EJEMPLO@EJEMPLO.COM">
+  </div>
+  <div class="col-xs-6 col-md-2"><label >Tipo </label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">PERSONAL</OPTION>
+<OPTION VALUE="2">TRABAJO</OPTION>
+
+
+</SELECT></div>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-md-4"><label >Contraseña</label><input class="form-control" placeholder="Contraseña"></div>
   
-  </div>
+  <div class="col-xs-6 col-md-4"><label>Repetir</label><input class="form-control" placeholder="Repetir-contraseña"></div>
 </div>
-<div class="row">
-  <div class="col-md-2"><label>Documento</label></div>
-  <div class="col-md-6">
-    <input name="doc" placeholder="numero documento">
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-2"><label>telefono</label></div>
-  <div class="col-md-6">
-    <input name="tel" placeholder="numero">
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-2"><label>correo</label></div>
-  <div class="col-md-6">
-    <input type="text" class="form-control" placeholder="ejemplo@ejemplo.com">
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-4"><label>calle</label><input type="text" class="form-control" placeholder="nombre de calle"></div>
-  <div class="col-md-4">
-    <label>municipio</label>
-    <select name="tratamiento" id="tratamiento">
-            <option>panchimalco</option>
-            <option>rozario de mora</option>
-            <option>san salvador</option>
-            <option>la libertad</option>
-            <option>soyapango</option>
-            <option>apopa</option>
-          </select>
-        </div>
-  <div class="col-md-4"><label>departamento</label>
-    <select name="tratamiento" id="tratamiento">
-            <option>san salvador</option>
-            <option>san miguel</option>
-            <option>san ana</option>
-            <option>la union</option>
-        
-          </select>
-        </div>
+<!--Creacion de parte de empleado
+  -->
+  <SPAN ID="contenido" CLASS="hideable" style="visibility:hidden;">
+<div class="alert alert-info">
+ <div class="row">
+  <div class="col-xs-6 col-md-2"><label > Empleado</label>
 
+    <SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">Medico</OPTION>
+<OPTION VALUE="2">secretaria</OPTION>
+<OPTION VALUE="3">Administrativo</OPTION>
+</SELECT>
+  </div>
+ 
+<div class="col-xs-6 col-md-4">
+  <label >Especilidad</label>
+  <input class="form-control" >
+  </div>
+  <div class="col-xs-6 col-md-4">
+  <label >Junta de vigilancia</label>
+  <input class="form-control" >
+  </div>
+</div>
 
+<div class="row">
+  <div class="col-xs-6 col-md-2"><label>Rol</label>
+<SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">Medico</OPTION>
+<OPTION VALUE="2">secretaria</OPTION>
+<OPTION VALUE="3">Administrativo</OPTION>
+</SELECT>
+  </div>
   
+ 
+</div>
+  <div class="row">
+  <div class="col-xs-6 col-md-4"><label>Iss</label><input class="form-control" placeholder="numero"></div>
+  <div class="col-xs-6 col-md-4"><label >AFP</label><input class="form-control" placeholder="numero"></div>
+ 
 </div>
 
-<a href="../sistema/cita_agenda.html" target="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">Guardar y Genererar cita</a> 
+
+
+</div>
+</span>
+</div>
+
+<a href="" target="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">Guardar </a> 
           <input type="submit" class="btn btn-primary" name="btm_modificar" id="btm_modificar" value="Modificar">
          
 
