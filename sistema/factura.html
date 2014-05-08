@@ -79,14 +79,25 @@
   
       <div class="col-xs-6 col-md-2">
        <ul class="nav nav-pills nav-stacked">
- <li class="active"><a href="../sistema/indexSecre.html">Home</a></li>
+ <li class="active"><a href="../sistema/indexsecre.html">Home</a></li>
   <li><a href="../sistema/agendaSecre.html">Agenda</a></li>
- 
   <li><a href="../sistema/RegistroP.html">Creacion Paciente</a></li>
   <li><a href="../sistema/BusquedaPaciente.html">Busqueda de paciente</a></li>
    <li><a href="../sistema/factura.html">Facturacion</a></li>
-    
-     
+       <div class="btn-group">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+   inventario <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="../sistema/producto.html">Nuevo producto</a></li>
+    <li><a href="../sistema/Ingreso.html">Adquisicion</a></li>
+    <li><a href="#">Estado Medicamento</a></li>
+     </ul>
+</div>
+
+
+   
+</ul>
      </div>
   <div class="col-xs-12 col-sm-6 col-md-8">
    <div class="panel panel-primary">
@@ -119,7 +130,7 @@
         </p>
         <div class="row">
   <div class="col-md-6"><label>Jose angel gomez alvarado</label><label>--</label><label>expediente:012</label></div>
-  <div class="col-md-6"><label>medico: Linarez</label></div>
+  <div class="col-md-6"><label>medico: Karen</label></div>
 </div>
 <table class="table table-condensed">
     <tr>
@@ -137,7 +148,74 @@
       <td>$10</td>
       <td>..</td>
       <td>$15 </td>
-       <td><a href="../sistema/pago.html" arget="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">pagar</a> </td>
+       <td><button class="btn btn-primary btn-ms" data-toggle="modal" data-target="#myModal">
+  pagar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Cancelar $</h4>
+      </div>
+      <div class="modal-body">
+        <label>factura</label>
+        <table class="table table-condensed">
+    <tr>
+      <td>id</td>
+      <td> factura</td>
+      <td>nombre</td>
+     
+      <td>total </td>
+    </tr>
+    <tr class="danger">
+      <td>1</td>
+      <td>00123</td>
+      <td>jose angel</td>
+      <td>$15</td>
+      
+      <td>$15 </td>
+       <td> </td>
+    </tr>
+    
+  </table>
+        
+        
+     <label for="Tipo_pago">Tipo de pago</label>
+        <select name="tipo_p" id="tipo_p">
+            <option value="">Credito</option>
+            <option value="">Efectivo</option>
+    
+        </select>
+    
+
+       <label for="fecha_ini">Fecha de pago</label>
+        <input type="text" name="ingreso1" id="ingreso1"  placeholder="seleccione la fecha" /> 
+        <img src="images/calendario.png" width="16" height="16" border="0" title="Fecha Inicial" id="lanzador1" > <script type="text/javascript"> 
+            Calendar.setup({ 
+             inputField     :    "ingreso1",     // id del campo de texto 
+             ifFormat     :     "%d-%m-%Y",     // formato de la fecha que se escriba en el campo de texto 
+                button     :    "lanzador1"     // el id del botón que lanzará el calendario 
+            }); 
+            </script>
+            <label >Cantidad a pagar</label>
+          
+        <div class="input-group">
+          
+            <span class="input-group-addon">$</span>
+            <input type="text" class="form-control" placeholder="Digite la cantidad">
+            
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Realizar</button>
+      </div>
+    </div>
+  </div>
+</div></td>
        <td>          <input type="submit" class="btn btn-primary" name="btm_modificar" id="btm_modificar" value="gratis"></td>
     </tr>
     

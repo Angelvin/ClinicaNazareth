@@ -69,7 +69,7 @@ g.style.visibility = hide ? 'visible' : 'hidden';
 
                     <!--Edit Site Name and Slogan here-->
 				  <div id="divLogo">
-                        <a href="index.html" id="divSiteTitle">Clínica Nazarethe</a><br />
+                        <a href="index.html" id="divSiteTitle">Clínica Nazareth</a><br />
                       <a href="index.html" id="divTagLine">¡<span class="camera_full_width">Estados de solicitud</span>!</a>
                     </div>
 
@@ -143,38 +143,168 @@ g.style.visibility = hide ? 'visible' : 'hidden';
   <div class="col-xs-6 col-md-4">panchilmaco-san salvador</div>
 
 </div>
-<a href="../sistema/EdiPaciente.html" target="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">Modificar </a> 
+<div>
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Cambiar contraseña
+      </button><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">modificar Perfil
+      </button>
 
-<div> <h4 >Cambiar Contraseña</h4>  <INPUT NAME="Accion" TYPE="checkbox"
-ONCLICK="Mostrar_Ocultar(this.checked);"
-></div>
-<SPAN ID="contenido" CLASS="hideable" style="visibility:hidden;">
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal1" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Cambiar Contraseña:Carlos Antonio sanchez</h4>
+      </div>
+      <div class="modal-body">
+        
+        <div class="row">
+  <div class="col-md-6" ><label>primer nombre</label><input class="form-control"  placeholder="nombre"></div>
+  <div class="col-md-6"><label>segundo nombre</label><input class="form-control" placeholder="nombre"></div>
+</div>
 <div class="row">
-  <div class="col-xs-6 col-md-2"><label>Contraseña-Actual*</label></div>
-  <div class="col-xs-6 col-md-4"><input class="form-control"></div>
+  <div class="col-md-6"><label>primer apellido</label><input class="form-control"  placeholder="apellido"></div>
+  <div class="col-md-6"><label>segundo apellido</label><input class="form-control" placeholder="apellido"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-8" ><label>Fecha nacimiento</label><input type="text" name="ingreso1" id="ingreso1"  placeholder="seleccione la fecha" /> 
+        <img src="images/calendario.png" width="16" height="16" border="0" title="Fecha Inicial" id="lanzador1" > <script type="text/javascript"> 
+            Calendar.setup({ 
+             inputField     :    "ingreso1",     // id del campo de texto 
+             ifFormat     :     "%d-%m-%Y",     // formato de la fecha que se escriba en el campo de texto 
+                button     :    "lanzador1"     // el id del botón que lanzará el calendario 
+            }); 
+            </script></div>
+ <div class="col-xs-12 col-md-8"><label >Edad</label>...</div>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-md-2"><label >Documento</label>
+
+  </div>
+  <div class="col-xs-6 col-md-4">
+    <input class="form-control" placeholder="Documento">
+  </div>
+  <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">DUI</OPTION>
+<OPTION VALUE="2">NIC</OPTION>
+<OPTION VALUE="3">PASAPORTE</OPTION>
+
+</SELECT></div>
+</div>
+  <div class="row">
+  <div class="col-xs-6 col-md-2"><label >Telefono</label>
+
+  </div>
+  <div class="col-xs-6 col-md-4">
+    <input class="form-control" placeholder="NUMERO TELEFONO">
+  </div>
+  <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">FIJO</OPTION>
+<OPTION VALUE="2">CELULAR</OPTION>
+<OPTION VALUE="3">TRABAJO</OPTION>
+
+</SELECT></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-md-2"><label >Direccion</label></div>
+  <div class="col-xs-6 col-md-2"><input class="form-control" placeholder="Calle"></div>
+  <div class="col-xs-6 col-md-2"><label >Municipio</label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">PERSONAL</OPTION>
+<OPTION VALUE="2">TRABAJO</OPTION>
+
+
+</SELECT></div>
+  <div class="col-xs-6 col-md-2"><label >Departamento</label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">PERSONAL</OPTION>
+<OPTION VALUE="2">TRABAJO</OPTION>
+
+
+</SELECT></div>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-md-2"><label >Correo</label>
+
+  </div>
+  <div class="col-xs-6 col-md-4">
+    <input class="form-control" placeholder="EJEMPLO@EJEMPLO.COM">
+  </div>
+  <div class="col-xs-6 col-md-2"><label >Tipo </label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">PERSONAL</OPTION>
+<OPTION VALUE="2">TRABAJO</OPTION>
+
+
+</SELECT></div>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-md-4"><label >Contraseña</label><input class="form-control" placeholder="Contraseña"></div>
+  
+  <div class="col-xs-6 col-md-4"><label>Repetir</label><input class="form-control" placeholder="Repetir-contraseña"></div>
+</div>
+      
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Terminar</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+  
+
+
+       
+      
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Cambiar Contraseña:Carlos Antonio sanchez</h4>
+      </div>
+      <div class="modal-body">
+        
+        <div class="row">
+  <div class="col-xs-6 col-md-2"><label>Contraseña-Actual</label></div>
+  <div class="col-xs-6 col-md-4"><input type="text"></div>
   
 </div>
 <div class="row">
-  <div class="col-xs-6 col-md-2"><label>Contraseña-Nueva*</label></div>
-  <div class="col-xs-6 col-md-4"><input class="form-control"></div>
-  
+  <div class="col-xs-6 col-md-2"><label>contraseña-Nueva</label></div>
+  <div class="col-xs-6 col-md-4"><input type="text"></div>
+
 </div>
 <div class="row">
-  <div class="col-xs-6 col-md-2"><label>Repetir-Contraseña*</label></div>
-  <div class="col-xs-6 col-md-4"><input class="form-control"></div>
+  <div class="col-xs-6 col-md-2"><label>Repetir-contraseña</label></div>
+  <div class="col-xs-6 col-md-4"><input type="text"></div>
   
+
+</div>
+      
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Terminar</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 
-<input type="submit" class="btn btn-primary" name="btm_modificar" id="btm_modificar" value="Aceptado">
 
-</span>
+
+
+
 
 </div>
+
 </div>
     
   
-
+</div>
 
         
           

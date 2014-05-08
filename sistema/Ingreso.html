@@ -1,10 +1,9 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
     <title>Your Company Name Here - Welcome</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description" content="">
     <meta name="author" content="Zaid Archila">
     <link href="scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -33,38 +32,29 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 
     <link href="styles/custom.css" rel="stylesheet" type="text/css" />	
-	<style type="text/css">
-        .user-row {
-    margin-bottom: 14px;
+	  
+    
+    <link href="css/calendario.css" type="text/css" rel="stylesheet">
+    <script src="js/calendar.js" type="text/javascript"></script>
+    <script src="js/calendar-es.js" type="text/javascript"></script>
+    <script src="js/calendar-setup.js" type="text/javascript"></script>
+    <STYLE>
+.hideable { position: relative; visibility: visible; }
+</STYLE>
+<SCRIPT>
+function Mostrar_Ocultar(hide) {
+if (document.layers)
+/*aqui se cambian los valores 'show' y 'hide' para cultarlo o mostrarlo
+aqui la variable  (hide) esta en show para ver los campos
+document.contenido.visibility = ****variable(hide)**** ? ****estado('show') ****y despues *****: 'hide'; */
+document.contenido.visibility = hide ? 'show' : 'hide';
+else {
+var g = document.all ? document.all.contenido :
+document.getElementById('contenido');
+g.style.visibility = hide ? 'visible' : 'hidden';
 }
-
-.user-row:last-child {
-    margin-bottom: 0;
 }
-
-.dropdown-user {
-    margin: 13px 0;
-    padding: 5px;
-    height: 100%;
-}
-
-.dropdown-user:hover {
-    cursor: pointer;
-}
-
-.table-user-information > tbody > tr {
-    border-top: 1px solid rgb(221, 221, 221);
-}
-
-.table-user-information > tbody > tr:first-child {
-    border-top: 0;
-}
-
-
-.table-user-information > tbody > tr > td {
-    border-top: 0;
-}
-    </style>
+</SCRIPT>
 </head>
 <body id="pageBody">
 
@@ -80,7 +70,7 @@
                     <!--Edit Site Name and Slogan here-->
 				  <div id="divLogo">
                         <a href="index.html" id="divSiteTitle">Clínica Nazarethe</a><br />
-                      <a href="index.html" id="divTagLine">¡<span class="camera_full_width">Control</span>!</a>
+                      <a href="index.html" id="divTagLine">¡<span class="camera_full_width">Ingreso de Medicamento</span>!</a>
                     </div>
 
 	            </div>
@@ -88,47 +78,6 @@
 			
             <div class="row-fluid">
                 <div class="span12">
-                  
-<div class="btn-group btn-group-justified">
-  <nav class="navbar navbar-default" role="navigation">
-  <!-- El logotipo y el icono que despliega el menú se agrupan
-       para mostrarlos mejor en los dispositivos móviles -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse"
-            data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Desplegar navegación</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">Logotipo</a>
-  </div>
- 
-  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
-       otro elemento que se pueda ocultar al minimizar la barra -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav">
-        <li class="active"><a href="../sistema/adminis.html">Control Administrador</a></li>
-      <li><a href="../sistema/Empleado.html">Control Empleado</a></li>
-      <li><a href="../sistema/Construc.html">Control Inventario</a></li>
-      
-    </ul>
- 
-    <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Buscar">
-      </div>
-      <button type="submit" class="btn btn-default">Enviar</button>
-    </form>
- 
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="../sistema/login.html">Salir</a></li>
-      
-    </ul>
-  </div>
-</nav>
-
-</div>
                 </div>
             </div>
     </div>
@@ -138,31 +87,189 @@
 	-->
 
 
-    <div class="shout-box">
-      <div class="panel panel-primary">
-  <div class="panel-heading"></div>
-  <div class="panel-body">
   
-  
-    
-<div class="progress progress-striped active">
-  <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-    <span class="sr-only">45% Complete</span>
+      <div class="col-xs-6 col-md-2">
+       <ul class="nav nav-pills nav-stacked">
+ <li class="active"><a href="../sistema/indexsecre.html">Home</a></li>
+  <li><a href="../sistema/agendaSecre.html">Agenda</a></li>
+  <li><a href="../sistema/RegistroP.html">Creacion Paciente</a></li>
+  <li><a href="../sistema/BusquedaPaciente.html">Busqueda de paciente</a></li>
+   <li><a href="../sistema/factura.html">Facturacion</a></li>
+       <div class="btn-group">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+   inventario <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="../sistema/producto.html">Nuevo producto</a></li>
+    <li><a href="../sistema/Ingreso.html">Adquisicion</a></li>
+    <li><a href="#">Estado Medicamento</a></li>
+     </ul>
+</div>
+
+
+   
+</ul>
+     </div>
+  <div class="col-xs-12 col-sm-6 col-md-8">
+   <div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="row">
+  <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria:Lucia</h2></div>
+  <div class="col-xs-6 col-md-4">
+    <ul class="pager">
+ 
+  <li class="next"><a href="../sistema/login.html">Salir <span class="glyphicon glyphicon-off"></span></a></li>
+</ul>
+
+
   </div>
-  <label>En Proceso de Construccion</label>
+</div>
+  </div>
+  <div class="panel-body">
+<div class="row">
+  <div class="col-xs-6 col-md-4">Fecha de ingreso</div>
+  <div class="col-xs-6 col-md-4">
+    <input type="text" name="ingreso1" id="ingreso1"  placeholder="seleccione la fecha" /> 
+        <img src="images/calendario.png" width="16" height="16" border="0" title="Fecha Inicial" id="lanzador1" > <script type="text/javascript"> 
+            Calendar.setup({ 
+             inputField     :    "ingreso1",     // id del campo de texto 
+             ifFormat     :     "%d-%m-%Y",     // formato de la fecha que se escriba en el campo de texto 
+                button     :    "lanzador1"     // el id del botón que lanzará el calendario 
+            }); 
+            </script>
+
+  </div>
+  
+
+
+
 </div>
 
+<div class="row">
+  <div class="col-xs-6 col-md-4">Codigo de producto</div>
+  <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="Codigo"></div>
+ <div class="col-xs-6 col-md-4">
+   <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+  verificar Existencia
+</button>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Existencia</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-condensed">
+    <tr>
+      <td>id</td>
+      <td>codigo</td>
+      <td>nombre</td>
+      <td>cantida</td>
+      <td>precio </td>
+      <td> </td>
+    </tr>
+    <tr class="success">
+      <td>1</td>
+      <td>ejemplo</td>
+      <td>ejemplo</td>
+      <td>ejemplo</td>
+      <td>ejemplo</td>
+      <td> </td>
+       <td></td>
+       
+    </tr>
+    <tr class="success">
+      <td>1</td>
+      <td>ejemplo</td>
+      <td>ejemplo</td>
+      <td>ejemplo</td>
+      <td>ejemplo</td>
+      <td> </td>
+       <td></td>
+       
+    </tr>
+    <tr class="success">
+      <td>1</td>
+      <td>ejemplo</td>
+      <td>ejemplo</td>
+      <td>ejemplo</td>
+      <td>ejemplo</td>
+      <td> </td>
+       <td></td>
+       
+    </tr>
+    <tr class="success">
+      <td>1</td>
+      <td>ejemplo</td>
+      <td>ejemplo</td>
+      <td>ejemplo</td>
+      <td>ejemplo</td>
+      <td> </td>
+       <td></td>
+       
+    </tr>
+     
+      
+  </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         
-        
+      </div>
     </div>
+  </div>
 </div>
 
+
+
+
+ </div>
+</div>
+
+  <div class="row">
+  <div class="col-xs-6 col-md-4">Cantidad</div>
+  <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="cantidad de medicamento"></div>
  
 </div>
-  </div>
-  
 
+
+<div class="row">
+  <div class="col-xs-6 col-md-4">Nombre de producto</div>
+  <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="Nombre"></div>
+  
+</div>
+
+
+
+<div class="row">
+  <div class="col-xs-6 col-md-4">precio Unidad</div>
+  <div class="col-xs-6 col-md-4"><input type="text" class="form-control" ></div>
+ 
+</div>
+<div class="row">
+  <div class="col-xs-6 col-md-4">precio Costo</div>
+  <div class="col-xs-6 col-md-4"><input type="text" class="form-control" ></div>
+ 
+</div>
+
+<button type="submit" class="btn btn-primary">Ingresar</button>
+</div>
+<div>
+    
+
+</div>
+     
+        
+
+          
+</div>
+  </div>
+
+     
+    </div>
   <div id="footerOuterSeparator"></div>
 
     <div id="divFooter" class="footerArea shadow">
@@ -197,39 +304,5 @@
 <script src="scripts/yoxview/jquery.yoxview-2.21.js" type="text/javascript"></script>
 <script type="text/javascript">$(document).ready(function () {$('.yoxview').yoxview({autoHideInfo:false,renderInfoPin:false,backgroundColor:'#ffffff',backgroundOpacity:0.8,infoBackColor:'#000000',infoBackOpacity:1});$('.yoxview a img').hover(function(){$(this).animate({opacity:0.7},300)},function(){$(this).animate({opacity:1},300)});});</script>
 
-<script type="text/javascript">
-$(document).ready(function() {
-    var panels = $('.user-infos');
-    var panelsButton = $('.dropdown-user');
-    panels.hide();
-
-    //Click dropdown
-    panelsButton.click(function() {
-        //get data-for attribute
-        var dataFor = $(this).attr('data-for');
-        var idFor = $(dataFor);
-
-        //current button
-        var currentButton = $(this);
-        idFor.slideToggle(400, function() {
-            //Completed slidetoggle
-            if(idFor.is(':visible'))
-            {
-                currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
-            }
-            else
-            {
-                currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
-            }
-        })
-    });
-
-
-    $('[data-toggle="tooltip"]').tooltip();
-
-    $('button').click(function(e) {
-        
-    });
-});</script>
 </body>
 </html>
