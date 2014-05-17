@@ -37,6 +37,13 @@
     <script src="js/calendar.js" type="text/javascript"></script>
     <script src="js/calendar-es.js" type="text/javascript"></script>
     <script src="js/calendar-setup.js" type="text/javascript"></script>
+    <script type="text/javascript">
+$('document').ready(function{ $('#primero').popover();
+
+});
+ 
+</script>
+
     <STYLE>
 .hideable { position: relative; visibility: visible; }
 </STYLE>
@@ -262,7 +269,10 @@ ONCLICK="Mostrar_Ocultar(this.checked);"
 
 <a href="" target="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">Guardar </a> 
           <input type="submit" class="btn btn-primary" name="btm_modificar" id="btm_modificar" value="Modificar">
-         
+
+       <button id="primero" type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on right
+</button>
 
   </div>
 </div>

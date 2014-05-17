@@ -126,32 +126,13 @@ g.style.visibility = hide ? 'visible' : 'hidden';
 </div>
   </div>
   <div class="panel-body">
-<div class="row">
-  <div class="col-xs-6 col-md-4">Fecha de Ingreso</div>
-  <div class="col-xs-6 col-md-4">
-    <input type="text" name="ingreso1" id="ingreso1"  placeholder="seleccione la fecha" /> 
-        <img src="images/calendario.png" width="16" height="16" border="0" title="Fecha Inicial" id="lanzador1" > <script type="text/javascript"> 
-            Calendar.setup({ 
-             inputField     :    "ingreso1",     // id del campo de texto 
-             ifFormat     :     "%d-%m-%Y",     // formato de la fecha que se escriba en el campo de texto 
-                button     :    "lanzador1"     // el id del botón que lanzará el calendario 
-            }); 
-            </script>
 
-  </div>
-  
-
-
-
-</div>
 
 <div class="row">
   <div class="col-xs-6 col-md-4">Código de Producto</div>
-  <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="Codigo"></div>
+  <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="Codigo"> <button type="button" class="btn btn-default" data-dismiss="modal">buscar</button></div>
  <div class="col-xs-6 col-md-4">
-   <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-  Verificar Existencia
-</button>
+  
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -159,64 +140,45 @@ g.style.visibility = hide ? 'visible' : 'hidden';
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Existencia</h4>
+        <h4 class="modal-title" id="myModalLabel">Acetaminofen</h4>
       </div>
       <div class="modal-body">
-        <table class="table table-condensed">
-    <tr>
-      <td>Id</td>
-      <td>Código</td>
-      <td>Nombre</td>
-      <td>Cantida</td>
-      <td>Precio </td>
-      <td> </td>
-    </tr>
-    <tr class="success">
-      <td>1</td>
-      <td>ejemplo</td>
-      <td>ejemplo</td>
-      <td>ejemplo</td>
-      <td>ejemplo</td>
-      <td> </td>
-       <td></td>
-       
-    </tr>
-    <tr class="success">
-      <td>1</td>
-      <td>ejemplo</td>
-      <td>ejemplo</td>
-      <td>ejemplo</td>
-      <td>ejemplo</td>
-      <td> </td>
-       <td></td>
-       
-    </tr>
-    <tr class="success">
-      <td>1</td>
-      <td>ejemplo</td>
-      <td>ejemplo</td>
-      <td>ejemplo</td>
-      <td>ejemplo</td>
-      <td> </td>
-       <td></td>
-       
-    </tr>
-    <tr class="success">
-      <td>1</td>
-      <td>ejemplo</td>
-      <td>ejemplo</td>
-      <td>ejemplo</td>
-      <td>ejemplo</td>
-      <td> </td>
-       <td></td>
-       
-    </tr>
-     
-      
-  </table>
+        <div class="row">
+
+  <div class="col-xs-6 col-md-4">Cantidad</div>
+  <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="cantidad de medicamento"></div>
+ 
+</div>
+
+
+<div class="row">
+  <div class="col-xs-6 col-md-4">lote</div>
+  <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="Nombre"></div>
+  
+</div>
+
+
+
+<div class="row">
+  <div class="col-xs-6 col-md-4">Presentacion</div>
+  <div class="col-xs-6 col-md-4"><input type="text" class="form-control" ></div>
+ 
+</div>
+<div class="row">
+  <div class="col-xs-6 col-md-4">fecha ingreso</div>
+  <div class="col-xs-6 col-md-4"><input type="text" name="ingreso1" id="ingreso1"  placeholder="seleccione la fecha" /> 
+        <img src="images/calendario.png" width="16" height="16" border="0" title="Fecha Inicial" id="lanzador1" > <script type="text/javascript"> 
+            Calendar.setup({ 
+             inputField     :    "ingreso1",     // id del campo de texto 
+             ifFormat     :     "%d-%m-%Y",     // formato de la fecha que se escriba en el campo de texto 
+                button     :    "lanzador1"     // el id del botón que lanzará el calendario 
+            }); 
+            </script></div>
+ 
+</div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Ingresar</button>
         
       </div>
     </div>
@@ -228,34 +190,69 @@ g.style.visibility = hide ? 'visible' : 'hidden';
 
  </div>
 </div>
-
-  <div class="row">
-  <div class="col-xs-6 col-md-4">Cantidad</div>
-  <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="cantidad de medicamento"></div>
- 
-</div>
-
-
-<div class="row">
-  <div class="col-xs-6 col-md-4">Nombre de producto</div>
-  <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="Nombre"></div>
+<table class="table table-condensed">
+    <tr>
+      <td>Id </td>
+      <td>Código</td>
+      <td>Nombre</td>
+      <td>Cantida</td>
+      <td>Precio </td>
+      <td> </td>
+    </tr>
+    <tr class="success">
+      <td>1</td>
+      <td>094812</td>
+      <td>acetaminofen</td>
+      <td>10</td>
+      <td>$2</td>
+      <td><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+  Ingresar
+</button> </td>
+       <td></td>
+       
+    </tr>
+    <tr class="success">
+      <td>2</td>
+      <td>0126</td>
+      <td>zorritoma</td>
+      <td>15  </td>
+      <td>$3</td>
+      <td><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+  Ingresar
+</button> </td>
+       <td></td>
+       
+    </tr>
+    <tr class="success">
+      <td>1</td>
+      <td>0126</td>
+      <td>penicilina</td>
+      <td>54</td>
+      <td>$14</td>
+      <td><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+  Ingresar
+</button> </td>
+       <td></td>
+       
+    </tr>
+    <tr class="success">
+      <td>1</td>
+      <td>01278</td>
+      <td>gotas para ojos</td>
+      <td>15</td>
+      <td>$12</td>
+      <td><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+  Ingresar
+</button> </td>
+       <td></td>
+       
+    </tr>
+     
+      
+  </table>
   
-</div>
 
 
-
-<div class="row">
-  <div class="col-xs-6 col-md-4">Precio Unidad</div>
-  <div class="col-xs-6 col-md-4"><input type="text" class="form-control" ></div>
- 
-</div>
-<div class="row">
-  <div class="col-xs-6 col-md-4">Precio Costo</div>
-  <div class="col-xs-6 col-md-4"><input type="text" class="form-control" ></div>
- 
-</div>
-
-<button type="submit" class="btn btn-primary">Ingresar</button>
 </div>
 <div>
     
