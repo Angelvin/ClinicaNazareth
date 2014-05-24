@@ -104,7 +104,100 @@
 </div>
   </div>
   <div class="panel-body">
-  
+  <div>
+    <!-- Large modal -->
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="row">
+  <div class="col-md-6" ><label>Primer Nombre</label><input class="form-control"  placeholder="nombre"></div>
+  <div class="col-md-6"><label>Segundo Nombre</label><input class="form-control" placeholder="nombre"></div>
+</div>
+<div class="row">
+  <div class="col-md-6"><label>Primer Apellido</label><input class="form-control"  placeholder="apellido"></div>
+  <div class="col-md-6"><label>Segundo Apellido</label><input class="form-control" placeholder="apellido"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-8" ><label>Fecha Nacimiento</label><input type="text" name="ingreso1" id="ingreso1"  placeholder="seleccione la fecha" /> 
+        <img src="images/calendario.png" width="16" height="16" border="0" title="Fecha Inicial" id="lanzador1" > <script type="text/javascript"> 
+            Calendar.setup({ 
+             inputField     :    "ingreso1",     // id del campo de texto 
+             ifFormat     :     "%d-%m-%Y",     // formato de la fecha que se escriba en el campo de texto 
+                button     :    "lanzador1"     // el id del botón que lanzará el calendario 
+            }); 
+            </script></div>
+ <div class="col-xs-12 col-md-8"><label >Edad</label>...</div>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-md-2"><label >Documento</label>
+
+  </div>
+  <div class="col-xs-6 col-md-4">
+    <input class="form-control" placeholder="Documento">
+  </div>
+  <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">DUI</OPTION>
+<OPTION VALUE="2">Carnet de Minoridad</OPTION>
+<OPTION VALUE="3">Pasaporte</OPTION>
+
+</SELECT></div>
+</div>
+  <div class="row">
+  <div class="col-xs-6 col-md-2"><label >Teléfono</label>
+
+  </div>
+  <div class="col-xs-6 col-md-4">
+    <input class="form-control" placeholder="NUMERO TELEFONO">
+  </div>
+  <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">FIJO</OPTION>
+<OPTION VALUE="2">CELULAR</OPTION>
+<OPTION VALUE="3">TRABAJO</OPTION>
+
+</SELECT></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-md-2"><label >Dirección</label></div>
+  <div class="col-xs-6 col-md-2"><input class="form-control" placeholder="Calle"></div>
+  <div class="col-xs-6 col-md-2"><label >Municipio</label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">PERSONAL</OPTION>
+<OPTION VALUE="2">TRABAJO</OPTION>
+
+
+</SELECT></div>
+  <div class="col-xs-6 col-md-2"><label >Departamento</label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">PERSONAL</OPTION>
+<OPTION VALUE="2">TRABAJO</OPTION>
+
+
+</SELECT></div>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-md-2"><label >Correo</label>
+
+  </div>
+  <div class="col-xs-6 col-md-4">
+    <input class="form-control" placeholder="EJEMPLO@EJEMPLO.COM">
+  </div>
+  <div class="col-xs-6 col-md-2"><label >Tipo </label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">PERSONAL</OPTION>
+<OPTION VALUE="2">TRABAJO</OPTION>
+
+
+</SELECT></div>
+</div>
+<button class="btn btn-primary" >guardar</button>
+    </div>
+  </div>
+</div>
+
+
+
+  </div>
 <div class="row">
   <div class="col-md-4"><label>Campo de Búsquedad</label>
 
@@ -140,7 +233,8 @@
       <td>Ángel</td>
       <td>Gómez</td>
       <td>Álvarado</td>
-      <td><a href="../sistema/EdiPaciente.html"  arget="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">Editar</a></td>
+      <td><button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Editar</button>
+</td>
       <td><a href="../sistema/cita_agenda.html" target="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">Genererar cita</a></td>
     </tr>
     <tr>
@@ -149,7 +243,8 @@
       <td>Ana</td>
       <td>Álvarez</td>
       <td>Guzmán</td>
-      <td><a href="../sistema/EdiPaciente.html" arget="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">Editar</a></td>
+      <td><button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Editar</button>
+</td>
       <td><a href="../sistema/cita_agenda.html" target="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">Genererar cita</a></td>
     </tr>
     <tr>
@@ -158,7 +253,8 @@
       <td>Ingrid</td>
       <td>Fuentes</td>
       <td>...</td>
-      <td><a href="../sistema/EdiPaciente.html" arget="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">Editar</a></td>
+      <td><button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Editar</button>
+</td>
       <td><a href="../sistema/cita_agenda.html" target="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">Genererar cita</a></td>
 
     </tr>
