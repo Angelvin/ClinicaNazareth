@@ -38,23 +38,8 @@
     <script src="js/calendar.js" type="text/javascript"></script>
     <script src="js/calendar-es.js" type="text/javascript"></script>
     <script src="js/calendar-setup.js" type="text/javascript"></script>
-    <STYLE>
-.hideable { position: relative; visibility: visible; }
-</STYLE>
-<SCRIPT>
-function Mostrar_Ocultar(hide) {
-if (document.layers)
-/*aqui se cambian los valores 'show' y 'hide' para cultarlo o mostrarlo
-aqui la variable  (hide) esta en show para ver los campos
-document.contenido.visibility = ****variable(hide)**** ? ****estado('show') ****y despues *****: 'hide'; */
-document.contenido.visibility = hide ? 'show' : 'hide';
-else {
-var g = document.all ? document.all.contenido :
-document.getElementById('contenido');
-g.style.visibility = hide ? 'visible' : 'hidden';
-}
-}
-</SCRIPT>
+   
+
 </head>
 <body id="pageBody">
 
