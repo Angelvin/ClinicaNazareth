@@ -30,28 +30,102 @@
     <link href="http://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <link href="scripts/bootstrap/css/slider.css" rel="stylesheet" type="text/css" />
+    <link href="../scripts/bootstrap/css/datepicker.css" rel="stylesheet" />
+      <link href="../scripts/bootstrap/css/slider.css" rel="stylesheet" type="text/css" />
+
 
     <link href="../scripts/panelTabs.css" rel="stylesheet" />
     <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
   
-<style>
-        fieldset {
-            border: solid 2px rgba(128, 128, 128,0.6);
-            border-radius: 10px;
-            padding: 10px;
-        }
-    </style>
+
 
 
 
 </style>
 </head>
 <body id="pageBody">
+<div>
+  
 
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <h2>Reprogramar </h2>
+      <div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+  <div class="col-xs-6 col-md-4">Medico</div>
+  <div class="col-xs-6 col-md-4"><select>
+  <option value="volvo">Medico1</option>
+  <option value="saab">Medico2</option>
+  <option value="mercedes">medico3</option>
+  <option value="audi">medico4</option>
+</select></div>
+  <div class="col-xs-6 col-md-4"></div>
+
+</div>
+  </div>
+</div>
+     
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+  <div class="col-xs-6 col-md-4">Hora</div>
+  <div class="col-xs-6 col-md-4"><select>
+  <option value="volvo">8:00</option>
+  <option value="saab">8:30</option>
+  <option value="mercedes">9:00</option>
+  <option value="audi">9:30</option>
+</select></div>
+  <div class="col-xs-6 col-md-4"></div>
+</div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+  <div class="row">
+  
+  <div class="col-xs-6 col-md-4">fecha</div>
+  <div class="col-xs-12 col-sm-6 col-md-8">
+    <div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker5' data-date-format="YYYY/MM/DD">
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker5').datetimepicker({
+                    pickTime: false
+                });
+            });
+        </script>
+    </div>
+</div>
+
+
+  </div>
+</div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+</div>
 <div id="divBoxed" class="container">
 
     <div class="transparent-bg" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: -1;zoom: 1;"></div>
+
 
   <div class="divPanel notop nobottom">
             <div class="row-fluid">
@@ -80,57 +154,40 @@
 
 
   
-      <div class="col-xs-6 col-md-2">
-       <ul class="nav nav-pills nav-stacked">
-
-  
- 
-   
- <li class="active"><a href="../FrmSecretaria/indexsecre.html">Home</a></li>
-  <li><a href="../FrmSecretaria/RegistroP.html">Creación Paciente</a></li>
-    <li><a href="../FrmSecretaria/BusquedaPaciente.html">Búsqueda de Paciente</a></li>
-   
-
-  <li><a href="../FrmSecretaria/agendaSecre.html">Agenda</a></li>
-   <li><a href="../FrmSecretaria/Ingreso.html">Adquisición</a></li>
-   <li><a href="../FrmSecretaria/factura.html">Facturación</a></li>
-       
-
-
-   
-</ul>
-     </div>
-  <div class="col-xs-12 col-sm-12 col-md-9">
+  <div class="col-xs-12 col-sm-12 col-md-12">
    <div class="panel panel-primary">
   <div class="panel-heading">
-                    <h3 class="panel-title">Bienvenido Dr Juan Arias</h3>
-                    <span class="pull-right">
-                        <!-- Tabs -->
-                        <ul class="nav panel-tabs">
+                              <div class="row">
+  <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
+  <div class="col-xs-6 col-md-4">
+    <ul class="pager">
 
-                            <li class="active"><a href="../FrmSecretaria/indexSecre.html" >CITAS PROGRAMADAS</a></li>
-                            <li><a href="../FrmSecretaria/solicitud.html" >ESTADOS DE CITAS</a></li>
-                            <li><a href="../FrmSecretaria/factura.html" >FACTURACION</a></li>
-                            <li class="next"><a href="../sistema/login.html">SALIR<span class="glyphicon glyphicon-off"></span></a></li>
+      <li class="next"><a href="../sistema/login.html">Salir <span class="glyphicon glyphicon-off"></span></a></li>
 
-                        </ul>
-                    </span>
+       <li class="next"><a href="../FrmSecretaria/EntraSecret.html">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
+ <li class="next"></li>
+  
+</ul>
+
+
+  </div>
+</div>
                 </div>
   <div class="panel-body">
+   <div class="container">
     <div class="row">
-  <div class="col-md-4"><button type="button" class="btn btn-default btn-lg">
-  <span class="glyphicon glyphicon-user"></span> crear Paciente
-</button></div>
-  <div class="col-md-4"><button type="button" class="btn btn-default btn-lg">
-  <span class="glyphicon glyphicon-zoom-in"></span> Búsqueda de Paciente
-</button></div>
-  <div class="col-md-4"><button type="button" class="btn btn-default btn-lg">
-  <span class="glyphicon glyphicon-print"></span> Facturación
-</button></div>
-</div>
-    
-<div>
-  <H2>Citas  para hoy</H2>
+        <div class="col-sm-12 col-md-12">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                            </span>Citas Programadas</a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                      
   <table class="table table-condensed">
     <tr>
       <td>Id</td>
@@ -221,7 +278,30 @@
 </div>   
    
 <div>
-  <h2>Citas sin Asistir</h2>
+
+                           
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-th">
+                            </span>Cita en Retraso</a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            
+
   <table class="table table-condensed">
     <tr>
       <td>Presente</td>
@@ -243,7 +323,12 @@
       <td>Linares</td>
       <td>Álvarado</td>
       <td>Dr.Pérez<input type="checkbox"></td>
-     <td><a href="../sistema/cita_agenda.html" target="_blank" class="btn btn-primary" onClick="window.open(this.href, this.target, 'width=500,height=800'); return false;">Reprogramar</a></td>
+     <td>
+       
+
+<button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Reprogramar</button>
+
+     </td>
        <td><input type="submit" class="btn btn-access" name="btm_eliminar" id="btm_eliminar" value="Ir a consulta"> </td>
 <td><input type="submit" class="btn btn-danger" name="btm_eliminar" id="btm_eliminar" value="Cancelar"> </td>
     </tr>
@@ -267,9 +352,125 @@
    <td>Dr.Pérez<input type="checkbox"></td>
     </tr>
   </table>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-user">
+                            </span>Estado de Cita</a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                           
+<table class="table table-condensed">
+    <tr>
+      <td>Correo</td>
+      <td>Nombre</td>
+      <td>Fecha de Solicitud</td>
+      <td>Fecha de Programación</td>
+      <td>Teléfono</td>
+      <td>Estado</td>
+      <td></td>
+    </tr>
+    <tr class="danger">
+      <td>ejemplo@ejmeplo</td>
+      <td>Milton</td>
+      <td>06/05/2014</td>
+<td>07/05/20014</td>
+      <td>22806019</td>
+      <td>Sin Confirmar</td>
+      <td><input type="submit" class="btn btn-primary" name="btm_eliminar" id="btm_eliminar" value="confirmar"></td>
+      <td><input type="submit" class="btn btn-danger" name="btm_eliminar" id="btm_eliminar" value="Cancelar"></td>
+    </tr>
+    <tr>
+      <td>ejemplo@ejmeplo</td>
+      <td>Fabio</td>
+      <td>06/05/2014</td>
+<td>08/05/20014</td>
+      <td>22806019</td>
+      <td>Confirmado</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="danger">
+      <td>ejemplo@ejmeplo</td>
+      <td>Maria</td>
+      <td>06/05/2014</td>
+<td>07/05/20014</td>
+      <td>22806019</td>
+      <td>Sin Confirmar</td>
+      <td><input type="submit" class="btn btn-primary" name="btm_eliminar" id="btm_eliminar" value="confirmar"></td>
+      <td><input type="submit" class="btn btn-danger" name="btm_eliminar" id="btm_eliminar" value="Cancelar"></td>
+    </tr>
+    <tr>
+      <td>ejemplo@ejmeplo</td>
+      <td>Dolores</td>
+      <td>06/05/2014</td>
+<td>06/05/20014</td>      
+      <td>22806019</td>
+      <td>Confirmar</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+    
   
-</div>   
-   
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-file">
+                            </span>Reports</a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-usd"></span><a href="http://www.jquery2dotnet.com">Sales</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-user"></span><a href="http://www.jquery2dotnet.com">Customers</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-tasks"></span><a href="http://www.jquery2dotnet.com">Products</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-shopping-cart"></span><a href="http://www.jquery2dotnet.com">Shopping Cart</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
 
         
   </div>

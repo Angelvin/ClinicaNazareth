@@ -30,22 +30,56 @@
     <link href="http://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <link href="scripts/bootstrap/css/slider.css" rel="stylesheet" type="text/css" />
+  
 
-    <link href="../scripts/panelTabs.css" rel="stylesheet" />
+ 
     <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
   
-<style>
-        fieldset {
-            border: solid 2px rgba(128, 128, 128,0.6);
-            border-radius: 10px;
-            padding: 10px;
-        }
-    </style>
+<script type="text/javascript">
+<!--
+function validatePass(campo) {
+    var RegExPattern = /([a-z])/;
+    
+    if ((campo.value.match(RegExPattern)) && (campo.value!='')) {
+        
+    } else {
+       alert('El campo debe ser llenado con texto');  
+    } 
+}
+//-->
+function docu(campo) {
+    var RegExPattern = /([0-9]|-)/;
+    
+    if ((campo.value.match(RegExPattern)) && (campo.value!='')) {
+        
+    } else {
+       alert('El campo debe ser llenado con numero');  
+    } 
+}
+//-->
+function tele(campo) {
+    var RegExPattern = /(^[0-9]{2,3}-? ?[0-8]{6,7}$)/;
+   
+    if ((campo.value.match(RegExPattern)) && (campo.value!='')) {
+        
+    } else {
+       alert('El campo debe ser llenado nª TELEFONO');  
+    } 
+}
+
+function correo(campo) {
+    var RegExPattern = /([\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4})/;
+    
+    if ((campo.value.match(RegExPattern)) && (campo.value!='')) {
+        
+    } else {
+       alert('El campo debe ser llenado con el Correo');  
+    } 
+}
+</script>
 
 
 
-</style>
 </head>
 <body id="pageBody">
 
@@ -80,96 +114,176 @@
 
 
   
-      <div class="col-xs-6 col-md-2">
-         <ul class="nav nav-pills nav-stacked">
- <li class="active"><a href="../FrmSecretaria/indexsecre.html">Home</a></li>
-  <li><a href="../FrmSecretaria/RegistroP.html">Creación Paciente</a></li>
-    <li><a href="../FrmSecretaria/BusquedaPaciente.html">Búsqueda de Paciente</a></li>
-   
-
-  <li><a href="../FrmSecretaria/agendaSecre.html">Agenda</a></li>
-   <li><a href="../FrmSecretaria/Ingreso.html">Adquisición</a></li>
-   <li><a href="../FrmSecretaria/factura.html">Facturación</a></li>
-
-   
-</ul>
-     </div>
-  <div class="col-xs-12 col-sm-12 col-md-10">
+      
+  <div class="col-xs-12 col-sm-12 col-md-12">
    <div class="panel panel-primary">
   <div class="panel-heading">
-                    <h3 class="panel-title">Bienvenido Dr Juan Arias</h3>
-                    <span class="pull-right">
-                        <!-- Tabs -->
-                        <ul class="nav panel-tabs">
-                            <li class="active"><a href="../FrmSecretaria/indexSecre.html" >CITAS PROGRAMADAS</a></li>
-                            <li><a href="../FrmSecretaria/solicitud.html" >ESTADOS DE CITAS</a></li>
-                            <li><a href="../FrmSecretaria/factura.html" >FACTURACION</a></li>
-                            <li class="next"><a href="../sistema/login.html">SALIR<span class="glyphicon glyphicon-off"></span></a></li>
+                    <div class="row">
+  <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
+  <div class="col-xs-6 col-md-4">
+    <ul class="pager">
+      <li class="next"><a href="../login.html">Salir <span class="glyphicon glyphicon-off"></span></a></li>
+       <li class="next"><a href="../FrmSecretaria/EntraSecret.html">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
+ <li class="next"></li>
+  
+</ul>
 
-                        </ul>
-                    </span>
+
+  </div>
+</div>
+                    
                 </div>
   <div class="panel-body">
-    <table class="table table-condensed">
-    <tr>
-      <td>Correo</td>
-      <td>Nombre</td>
-      <td>Fecha de Solicitud</td>
-      <td>Fecha de Programación</td>
-      <td>Teléfono</td>
-      <td>Estado</td>
-      <td></td>
-    </tr>
-    <tr class="danger">
-      <td>ejemplo@ejmeplo</td>
-      <td>Milton</td>
-      <td>06/05/2014</td>
-<td>07/05/20014</td>
-      <td>22806019</td>
-      <td>Sin Confirmar</td>
-      <td><input type="submit" class="btn btn-primary" name="btm_eliminar" id="btm_eliminar" value="confirmar"></td>
-      <td><input type="submit" class="btn btn-danger" name="btm_eliminar" id="btm_eliminar" value="Cancelar"></td>
-    </tr>
-    <tr>
-      <td>ejemplo@ejmeplo</td>
-      <td>Fabio</td>
-      <td>06/05/2014</td>
-<td>08/05/20014</td>
-      <td>22806019</td>
-      <td>Confirmado</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr class="danger">
-      <td>ejemplo@ejmeplo</td>
-      <td>Maria</td>
-      <td>06/05/2014</td>
-<td>07/05/20014</td>
-      <td>22806019</td>
-      <td>Sin Confirmar</td>
-      <td><input type="submit" class="btn btn-primary" name="btm_eliminar" id="btm_eliminar" value="confirmar"></td>
-      <td><input type="submit" class="btn btn-danger" name="btm_eliminar" id="btm_eliminar" value="Cancelar"></td>
-    </tr>
-    <tr>
-      <td>ejemplo@ejmeplo</td>
-      <td>Dolores</td>
-      <td>06/05/2014</td>
-<td>06/05/20014</td>      
-      <td>22806019</td>
-      <td>Confirmar</td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
-    
+   <div class="panel panel-info">
+  <div class="panel-heading">Creracion de login </div>
+  <div class="panel-body">
+    <div class="panel panel-default">
+  <div class="panel-body">
+  <div class="row">
+  <div class="col-xs-6 col-md-2"><label >Usuario</label>
+
+  </div>
+  <div class="col-xs-6 col-md-4">
+    <input class="form-control" placeholder="EJEMPLO@EJEMPLO.COM" onblur="correo(this);">
+  </div>
   
 
+</div>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+   <div class="row">
+  <div class="col-md-6" ><label>Contraseña</label><input name:"contra" id="contra" type="password" class="form-control" placeholder="Password" required></div>
+  <div class="col-md-6"><label>repetir-Contraseña</label><input name:"contra" id="contra" type="password" class="form-control" placeholder="Password" required></div>
+</div>
+  </div>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">Datos generales</div>
+  <div class="panel-body">
+   <div class="row">
+  <div class="col-md-6" ><label>Primer Nombre</label><input class="form-control"  placeholder="nombre" onblur="validatePass(this);"></div>
+  <div class="col-md-6"><label>Segundo Nombre</label><input class="form-control" placeholder="nombre"></div>
+</div>
+<div class="row">
+  <div class="col-md-6"><label>Primer Apellido</label><input class="form-control"  placeholder="apellido"onblur="validatePass(this);"></div>
+  <div class="col-md-6"><label>Segundo Apellido</label><input class="form-control" placeholder="apellido"onblur="validatePass(this);"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-8" ><label>Fecha Nacimiento</label>
+
+<input type="date" class="form-control" name="fecha" value="" />
+
+
+
+
+  </div>
+ <div class="col-xs-12 col-md-8"><label >Edad</label><p id="demo"></p></div>
+</div>
+
+
+ 
+ 
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">Datos: Documento, telefono</div>
+  <div class="panel-body">
+   
+
+<div class="panel panel-default">
+  <div class="panel-body">
+   <div class="row">
+  <div class="col-xs-6 col-md-2"><label >Documento</label>
+
+  </div>
+  <div class="col-xs-6 col-md-3">
+    <input class="form-control" placeholder="Documento" onblur="docu(this);">
+  </div>
+  <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">DUI</OPTION>
+<OPTION VALUE="2">Carnet de Minoridad</OPTION>
+<OPTION VALUE="3">Pasaporte</OPTION>
+
+</SELECT>
+ 
+</div>
+ 
+</div>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+   <div class="row">
+<div class="col-xs-6 col-md-2"><label >Teléfono</label>
+
+  </div>
+  <div class="col-xs-6 col-md-3">
+    <input class="form-control" placeholder="NUMERO TELEFONO"onblur="tele(this);">
+  </div>
+  <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">FIJO</OPTION>
+<OPTION VALUE="2">CELULAR</OPTION>
+<OPTION VALUE="3">TRABAJO</OPTION>
+
+</SELECT></div>
+
+</div>
+  </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<div class="panel panel-info">
+  <div class="panel-heading">Direccion</div>
+  <div class="panel-body">
+    <div class="row">
+  <div class="col-xs-6 col-md-4"><input class="form-control" placeholder="Calle"onblur="validatePass(this);"></div>
+  <div class="col-xs-6 col-md-2"><label >Municipio</label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">PERSONAL</OPTION>
+<OPTION VALUE="2">TRABAJO</OPTION>
+</SELECT></div>
+<div class="col-xs-6 col-md-2"><label for="">Departamento</label><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">PERSONAL</OPTION>
+<OPTION VALUE="2">TRABAJO</OPTION>
+</SELECT></div>
+</div>
+  </div>
+</div>
+
+
+
+ <button type="button" class="btn btn-default">Ingresar</button>
+    
+</div>   
+   
+<div>
+ 
+
+    
         
+          
+
+          
   </div>
 </div>
   </div>
 
-     
+      
     </div>
   <div id="footerOuterSeparator"></div>
 
@@ -179,7 +293,7 @@
             <div class="row-fluid">
             <div class="span12">
             <p class="copyright"> 
-            Copyright © 2014 Clínica Nazareth. All Rights Reserved.
+            Copyright � 2014 Clínica Nazareth. All Rights Reserved.
             </p>
 
             <div class="social_bookmarks"></div>
@@ -194,37 +308,6 @@
 <script src="../scripts/jquery.min.js" type="text/javascript"></script> 
 <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="../scripts/default.js" type="text/javascript"></script>
-<script src="../scripts/bootstrap/js/bootstrap-slider.js" type="text/javascript"></script>
-<script src="../scripts/modernizr.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-      $('#ex1').slider({
-  formater: function(value) {
-    return 'temperatura: ' + value + '°C';
-  }
-});
-
-      $('#ex2').slider({
-  formater: function(value) {
-    return 'Peso: ' + value + ' Libras';
-  }
-});
-
-      $("#ex1").slider();
-$("#ex1").on('slide', function(slideEvt) {
-  $("#label_temp").text(slideEvt.value);
-});
-
-      $("#ex2").slider();
-$("#ex2").on('slide', function(slideEvt) {
-  $("#label_peso").text(slideEvt.value);
-});
-
-$("#ex3").slider();
-$("#ex3").on('slide', function(slideEvt) {
-  $("#label_Altura").text(slideEvt.value);
-});
-    </script>
 
 <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script><script src="scripts/camera/scripts/camera.min.js" type="text/javascript"></script>
 <script src="scripts/easing/jquery.easing.1.3.js" type="text/javascript"></script>

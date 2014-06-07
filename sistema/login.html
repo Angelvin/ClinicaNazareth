@@ -118,7 +118,7 @@
 <script>
 function usrpas(){
 if (document.form1.correo.value=="admin" && document.form1.contra.value=="admin"){window.location="../sistema/adminis.html";return}
-if (document.form1.correo.value=="secre" && document.form1.contra.value=="secre"){window.location="../sistema/indexSecre.html";return}
+if (document.form1.correo.value=="secre" && document.form1.contra.value=="secre"){window.location="../sistema/FrmSecretaria/EntraSecret.html";return}
 if (document.form1.correo.value=="medico" && document.form1.contra.value=="medico"){window.location="../sistema/indexmedico.html";return}
 if (document.form1.correo.value=="exa" && document.form1.contra.value=="exa"){window.location="../sistema/indexExaminador.html";return}
 if (document.form1.correo.value=="perfil" && document.form1.contra.value=="perfil"){window.location="../sistema/indexperfil.html";return}
@@ -171,16 +171,17 @@ document.oncontextmenu=new Function("return false");
                 <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                     alt="">
                 <form class="form-signin">
-					<input  name:"correo" id="correo" type="text" class="form-control" placeholder="Email" required autofocus>
-					<input name:"contra" id="contra" type="password" class="form-control" placeholder="Password" required>
-					<input type="button" value="Ingresar" onclick="usrpas()"  class="btn btn-lg btn-primary btn-block">
+                    <div><input  name:"correo" id="correo" type="text" class="form-control" placeholder="Email" required autofocus>
+                    <input name:"contra" id="contra" type="password" class="form-control" placeholder="Password" required>
+                    <input type="button" value="Ingresar" onclick="usrpas()"  class="btn btn-lg btn-primary btn-block">
 
-					<label class="checkbox pull-left">
-						<input type="checkbox" value="remember-me">
-						Recordarme
-					</label>
-					<a href="#" class="pull-right need-help">¡Olvidé mi Contraseña! </a><span class="clearfix"></span>
-					<a href="#" class="pull-right need-help">¿Necesitas ayuda? </a><span class="clearfix"></span>
+                    <label class="checkbox pull-left">
+                        <input type="checkbox" value="remember-me">
+                        Recordarme
+                    </label>
+                    <a href="#" class="pull-right need-help">¡Olvidé mi Contraseña! </a><span class="clearfix"></span>
+                    <a href="#" class="pull-right need-help">¿Necesitas ayuda? </a><span class="clearfix"></span></div>
+					
                 </form>
             </div>
             <a href="#" class="text-center new-account">Crear una cuenta</a>
