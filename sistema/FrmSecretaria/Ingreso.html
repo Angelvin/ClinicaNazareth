@@ -165,7 +165,7 @@ function correo(campo) {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Acetaminofen</h4>
+        <h4 class="modal-title" id="myModalLabel">Nombre Medicamente</h4>
       </div>
       <div class="modal-body">
         <div class="row">
@@ -177,7 +177,7 @@ function correo(campo) {
 
 
 <div class="row">
-  <div class="col-xs-6 col-md-4">lote</div>
+  <div class="col-xs-6 col-md-4">Presentacion</div>
   <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="Nombre"></div>
   
 </div>
@@ -185,7 +185,7 @@ function correo(campo) {
 
 
 <div class="row">
-  <div class="col-xs-6 col-md-4">Presentacion</div>
+  <div class="col-xs-6 col-md-4">Precio</div>
   <div class="col-xs-6 col-md-4"><input type="text" class="form-control" ></div>
  
 </div>
@@ -283,9 +283,9 @@ function correo(campo) {
                     <div id="collapseTwo" class="panel-collapse collapse">
                         <div class="panel-body">
                               <div class="row">
-  <div class="col-xs-6 col-md-4">Fecha de Ingreso</div>
+  <div class="col-xs-6 col-md-4"><label for="">Nombre</label></div>
+  <div class="col-xs-6 col-md-4"><input type="text" class="form-control"  /></div>
   <div class="col-xs-6 col-md-4"></div>
-  <div class="col-xs-6 col-md-4"><input type="date" class="form-control" name="fecha" value="" /></div>
 
 
 
@@ -294,33 +294,43 @@ function correo(campo) {
 
 
   <div class="row">
-  <div class="col-xs-6 col-md-4">Código de Producto</div>
-  <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="Codigo" ></div>
+  <div class="col-xs-6 col-md-4"><label for="">Via de Aplicacion</label></div>
+  <div class="col-xs-6 col-md-4"><input type="text" class="form-control"  ></div>
  
 </div>
 
 <div class="row">
-  <div class="col-xs-6 col-md-4"><label for="">Nombre de Producto</label> </div>
-  <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="Nombre" onblur="validatePass(this);" ></div>
+  <div class="col-xs-6 col-md-4"><label for="">Presentacion</label> </div>
+  <div class="col-xs-6 col-md-4"><input type="text" class="form-control"  onblur="validatePass(this);" ></div>
   
 </div>
 
 <div class="row">
-  <div class="col-xs-6 col-md-4">Descripción</div>
-  <div class="col-xs-6 col-md-4"><textarea class="form-control" rows="3" placeholder="texto" onblur="validatePass(this);"></textarea></div>
+  <div class="col-xs-6 col-md-4"><label for="">Grupo</label></div>
+  <div class="col-xs-6 col-md-4"><SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">FIJO</OPTION>
+<OPTION VALUE="2">CELULAR</OPTION>
+<OPTION VALUE="3">TRABAJO</OPTION>
+
+</SELECT></div>
   
 </div>
 
 
 <div class="row">
-  <div class="col-xs-6 col-md-4">fecha ingreso</div>
+  <div class="col-xs-6 col-md-4"><label>SubGrupo</label></div>
   <div class="col-xs-6 col-md-4">
     
-    <input type="date" class="form-control" name="fecha" value="" />
+    <SELECT NAME="selCombo" SIZE=1> 
+<OPTION VALUE="1">FIJO</OPTION>
+<OPTION VALUE="2">CELULAR</OPTION>
+<OPTION VALUE="3">TRABAJO</OPTION>
+
+</SELECT>
   </div>
  
 </div>
-<button type="button" class="btn btn-info btn-lg">
+<button type="button" class="btn btn-info btn-sm">
   Ingresar
 </button>
 
