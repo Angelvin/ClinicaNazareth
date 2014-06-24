@@ -1,4 +1,6 @@
-﻿<!DOCTYPE HTML>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>﻿
+<!DOCTYPE HTML>
+<%@include file="../frementop.jspf" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -24,12 +26,7 @@
     <link href="../scripts/carousel/style.css" rel="stylesheet" type="text/css" /><link href="../scripts/camera/css/camera.css" rel="stylesheet" type="text/css" />
   <link href="../scripts/wookmark/css/style.css" rel="stylesheet" type="text/css" />  <link href="../scripts/yoxview/yoxview.css" rel="stylesheet" type="text/css" />
 
-    <link href="http://fonts.googleapis.com/css?family=Syncopate" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+   
     <link href="../scripts/bootstrap/css/datepicker.css" rel="stylesheet" />
       <link href="../scripts/bootstrap/css/slider.css" rel="stylesheet" type="text/css" />
 
@@ -164,7 +161,7 @@
 
       <li class="next"><a href="../sistema/login.html">Salir <span class="glyphicon glyphicon-off"></span></a></li>
 
-       <li class="next"><a href="../FrmSecretaria/EntraSecret.html">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
+       <li class="next"><a href="../FrmSecretaria/EntraSecret.jsp">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
  <li class="next"></li>
   
 </ul>
@@ -188,88 +185,41 @@
                     <div id="collapseOne" class="panel-collapse collapse in">
                         <div class="panel-body">
                       
-  <table class="table table-condensed">
-    <tr>
-      <td>Id</td>
-      <td>Nombre</td>
-      <td>Motivo </td>
-      <td>Especialidad</td>
-      <td>Médico</td>
-      <td>Hora </td>
-    </tr>
-    <tr class="danger">
-      <td>1</td>
-    <td> José
-      Ángel
-      Gómez
-    Álvarado</td>
-      <td>Infeccion </td>
-      <td>General </td>
-      <td>Dra.Cerna </td>
-      <td>8:00 </td>
-      
-      <td><button class="btn btn-primary btn-ms" data-toggle="modal" data-target="#myModal">
-       A Consulta
-      </button>
-      
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-          <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Datos preliminares del Paciente:José Ángel Gómez</h4>
-      </div>
-      <div class="modal-body">
-        
-        <label for="">Temperatura</label>
+ <table>
 
-       <div class="slider slider-horizontal" id="ex1" data-slider-min="37" data-slider-max="40" data-slider-value="37" data-slider-step="0.1">
-       
-        </div>
+                    <!--          LISTADO     -->
+                    <jsp:useBean id="estado2" scope="request" class="BAL.confimado" />
 
-         <span id="label_temp">-</span><label>°C</label>
-        <li></li>
-        <label for="">Peso</label>
-        
-       <div class="slider slider-horizontal" id="ex2" data-slider-min="120" data-slider-max="300" data-slider-value="120" data-slider-step="1"></div>
-        <span id="label_peso">-</span><label>libras</label>
-      </div>
-      
-      <label for="">Altura</label>
-        
-       <div class="slider slider-horizontal" id="ex3" data-slider-min="1.2" data-slider-max="2.3" data-slider-value="1.2" data-slider-step="0.1"></div>
-        <span id="label_Altura">-</span><label>Centimetros</label>
-      
+                    <c:set var="list" scope="request" value="${estado2.listado}"/>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Continuar a Consulta</button>
-      </div>
-    </div>
-  </div>
-</div> </td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Lili
-      Ana
-      Álvarez
-      Guzmán</td>
-      <td>Dolor de Cabeza</td>
-      <td>General </td>
-      <td>Dr.Rosales </td>
-     <td>8:30 </td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Denis
-      Ingrid   Fuentes     ...</td>
-      <td>Dolor de diente</td>
-      <td>Odontólogo </td>
-      <td>Dr.Salinas</td>
-      <td>9:00 </td>
-    </tr>
-  </table>
+                    <display:table name="list" export="true" id="fila"  class="table table-condensed"  >
+                        <display:setProperty name="export.rtf.filename" value="example.rtf" />
+                        <display:column title="saber">
+                            <input type="radio">
+                        </display:column>
+                        <display:column property="codigo" title="Codigo" />
+                        <display:column property="nombre" title="Nombre" />
+                        <display:column property="motivo" title="Motivo" />
+                        <display:column property="especialidad" title="Especialidad" />
+                        <display:column property="medico" title="Mèdico" />
+                        <display:column property="hora" title="Hora" />
+
+
+                        <display:setProperty name="export.pdf" value="true" />
+
+                        <display:column title="Editar">
+                            <a href="javascript:enviar()">
+                                enviar
+                            </a>
+                            <input type="BUTTON" value="ENVIAR" POST="SUMIT"/>
+                        </display:column>
+                    </display:table>
+
+
+
+
+
+                </table>
 </div>   
    
 <div>
@@ -297,55 +247,36 @@
                         <div class="panel-body">
                             
 
-  <table class="table table-condensed">
-    <tr>
-      <td>Presente</td>
-      <td>Id</td>
-      <td>Nombre
-      </td>
-<td>Médico</td>
- 
-    </tr>
-    <tr class="success">
+   <table>
+
+                    <!--          LISTADO     -->
+                    <jsp:useBean id="estado3" scope="request" class="BAL.tarde" />
+
+                    <c:set var="lista" scope="request" value="${estado3.listado}"/>
+                    <ajax:displayTag id="displayTagFrame" ajaxFlag="displayAjax">
+
+                        <display:table name="lista" export="true" id="fila" class="table table-condensed">
+                            <display:setProperty name="export.rtf.filename" value="example.rtf"/>
+                            <display:column title="saber">
+                                <input type="radio">
+                            </display:column>
+                            <display:column property="codigo" title="Codigo" />
+
+                            <display:column property="nombre" title="Nombre" />
 
 
-      <td> Ingreso<input type="checkbox"></td>
-      <td>1</td>
-      <td>Jaime
-      Antonio
-      Linares
-      Álvarado</td>
-      <td>Dr.Pérez<input type="checkbox"></td>
-     <td>
-       
+                            <display:column property="medico" title="Mèdico" />
+                            <display:column title="Editar">
+                                <a href="javascript:enviar()">
+                                    enviar
+                                </a>
+                                <input type="BUTTON" value="ENVIAR" POST="SUMIT"/>
+                            </display:column>
+                        </display:table>
+                    </ajax:displayTag>
 
-<button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Reprogramar</button>
 
-     </td>
-       <td><input type="submit" class="btn btn-access" name="btm_eliminar" id="btm_eliminar" value="Ir a consulta"> </td>
-<td><input type="submit" class="btn btn-danger" name="btm_eliminar" id="btm_eliminar" value="Cancelar"> </td>
-    </tr>
-    <tr>
-
-      <td> Ingreso<input type="checkbox"></td>
-      <td>2</td>
-      <td>Ana
-      Arely
-      Sánchez
-      Guzmán</td>
-<td>Dr.Pérez<input type="checkbox"></td>
-    </tr>
-    <tr>
-      <td> Ingreso<input type="checkbox"></td>
-      <td>3</td>
-      <td>Antonieta
-      Maricela
-      Flores
-      Acosta</td>
-   <td>Dr.Pérez<input type="checkbox"></td>
-    </tr>
-  </table>
-
+                </table>
 
 
 
@@ -363,57 +294,33 @@
                     <div id="collapseThree" class="panel-collapse collapse">
                         <div class="panel-body">
                            
-<table class="table table-condensed">
-    <tr>
-      <td>Correo</td>
-      <td>Nombre</td>
-      <td>Fecha de Solicitud</td>
-      <td>Fecha de Programación</td>
-      
-      <td>Estado</td>
-      <td></td>
-    </tr>
-    <tr class="danger">
-      <td>ejemplo@ejmeplo</td>
-      <td>Milton</td>
-      <td>06/05/2014</td>
-<td>07/05/20014</td>
-      
-      <td>Sin Confirmar</td>
-      <td><input type="submit" class="btn btn-primary" name="btm_eliminar" id="btm_eliminar" value="confirmar"></td>
-      <td><input type="submit" class="btn btn-danger" name="btm_eliminar" id="btm_eliminar" value="Cancelar"></td>
-    </tr>
-    <tr>
-      <td>ejemplo@ejmeplo</td>
-      <td>Fabio</td>
-      <td>06/05/2014</td>
-<td>08/05/20014</td>
-      
-      <td>Confirmado</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr class="danger">
-      <td>ejemplo@ejmeplo</td>
-      <td>Maria</td>
-      <td>06/05/2014</td>
-<td>07/05/20014</td>
- 
-      <td>Sin Confirmar</td>
-      <td><input type="submit" class="btn btn-primary" name="btm_eliminar" id="btm_eliminar" value="confirmar"></td>
-      <td><input type="submit" class="btn btn-danger" name="btm_eliminar" id="btm_eliminar" value="Cancelar"></td>
-    </tr>
-    <tr>
-      <td>ejemplo@ejmeplo</td>
-      <td>Dolores</td>
-      <td>06/05/2014</td>
-<td>06/05/20014</td>      
-      
-      <td>Confirmar</td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
+<table class="table table-bordered">
+                    <!--          LISTADO     -->
+                    <jsp:useBean id="estado" scope="request" class="BAL.Espera" />
+                    <c:set var="lista" scope="request" value="${estado.listado}"/>
+                    <ajax:displayTag id="displayTagFrame" ajaxFlag="displayAjax">
+                        <display:table name="lista" export="true" id="fila" >
+                            <display:setProperty name="export.rtf.filename" value="example.rtf"/>
+                            <display:column title="saber" >
+                                <input type="radio">
+                            </display:column>
+                            <display:column property="codigo" title="Codigo" />
+                            <display:column property="correocita" title="Correo" />
+                            <display:column property="nombre" title="Nombre" />
+
+                            <display:column property="fechasoli" title="Fecha Solicitud" />
+                            <display:column property="fecha" title="Fecha" />
+                            <display:column property="hora" title="Hora" />
+                            <display:column property="estado" title="Estado Cita" />
+                            <display:column title="Editar">
+                                <form  id="updateCita" method="post" action="actualizarCita.jsp">
+                                    <input type="hidden" name="codigoCita" value="${fila.codigo}" >
+                                    <input type="submit" class="btn btn-link" value="ENVIAR" POST="SUMIT"/>      
+                                </form>
+                            </display:column>
+                        </display:table>
+                    </ajax:displayTag>
+                </table>
     
   
 
@@ -499,34 +406,7 @@
 <script src="../scripts/bootstrap/js/bootstrap-slider.js" type="text/javascript"></script>
 <script src="../scripts/modernizr.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-      $('#ex1').slider({
-  formater: function(value) {
-    return 'temperatura: ' + value + '°C';
-  }
-});
 
-      $('#ex2').slider({
-  formater: function(value) {
-    return 'Peso: ' + value + ' Libras';
-  }
-});
-
-      $("#ex1").slider();
-$("#ex1").on('slide', function(slideEvt) {
-  $("#label_temp").text(slideEvt.value);
-});
-
-      $("#ex2").slider();
-$("#ex2").on('slide', function(slideEvt) {
-  $("#label_peso").text(slideEvt.value);
-});
-
-$("#ex3").slider();
-$("#ex3").on('slide', function(slideEvt) {
-  $("#label_Altura").text(slideEvt.value);
-});
-    </script>
 
 <script src="../scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({ responsive: true, width: '100%', scroll: 2, items: {width: 320,visible: {min: 2, max: 6}} });</script><script src="../scripts/camera/scripts/camera.min.js" type="text/javascript"></script>
 <script src="../scripts/easing/jquery.easing.1.3.js" type="text/javascript"></script>

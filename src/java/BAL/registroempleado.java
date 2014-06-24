@@ -19,34 +19,37 @@ import java.sql.Statement;
  *
  * @author Angel
  */
-public class registrarusuario {
-        public static void main(String[] args) {
+public class registroempleado {
+   public static void main(String[] args) {
     
    try {
       Connection bdconeccion=cConexion.conectar_ds();
     CallableStatement buscador=null;
    
-    String query="{call registroUsuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+    String query="{call registroempleado(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
     Statement stmt = null;
   PreparedStatement pst= bdconeccion.prepareStatement(query);
-  pst.setString(1, "angel");
-  pst.setString(2, "anngel");
-  pst.setString(3, "Angel");
-  pst.setString(4, "saber");
-  pst.setString(5, "angel");
+  pst.setInt(1, 2);
+  pst.setString(2, "angel");
+  pst.setString(3, "anngelll");
+  pst.setString(4, "Angelll");
+  pst.setString(5, "saberll");
   pst.setString(6, "angel");
-  pst.setDate(7, Date.valueOf("1991-02-22"));
-  pst.setString(8, "m");
-  pst.setString(9, "angel");
+  pst.setString(7, "angel");
+  pst.setDate(8, Date.valueOf("1991-02-22"));
+  pst.setString(9, "m");
   pst.setString(10, "angel");
   pst.setString(11, "angel");
   pst.setString(12, "angel");
   pst.setString(13, "angel");
   pst.setString(14, "angel");
-  pst.setInt(15, 1);
-  pst.setString(16, "angel");
+  pst.setString(15, "angel");
+  pst.setInt(16, 1);
   pst.setString(17, "angel");
-  pst.setInt(18,1);
+  pst.setString(18, "angel");
+  pst.setInt(19,1);
+  pst.setInt(20,1);
+  pst.setInt(21,1);
            ResultSet rs =pst.executeQuery();
                   
           

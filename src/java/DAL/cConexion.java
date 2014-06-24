@@ -12,9 +12,9 @@ import java.sql.*;
  */
 public class cConexion {
 
-    private static final String SQLSERVER_URL = "jdbc:sqlserver://localhost:49759;databaseName=clinica";
+    private static final String SQLSERVER_URL = "jdbc:sqlserver://localhost:1433;databaseName=clinica";
     private static final String MYSQL_USER = "sa";
-    private static final String MYSQL_PASSWD = "destiny";
+    private static final String MYSQL_PASSWD = "angel";
 
     public static Connection conectar_ds() {
         Connection cnn = null;

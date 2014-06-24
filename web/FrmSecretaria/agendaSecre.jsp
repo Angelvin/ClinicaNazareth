@@ -17,7 +17,7 @@
         </style>
     </head>
     <body id="pageBody">
-        <div id="divBoxed" class="container">
+        <div  class="container">
             <div class="transparent-bg" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: -1;zoom: 1;"></div>
             <div class="divPanel notop nobottom">
                 <div class="row-fluid">
