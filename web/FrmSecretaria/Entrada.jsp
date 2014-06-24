@@ -23,14 +23,26 @@
 
     <link href="../scripts/carousel/style.css" rel="stylesheet" type="text/css" /><link href="../scripts/camera/css/camera.css" rel="stylesheet" type="text/css" />
   <link href="../scripts/wookmark/css/style.css" rel="stylesheet" type="text/css" />  <link href="../scripts/yoxview/yoxview.css" rel="stylesheet" type="text/css" />
-<style type="text/css">
-        body { padding-top:20px; }
-.panel-body .btn:not(.btn-block) { width:120px;margin-bottom:10px; }    </style>
+
+    <link href="http://fonts.googleapis.com/css?family=Syncopate" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="scripts/bootstrap/css/slider.css" rel="stylesheet" type="text/css" />
+
  
     <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
   
 <style>
-        
+        fieldset {
+            border: solid 2px rgba(128, 128, 128,0.6);
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>
+
 
 
 </style>
@@ -88,21 +100,17 @@
                 </div>
   <div class="panel-body">
    
-   <div class="row">
-                        <div class="col-xs-6 col-md-6">
-                          <a href="../FrmSecretaria/indexsecre.jsp" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Home</a>
-                          <a href="../FrmSecretaria/RegistroP.jsp" class="btn btn-warning btn-lg" role="button"><span class="glyphicon glyphicon-bookmark"></span> <br/>Creacion Persona</a>
-                          <a href="../FrmSecretaria/BusquedaPaciente.html" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-signal"></span> <br/>Busquedad Paciente</a>
-                          <a href="../FrmSecretaria/agendaSecre.jsp" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Agenda</a>
-                        </div>
-                        <div class="col-xs-6 col-md-6">
-                          <a href="../FrmSecretaria/Ingreso.jsp" class="btn btn-success btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> <br/>Medicamento</a>
-                          <a href="../FrmSecretaria/factura.html" class="btn btn-info btn-lg" role="button"><span class="glyphicon glyphicon-file"></span> <br/>Notes</a>
-                          <a href="../login.jsp" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-picture"></span> <br/>Photos</a>
-                          <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-tag"></span> <br/>Tags</a>
-                        </div>
-                    </div>
-                    <a href="http://www.jquery2dotnet.com/" class="btn btn-success btn-lg btn-block" role="button"><span class="glyphicon glyphicon-globe"></span> Website</a>
+      <ul class="list-group">
+  
+ <li  class="list-group-item"><span class="glyphicon glyphicon-tasks"></span><a href="../FrmSecretaria/indexsecre.html">Home</a></li>
+<li class="list-group-item"><span class="glyphicon glyphicon-user"></span><a href="../FrmSecretaria/RegistroP.html">Creación Paciente</a></li>
+<li class="list-group-item"><span class="glyphicon glyphicon-search"></span><a href="../FrmSecretaria/BusquedaPaciente.html">Búsqueda de Paciente</a></li>
+<li class="list-group-item"><span class="glyphicon glyphicon-list-alt"></span><a href="../FrmSecretaria/agendaSecre.html">Agenda</a></li>
+<li class="list-group-item"><span class="glyphicon glyphicon-shopping-cart"></span><a href="../FrmSecretaria/Ingreso.html">Adquisición</a></li>
+<li class="list-group-item"><span class="glyphicon glyphicon-usd"></span><a href="../FrmSecretaria/factura.html">Facturación</a></li>
+<li class="list-group-item"><a href="../login.html">SALIR<span class="glyphicon glyphicon-off"></span></a></li>
+   
+</ul>
 </div>   
    
 <div>

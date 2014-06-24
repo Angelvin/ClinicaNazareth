@@ -26,11 +26,11 @@ public class registrarusuario {
       Connection bdconeccion=cConexion.conectar_ds();
     CallableStatement buscador=null;
    
-    String query="{call registroUsuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+    String query="{call registroUsuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
     Statement stmt = null;
   PreparedStatement pst= bdconeccion.prepareStatement(query);
   pst.setString(1, "angel");
-  pst.setString(2, "anngel");
+  pst.setString(2, "angel2");
   pst.setString(3, "Angel");
   pst.setString(4, "saber");
   pst.setString(5, "angel");
@@ -42,13 +42,16 @@ public class registrarusuario {
   pst.setString(11, "angel");
   pst.setString(12, "angel");
   pst.setString(13, "angel");
-  pst.setString(14, "angel");
-  pst.setInt(15, 1);
+  pst.setInt(14, 1);
+  pst.setString(15, "angel");
   pst.setString(16, "angel");
   pst.setString(17, "angel");
-  pst.setInt(18,1);
+  pst.setInt(18, 1);
            ResultSet rs =pst.executeQuery();
-                  
+                      while (rs.next()){
+               System.out.println(rs.getString(1).toString());
+           }
+
           
    } catch (SQLException e){
        System.out.println(e.getMessage());

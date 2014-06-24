@@ -7,13 +7,32 @@
     <meta name="description" content="">
     <meta name="author" content="Zaid Archila">
     <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-     <link href="../scripts/bootstrap/css/datepicker.css" rel="Stylesheet"/>
     <link href="../scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- Icons -->
     <link href="../scripts/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css" />  
     <link href="../scripts/icons/social/stylesheets/social_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 8]>
+        <link href="scripts/icons/general/stylesheets/general_foundicons_ie7.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="scripts/icons/social/stylesheets/social_foundicons_ie7.css" media="screen" rel="stylesheet" type="text/css" />
+    <![endif]-->
     <link rel="stylesheet" href="../scripts/fontawesome/css/font-awesome.min.css">
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="scripts/fontawesome/css/font-awesome-ie7.min.css">
+    <![endif]-->
+
     <link href="../scripts/carousel/style.css" rel="stylesheet" type="text/css" /><link href="../scripts/camera/css/camera.css" rel="stylesheet" type="text/css" />
   <link href="../scripts/wookmark/css/style.css" rel="stylesheet" type="text/css" />  <link href="../scripts/yoxview/yoxview.css" rel="stylesheet" type="text/css" />
+
+    <link href="http://fonts.googleapis.com/css?family=Syncopate" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+  
+
+ 
     <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
   
 <script type="text/javascript">
@@ -63,7 +82,7 @@ function correo(campo) {
 
 </head>
 <body id="pageBody">
-<form name="form1" method="post" action="srvTipoProducto">
+
 <div id="divBoxed" class="container">
 
     <div class="transparent-bg" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: -1;zoom: 1;"></div>
@@ -103,8 +122,8 @@ function correo(campo) {
   <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
   <div class="col-xs-6 col-md-4">
     <ul class="pager">
-      <li class="next"><a href="../login.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
-       <li class="next"><a href="../FrmSecretaria/Entrada.jsp">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
+      <li class="next"><a href="../login.html">Salir <span class="glyphicon glyphicon-off"></span></a></li>
+       <li class="next"><a href="../FrmSecretaria/EntraSecret.html">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
  <li class="next"></li>
   
 </ul>
@@ -115,26 +134,54 @@ function correo(campo) {
                     
                 </div>
   <div class="panel-body">
-   
+   <div class="panel panel-info">
+  <div class="panel-heading">Creracion de login </div>
+  <div class="panel-body">
+    <div class="panel panel-default">
+  <div class="panel-body">
+  <div class="row">
+  <div class="col-xs-6 col-md-2"><label >Usuario</label>
+
+  </div>
+  <div class="col-xs-6 col-md-4">
+    <input class="form-control" placeholder="EJEMPLO@EJEMPLO.COM" onblur="correo(this);">
+  </div>
+  
+
+</div>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+   <div class="row">
+  <div class="col-md-6" ><label>Contraseña</label><input name:"contra" id="contra" type="password" class="form-control" placeholder="Password" required></div>
+  <div class="col-md-6"><label>repetir-Contraseña</label><input name:"contra" id="contra" type="password" class="form-control" placeholder="Password" required></div>
+</div>
+  </div>
+</div>
+
+
+
+
+  </div>
+</div>
+
 <div class="panel panel-info">
   <div class="panel-heading">Datos generales</div>
   <div class="panel-body">
    <div class="row">
-  <div class="col-md-6" ><label>Primer Nombre</label><input class="form-control"  placeholder="nombre" onblur="validatePass(this);" id="txtnombre1"></div>
-  <div class="col-md-6"><label>Segundo Nombre</label><input class="form-control" placeholder="nombre" id="txtsegundoN"></div>
+  <div class="col-md-6" ><label>Primer Nombre</label><input class="form-control"  placeholder="nombre" onblur="validatePass(this);"></div>
+  <div class="col-md-6"><label>Segundo Nombre</label><input class="form-control" placeholder="nombre"></div>
 </div>
 <div class="row">
-  <div class="col-md-6"><label>Primer Apellido</label><input class="form-control"  placeholder="apellido"onblur="validatePass(this);" id="txtapellido"></div>
-  <div class="col-md-6"><label>Segundo Apellido</label><input class="form-control" placeholder="apellido"onblur="validatePass(this);"id="txtapellido1" ></div>
+  <div class="col-md-6"><label>Primer Apellido</label><input class="form-control"  placeholder="apellido"onblur="validatePass(this);"></div>
+  <div class="col-md-6"><label>Segundo Apellido</label><input class="form-control" placeholder="apellido"onblur="validatePass(this);"></div>
 </div>
 
 <div class="row">
   <div class="col-xs-12 col-md-8" ><label>Fecha Nacimiento</label>
 
-<div class="input-append date" data-format="dd/mm/yyyy">
-                                <input class="span13" type="text" placeholder="ejemplo: 24/07/1989" id="fnacimiento" name="fnacimiento">
-                                <span class="add-on"><i class="icon-calendar"></i></span>
-                            </div>
+<input type="date" class="form-control" name="fecha" value="" />
 
 
 
@@ -160,9 +207,9 @@ function correo(campo) {
 
   </div>
   <div class="col-xs-6 col-md-3">
-    <input class="form-control" placeholder="Documento" onblur="docu(this);"id="txtdocu">
+    <input class="form-control" placeholder="Documento" onblur="docu(this);">
   </div>
-  <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT NAME="selCombo" SIZE=1 id="cbtipodocu"> 
+  <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT NAME="selCombo" SIZE=1> 
 <OPTION VALUE="1">DUI</OPTION>
 <OPTION VALUE="2">Carnet de Minoridad</OPTION>
 <OPTION VALUE="3">Pasaporte</OPTION>
@@ -181,9 +228,9 @@ function correo(campo) {
 
   </div>
   <div class="col-xs-6 col-md-3">
-    <input class="form-control" placeholder="NUMERO TELEFONO"onblur="tele(this);" id="txtnumeroc" >
+    <input class="form-control" placeholder="NUMERO TELEFONO"onblur="tele(this);">
   </div>
-  <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT NAME="selCombo" SIZE=1 id="cbnumerot" > 
+  <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT NAME="selCombo" SIZE=1> 
 <OPTION VALUE="1">FIJO</OPTION>
 <OPTION VALUE="2">CELULAR</OPTION>
 <OPTION VALUE="3">TRABAJO</OPTION>
@@ -205,53 +252,22 @@ function correo(campo) {
   <div class="panel-heading">Direccion</div>
   <div class="panel-body">
     <div class="row">
-  <div class="col-xs-6 col-md-4"><input class="form-control" placeholder="Calle"onblur="validatePass(this);" id="txtdireccion" ></div>
-  <div class="col-xs-6 col-md-2"><label >Municipio</label><SELECT NAME="selCombo" SIZE=1 id="muni" > 
+  <div class="col-xs-6 col-md-4"><input class="form-control" placeholder="Calle"onblur="validatePass(this);"></div>
+  <div class="col-xs-6 col-md-2"><label >Municipio</label><SELECT NAME="selCombo" SIZE=1> 
 <OPTION VALUE="1">PERSONAL</OPTION>
 <OPTION VALUE="2">TRABAJO</OPTION>
 </SELECT></div>
-<div class="col-xs-6 col-md-2"><label >Departamento</label><SELECT NAME="selCombo" SIZE=1 id="departa"> 
+<div class="col-xs-6 col-md-2"><label for="">Departamento</label><SELECT NAME="selCombo" SIZE=1> 
 <OPTION VALUE="1">PERSONAL</OPTION>
 <OPTION VALUE="2">TRABAJO</OPTION>
 </SELECT></div>
 </div>
   </div>
 </div>
-<div class="panel panel-info">
-  <div class="panel-heading">Creracion de login </div>
-  <div class="panel-body">
-    <div class="panel panel-default">
-  <div class="panel-body">
-  <div class="row">
-  <div class="col-xs-6 col-md-2"><label >Usuario</label>
-
-  </div>
-  <div class="col-xs-6 col-md-4">
-    <input class="form-control" placeholder="EJEMPLO@EJEMPLO.COM" onblur="correo(this);" id="txtlogin" >
-  </div>
-  
-
-</div>
-  </div>
-</div>
-<div class="panel panel-default">
-  <div class="panel-body">
-   <div class="row">
-  <div class="col-md-6" ><label>Contraseña</label><input name:"contra" id="contra" type="password" class="form-control" placeholder="Password" required id="" ></div>
-  <div class="col-md-6"><label>repetir-Contraseña</label><input name:"contra" id="contra" type="password" class="form-control" placeholder="Password" required  id=""></div>
-</div>
-  </div>
-</div>
 
 
 
-
-  </div>
-</div>
-
-<input name="cmdguardar" type="submit" id="cmdguardar" value="Guardar" type="button" class="btn btn-info">
-
-
+ <button type="button" class="btn btn-default">Ingresar</button>
     
 </div>   
    
@@ -261,7 +277,7 @@ function correo(campo) {
     
         
           
- </form>
+
           
   </div>
 </div>
