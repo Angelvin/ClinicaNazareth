@@ -109,7 +109,7 @@
                     <jsp:useBean id="estado" scope="request" class="BAL.Espera" />
                     <c:set var="lista" scope="request" value="${estado.listado}"/>
                     <ajax:displayTag id="displayTagFrame" ajaxFlag="displayAjax">
-                        <display:table name="lista" export="true" id="fila">
+                        <display:table name="lista" export="true" id="fila" >
                             <display:setProperty name="export.rtf.filename" value="example.rtf"/>
                             <display:column title="saber" >
                                 <input type="radio">
