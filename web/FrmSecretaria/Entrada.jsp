@@ -24,13 +24,7 @@
     <link href="../scripts/carousel/style.css" rel="stylesheet" type="text/css" /><link href="../scripts/camera/css/camera.css" rel="stylesheet" type="text/css" />
   <link href="../scripts/wookmark/css/style.css" rel="stylesheet" type="text/css" />  <link href="../scripts/yoxview/yoxview.css" rel="stylesheet" type="text/css" />
 
-    <link href="http://fonts.googleapis.com/css?family=Syncopate" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <link href="scripts/bootstrap/css/slider.css" rel="stylesheet" type="text/css" />
+
 
  
     <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
@@ -45,7 +39,7 @@
 
 
 
-</style>
+
 </head>
 <body id="pageBody">
 
@@ -60,8 +54,8 @@
 
                     <!--Edit Site Name and Slogan here-->
           <div id="divLogo">
-                        <a href="index.html" id="divSiteTitle">Clínica Nazareth</a><br />
-                      <a href="index.html" id="divTagLine">¡<span class="camera_full_width">Gestión de Administración</span>!</a>
+                        <a href="index.jsp" id="divSiteTitle">Clínica Nazareth</a><br />
+                      <a href="index.jsp" id="divTagLine">¡<span class="camera_full_width">Gestión de Administración</span>!</a>
 
                     </div>
 
@@ -88,7 +82,7 @@
   <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
   <div class="col-xs-6 col-md-4">
     <ul class="pager">
-      <li class="next"><a href="../login.html">Salir <span class="glyphicon glyphicon-off"></span></a></li>
+      <li class="next"><a href="../login.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
  <li class="next"></li>
   
 </ul>
@@ -102,13 +96,13 @@
    
       <ul class="list-group">
   
- <li  class="list-group-item"><span class="glyphicon glyphicon-tasks"></span><a href="../FrmSecretaria/indexsecre.html">Home</a></li>
-<li class="list-group-item"><span class="glyphicon glyphicon-user"></span><a href="../FrmSecretaria/RegistroP.html">Creación Paciente</a></li>
-<li class="list-group-item"><span class="glyphicon glyphicon-search"></span><a href="../FrmSecretaria/BusquedaPaciente.html">Búsqueda de Paciente</a></li>
-<li class="list-group-item"><span class="glyphicon glyphicon-list-alt"></span><a href="../FrmSecretaria/agendaSecre.html">Agenda</a></li>
-<li class="list-group-item"><span class="glyphicon glyphicon-shopping-cart"></span><a href="../FrmSecretaria/Ingreso.html">Adquisición</a></li>
-<li class="list-group-item"><span class="glyphicon glyphicon-usd"></span><a href="../FrmSecretaria/factura.html">Facturación</a></li>
-<li class="list-group-item"><a href="../login.html">SALIR<span class="glyphicon glyphicon-off"></span></a></li>
+ <li  class="list-group-item"><span class="glyphicon glyphicon-tasks"></span><a href="../FrmSecretaria/indexsecre.jsp">Home</a></li>
+<li class="list-group-item"><span class="glyphicon glyphicon-user"></span><a href="../FrmSecretaria/RegistroP.jsp">Creacion Paciente</a></li>
+<li class="list-group-item"><span class="glyphicon glyphicon-search"></span><a href="../FrmSecretaria/BusquedaPaciente.jsp">Busqueda de Paciente</a></li>
+<li class="list-group-item"><span class="glyphicon glyphicon-list-alt"></span><a href="../FrmSecretaria/agendaSecre.jsp">Agenda</a></li>
+<li class="list-group-item"><span class="glyphicon glyphicon-shopping-cart"></span><a href="../FrmSecretaria/Ingreso.jsp">Adquisición</a></li>
+<li class="list-group-item"><span class="glyphicon glyphicon-usd"></span><a href="../FrmSecretaria/factura.jsp">Facturacion</a></li>
+<li class="list-group-item"><a href="../login.jsp">SALIR<span class="glyphicon glyphicon-off"></span></a></li>
    
 </ul>
 </div>   

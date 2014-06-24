@@ -24,15 +24,6 @@
     <link href="../scripts/carousel/style.css" rel="stylesheet" type="text/css" /><link href="../scripts/camera/css/camera.css" rel="stylesheet" type="text/css" />
   <link href="../scripts/wookmark/css/style.css" rel="stylesheet" type="text/css" />  <link href="../scripts/yoxview/yoxview.css" rel="stylesheet" type="text/css" />
 
-    <link href="http://fonts.googleapis.com/css?family=Syncopate" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-  
-
- 
     <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
   
 <script type="text/javascript">
@@ -154,8 +145,8 @@ function correo(campo) {
 <div class="panel panel-default">
   <div class="panel-body">
    <div class="row">
-  <div class="col-md-6" ><label>Contraseña</label><input name:"contra" id="contra" type="password" class="form-control" placeholder="Password" required></div>
-  <div class="col-md-6"><label>repetir-Contraseña</label><input name:"contra" id="contra" type="password" class="form-control" placeholder="Password" required></div>
+  <div class="col-md-6" ><label>Contraseña</label><input name=contra" id="contra" type="password" class="form-control" placeholder="Password" required></div>
+  <div class="col-md-6"><label>repetir-Contraseña</label><input name="contra" id="contra" type="password" class="form-control" placeholder="Password" required></div>
 </div>
   </div>
 </div>
@@ -174,8 +165,8 @@ function correo(campo) {
   <div class="col-md-6"><label>Segundo Nombre</label><input class="form-control" placeholder="nombre"></div>
 </div>
 <div class="row">
-  <div class="col-md-6"><label>Primer Apellido</label><input class="form-control"  placeholder="apellido"onblur="validatePass(this);"></div>
-  <div class="col-md-6"><label>Segundo Apellido</label><input class="form-control" placeholder="apellido"onblur="validatePass(this);"></div>
+  <div class="col-md-6"><label>Primer Apellido</label><input class="form-control"  placeholder="apellido" onblur="validatePass(this);"></div>
+  <div class="col-md-6"><label>Segundo Apellido</label><input class="form-control" placeholder="apellido" onblur="validatePass(this);"></div>
 </div>
 
 <div class="row">
@@ -257,7 +248,7 @@ function correo(campo) {
 <OPTION VALUE="1">PERSONAL</OPTION>
 <OPTION VALUE="2">TRABAJO</OPTION>
 </SELECT></div>
-<div class="col-xs-6 col-md-2"><label for="">Departamento</label><SELECT NAME="selCombo" SIZE=1> 
+<div class="col-xs-6 col-md-2"><label >Departamento</label><SELECT NAME="selCombo" SIZE=1> 
 <OPTION VALUE="1">PERSONAL</OPTION>
 <OPTION VALUE="2">TRABAJO</OPTION>
 </SELECT></div>

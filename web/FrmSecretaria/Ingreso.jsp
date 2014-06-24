@@ -24,12 +24,7 @@
     <link href="../scripts/carousel/style.css" rel="stylesheet" type="text/css" /><link href="../scripts/camera/css/camera.css" rel="stylesheet" type="text/css" />
   <link href="../scripts/wookmark/css/style.css" rel="stylesheet" type="text/css" />  <link href="../scripts/yoxview/yoxview.css" rel="stylesheet" type="text/css" />
 
-    <link href="http://fonts.googleapis.com/css?family=Syncopate" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+ 
 
 
 
@@ -283,7 +278,7 @@ function correo(campo) {
                     <div id="collapseTwo" class="panel-collapse collapse">
                         <div class="panel-body">
                               <div class="row">
-  <div class="col-xs-6 col-md-4"><label for="">Nombre</label></div>
+  <div class="col-xs-6 col-md-4"><label >Nombre</label></div>
   <div class="col-xs-6 col-md-4"><input type="text" class="form-control"  /></div>
   <div class="col-xs-6 col-md-4"></div>
 
@@ -294,19 +289,19 @@ function correo(campo) {
 
 
   <div class="row">
-  <div class="col-xs-6 col-md-4"><label for="">Via de Aplicacion</label></div>
+  <div class="col-xs-6 col-md-4"><label >Via de Aplicacion</label></div>
   <div class="col-xs-6 col-md-4"><input type="text" class="form-control"  ></div>
  
 </div>
 
 <div class="row">
-  <div class="col-xs-6 col-md-4"><label for="">Presentacion</label> </div>
+  <div class="col-xs-6 col-md-4"><label >Presentacion</label> </div>
   <div class="col-xs-6 col-md-4"><input type="text" class="form-control"  onblur="validatePass(this);" ></div>
   
 </div>
 
 <div class="row">
-  <div class="col-xs-6 col-md-4"><label for="">Grupo</label></div>
+  <div class="col-xs-6 col-md-4"><label>Grupo</label></div>
   <div class="col-xs-6 col-md-4"><SELECT NAME="selCombo" SIZE=1> 
 <OPTION VALUE="1">FIJO</OPTION>
 <OPTION VALUE="2">CELULAR</OPTION>

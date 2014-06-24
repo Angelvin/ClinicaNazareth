@@ -12,10 +12,7 @@
     <!-- Icons -->
     <link href="../scripts/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css" />  
     <link href="../scripts/icons/social/stylesheets/social_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
-    <!--[if lt IE 8]>
-        <link href="scripts/icons/general/stylesheets/general_foundicons_ie7.css" media="screen" rel="stylesheet" type="text/css" />
-        <link href="scripts/icons/social/stylesheets/social_foundicons_ie7.css" media="screen" rel="stylesheet" type="text/css" />
-    <![endif]-->
+   
     <link rel="stylesheet" href="../scripts/fontawesome/css/font-awesome.min.css">
     <!--[if IE 7]>
         <link rel="stylesheet" href="scripts/fontawesome/css/font-awesome-ie7.min.css">
@@ -24,12 +21,6 @@
     <link href="../scripts/carousel/style.css" rel="stylesheet" type="text/css" /><link href="../scripts/camera/css/camera.css" rel="stylesheet" type="text/css" />
   <link href="../scripts/wookmark/css/style.css" rel="stylesheet" type="text/css" />  <link href="../scripts/yoxview/yoxview.css" rel="stylesheet" type="text/css" />
 
-    <link href="http://fonts.googleapis.com/css?family=Syncopate" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
    
     <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
   
@@ -92,8 +83,8 @@ function correo(campo) {
 
                     <!--Edit Site Name and Slogan here-->
 				  <div id="divLogo">
-                        <a href="index.html" id="divSiteTitle">Clínica Nazareth</a><br />
-                      <a href="index.html" id="divTagLine">¡<span class="camera_full_width">Búsqueda de Paciente</span>!</a>
+                        <a href="index.jsp" id="divSiteTitle">Clínica Nazareth</a><br />
+                      <a href="index.jsp" id="divTagLine">¡<span class="camera_full_width">Búsqueda de Paciente</span>!</a>
                     </div>
 
 	            </div>
@@ -119,9 +110,9 @@ function correo(campo) {
   <div class="col-xs-6 col-md-4">
     <ul class="pager">
 
-      <li class="next"><a href="../sistema/login.html">Salir <span class="glyphicon glyphicon-off"></span></a></li>
+      <li class="next"><a href="../sistema/login.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
 
-       <li class="next"><a href="../FrmSecretaria/EntraSecret.html">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
+       <li class="next"><a href="../FrmSecretaria/Entrada.jsp">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
  <li class="next"></li>
   
 </ul>
@@ -153,12 +144,12 @@ function correo(campo) {
                     <div id="collapseOne" class="panel-collapse collapse in">
                         <div class="panel-body">
                            <div class="row">
-  <div class="col-md-6" ><label>Primer Nombre</label><input class="form-control"  placeholder="nombre"onblur="validatePass(this);"></div>
-  <div class="col-md-6"><label>Segundo Nombre</label><input class="form-control" placeholder="nombre"onblur="validatePass(this);"></div>
+  <div class="col-md-6" ><label>Primer Nombre</label><input class="form-control"  placeholder="nombre" onblur="validatePass(this);"></div>
+  <div class="col-md-6"><label>Segundo Nombre</label><input class="form-control" placeholder="nombre" onblur="validatePass(this);"></div>
 </div>
 <div class="row">
-  <div class="col-md-6"><label>Primer Apellido</label><input class="form-control"  placeholder="apellido"onblur="validatePass(this);"></div>
-  <div class="col-md-6"><label>Segundo Apellido</label><input class="form-control" placeholder="apellido"onblur="validatePass(this);"></div>
+  <div class="col-md-6"><label>Primer Apellido</label><input class="form-control"  placeholder="apellido" onblur="validatePass(this);"></div>
+  <div class="col-md-6"><label>Segundo Apellido</label><input class="form-control" placeholder="apellido" onblur="validatePass(this);"></div>
 </div>
 
 <div class="row">
@@ -235,8 +226,8 @@ function correo(campo) {
   
 <div class="row">
   <div class="col-xs-6 col-md-2"><label >Dirección</label></div>
-  <div class="col-xs-6 col-md-4"><input class="form-control" placeholder="Calle"onblur="validatePass(this);"></div>
-  <div class="col-xs-6 col-md-4"><input class="form-control" placeholder="Casa"onblur="validatePass(this);"></div>
+  <div class="col-xs-6 col-md-4"><input class="form-control" placeholder="Calle" onblur="validatePass(this);"></div>
+  <div class="col-xs-6 col-md-4"><input class="form-control" placeholder="Casa" onblur="validatePass(this);"></div>
  
  
 
@@ -244,7 +235,7 @@ function correo(campo) {
 
 
 <div class="row">
-  <div class="col-xs-6 col-md-2"><label for="">Departamento</label></div>
+  <div class="col-xs-6 col-md-2"><label >Departamento</label></div>
   <div class="col-xs-6 col-md-4"><SELECT NAME="selCombo" SIZE=1> 
 <OPTION VALUE="1">PERSONAL</OPTION>
 <OPTION VALUE="2">TRABAJO</OPTION>

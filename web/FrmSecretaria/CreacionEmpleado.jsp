@@ -24,12 +24,7 @@
         <link href="../scripts/carousel/style.css" rel="stylesheet" type="text/css" /><link href="../scripts/camera/css/camera.css" rel="stylesheet" type="text/css" />
         <link href="../scripts/wookmark/css/style.css" rel="stylesheet" type="text/css" />  <link href="../scripts/yoxview/yoxview.css" rel="stylesheet" type="text/css" />
 
-        <link href="http://fonts.googleapis.com/css?family=Syncopate" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+      
 
 
 
@@ -97,8 +92,8 @@
 
                         <!--Edit Site Name and Slogan here-->
                         <div id="divLogo">
-                            <a href="index.html" id="divSiteTitle">Clínica Nazareth</a><br />
-                            <a href="index.html" id="divTagLine">¡<span class="camera_full_width">Gestión de Administración</span>!</a>
+                            <a href="index.jsp" id="divSiteTitle">Clínica Nazareth</a><br />
+                            <a href="index.jsp" id="divTagLine">¡<span class="camera_full_width">Gestión de Administración</span>!</a>
 
                         </div>
 
@@ -125,8 +120,8 @@
                             <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
                             <div class="col-xs-6 col-md-4">
                                 <ul class="pager">
-                                    <li class="next"><a href="../login.html">Salir <span class="glyphicon glyphicon-off"></span></a></li>
-                                    <li class="next"><a href="../FrmSecretaria/EntraSecret.html">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
+                                    <li class="next"><a href="../login.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
+                                    <li class="next"><a href="../FrmSecretaria/Entrada.jsp">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
                                     <li class="next"></li>
 
                                 </ul>
@@ -157,8 +152,8 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <div class="row">
-                                            <div class="col-md-6" ><label>Contraseña</label><input name:"contra" id="contra" type="password" class="form-control" placeholder="Password" required></div>
-                                            <div class="col-md-6"><label>repetir-Contraseña</label><input name:"contra" id="contra" type="password" class="form-control" placeholder="Password" required></div>
+                                            <div class="col-md-6" ><label>Contraseña</label> <input name=contra" id="contra" type="password" class="form-control" placeholder="Password" required></div>
+                                            <div class="col-md-6"><label>repetir-Contraseña</label> <input name=contra" id="contra" type="password" class="form-control" placeholder="Password" required></div>
                                         </div>
                                     </div>
                                 </div>
@@ -173,8 +168,8 @@
                             <div class="panel-heading">Datos generales</div>
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-md-6" ><label>Primer Nombre</label><input class="form-control"  placeholder="nombre"onblur="validatePass(this);"></div>
-                                    <div class="col-md-6"><label>Segundo Nombre</label><input class="form-control" placeholder="nombre"onblur="validatePass(this);" ></div>
+                                    <div class="col-md-6" ><label>Primer Nombre</label><input class="form-control"  placeholder="nombre" onblur="validatePass(this);"></div>
+                                    <div class="col-md-6"><label>Segundo Nombre</label><input class="form-control" placeholder="nombre" onblur="validatePass(this);" ></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6"><label>Primer Apellido</label><input class="form-control"  placeholder="apellido"onblur="validatePass(this);" onblur="validatePass(this);"></div>
@@ -260,7 +255,7 @@
                                             <OPTION VALUE="1">PERSONAL</OPTION>
                                             <OPTION VALUE="2">TRABAJO</OPTION>
                                         </SELECT></div>
-                                    <div class="col-xs-6 col-md-2"><label for="">Departamento</label><SELECT NAME="selCombo" SIZE=1> 
+                                    <div class="col-xs-6 col-md-2"><label >Departamento</label><SELECT NAME="selCombo" SIZE=1> 
                                             <OPTION VALUE="1">PERSONAL</OPTION>
                                             <OPTION VALUE="2">TRABAJO</OPTION>
                                         </SELECT></div>
@@ -311,7 +306,7 @@
                                             </div>
 
                                             <div class="col-xs-6 col-md-2">
-                                                <input class="form-control"  placeholder="nombre"onblur="docu(this);">
+                                                <input class="form-control"  placeholder="nombre" onblur="docu(this);">
 
 
                                             </div>
