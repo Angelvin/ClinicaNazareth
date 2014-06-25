@@ -52,7 +52,7 @@
                         <div class="col-md-2">
                             <br>
                             <ul class="nav nav-pills nav-stacked panel panel-default">
-                                <li><a href="#"><i class="glyphicon glyphicon-edit"></i> Bloquear Fechas</a></li>
+                                <li><a data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-edit"></i> Bloquear Fechas</a></li>
                                 <li><a href="#"><i class="glyphicon glyphicon-edit"></i>Bloquear Horarios</a></li>
                                 <li>#</li>
                                 <li>#</li>
@@ -178,6 +178,34 @@
             </div>
         </div>
         <br /><br /><br />
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="row">
+                <div class="modal-dialog  modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X </button>
+                            <h4 class="modal-title" id="myModalLabel">Bloquear Fechas</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <fieldset class="well">
+                                    <legend><span class="badge">3</span> Seleccione una fecha:</legend>
+                                    <div class=" col-xs-6">
+                                        <input type="date" class="form-control" >
+                                    </div>
+                                </fieldset>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            </div>
+        </div>
 
         <script src="../scripts/jquery.min.js" type="text/javascript"></script> 
         <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
