@@ -28,7 +28,7 @@
     </head>
     <body>
         <div class="container">
-                   <div>
+            <div>
                 <h1>Confirmado</h1>
                 <table>
 
@@ -133,8 +133,8 @@
                 </table>
 
             </div>
-     
+
         </div>
-                    
+
     </body>
 </html>
