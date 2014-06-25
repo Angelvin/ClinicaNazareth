@@ -9,7 +9,12 @@
         <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
         <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
-
+        <style>
+            .badge
+            {
+                font-size: 1.5em;
+            }
+        </style>
     </head>
     <body id="pageBody">
         <div id="divBoxed" class="container">
@@ -44,18 +49,22 @@
                         </div>
                     </div>
                     <div class="panel-body">
+                        <div class="col-md-2">
+                            <br>
+                            <ul class="nav nav-pills nav-stacked panel panel-default">
+                                <li><a href="#"><i class="glyphicon glyphicon-edit"></i> Bloquear Fechas</a></li>
+                                <li><a href="#"><i class="glyphicon glyphicon-edit"></i>Bloquear Horarios</a></li>
+                                <li>#</li>
+                                <li>#</li>
+                                <li>#</li>
+                            </ul>
+                        </div>
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-xs-6">
+                                    <div class="col-xs-5">
                                         <form>
                                             <fieldset class="well">
-                                                <style>
-                                                    .badge
-                                                    {
-                                                        font-size: 1.5em;
-                                                    }
-                                                </style>
                                                 <legend><span class="badge">1</span> Seleccione una especialidad:</legend>
                                                 <div class=" col-xs-6">
                                                     <select class="form-control">
@@ -67,7 +76,7 @@
                                             </fieldset>
                                         </form>
                                     </div>
-                                    <div class="col-xs-6">
+                                    <div class="col-xs-5">
                                         <form>
                                             <fieldset class="well">
                                                 <legend><span class="badge">2</span> Seleccione un medico:</legend>
@@ -81,13 +90,7 @@
                                             </fieldset>
                                         </form>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-xs-6">
+                                    <div class="col-xs-5">
                                         <form>
                                             <fieldset class="well">
                                                 <legend><span class="badge">3</span> Seleccione una fecha:</legend>
@@ -97,7 +100,7 @@
                                             </fieldset>
                                         </form>
                                     </div>
-                                    <div class="col-xs-6">
+                                    <div class="col-xs-5">
                                         <form>
                                             <fieldset class="well">
                                                 <legend><span class="badge">4</span> Horarios Disponibles:</legend>
@@ -110,12 +113,9 @@
                                             </fieldset>
                                         </form>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
-
                     </div>   
                     <div>
                         <table class="table table-condensed">
