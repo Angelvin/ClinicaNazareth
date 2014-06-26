@@ -20,44 +20,45 @@ import java.sql.Statement;
  * @author Angel
  */
 public class registrarusuario {
-        public static void main(String[] args) {
+
     
-   try {
+   
       Connection bdconeccion=cConexion.conectar_ds();
     CallableStatement buscador=null;
    
-    String query="{call registroUsuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
-    Statement stmt = null;
+  public static  String query="{call registroUsuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+  public static  String empleado="{call registroempleado(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+  
+  /*  Statement stmt = null;
   PreparedStatement pst= bdconeccion.prepareStatement(query);
-  pst.setString(1, "angel");
+  pst.setString(1, "miercoles");
   pst.setString(2, "angel2");
   pst.setString(3, "Angel");
-  pst.setString(4, "saber");
+  pst.setString(4, "miercoles");
   pst.setString(5, "angel");
   pst.setString(6, "angel");
   pst.setDate(7, Date.valueOf("1991-02-22"));
-  pst.setString(8, "m");
-  pst.setString(9, "angel");
+  pst.setString(8, "f");
+  pst.setString(9, "jsm");
   pst.setString(10, "angel");
   pst.setString(11, "angel");
   pst.setString(12, "angel");
   pst.setString(13, "angel");
-  pst.setInt(14, 1);
+  pst.setString(14, "angel");
   pst.setString(15, "angel");
-  pst.setString(16, "angel");
+  pst.setInt(16, 1);
+  
   pst.setString(17, "angel");
-  pst.setInt(18, 1);
+  pst.setString(18, "angel");
+ 
            ResultSet rs =pst.executeQuery();
                       while (rs.next()){
                System.out.println(rs.getString(1).toString());
-           }
+           }*/
 
-          
-   } catch (SQLException e){
-       System.out.println(e.getMessage());
-   }
+   
             
- }
+ 
 
     
     
