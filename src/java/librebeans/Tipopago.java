@@ -16,6 +16,7 @@ import java.util.List;
  * @author Angel
  */
 public class Tipopago {
+    
     public static String SELECT="select * from tipo_pago";
     private int codigo;
 

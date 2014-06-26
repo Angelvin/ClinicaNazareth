@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Clínica Nazareth</title>
+    <title>Clinica Nazareth</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Zaid Archila">
@@ -54,8 +54,8 @@
 
                     <!--Edit Site Name and Slogan here-->
           <div id="divLogo">
-                        <a href="index.jsp" id="divSiteTitle">Clínica Nazareth</a><br />
-                      <a href="index.jsp" id="divTagLine">¡<span class="camera_full_width">Gestión de Administración</span>!</a>
+                        <a href="index.jsp" id="divSiteTitle">Clinica Nazareth</a><br />
+                      <a href="index.jsp" id="divTagLine">�<span class="camera_full_width">Gestion de Administracion</span>!</a>
 
                     </div>
 
@@ -79,7 +79,7 @@
    <div class="panel panel-primary">
   <div class="panel-heading">
                     <div class="row">
-  <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
+  <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucia</h2></div>
   <div class="col-xs-6 col-md-4">
     <ul class="pager">
       <li class="next"><a href="../login.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
@@ -100,7 +100,7 @@
 <li class="list-group-item"><span class="glyphicon glyphicon-user"></span><a href="../FrmSecretaria/RegistroP.jsp">Creacion Paciente</a></li>
 <li class="list-group-item"><span class="glyphicon glyphicon-search"></span><a href="../FrmSecretaria/BusquedaPaciente.jsp">Busqueda de Paciente</a></li>
 <li class="list-group-item"><span class="glyphicon glyphicon-list-alt"></span><a href="../FrmSecretaria/agendaSecre.jsp">Agenda</a></li>
-<li class="list-group-item"><span class="glyphicon glyphicon-shopping-cart"></span><a href="../FrmSecretaria/Ingreso.jsp">Adquisición</a></li>
+<li class="list-group-item"><span class="glyphicon glyphicon-shopping-cart"></span><a href="../FrmSecretaria/Ingreso.jsp">Adquisicion</a></li>
 <li class="list-group-item"><span class="glyphicon glyphicon-usd"></span><a href="../FrmSecretaria/factura.jsp">Facturacion</a></li>
 <li class="list-group-item"><a href="../login.jsp">SALIR<span class="glyphicon glyphicon-off"></span></a></li>
    

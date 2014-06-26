@@ -12,7 +12,7 @@
         <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="../scripts/panelTabs.css" rel="stylesheet" />
         <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
-    </style>
+   
 </head>
 <body>
     <div id="divBoxed" class="container">
@@ -134,17 +134,21 @@
 
 
                                                             <display:column property="medico" title="Mèdico" />
-                                                            <display:column title="Editar">
-                                                                <a href="javascript:enviar()">
-                                                                    enviar
-                                                                </a>
-                                                                <input type="BUTTON" value="ENVIAR" POST="SUMIT"/>
-                                                            </display:column>
+                                                             <display:column title="Editar">
+                                                            <form  id="updateCita" method="post" action="../FrmSecretaria/reprogramar.jsp ">
+                                                                <input type="hidden" name="codigoCita" value="${fila.codigo}" >
+                                                                <input type="submit" name="cmdguardar" class="btn btn-link" value="Reprogramar" POST="SUMIT"/>
+                                                                <input type="submit" name="cmdguardar" class="btn btn-link" value="cancelar" POST="SUMIT"/>
+                                                            </form>
+                                                                 </display:column>
                                                         </display:table>
                                                     </ajax:displayTag>
 
 
                                                 </table>
+                                                    <div>
+        
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>
@@ -176,7 +180,7 @@
                                                             <display:column property="estado" title="Estado Cita" />
                                                             <display:column title="Editar">
                                                                 <form  id="updateCita" method="post" action="../cConsulta ">
-                                                                <input type="hidden" name="codigoCita" value="${fila.codigo}" >
+                                                                    <input type="hidden" name="codigoCita" value="${fila.codigo}" >
                                                                 <input type="submit" name="cmdguardar" class="btn btn-link" value="Confirmar" POST="SUMIT"/>
                                                                 <input type="submit" name="cmdguardar" class="btn btn-link" value="cancelar" POST="SUMIT"/>
                                                             </form>

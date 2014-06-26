@@ -43,59 +43,78 @@ public class sEmpleado extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         PrintWriter out = response.getWriter();
-        int rol = Integer.parseInt(request.getParameter("txtrol"));
-        String usuario = request.getParameter("txtusuario");
-        String contra = request.getParameter("txtcontra");
-        String nombre = request.getParameter("txtnombrep");
-        String nombres = request.getParameter("txtnombres");
-        String apellido = request.getParameter("txtapellido");
-        String apellidos = request.getParameter("txtapellidos");
+      int rol = Integer.parseInt(request.getParameter("txtrol"));
+        String usuario = request.getParameter("txtUsu");
+        String contra = request.getParameter("txtContra");
+        String nombre = request.getParameter("txtPNombre");
+        String sNombre = request.getParameter("txtSNombre");
+        String pApe = request.getParameter("txtPApe");
+        String sApe = request.getParameter("txtSApe");
         String fecha = request.getParameter("txtfecha");
-        String genero = request.getParameter("txtgenero");
-        String igle = request.getParameter("txtigle");
-        String docu = request.getParameter("txtdocu");
-        String tipodocu = request.getParameter("txttipodocu");
-        String tele = request.getParameter("txtele");
-        String tipotele = request.getParameter("txttipotele");
+        String docu = request.getParameter("txtDocu");
+        String TipoDocu = request.getParameter("comboDocu");
+        String sexo = request.getParameter("comboSex");
+        String cel = request.getParameter("txtCel");
+        String tipoCel = request.getParameter("comboTipoCel");
+        String correo = request.getParameter("txtCorreo");
+        String TipoCorreo = request.getParameter("comboTipoCorreo");
+        int cargo = Integer.parseInt(request.getParameter("comboCargo"));
+        int tipoEmp = Integer.parseInt(request.getParameter("comboTipoE"));
         String calle = request.getParameter("txtcalle");
         String casa = request.getParameter("txtcasa");
-        int muni = Integer.parseInt(request.getParameter("txtmuni"));
-        String correo = request.getParameter("correo");
-        String tipocorreo = request.getParameter("tipocorreo");
-        int tipoempleado = Integer.parseInt(request.getParameter("txttipempleado"));
-        int cargo = Integer.parseInt(request.getParameter("txtcargo"));
-       
-      
-        request.getParameter("cmdguardar");
+        String muni = request.getParameter("comboMunicipio");
+        
 
-        Connection bdconeccion = cConexion.conectar_ds();
+        /*   String tipo ="Consulta"; request.getParameter("cmdguardar");*/
+        Connection cnn = cConexion.conectar_ds();
 
         /*if (tipo.equals("Guardar")){*/
         try {
 
-            PreparedStatement pst = bdconeccion.prepareStatement(registrarusuario.empleado);
-            pst.setInt(1, rol);
-            pst.setString(2, usuario);
-            pst.setString(3, contra);
-            pst.setString(4, nombre);
-            pst.setString(5, nombres);
-            pst.setString(6, apellido);
-            pst.setString(7, apellidos);
-            pst.setDate(8, Date.valueOf(fecha));
-            pst.setString(9, genero);
-            pst.setString(10, igle);
-            pst.setString(11, docu);
-            pst.setString(12, tipodocu);
-            pst.setString(13, tele);
-            pst.setString(14, tipotele);
-            pst.setString(15, calle);
-            pst.setString(16, casa);
-            pst.setInt(17, muni);
-            pst.setString(18, correo);
-            pst.setString(19, tipocorreo);
-            pst.setInt(20, cargo);
-            pst.setInt(21, tipoempleado);
-            pst.executeUpdate();
+           CallableStatement pst = cnn.prepareCall(registrarusuario.registroEmpleado);
+            pst.setInt(1,rol);
+             pst.setString(2, usuario);
+             pst.setString(3, contra);
+             pst.setString(4, nombre);
+             pst.setString(5,sNombre);
+             pst.setString(6, pApe);
+             pst.setString(7,sApe);
+             pst.setDate(8, Date.valueOf(fecha));
+             pst.setString(9,sexo);
+             pst.setString(10,docu);
+             pst.setString(11, TipoDocu);
+             pst.setString(12, cel);
+             pst.setString(13, tipoCel);
+             pst.setString(14, calle);
+             pst.setString(15, casa);
+             pst.setInt(16, Integer.parseInt(muni));
+             pst.setString(17, correo);
+             pst.setString(18, TipoCorreo);
+             pst.setInt(19, cargo);
+             pst.setInt(20, tipoEmp);
+             pst.executeUpdate();
+
+           /* pst.setInt(1, 2);
+            pst.setString(2, "jose");
+            pst.setString(3, "angel");
+            pst.setString(4, "linares");
+            pst.setString(5, "escalante");
+            pst.setString(6, "escalante");
+            pst.setString(7, "escalante");
+            pst.setDate(8, Date.valueOf("2014-04-05"));
+            pst.setString(9, "m");
+            pst.setString(10, "123245");
+            pst.setString(11, "person");
+            pst.setString(12, "345678");
+            pst.setString(13, "jajsj");
+            pst.setString(14, "niidea");
+            pst.setString(15, "jdkja");
+            pst.setInt(16, Integer.parseInt("1"));
+            pst.setString(17, "ghjkl");
+            pst.setString(18, "ghjk");
+            pst.setInt(19, 2);
+            pst.setInt(20, 5);
+            pst.executeUpdate();*/
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());

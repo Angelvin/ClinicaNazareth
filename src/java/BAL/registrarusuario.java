@@ -26,11 +26,15 @@ public class registrarusuario {
       Connection bdconeccion=cConexion.conectar_ds();
     CallableStatement buscador=null;
    
+  public static String registroEmpleado="{call registroempleado(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
   public static  String query="{call registroUsuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
-  public static  String empleado="{call registroempleado(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+ 
   
-  /*  Statement stmt = null;
-  PreparedStatement pst= bdconeccion.prepareStatement(query);
+   Statement stmt = null;
+   public static  String empleado="{call registroempleado(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+  
+   /*try {
+       PreparedStatement pst= bdconeccion.prepareStatement(query);
   pst.setString(1, "miercoles");
   pst.setString(2, "angel2");
   pst.setString(3, "Angel");
@@ -54,8 +58,12 @@ public class registrarusuario {
            ResultSet rs =pst.executeQuery();
                       while (rs.next()){
                System.out.println(rs.getString(1).toString());
-           }*/
+           }
 
+    } catch (Exception ex){
+    ex.getMessage();
+}*/
+ 
    
             
  

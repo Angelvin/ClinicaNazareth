@@ -43,7 +43,7 @@ public class creapaciente extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         PrintWriter out = response.getWriter();
-        String usuario = request.getParameter("txtusuario");
+      String usuario = request.getParameter("txtusuario");
         String contra = request.getParameter("txtcontra");
         String nombre = request.getParameter("txtnombrep");
         String nombres = request.getParameter("txtnombres");
@@ -62,7 +62,7 @@ public class creapaciente extends HttpServlet {
         String correo = request.getParameter("correo");
         String tipocorreo = request.getParameter("tipocorreo");
         
-       String tipo ="Consulta"; request.getParameter("cmdguardar");
+    /*   String tipo ="Consulta"; request.getParameter("cmdguardar");*/
         
          Connection bdconeccion = cConexion.conectar_ds();
         
@@ -78,9 +78,9 @@ public class creapaciente extends HttpServlet {
   pst.setString(5, apellido);
   pst.setString(6, apellidos);
   pst.setDate(7, Date.valueOf(fecha));
-  pst.setString(8, genero);
+  pst.setString(8,genero);
   pst.setString(9, igle);
-  pst.setString(10, docu);
+  pst.setString(10,docu);
   pst.setString(11, tipodocu);
   pst.setString(12, tele);
   pst.setString(13, tipotele);
@@ -99,7 +99,7 @@ public class creapaciente extends HttpServlet {
             System.out.println(e.getMessage());
         }
         
-       
+      
 
     
     }

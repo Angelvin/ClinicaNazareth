@@ -3,22 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package libreservlet;
 
-import BAL.registrarusuario;
+import BAL.cbusqueda;
+import BAL.ccbusqueda;
 import DAL.cConexion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -28,8 +31,9 @@ import javax.servlet.http.HttpServletResponse;
 public class SBusqueda extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Processes requests for both HTTP
+     * <code>GET</code> and
+     * <code>POST</code> methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -40,23 +44,43 @@ public class SBusqueda extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String dato = request.getParameter("txtdato");
-           Connection bdconeccion = cConexion.conectar_ds();
-       /* try {
+        String dato;
+        dato = request.getParameter("txtdato");
+        Connection cnn = cConexion.conectar_ds();
+        PreparedStatement psta;
+        /*el valor debe ser estring*/
+
+    /*List<ccbusqueda> list = new ArrayList<ccbusqueda>(0);
+        ResultSet rs = null;*/
+       try {
+            // String qbusqueda="select (e.idPaciente) as codigo, concat(p.pnombrePer,' ',p.snombrePer) as nombre,concat(p.pApellPer,' ',p.sApellPer) as apellido  from persona as p inner join paciente as e on e.fkpersona=p.idPersona inner join documento as do on p.idPersona=do.fkpersona where do.numero= '123213' ;";
+            psta = cnn.prepareStatement(ccbusqueda.busq2);
+            psta.setString(1,"123");
+           psta.executeUpdate();
+
+
+         /*  while (rs.next()) {
+                ccbusqueda cu = new ccbusqueda();
+                cu.setCodigo(rs.getInt("codigo"));
+                cu.setNombre(rs.getString("nombre"));
+                cu.setApellido(rs.getString("apellido"));
+
+                list.add(cu); }*/
            
-            PreparedStatement pst = bdconeccion.prepareStatement(bbusqueda.cdocu);
-            
-            pst.setString(1, dato);
-            pst.executeUpdate();
-       
-         } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }*/
+        } catch (SQLException ex) {
+            out.println(ex.getMessage());
+        }
+        HttpSession sesion = request.getSession();
+        sesion.setAttribute("datos", dato);
+        String route = this.getServletContext().getContextPath() + "/FrmSecretaria/BusquedaPaciente.jsp";
+        String url = response.encodeRedirectURL(route);
+        response.sendRedirect(url);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Handles the HTTP <code>GET</code> method.
+     * Handles the HTTP
+     * <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -70,7 +94,8 @@ public class SBusqueda extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP <code>POST</code> method.
+     * Handles the HTTP
+     * <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -92,5 +117,4 @@ public class SBusqueda extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

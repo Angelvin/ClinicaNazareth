@@ -2,7 +2,7 @@
 <html>
 <head>
    <meta charset="utf-8">
-    <title>Clínica Nazareth</title>
+    <title>Clinica Nazareth</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Zaid Archila">
@@ -70,9 +70,9 @@
   <div class="col-xs-6 col-md-4">
     <ul class="pager">
 
-      <li class="next"><a href="../login.html">Salir <span class="glyphicon glyphicon-off"></span></a></li>
+      <li class="next"><a href="../login.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
 
-       <li class="next"><a href="../FrmSecretaria/EntraSecret.html">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
+       <li class="next"><a href="../FrmSecretaria/EntraSecret.jsp">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
  <li class="next"></li>
   
 </ul>
@@ -83,10 +83,10 @@
   </div>
   <div class="panel-body">
  <div class="alert alert-success">
- <a href="../FrmSecretaria/CreacionPaciente.html" class="alert-link" >Crear paciente</a>
+ <a href="../FrmSecretaria/CreacionPaciente.jsp" class="alert-link" >Crear paciente</a>
 </div>
 <div class="alert alert-info">
- <a href="../FrmSecretaria/CreacionEmpleado.html" class="alert-link" >crear empleado</a>
+ <a href="../FrmSecretaria/CreacionEmpleado.jsp" class="alert-link" >crear empleado</a>
 </div>
   </div>
 
