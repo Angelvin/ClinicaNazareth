@@ -14,7 +14,7 @@
         <link href="../scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 
         <!-- Icons -->
-        <link href="../scripts/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css" />  
+        <link href="../scripts/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
         <link href="../scripts/icons/social/stylesheets/social_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
         <!--[if lt IE 8]>
             <link href="scripts/icons/general/stylesheets/general_foundicons_ie7.css" media="screen" rel="stylesheet" type="text/css" />
@@ -28,7 +28,7 @@
         <link href="../scripts/carousel/style.css" rel="stylesheet" type="text/css" /><link href="../scripts/camera/css/camera.css" rel="stylesheet" type="text/css" />
         <link href="../scripts/wookmark/css/style.css" rel="stylesheet" type="text/css" />  <link href="../scripts/yoxview/yoxview.css" rel="stylesheet" type="text/css" />
 
-        <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
+        <link href="../styles/custom.css" rel="stylesheet" type="text/css" />
 
         <script type="text/javascript">
             <!--
@@ -84,7 +84,7 @@
 
             <div class="divPanel notop nobottom">
                 <div class="row-fluid">
-                    <div class="span12">  
+                    <div class="span12">
 
 
                         <!--Edit Site Name and Slogan here-->
@@ -95,15 +95,15 @@
                         </div>
 
                     </div>
-                </div> 
+                </div>
 
                 <div class="row-fluid">
                     <div class="span12">
                     </div>
                 </div>
             </div>
-            <!--DENTRO DE ESTE DIV CREAR EL FROMULARIO FAVOR NO UTILZAR 
-          TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE 
+            <!--DENTRO DE ESTE DIV CREAR EL FROMULARIO FAVOR NO UTILZAR
+          TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE
           PUEDA VERSE EN CUALQUEIR TAMAÑO
             -->
 
@@ -129,39 +129,39 @@
 
                     </div>
                     <div class="panel-body">
-                        <h1> 
-                            <% int algo = Integer.parseInt(request.getParameter("codigo"));
-
-                               bedipaciente list = edPaciente .getPersona(algo);
+                        <h1>
+                            <%
+                                int setUID = 0;
+                                //setUID = Integer.parseInt(request.getParameter("codigo"));
+                                if (request.getParameter("algo") != "") {
+                                    setUID = Integer.parseInt(request.getParameter("codigo"));
+                                } else {
+                                    //do nothing
+                                }
+                                bedipaciente list = edPaciente.getPersona(setUID);
                             %>
 
 
                         </h1>
-                        <form  id="updateCita" method="post" action=" ">
+                        <form  id="updateCita" method="post" action="../Sactualizarcita ">
                             <div class="panel panel-default">
                                 <div class="panel-heading">Datos</div>
                                 <div class="panel-body">
-
-<input  name="codigoC" id="codigoC" value="<%=list.getIdpaciente()%>">
-
+                                    <input  name="codigoC" id="codigoC" value="<%=list.getIdpaciente()%>">
                                     <div class="row">
-                                        <div class="col-md-6" ><label>Primer Nombre</label><input name="txtnombrep" id="txtnombrep" class="form-control"  placeholder="nombre" value="<%=list.getNombre() %>" onblur="validatePass(this);"></div>
+                                        <div class="col-md-6" ><label>Primer Nombre</label><input name="txtnombrep" id="txtnombrep" class="form-control"  placeholder="nombre" value="<%=list.getNombre()%>" onblur="validatePass(this);"></div>
                                         <div class="col-md-6"><label>Segundo Nombre</label><input name="txtnombres" id="txtnombres" class="form-control" placeholder="nombre"  value="<%=list.getSnombre()%>"></div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6"><label>Primer Apellido</label><input   id="txtapellido" name="txtapellido"    class="form-control"  placeholder="apellido" value="<%=list.getApellido() %>" onblur="validatePass(this);"></div>
-                                        <div class="col-md-6"><label>Segundo Apellido</label><input   id="txtapellidos" name= "txtapellidos" class="form-control" placeholder="apellido" value=" <%=list.getSapellido() %>"  onblur="validatePass(this);"></div>
+                                        <div class="col-md-6"><label>Primer Apellido</label><input   id="txtapellido" name="txtapellido"    class="form-control"  placeholder="apellido" value="<%=list.getApellido()%>" onblur="validatePass(this);"></div>
+                                        <div class="col-md-6"><label>Segundo Apellido</label><input   id="txtapellidos" name= "txtapellidos" class="form-control" placeholder="apellido" value=" <%=list.getSapellido()%>"  onblur="validatePass(this);"></div>
                                     </div>
-
-
                                 </div>
                             </div>
-                           
-
-                            <input type="submit" name="cmdguardar" class="btn btn-link" value="Confirmar" POST="SUMIT"/>
+                            <input type="submit" name="cmdguardar" class="btn btn-link" value="Guardar Cambios" POST="SUMIT"/>
                         </form>
 
-                    </div>   
+                    </div>
 
                     <div>
 
@@ -184,7 +184,7 @@
             <div class="divPanel"><br /><br />
                 <div class="row-fluid">
                     <div class="span12">
-                        <p class="copyright"> 
+                        <p class="copyright">
                             Copyright ? 2014 Clínica Nazareth. All Rights Reserved.
                         </p>
 
@@ -197,7 +197,7 @@
 
         <br /><br /><br />
 
-        <script src="../scripts/jquery.min.js" type="text/javascript"></script> 
+        <script src="../scripts/jquery.min.js" type="text/javascript"></script>
         <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="../scripts/default.js" type="text/javascript"></script>
 

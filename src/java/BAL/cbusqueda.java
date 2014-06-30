@@ -75,31 +75,31 @@ public class cbusqueda {
             return list;
         }
     }
-    public List<cbusqueda> getListado2() {
-        List<cbusqueda> list = new ArrayList<cbusqueda>(0);
-        try {
-            Connection cnn = cConexion.conectar_ds();
-            ResultSet rs = null;
-            Statement sta = cnn.createStatement();
-            rs = sta.executeQuery(cbusqueda.busq2);
+    /*   public List<cbusqueda> getListado2() {
+     List<cbusqueda> list = new ArrayList<cbusqueda>(0);
+     try {
+     Connection cnn = cConexion.conectar_ds();
+     ResultSet rs = null;
+     Statement sta = cnn.createStatement();
+     rs = sta.executeQuery(cbusqueda.busq2);
 
-            while (rs.next()) {
-                cbusqueda cu = new cbusqueda();
-                cu.setCodigo(rs.getInt("codigo"));
-                System.out.println(rs.getString("nombre"));
-                cu.setNombre(rs.getString("nombre"));
-                System.out.println(rs.getString("apellido"));
-                cu.setApellido(rs.getString("apellido"));
+     while (rs.next()) {
+     cbusqueda cu = new cbusqueda();
+     cu.setCodigo(rs.getInt("codigo"));
+     System.out.println(rs.getString("nombre"));
+     cu.setNombre(rs.getString("nombre"));
+     System.out.println(rs.getString("apellido"));
+     cu.setApellido(rs.getString("apellido"));
 
-                list.add(cu);
-            }
-            rs.close();
-            sta.close();
-            cnn.close();
+     list.add(cu);
+     }
+     rs.close();
+     sta.close();
+     cnn.close();
 
-        } catch (Exception ex) {
-        } finally {
-            return list;
-        }
-    }
+     } catch (Exception ex) {
+     } finally {
+     return list;
+     }
+     }*/
 }
