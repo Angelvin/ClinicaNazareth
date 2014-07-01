@@ -8,15 +8,18 @@ package libreservlet;
 import DAL.cConexion;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import librebeans.beanCita;
 
 /**
  *
@@ -40,8 +43,7 @@ public class Sactualizarcita extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String ac = request.getParameter("codigoC");
-        if (ac.equals("1")) {
-        }
+
         /*String codigo = request.getParameter("codigoCita");
          String fecha = request.getParameter("txtFecha");
          String horario = request.getParameter("txtHorario");
@@ -50,25 +52,27 @@ public class Sactualizarcita extends HttpServlet {
          String nombre= request.getParameter("txtNombre");
          String medico= request.getParameter("txt");*/
         Connection cnn = cConexion.conectar_ds();
-        ;
+        int contar;
         try {
-            /*  PreparedStatement psta = cnn.prepareStatement(beanCita.Actlizar);
-             psta.setDate(1, Date.valueOf("2014-06-28"));
-             psta.setString(2, "19:00");
-             psta.setString(2, "navarrete");
-             psta.setInt(3, Integer.parseInt("25"));
+            Logger logger = Logger.getLogger("com.microsoft.sqlserver.jdbc.Statement");
+            logger.setLevel(Level.FINER);
 
-             psta.executeUpdate();*/
+            PreparedStatement psta0 = cnn.prepareStatement(beanCita.Actlizar);
+            psta0.setDate(1, Date.valueOf("2014-06-28"));
+            psta0.setString(2, "19:00");
+            psta0.setString(3, "navarrete");
+            psta0.setInt(4, Integer.parseInt("158"));
+            contar = psta0.executeUpdate();
+            System.out.println("UPDATE PROCEDURE RETORNA: " + contar);
 
-            CallableStatement psta = cnn.prepareCall("{call Actualizarcita(?,?,?,?)}");
-            psta.setDate(1, Date.valueOf("2014-06-30"));
-            psta.setString(2, "19:00:00");
-            psta.setString(3, "GUILLEN");
-            psta.setInt(4, 25);
-
-            psta.execute();
-
-            psta.close();
+//
+//            CallableStatement psta = cnn.prepareCall("{call Actualizarcita(?,?,?,?)}");
+//            psta.setDate(1, Date.valueOf("2014-07-02"));
+//            psta.setString(2, "19:00:00");
+//            psta.setString(3, "GUILLEN");
+//            psta.setInt(4, 157);
+//            contar = psta.executeUpdate();
+//            psta.close();
 
 
 
