@@ -138,7 +138,7 @@
                         <form  id="updateCita" method="post" action="../Sactualizarcita ">
                             <input  name="codigoC" id="codigoC" value="<%=list.getIdcita()%>">
                             <label name="lblNombre" >fecha </label><input name="txtFecha" value="<%=list.getFecha()%>" size="20" />
-                            <label name="lblNombre" > horario </label><input name="txtHorario" value="<%=list.getHorario()%>" size="20" />
+                            <label name="lblNombre" > horario </label><input name="txtHorario" id="txtHorario"  value="<%=list.getHorario()%>" size="20" />
                             <label name="lblApellido" > correo </label><input name="txtCorreo" value="<%=list.getCorreo()%>" size="20" />
                             <label name="lblNombre" > estado</label><input name="txtEstado" value="<%=list.getEstado()%>" size="20" />
                             <label name="lblApellido" > nombre </label><input name="txtNombre" value="<%=list.getNombre()%>" size="20" />

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package libreservlet;
+package SERVLET;
 
 import DAL.cConexion;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import librebeans.beanCita;
+import BEANS.beanCita;
 
 /**
  *
