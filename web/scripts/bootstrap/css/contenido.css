@@ -1,0 +1,60 @@
+.container
+{
+    margin-top: 10px;
+    max-width: 90%;
+}
+.panel panel-primary
+{
+    margin-top: 1%;
+    display: center;
+    max-width: 1034px;
+}
+h2
+{
+    text-align: center;
+}
+#publicarOferta
+{
+    text-align: right;
+
+}
+.lista-enlaces
+{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-shadow: 0 1px 0 #fff;
+    background-color: #f7f5fa;
+    border:solid 1px #eee;
+
+}
+.lista-enlaces ul
+{
+    margin:0px;
+    padding-left: 0px;
+
+    display: block;
+    list-style: none;
+}
+.lista-enlaces a
+{
+
+    font-size: 18px;
+    display:block;
+    padding: 10px;
+
+}
+.lista-enlaces a:hover
+{
+    text-decoration: none;
+    color:white;
+    /* background-color: #eee; */
+    background-color: #63C9FF;
+}
+.col-md-2
+{
+    padding-right: 0px;
+}
+.tab-content
+{
+    padding-top: 10px;
+}
