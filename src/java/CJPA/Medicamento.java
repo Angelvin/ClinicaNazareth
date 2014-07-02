@@ -12,6 +12,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -42,9 +44,12 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Medicamento implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "idMedica")
+    //@Basic(optional = false)
+   // @NotNull
+    //@Column(name = "idMedica")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+     
+    @Column(name = "id",nullable=false)
     private Integer idMedica;
     @Basic(optional = false)
     @NotNull

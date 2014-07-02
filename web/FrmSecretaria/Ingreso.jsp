@@ -1,8 +1,11 @@
-ï»¿<!DOCTYPE HTML>
+<%@page import="BEANS.selGrupo"%>
+<%@page import="BEANS.sMedicamento"%>
+<%@page import="java.sql.ResultSet"%>
+?<!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>ClÃ­nica Nazareth</title>
+    <title>Clínica Nazareth</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Zaid Archila">
@@ -59,7 +62,7 @@ function tele(campo) {
     if ((campo.value.match(RegExPattern)) && (campo.value!='')) {
         
     } else {
-       alert('El campo debe ser llenado nÂª TELEFONO');  
+       alert('El campo debe ser llenado nª TELEFONO');  
     } 
 }
 
@@ -91,8 +94,8 @@ function correo(campo) {
 
                     <!--Edit Site Name and Slogan here-->
           <div id="divLogo">
-                        <a href="index.html" id="divSiteTitle">ClÃ­nica Nazareth</a><br />
-                      <a href="index.html" id="divTagLine">Â¡<span class="camera_full_width">GestiÃ³n de AdministraciÃ³n</span>!</a>
+                        <a href="index.html" id="divSiteTitle">Clínica Nazareth</a><br />
+                      <a href="index.html" id="divTagLine">¡<span class="camera_full_width">Gestión de Administración</span>!</a>
 
                     </div>
 
@@ -106,7 +109,7 @@ function correo(campo) {
     </div>
     <!--DENTRO DE ESTE DIV CREAR EL FROMULARIO FAVOR NO UTILZAR 
   TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE 
-  PUEDA VERSE EN CUALQUEIR TAMAÃ‘O
+  PUEDA VERSE EN CUALQUEIR TAMAÑO
   -->
 
 
@@ -115,7 +118,7 @@ function correo(campo) {
    <div class="panel panel-primary">
   <div class="panel-heading">
                       <div class="row">
-  <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: LucÃ­a</h2></div>
+  <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
   <div class="col-xs-6 col-md-4">
     <ul class="pager">
 
@@ -149,7 +152,7 @@ function correo(campo) {
                             
 
 <div class="row">
-  <div class="col-xs-6 col-md-4">CÃ³digo de Producto</div>
+  <div class="col-xs-6 col-md-4">Código de Producto</div>
   <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="Codigo"> <button type="button" class="btn btn-default" data-dismiss="modal">buscar</button></div>
  <div class="col-xs-6 col-md-4">
   
@@ -160,7 +163,7 @@ function correo(campo) {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Nombre Medicamente</h4>
+        <h4 class="modal-title" id="myModalLabel">Nombre Medicamento</h4>
       </div>
       <div class="modal-body">
         <div class="row">
@@ -206,7 +209,7 @@ function correo(campo) {
 <table class="table table-hover">
     <tr>
       <td>Id </td>
-      <td>CÃ³digo</td>
+      <td>Código</td>
       <td>Nombre</td>
       <td>Cantida</td>
       <td>Precio </td>
@@ -279,35 +282,52 @@ function correo(campo) {
                         <div class="panel-body">
                               <div class="row">
   <div class="col-xs-6 col-md-4"><label >Nombre</label></div>
-  <div class="col-xs-6 col-md-4"><input type="text" class="form-control"  /></div>
+  <div class="col-xs-6 col-md-4"><input name="txtNombreMedica" type="text" class="form-control"  /></div>
   <div class="col-xs-6 col-md-4"></div>
 
 
 
 </div>
 
-
+  <div class="row">
+  <div class="col-xs-6 col-md-4"><label >Existencia</label></div>
+  <div class="col-xs-6 col-md-4"><input name="txtExis"type="text" class="form-control"  ></div>
 
   <div class="row">
   <div class="col-xs-6 col-md-4"><label >Via de Aplicacion</label></div>
-  <div class="col-xs-6 col-md-4"><input type="text" class="form-control"  ></div>
+  <div class="col-xs-6 col-md-4"><input name="txtViaAdmon"type="text" class="form-control"  ></div>
  
 </div>
 
+  <div class="row">
+  <div class="col-xs-6 col-md-4"><label >Estado</label></div>
+  <div class="col-xs-6 col-md-4"><input name="txtEstado"type="text" class="form-control"  ></div>
+ 
+</div>
+  
 <div class="row">
   <div class="col-xs-6 col-md-4"><label >Presentacion</label> </div>
-  <div class="col-xs-6 col-md-4"><input type="text" class="form-control"  onblur="validatePass(this);" ></div>
+  <div class="col-xs-6 col-md-4"><input name="txtPresen" type="text" class="form-control"  onblur="validatePass(this);" ></div>
   
 </div>
 
 <div class="row">
   <div class="col-xs-6 col-md-4"><label>Grupo</label></div>
-  <div class="col-xs-6 col-md-4"><SELECT NAME="selCombo" SIZE=1> 
-<OPTION VALUE="1">FIJO</OPTION>
-<OPTION VALUE="2">CELULAR</OPTION>
-<OPTION VALUE="3">TRABAJO</OPTION>
+  <div class="col-xs-6 col-md-4"></div>
+  <select name="cdcombo">
+                <option>seleccionar opcion</option>
+                <%
+                    ResultSet rs = selGrupo.getGrupo();
+                    while (rs.next()) {
 
-</SELECT></div>
+             %>
+                <option value="<%= rs.getString("idGrupo")%>"><%= rs.getString("nombreGrupo")%></option>
+                <%
+                    }
+
+                %>
+            </select>
+</div>
   
 </div>
 
@@ -325,9 +345,7 @@ function correo(campo) {
   </div>
  
 </div>
-<button type="button" class="btn btn-info btn-sm">
-  Ingresar
-</button>
+            <input type="submit" value="ingresar"/>
 
                         </div>
                     </div>
@@ -428,7 +446,7 @@ function correo(campo) {
             <div class="row-fluid">
             <div class="span12">
             <p class="copyright"> 
-            Copyright Â© 2014 Clinica Nazareth. All Rights Reserved.
+            Copyright © 2014 Clinica Nazareth. All Rights Reserved.
             </p>
 
             <div class="social_bookmarks"></div>
