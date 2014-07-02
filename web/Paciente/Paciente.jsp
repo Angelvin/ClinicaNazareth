@@ -5,9 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="../frementop.jspf" %>
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,7 +26,7 @@
                     <div class="col-md-2">
                         <div class="lista-enlaces">
                             <ul id="myTab">
-                                <li class="active"><a href="#NuevaCita">Nueva Cita</a></li>
+                                <li class="active"><a class='glyphicon glyphicon-plus' href="#NuevaCita"> Nueva Cita</a></li>
                                 <li class=""><a href="#Ofertas">Ver Historial Medico</a></li>
                                 <li class=""><a href="#OfertasPublicadas">Inform Personal</a></li>
                                 <li class=""><a href="#Aplicacion">Gestionar Parientes</a></li>
@@ -37,29 +35,19 @@
                     </div>
                     <div class="col-md-10">
                         <div class="tab-content">
-                            <div class="tab-pane active" id="NuevaCita">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">NuevaCita</div>
+                            <div class="tab-pane active" id="Citas">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading"><h3>Citas Sin Aprobar</h3> </div>
                                     <div class="panel-body">
-                                        <table>
-                                        <jsp:useBean id="pacientes" scope="request" class="BAL.PacienteController" />
-                                        <c:set var="lista" scope="request" value="${pacientes.listado}"/>
-                                        <display:table name="lista" export="true" id="fila"  class="table table-condensed"  >
-                                            <display:setProperty name="export.rtf.filename" value="example.rtf" />
+                                    <jsp:include page="ListaCitas.jsp"></jsp:include>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane active" id="NuevaCita">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">Nueva Cita</div>
+                                <div class="panel-body">
 
-                                            <display:column property="idCita" title="UID" />
-                                            <display:column property="motivo" title="Motivo" />
-                                            <display:column property="estadoCita" title="Estado cita" />
-
-                                            <display:setProperty name="export.pdf" value="true" />
-                                            <display:column title="Editar">
-                                                <form  id="updateCita" method="post" action="../FrmSecretaria/editPaciente.jsp ">
-                                                    <input type="text" name="codigo" class="form-cotrol" value="${fila.idCita}" >
-                                                    <input type="submit" name="cmdguardar" class="btn btn-link" value="Modificar" POST="SUMIT"/>
-                                                </form>
-                                            </display:column>
-                                        </display:table>
-                                    </table>
                                 </div>
                             </div>
                         </div>
