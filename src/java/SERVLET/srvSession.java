@@ -2,9 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package libreservlet;
+package BEANS;
 
-import librebeans.ingreso;
 import DAL.cConexion;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -37,39 +36,45 @@ public class srvSession extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        HttpSession sesion = request.getSession();
-
-
         int id_rol = 0;
-
-
+        HttpSession session = request.getSession();
+        HttpSession uidPaciente = request.getSession();
+        String nombreU = null;
+        int uidPacientev = 0;
         try {
             Connection cnn = cConexion.conectar_ds();
             ResultSet rset = null;
             PreparedStatement sta;
             sta = cnn.prepareStatement(ingreso.session);
-
             sta.setString(1, request.getParameter("txtuser"));
             sta.setString(2, request.getParameter("txtpass"));
             rset = sta.executeQuery();
-            while (rset.next()) {
-                id_rol = Integer.parseInt(rset.getString("id_rol"));
 
+            while (rset.next()) {
+                id_rol = rset.getInt("fkRol");
+                nombreU = rset.getString("usuLogin");
+                uidPacientev = rset.getInt("idLogin");
+
+                session.setAttribute("userName", nombreU);
+                uidPaciente.setAttribute("uidPaciente", uidPacientev);
             }
             rset.close();
             sta.close();
             cnn.close();
             if (id_rol == 1) {
-
-                String route = this.getServletContext().getContextPath() + "/sistema/adminis.html";
+                //ROL ASIGNADO A PACIENTE
+                String route = this.getServletContext().getContextPath() + "/Paciente/Paciente.jsp";
                 String url = response.encodeRedirectURL(route);
-
                 response.sendRedirect(url);
+            } else if (id_rol == 2) {
+                //ROL ASGINADO A MEDICO
+            } else if (id_rol == 3) {
+                //ROL ASIGNADO A SECRETARIA
             } else {
-
-                out.println("<script>alert(\"Verificar usuario o contraseña.\"); window.location=\"http://localhost:8085/web/sistema/login.jsp\";</script>");
+                out.println(DisplayError());
             }
         } catch (Exception e) {
             out.println(e);
@@ -77,6 +82,12 @@ public class srvSession extends HttpServlet {
 
             out.close();
         }
+    }
+
+    private String DisplayError() {
+        //METODO QUE RETORNA UN ERROR CON FORMATO(BOOTSTRAP)
+        String error = "<link href=\"scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login{font-size:2em; width: 60%;margin:auto;margin-top:50px; }</style><div id='login' class='alert alert-danger'>'Por favor rerifique su usuario y/o contrasenia'<br><a href='/ClinicaNazareth/Acceso.jsp'>Regresar</a></div>";
+        return error;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

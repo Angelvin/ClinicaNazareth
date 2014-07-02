@@ -4,11 +4,11 @@
  */
 package BAL;
 
+import BEANS.ingreso;
 import DAL.cConexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import librebeans.ingreso;
 
 /**
  *
@@ -16,8 +16,9 @@ import librebeans.ingreso;
  */
 public class validar {
     //CODIGO VALIDANDO USUARIO
-    public int getUsuario(String usuario){
-    int registros=0;
+
+    public int getUsuario(String usuario) {
+        int registros = 0;
         try {
             Connection cnn = cConexion.conectar_ds();
             ResultSet rset = null;
@@ -25,9 +26,9 @@ public class validar {
             sta = cnn.prepareStatement(ingreso.verificar);
             sta.setString(1, usuario);
             rset = sta.executeQuery();
-            
+
             rset.next();
-            registros=rset.getInt("registros");
+            registros = rset.getInt("registros");
             rset.close();
             sta.close();
             cnn.close();

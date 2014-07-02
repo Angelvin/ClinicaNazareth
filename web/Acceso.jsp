@@ -30,7 +30,7 @@
                                 <input class="form-control" style="border-radius:0px" name="txtuser" style="width: 250px" type="text" required>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Contrasenia <a href="/sessions/forgot_password">(forgot password)</a></label>
+                                <label for="exampleInputPassword1">Contrasenia</label>
                                 <input  class="form-control" style="border-radius:0px" name="txtpass" style="width: 150px" type="password" required>
                             </div>
                             <button type="submit" class="btn btn-sm btn-default">Entrar</button>
