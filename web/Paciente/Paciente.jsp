@@ -37,23 +37,23 @@
             %>
             <div class="well">  Bienvenido :<c:out  value="${userName}"></c:out>
                 El UID es:    <c:out value="${uidPaciente}"></c:out> <a class="btn btn-link" href="../cerrarSesion.jsp">Cerra Sesion</a></div>
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="lista-enlaces">
-                        <ul id="myTab">
-                            <li class="active"><a class='glyphicon glyphicon-plus' href="#NuevaCita"> Nueva Cita</a></li>
-                            <li class=""><a href="#Ofertas">Ver Historial Medico</a></li>
-                            <li class=""><a href="#OfertasPublicadas">Inform Personal</a></li>
-                            <li class=""><a href="#Aplicacion">Gestionar Parientes</a></li>
-                        </ul>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="lista-enlaces">
+                            <ul id="myTab">
+                                <li class="active"><a class='glyphicon glyphicon-plus' href="#NuevaCita"> Nueva Cita</a></li>
+                                <li class=""><a href="#Ofertas">Ver Historial Medico</a></li>
+                                <li class=""><a href="#OfertasPublicadas">Inform Personal</a></li>
+                                <li class=""><a href="#Aplicacion">Gestionar Parientes</a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-10">
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="Citas">
-                            <div class="panel panel-info">
-                                <div class="panel-heading"><h3>Citas Sin Aprobar</h3> </div>
-                                <div class="panel-body">
+                    <div class="col-md-10">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="Citas">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading"><h3>Citas Sin Aprobar</h3> </div>
+                                    <div class="panel-body">
                                     <jsp:include page="ListaCitas.jsp"></jsp:include>
                                 </div>
                             </div>

@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -44,15 +45,20 @@ public class PacienteController {
     public void setEstadoCita(String estadoCita) {
         this.estadoCita = estadoCita;
     }
-    public static String TodasByIdPaciente = "SELECT top 10 idCita, motivo, estadoCita FROM cita where cita.estadoCita='espera'";
+    /**
+     *
+     * @param
+     */
+    public static String TodasByIdPaciente = "select idCita, motivo, estadoCita from cita as c inner join paciente as paci on paci.idPaciente=c.fkPaciente inner join persona as p on p.idPersona=paci.fkpersona inner join login as lo on lo.idLogin=p.fkLogin where lo.idLogin=";
 
-    public List<PacienteController> getListado() {
+    public List<PacienteController> getListado(Integer queryParam) {
+        String query = TodasByIdPaciente + Integer.toString(queryParam);
         List<PacienteController> lista = new ArrayList<PacienteController>(0);
         try {
             Connection cnn = cConexion.conectar_ds();
             ResultSet rs = null;
             Statement sta = cnn.createStatement();
-            rs = sta.executeQuery(PacienteController.TodasByIdPaciente);
+            rs = sta.executeQuery(query);
 
             while (rs.next()) {
                 PacienteController pc = new PacienteController();
@@ -69,5 +75,15 @@ public class PacienteController {
         } finally {
             return lista;
         }
+    }
+
+    public void setMyObject(HttpServletRequest request) {
+
+        Integer uidPaciente = (Integer) request.getSession().getAttribute("uidPaciente");
+        System.out.println("Nasty query says:" + Integer.toString(uidPaciente));
+        getListado(uidPaciente);
+        //HttpSession session = request.getSession();
+
+        //session.setAttribute("attr", "Value set in session by javabean");
     }
 }
