@@ -4,8 +4,14 @@
  */
 package SERVLET;
 
+import DAL.cConexion;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,18 +38,18 @@ public class Paciente extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Paciente</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Paciente at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+//            /* TODO output your page here. You may use following sample code. */
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet Paciente</title>");
+//            out.println("</head>");
+//            out.println("<body>");
+            out.println("<link href=\"scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login{font-size:2em; width: 60%;margin:auto;margin-top:50px; }</style><div id='login' class='alert alert-success'><h1>Cita Aprobada Exitosamente!</h1><br><a href='/ClinicaNazareth/Paciente/Paciente.jsp'>Regresar</a></div>");
+//            out.println("</body>");
+//            out.println("</html>");
         } finally {
-            out.close();
+//            out.close();
         }
     }
 
@@ -76,6 +82,25 @@ public class Paciente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
+        String UpdateCita = "UPDATE cita SET estadoCita = 'confirmado' WHERE idCita=";
+        String codigoCita = request.getParameter("codigoCita");
+        UpdateCita = UpdateCita + codigoCita;
+        System.out.println("LA QUERY ES: " + UpdateCita);
+
+        int returnVal;
+        PreparedStatement pstm;
+        Connection cnn = cConexion.conectar_ds();
+        try {
+            pstm = cnn.prepareStatement(UpdateCita);
+            returnVal = pstm.executeUpdate();
+//            String route = this.getServletContext().getContextPath() + "/Paciente/Paciente.jsp";
+//            String url = response.encodeRedirectURL(route);
+//            response.sendRedirect(url);
+        } catch (SQLException ex) {
+            Logger.getLogger(Paciente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     /**
