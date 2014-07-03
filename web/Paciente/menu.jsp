@@ -24,8 +24,8 @@
         </ul>
 
         <div class="navbar-form navbar-right" role="search">
-            Bienvenido :<c:out  value="${userName}"></c:out>
-            <a class="btn btn-link" href="../cerrarSesion.jsp">Cerra Sesion</a>
+            Bienvenido:<b> <c:out  value="${userName}"></c:out>
+                <a class="btn btn-link" href="../cerrarSesion.jsp">Cerra Sesion</a></b>
         </div>
     </div>
 </div>
