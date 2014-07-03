@@ -66,11 +66,9 @@ public class Sactualizarcita extends HttpServlet {
 
             }
             
-            rset.close();
-            sta.close();
-            cnn.close();
+          
             if (val== 0) {
-                Logger logger = Logger.getLogger("com.microsoft.sqlserver.jdbc.Statement");
+               Logger logger = Logger.getLogger("com.microsoft.sqlserver.jdbc.Statement");
                 logger.setLevel(Level.FINER);
 
                 PreparedStatement psta0 = cnn.prepareStatement(beanCita.Actlizar);
@@ -79,15 +77,17 @@ public class Sactualizarcita extends HttpServlet {
                 psta0.setString(3, medico);
                 psta0.setInt(4, Integer.parseInt(ac));
                 contar = psta0.executeUpdate();
-                System.out.println("UPDATE PROCEDURE RETORNA: " + contar);
+              System.out.println("UPDATE PROCEDURE RETORNA: " + contar);
             } else {
-                String route = this.getServletContext().getContextPath() + "/FrmSecretaria/reprogramar.jsp";
+             out.println("<script>alert(\"no cumple horario.\");</script> ");
+            }
+              rset.close();
+            sta.close();
+            cnn.close();
+             String route = this.getServletContext().getContextPath() + "/FrmSecretaria/indexSecre.jsp";
                 String url = response.encodeRedirectURL(route);
 
                 response.sendRedirect(url);
-                out.println("<script>alert(\"Ya existe cita para ese dia.\"); window.location=\"http://localhost:8080/FrmSecretaria/reprogramar.jsp\";</script>");
-            }
-            
         } catch (SQLException ex) {
             out.println(ex.getMessage());
         }
