@@ -3,19 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package libreservlet;
+package SERVLET;
 
-import BAL.cbusqueda;
 import BAL.ccbusqueda;
 import DAL.cConexion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -50,23 +46,23 @@ public class SBusqueda extends HttpServlet {
         PreparedStatement psta;
         /*el valor debe ser estring*/
 
-    /*List<ccbusqueda> list = new ArrayList<ccbusqueda>(0);
-        ResultSet rs = null;*/
-       try {
+        /*List<ccbusqueda> list = new ArrayList<ccbusqueda>(0);
+         ResultSet rs = null;*/
+        try {
             // String qbusqueda="select (e.idPaciente) as codigo, concat(p.pnombrePer,' ',p.snombrePer) as nombre,concat(p.pApellPer,' ',p.sApellPer) as apellido  from persona as p inner join paciente as e on e.fkpersona=p.idPersona inner join documento as do on p.idPersona=do.fkpersona where do.numero= '123213' ;";
             psta = cnn.prepareStatement(ccbusqueda.busq2);
-            psta.setString(1,"123");
-           psta.executeUpdate();
+            psta.setString(1, "123");
+            psta.executeUpdate();
 
 
-         /*  while (rs.next()) {
-                ccbusqueda cu = new ccbusqueda();
-                cu.setCodigo(rs.getInt("codigo"));
-                cu.setNombre(rs.getString("nombre"));
-                cu.setApellido(rs.getString("apellido"));
+            /*  while (rs.next()) {
+             ccbusqueda cu = new ccbusqueda();
+             cu.setCodigo(rs.getInt("codigo"));
+             cu.setNombre(rs.getString("nombre"));
+             cu.setApellido(rs.getString("apellido"));
 
-                list.add(cu); }*/
-           
+             list.add(cu); }*/
+
         } catch (SQLException ex) {
             out.println(ex.getMessage());
         }

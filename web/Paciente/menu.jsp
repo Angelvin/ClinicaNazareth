@@ -3,7 +3,7 @@
     Created on : 02-jul-2014, 11:19:50
     Author     : daMgeL
 --%>
-
+<%@include file="../frementop.jspf" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div class="navbar-header">
@@ -23,8 +23,9 @@
             <li><a href="contactar.php">Enviar Notificacion</a></li>
         </ul>
 
-        <form class="navbar-form navbar-right" role="search">
-            <a class="btn btn-info btn-large" href="acceso.php" role="button">Entrar</a>
-        </form>
+        <div class="navbar-form navbar-right" role="search">
+            Bienvenido :<c:out  value="${userName}"></c:out>
+            <a class="btn btn-link" href="../cerrarSesion.jsp">Cerra Sesion</a>
+        </div>
     </div>
 </div>

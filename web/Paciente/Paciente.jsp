@@ -4,8 +4,25 @@
     Author     : daMgeL
 --%>
 
+<%@page import="org.eclipse.persistence.internal.oxm.schema.model.Include"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    String route = this.getServletContext().getContextPath() + "/Acceso.jsp";
+    String url = response.encodeRedirectURL(route);
+    try {
+        if (request.getSession(false) == null) {
+            //si no hay session, redirecciona a login
+            response.sendRedirect(url);
+        } else if (request.getSession().getAttribute("userName").equals("") || request.getSession().getAttribute("uidPaciente").equals("")) {
+            //si existen sessiiones y hay alguna vacia, redireccionar a login
+            response.sendRedirect(url);
+        } else {
+        }
+    } catch (java.lang.NullPointerException ex) {
+        response.sendRedirect(url);
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,20 +40,6 @@
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
             <div class="container">
-            <%
-                String userName = (String) request.getSession().getAttribute("userName");
-                Integer uidPaciente = (Integer) request.getSession().getAttribute("uidPaciente");
-
-                if (userName == null) {
-                    String route = this.getServletContext().getContextPath() + "/Acceso.jsp";
-                    String url = response.encodeRedirectURL(route);
-                    response.sendRedirect(url);
-                } else if (userName != "") {
-                }
-
-            %>
-            <div class="well">  Bienvenido :<c:out  value="${userName}"></c:out>
-                El UID es:    <c:out value="${uidPaciente}"></c:out> <a class="btn btn-link" href="../cerrarSesion.jsp">Cerra Sesion</a></div>
                 <div class="row">
                     <div class="col-md-2">
                         <div class="lista-enlaces">

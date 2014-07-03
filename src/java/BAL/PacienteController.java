@@ -71,14 +71,14 @@ public class PacienteController {
             sta.close();
             cnn.close();
 
-        } catch (Exception ex) {
+        } catch (NullPointerException ex) {
+            System.out.println("Truena el Controlador: " + ex.getMessage());
         } finally {
             return lista;
         }
     }
 
     public void setMyObject(HttpServletRequest request) {
-
         Integer uidPaciente = (Integer) request.getSession().getAttribute("uidPaciente");
         System.out.println("Nasty query says:" + Integer.toString(uidPaciente));
         getListado(uidPaciente);
