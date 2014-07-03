@@ -4,7 +4,6 @@
  */
 package BAL;
 
-import static BAL.PacienteController.TodasByIdPaciente;
 import DAL.cConexion;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -83,8 +82,10 @@ public class getPacienteController {
     }
 
     public List<getPacienteController> getListado(Integer queryParam) {
-        String query = TodasByIdPaciente + Integer.toString(queryParam);
-        List<getPacienteController> lista = new ArrayList<getPacienteController>(0);
+        String query = "select idPersona, pnombrePer, snombrePer, pApellPer, sApellPer, fechaNacPer, sexo from persona as p inner join login as lo on lo.idLogin=p.fkLogin where lo.idLogin=";
+        query = query + Integer.toString(queryParam);
+
+        List<getPacienteController> lista2 = new ArrayList<getPacienteController>(0);
         try {
             Connection cnn = cConexion.conectar_ds();
             ResultSet rs = null;
@@ -92,11 +93,15 @@ public class getPacienteController {
             rs = sta.executeQuery(query);
 
             while (rs.next()) {
-                getPacienteController pc = new getPacienteController();
-//                pc.setIdCita(rs.getInt("idCita"));
-//                pc.setMotivo(rs.getString("motivo"));
-//                pc.setEstadoCita(rs.getString("estadoCita"));
-                lista.add(pc);
+                getPacienteController pac = new getPacienteController();
+                pac.setIdPersona(rs.getInt("idPersona"));
+                pac.setPnombrePer(rs.getString("pnombrePer"));
+                pac.setSnombrePer(rs.getString("snombrePer"));
+                pac.setpApellPer(rs.getString("pApellidoPer"));
+                pac.setsApellPer(rs.getString("sApellidoPer"));
+                pac.setFechaNacPer(rs.getString("fechaNacPer"));
+                pac.setSexo(rs.getString("sexo"));
+                lista2.add(pac);
             }
             rs.close();
             sta.close();
@@ -105,7 +110,7 @@ public class getPacienteController {
         } catch (NullPointerException ex) {
             System.out.println("Truena el Controlador: " + ex.getMessage());
         } finally {
-            return lista;
+            return lista2;
         }
     }
 }

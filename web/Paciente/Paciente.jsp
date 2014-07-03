@@ -14,7 +14,7 @@
         if (request.getSession(false) == null) {
             //si no hay session, redirecciona a login
             response.sendRedirect(url);
-        } else if (request.getSession().getAttribute("userName").equals("") || request.getSession().getAttribute("uidPaciente").equals("")) {
+        } else if (request.getSession().getAttribute("userName").equals("") || request.getSession().getAttribute("uidPaciente").equals("") || request.getSession().getAttribute("uidLogin").equals("")) {
             //si existen sessiiones y hay alguna vacia, redireccionar a login
             response.sendRedirect(url);
         } else {
@@ -46,7 +46,7 @@
                             <ul id="myTab">
                                 <li class="active"><a class='glyphicon glyphicon-plus' href="#NuevaCita"> Nueva Cita</a></li>
                                 <li class=""><a href="#Ofertas">Ver Historial Medico</a></li>
-                                <li class=""><a href="#OfertasPublicadas">Inform Personal</a></li>
+                                <li class=""><a href="#DatosPersonales">Inform Personal</a></li>
                                 <li class=""><a href="#Aplicacion">Gestionar Parientes</a></li>
                             </ul>
                         </div>
@@ -58,36 +58,44 @@
                                     <div class="panel-heading"><h3>Citas Sin Aprobar</h3> </div>
                                     <div class="panel-body">
                                     <jsp:include page="ListaCitas.jsp"></jsp:include>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane active" id="NuevaCita">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">Nueva Cita</div>
-                                <div class="panel-body">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="Ofertas">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">Publicar Ofertas</div>
-                                <div class="panel-body">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="Aplicacion">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">APLICACIONES</div>
-                                <div class="panel-body">
-                                    <div class="col-md-12">
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="tab-pane active" id="OfertasPublicadas">
+                            <div class="tab-pane active" id="NuevaCita">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">Nueva Cita</div>
+                                    <div class="panel-body">
 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="Ofertas">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">Publicar Ofertas</div>
+                                    <div class="panel-body">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="Aplicacion">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">APLICACIONES</div>
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane active" id="DatosPersonales">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">Datos Personales</div>
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                        <jsp:include page="ListDatosPersonales.jsp"></jsp:include>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

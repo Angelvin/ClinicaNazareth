@@ -39,11 +39,14 @@ public class srvSession extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        int id_rol = 0;
+
         HttpSession session = request.getSession();
         HttpSession uidPaciente = request.getSession();
+        HttpSession uidLogin = request.getSession();
         String nombreU = null;
+        int id_rol = 0;
         int uidPacientev = 0;
+        int valLogin = 0;
         try {
             Connection cnn = cConexion.conectar_ds();
             ResultSet rset = null;
@@ -57,9 +60,11 @@ public class srvSession extends HttpServlet {
                 id_rol = rset.getInt("fkRol");
                 nombreU = rset.getString("usuLogin");
                 uidPacientev = rset.getInt("idLogin");
+                valLogin = rset.getInt("idLogin");
 
                 session.setAttribute("userName", nombreU);
                 uidPaciente.setAttribute("uidPaciente", uidPacientev);
+                uidLogin.setAttribute("uidLogin", valLogin);
             }
             rset.close();
             sta.close();

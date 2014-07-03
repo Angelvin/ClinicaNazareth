@@ -4,8 +4,12 @@
  */
 package SERVLET;
 
+import clases.creadas.Paciente;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -76,6 +80,16 @@ public class setPaciente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        PrintWriter out = response.getWriter();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("setPaciente");
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            Paciente pac = new Paciente();
+
+
+        } catch (Exception e) {
+        }
 
 
 
