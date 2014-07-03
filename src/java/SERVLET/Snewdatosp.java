@@ -5,17 +5,12 @@
  */
 package SERVLET;
 
-import BEANS.beanCita;
-import DAL.cConexion;
+import clases.creadas.Persona;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Angel
  */
-@WebServlet(name = "Sactualizarcita", urlPatterns = {"/Sactualizarcita"})
-public class Sactualizarcita extends HttpServlet {
+@WebServlet(name = "Snewdatosp", urlPatterns = {"/Snewdatosp"})
+public class Snewdatosp extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -43,60 +38,53 @@ public class Sactualizarcita extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String ac = request.getParameter("codigoC");
+        int codigo = Integer.parseInt(request.getParameter("codigo"));
+        String numero = request.getParameter("txtnumero");
+        String tipo = request.getParameter("txttipo");
+        String accion = request.getParameter("cmbvalor");
 
-        String fecha = request.getParameter("txtFecha");
-        String horario = request.getParameter("txtHorario");
-        String medico = request.getParameter("txtNomMedico");
-        Connection cnn = cConexion.conectar_ds();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("primerejemploPU");
+        EntityManager em = emf.createEntityManager();
 
-        int val = 0;
-        int contar;
-        try {
+        if (accion.equals("d")) {
 
-            ResultSet rset = null;
-            PreparedStatement sta;
-            sta = cnn.prepareStatement(beanCita.validar);
-
-            sta.setDate(1, Date.valueOf(fecha));
-            sta.setString(2, horario);
-            sta.setString(3, medico);
-            rset = sta.executeQuery();
-            while (rset.next()) {
-                val = Integer.parseInt(rset.getString("idCita"));
-
+//esta parte es la encargada de modificar
+            try {
+                clases.creadas.Documento ob = new clases.creadas.Documento();
+                ob.setNumero(numero);
+                ob.setTipo(tipo);
+                ob.setFkpersona(em.find(Persona.class, codigo));
+                em.getTransaction().begin();
+                em.persist(ob);
+                em.getTransaction().commit();
+            } catch (Exception e) {
+                System.out.print("erroe" + e.getMessage());
             }
+        } else if (accion.equals("c")) {
+            //esta parate es la encargada de insertar...
+            try {
+                clases.creadas.Correo ob = new clases.creadas.Correo();
+                ob.setCorreo(numero);
+                ob.setTipo(tipo);
+                ob.setFkPersona(em.find(Persona.class, codigo));
+                em.getTransaction().begin();
+                em.merge(ob);
+                em.getTransaction().commit();
 
-
-            if (val == 0) {
-                Logger logger = Logger.getLogger("com.microsoft.sqlserver.jdbc.Statement");
-                logger.setLevel(Level.FINER);
-
-                PreparedStatement psta0 = cnn.prepareStatement(beanCita.Actlizar);
-                psta0.setDate(1, Date.valueOf(fecha));
-                psta0.setString(2, horario);
-                psta0.setString(3, medico);
-                psta0.setInt(4, Integer.parseInt(ac));
-                contar = psta0.executeUpdate();
-                System.out.println("UPDATE PROCEDURE RETORNA: " + contar);
-            } else {
-                out.println(DisplayError());
+            } catch (Exception e) {
+                System.out.print("erroe" + e.getMessage());
             }
-            rset.close();
-            sta.close();
-            cnn.close();
+        } else if (accion.equals("T")) {
+            clases.creadas.Telefono ob = new clases.creadas.Telefono();
+            ob.setNumero(numero);
+            ob.setTipo(tipo);
+            ob.setIdPerson(em.find(Persona.class, codigo));
+            em.getTransaction().begin();
+            em.merge(ob);
+            em.getTransaction().commit();
 
-
-        } catch (SQLException ex) {
-            out.println(ex.getMessage());
         }
 
-    }
-
-    private String DisplayError() {
-        //METODO QUE RETORNA UN ERROR CON FORMATO(BOOTSTRAP)
-        String error = "<link href=\"scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login{font-size:2em; width: 60%;margin:auto;margin-top:50px; }</style><div id='login' class='alert alert-danger'>' Existe una Cita  .... Regersar a reprogamar'<br><a href='/ClinicaNazareth/FrmSecretaria/indexSecre.jsp'>Regresar</a></div>";
-        return error;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

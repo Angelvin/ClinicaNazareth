@@ -143,31 +143,6 @@
 
 
                         </h1>
-                        <form  id="updateCita" method="post" action="../Sedpaciente ">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Datos</div>
-                                <div class="panel-body">
-                                    <input  name="codigoC" id="codigoC" value="<%=list.getIdpaciente()%>">
-                                    <div class="row">
-                                        <div class="col-md-6" ><label>Primer Nombre</label><input name="txtnombrep" id="txtnombrep" class="form-control"  placeholder="nombre" value="<%=list.getNombre()%>" onblur="validatePass(this);"></div>
-                                        <div class="col-md-6"><label>Segundo Nombre</label><input name="txtnombres" id="txtnombres" class="form-control" placeholder="nombre"  value="<%=list.getSnombre()%>"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6"><label>Primer Apellido</label><input   id="txtapellido" name="txtapellido"    class="form-control"  placeholder="apellido" value="<%=list.getApellido()%>" onblur="validatePass(this);"></div>
-                                        <div class="col-md-6"><label>Segundo Apellido</label><input   id="txtapellidos" name= "txtapellidos" class="form-control" placeholder="apellido" value=" <%=list.getSapellido()%>"  onblur="validatePass(this);"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6"><label>Genero</label><input   id="txtsexo" name="txtsexo"    class="form-control"  placeholder="sexo" value="<%=list.getSexo()%>" onblur="validatePass(this);"></div>
-                                        <div class="col-md-6"><label>Iglesia</label><input   id="txtiglesia" name= "txtiglesia" class="form-control" placeholder="iglesia" value=" <%=list.getIglesia()%>"  onblur="validatePass(this);"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6"><label>fechanacimiento</label><input   id="txtFecha" name="txtFecha"    class="form-control"  placeholder="sexo" value="<%=list.getFecha()%>" onblur="validatePass(this);"></div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <input type="submit" name="cmdguardar" class="btn btn-link" value="Guardar" POST="SUMIT"/>
-                        </form>
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Nuevo Documento</h3>

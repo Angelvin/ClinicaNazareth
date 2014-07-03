@@ -3,25 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package librebeans;
+package BEANS;
 
 import DAL.cConexion;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Date;
 
 /**
  *
  * @author Angel
  */
 public class bedipaciente {
-    
-    public static String Edipaciente="update persona set pnombrePer=?,snombrePer=?,pApellPer=?,sApellper=? where idPersona=?";
-    public static String docu=" INSERT INTO  documento(numero,tipo ) values (?,?) where fkpersona=?";
-    public static String tele=" INSERT INTO  telefono(numero,tipo,idPerson) values(??)where fkpersona=?";
-    public static String direcc="INSERT INTO Direccion(calleDireccion,casaDireccion,fkMunicipio)values(?,?,?) where fkpersona=?";
-    public static String correo="INSERT INTO  correo(Correo,tipo) values(?,?)where fkpersona=?";
+
+    public static String Edipaciente = "update persona set pnombrePer=?,snombrePer=?,pApellPer=?,sApellper=?,fechaNacPer=?,sexo=?,iglesia=? where idPersona=?";
+    public static String docu = " INSERT INTO  documento(numero,tipo ) values (?,?) where fkpersona=?";
+    public static String tele = " INSERT INTO  telefono(numero,tipo,idPerson) values(??)where fkpersona=?";
+    public static String direcc = "INSERT INTO Direccion(calleDireccion,casaDireccion,fkMunicipio)values(?,?,?) where fkpersona=?";
+    public static String correo = "INSERT INTO  correo(Correo,tipo) values(?,?)where fkpersona=?";
     private int idpaciente;
     private String nombre;
     private String snombre;
@@ -67,13 +67,39 @@ public class bedipaciente {
     }
     private String apellido;
     private String sapellido;
-    
-    
-     public static bedipaciente getDatos(int id) {
+    private Date fecha;
+    private String sexo;
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getIglesia() {
+        return iglesia;
+    }
+
+    public void setIglesia(String iglesia) {
+        this.iglesia = iglesia;
+    }
+    private String iglesia;
+
+    public static bedipaciente getDatos(int id) {
         bedipaciente list = new bedipaciente();
         try {
             Connection cnn = cConexion.conectar_ds();
-            String SQL = "select p.idPersona, pnombrePer,snombrePer,pApellPer,sApellper from persona as p inner join paciente as pa on pa.fkpersona=p.idPersona where pa.idPaciente=" + id;
+            String SQL = "select p.idPersona, pnombrePer,snombrePer,pApellPer,sApellper,fechaNacPer,sexo,iglesia from persona as p inner join paciente as pa on pa.fkpersona=p.idPersona where pa.idPaciente=" + id;
             Statement stmt = cnn.createStatement();
             ResultSet rs = stmt.executeQuery(SQL);
             while (rs.next()) {
@@ -82,7 +108,9 @@ public class bedipaciente {
                 list.setSnombre(rs.getString(3));
                 list.setApellido(rs.getString(4));
                 list.setSapellido(rs.getString(5));
-                
+                list.setFecha(rs.getDate(6));
+                list.setSexo(rs.getString(7));
+                list.setIglesia(rs.getString(8));
             }
             cnn.close();
         } catch (Exception e) {
@@ -90,5 +118,4 @@ public class bedipaciente {
         }
         return list;
     }
-    
 }

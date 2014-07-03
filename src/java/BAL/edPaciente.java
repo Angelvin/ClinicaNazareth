@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package BAL;
 
-import librebeans.bedipaciente;
+import BEANS.bedipaciente;
 
 /**
  *
  * @author Angel
  */
 public class edPaciente {
-     public static bedipaciente getPersona( int id){
-        
+
+    public static bedipaciente getPersona(int id) {
+
         return bedipaciente.getDatos(id);
-        
-}    
+
+    }
 }
