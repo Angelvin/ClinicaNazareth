@@ -79,6 +79,7 @@ public class Sactualizarcita extends HttpServlet {
                 psta0.setInt(4, Integer.parseInt(ac));
                 contar = psta0.executeUpdate();
                 System.out.println("UPDATE PROCEDURE RETORNA: " + contar);
+                 out.println(DisplayEnvio());
             } else {
                 out.println(DisplayError());
             }
@@ -96,6 +97,11 @@ public class Sactualizarcita extends HttpServlet {
     private String DisplayError() {
         //METODO QUE RETORNA UN ERROR CON FORMATO(BOOTSTRAP)
         String error = "<link href=\"scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login{font-size:2em; width: 60%;margin:auto;margin-top:50px; }</style><div id='login' class='alert alert-danger'>' Existe una Cita  .... Regersar a reprogamar'<br><a href='/ClinicaNazareth/FrmSecretaria/indexSecre.jsp'>Regresar</a></div>";
+        return error;
+    }
+    private String DisplayEnvio() {
+        //METODO QUE RETORNA UN ERROR CON FORMATO(BOOTSTRAP)
+        String error = "<link href=\"scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login{font-size:2em; width: 60%;margin:auto;margin-top:50px; }</style><div id='login' class='alert alert-danger'>'La Cita esta reprogramada'<br><a href='/ClinicaNazareth/FrmSecretaria/indexSecre.jsp'>Regresar</a></div>";
         return error;
     }
 

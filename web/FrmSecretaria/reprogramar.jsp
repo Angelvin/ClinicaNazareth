@@ -130,21 +130,73 @@
                         <h1> 
                             <% int algo = Integer.parseInt(request.getParameter("codigoCita"));
 
-                                DatoCita list = Ccita.getPersona(algo);
+                              DatoCita list = Ccita.getPersona(algo);
                             %>
 
 
                         </h1>
                         <form  id="updateCita" method="post" action="../Sactualizarcita ">
-                            <input  name="codigoC" id="codigoC" value="<%=list.getIdcita()%>">
-                            <label name="lblNombre" >fecha </label><input name="txtFecha" value="<%=list.getFecha()%>" size="20" />
-                            <label name="lblNombre" > horario </label><input name="txtHorario" id="txtHorario"  value="<%=list.getHorario()%>" size="20" />
-                            <label name="lblApellido" > correo </label><input name="txtCorreo" value="<%=list.getCorreo()%>" size="20" />
-                            <label name="lblNombre" > estado</label><input name="txtEstado" value="<%=list.getEstado()%>" size="20" />
-                            <label name="lblApellido" > nombre </label><input name="txtNombre" value="<%=list.getNombre()%>" size="20" />
+<div class="row">
+  <div class="col-xs-6">
+
+<div class="panel panel-default">
+  <div class="panel-heading">Panel heading without title</div>
+  <div class="panel-body">
+  
+<label name="lblNombre" > horario </label><input name="txtHorario" id="txtHorario"  value="<%=list.getHorario()%>" size="20" />
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="col-xs-6">
+<div class="panel panel-default">
+  <div class="panel-heading">Panel heading without title</div>
+  <div class="panel-body">
+    <label name="lblApellido" > nombre </label><input name="txtNombre" value="<%=list.getNombre()%>" size="20" />
                             <label name="lblNombre" >apellido </label><input name="txtApellido" value="<%=list.getApellido()%>" size="20" />
-                            <label name="lblApellido" > medico</label><input name="txtNomMedico" value="<%=list.getMedico()%>" size="20" />
+  </div>
+</div>
+
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-6">
+<div class="panel panel-default">
+  <div class="panel-heading">Panel heading without title</div>
+  <div class="panel-body">
+    Panel content
+  </div>
+</div>
+<label name="lblNombre" >fecha </label><input name="txtFecha" value="<%=list.getFecha()%>" size="20" />
+ <label name="lblNombre" > estado</label><input name="txtEstado" value="<%=list.getEstado()%>" size="20" />
+                           
+  </div>
+  <div class="col-xs-6">
+      
+<div class="panel panel-default">
+  <div class="panel-heading">Panel heading without title</div>
+  <div class="panel-body">
+    Panel content
+  </div>
+</div>
+
+                            <input  name="codigoC" id="codigoC" value="<%=list.getIdcita()%>">
+                            
+                            
+                            <label name="lblApellido" > correo </label><input name="txtCorreo" value="<%=list.getCorreo()%>" size="20" />
+                           
+      
+  </div>
+</div>
+
+                            
                             <input type="submit" name="cmdguardar" class="btn btn-link" value="Confirmar" POST="SUMIT"/>
+
+
+
                         </form>
 
                     </div>   
