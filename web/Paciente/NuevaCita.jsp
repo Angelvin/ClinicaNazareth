@@ -42,58 +42,90 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-2">
-                        <div class="lista-enlaces">
-                            <ul id="myTab">
-                                <li class="active"><a class='glyphicon glyphicon-plus' href="#NuevaCita"> Nueva Cita</a></li>
-                                <li class=""><a href="#Ofertas">Ver Historial Medico</a></li>
-                                <li class=""><a href="#DatosPersonales">Inform Personal</a></li>
-                                <li class=""><a href="#Aplicacion">Gestionar Parientes</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-10">
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="Citas">
-                                <div class="panel panel-info">
-                                    <div class="panel-heading"><h3>Citas Sin Aprobar</h3> </div>
-                                    <div class="panel-body">
-                                    <jsp:include page="ListaCitas.jsp"></jsp:include>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane active" id="NuevaCita">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">Nueva Cita</div>
-                                    <div class="panel-body">
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="Ofertas">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">Publicar Ofertas</div>
-                                    <div class="panel-body">
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="Aplicacion">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">APLICACIONES</div>
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
+                    <jsp:include page="leftMenu.jsp"></jsp:include>
+                </div>
+                <div class="col-md-10">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="Citas">
+                            <div class="panel panel-info">
+                                <div class="panel-heading"><h3>Nueva Cita</h3> </div>
+                                <div class="panel-body">
+                                    <form method="post" acction="..">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <form>
+                                                            <fieldset class="well">
+                                                                <style>
+                                                                    .badge
+                                                                    {
+                                                                        font-size: 1.5em;
+                                                                    }
+                                                                </style>
+                                                                <legend><span class="badge">1</span> Seleccione una especialidad:</legend>
+                                                                <div class=" col-xs-6">
+                                                                    <select class="form-control">
+                                                                        <option value="volvo">Medicina General</option>
+                                                                        <option value="saab">Ortoestetica</option>
+                                                                        <option value="mercedes">Pediatria</option>
+                                                                    </select>
+                                                                </div>
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <form>
+                                                            <fieldset class="well">
+                                                                <legend><span class="badge">2</span> Seleccione un medico:</legend>
+                                                                <div class=" col-xs-6">
+                                                                    <select class="form-control">
+                                                                        <option value="volvo">Dr John Doe</option>
+                                                                        <option value="saab">Dr Juan Perez</option>
+                                                                        <option value="mercedes">Dra Emily Santos</option>
+                                                                    </select>
+                                                                </div>
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane active" id="DatosPersonales">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">Datos Personales</div>
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                        <jsp:include page="ListDatosPersonales.jsp"></jsp:include>
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <form>
+                                                            <fieldset class="well">
+                                                                <legend><span class="badge">3</span> Seleccione una fecha:</legend>
+                                                                <div class=" col-xs-6">
+                                                                    <input type="date" class="form-control" >
+                                                                </div>
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                    <div class="col-xs-6">
 
-                                    </div>
+                                                        <fieldset class="well">
+                                                            <legend><span class="badge">4</span> Horarios Disponibles:</legend>
+                                                            <select  class="form-control">
+                                                                <option value="volvo">8:00--8:30</option>
+                                                                <option value="saab">9:00--9:30</option>
+                                                                <option value="mercedes">10:00--10:30</option>
+                                                                <option value="audi">11:00--11:30</option>
+                                                            </select>
+                                                        </fieldset>
+
+                                                    </div>
+                                                    <input type="submit" name="cmdguardar" class="btn btn-primary btn-lg" value="Crear"  POST="SUMIT"/>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                </div>
+                                <div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

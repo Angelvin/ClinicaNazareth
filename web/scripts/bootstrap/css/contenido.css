@@ -31,17 +31,25 @@ h2
 {
     margin:0px;
     padding-left: 0px;
-
+    display: block;
+    list-style: none;
+}.lista-enlaces li
+{
+    margin:0px;
+    padding-left: 0px;
     display: block;
     list-style: none;
 }
 .lista-enlaces a
 {
-
     font-size: 18px;
     display:block;
     padding: 10px;
-
+}.lista-enlaces ul>li>a
+{
+    font-size: 18px;
+    display:block;
+    padding: 10px;
 }
 .lista-enlaces a:hover
 {

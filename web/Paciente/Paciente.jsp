@@ -42,14 +42,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-2">
-                        <div class="lista-enlaces">
-                            <ul id="myTab">
-                                <li class="active"><a class='glyphicon glyphicon-plus' href="#NuevaCita"> Nueva Cita</a></li>
-                                <li class=""><a href="#Ofertas">Ver Historial Medico</a></li>
-                                <li class=""><a href="#DatosPersonales">Inform Personal</a></li>
-                                <li class=""><a href="#Aplicacion">Gestionar Parientes</a></li>
-                            </ul>
-                        </div>
+                    <jsp:include page="leftMenu.jsp"></jsp:include>
                     </div>
                     <div class="col-md-10">
                         <div class="tab-content">
@@ -57,43 +50,13 @@
                                 <div class="panel panel-info">
                                     <div class="panel-heading"><h3>Citas Sin Aprobar</h3> </div>
                                     <div class="panel-body">
+                                        <style>
+                                            tbody tr:focus
+                                            {
+                                                background-color:#eee6ff;
+                                            }
+                                        </style>
                                     <jsp:include page="ListaCitas.jsp"></jsp:include>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane active" id="NuevaCita">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">Nueva Cita</div>
-                                    <div class="panel-body">
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="Ofertas">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">Publicar Ofertas</div>
-                                    <div class="panel-body">
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="Aplicacion">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">APLICACIONES</div>
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane active" id="DatosPersonales">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">Datos Personales</div>
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                        <jsp:include page="ListDatosPersonales.jsp"></jsp:include>
-
-                                    </div>
                                 </div>
                             </div>
                         </div>
