@@ -36,7 +36,7 @@ public class srvMedicamento extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-     EntityManagerFactory emf=Persistence.createEntityManagerFactory("primerejemploPU");
+        EntityManagerFactory emf=Persistence.createEntityManagerFactory("primerejemploPU");
         EntityManager em=emf.createEntityManager();
         try {
            Medicamento md= new Medicamento();
@@ -58,7 +58,6 @@ public class srvMedicamento extends HttpServlet {
             em.close();
             emf.close();
         }
-    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

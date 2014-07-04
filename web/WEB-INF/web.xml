@@ -8,6 +8,10 @@
         <servlet-name>setPaciente</servlet-name>
         <servlet-class>SERVLET.setPaciente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>srvEntrada</servlet-name>
+        <servlet-class>SERVLET.srvEntrada</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Paciente</servlet-name>
         <url-pattern>/Paciente</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>setPaciente</servlet-name>
         <url-pattern>/setPaciente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvEntrada</servlet-name>
+        <url-pattern>/srvEntrada</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
