@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE HTML>
-<%@include file="/WEB-INF/jspf/validar.jspf" %>
 <%@page language="java" session="true" errorPage="../WEB-INF/jspf/ErrorPage.jsp"   %>
+
 <html>
     <head>
         <meta charset="utf-8">
