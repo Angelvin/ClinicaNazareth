@@ -226,53 +226,56 @@
                                                         <div class="modal-dialog modal-lg">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
+                                                                    <style> .form-control{font-size:1em;height:auto;padding:5px;padding-left:10px}label{padding:5px;font-size:1.4em}</style>
+                                                                    <div class="row">
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
-                                                                    <style> .form-control{font-size:2em;height:auto;padding:5px;padding-left:10px}label{padding:5px;font-size:1.4em}</style>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                                    <h4 class="modal-title" id="myModalLabel">Agregando Medicamento </h4><br>
-                                                                    <input name="txtnombre" type="text" id="txtnombre" class="form-control">
-                                                                    <br>
+                                                                        <div class="col-md-6">
+                                                                            <h4 class="modal-title" id="myModalLabel">Agregando Medicamento </h4><br>
+                                                                            <input name="txtnombre" type="text" id="txtnombre" class="form-control" readonly>
+                                                                        </div>
+                                                                        <br>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="modal-content">
+                                                                <div class="container">
 
                                                                     <br>
-                                                                    <input name="txtaccion" type="hidden" id="txtaccion" class="form-control">
-                                                                    <br>
+                                                                    <div class="col-md-8">
+                                                                        <input name="txtaccion" type="hidden" id="txtaccion" class="form-control">
+                                                                        <br>
 
+                                                                        <div class="form-control">
+                                                                            <label for="">Cantidad</label>
+                                                                            <input type="text" name="txtCanti" id="txtCanti" class="form-control" placeholder="Nombre" required>
 
+                                                                        </div>
+                                                                        <div class="form-control">
+                                                                            <label for="">Presentacion</label>
+                                                                            <input name="txtpresen" id="txtpresen" type="text" class="form-control" placeholder="Nombre" required>
 
+                                                                        </div>
 
+                                                                        <div class="form-control">
+                                                                            <label for="">Precio:</label>
+                                                                            <input name="txtPrecio" id="txtFecha" type="text" class="form-control" placeholder="Nombre" required>
 
-                                                                    <div class="row">
-                                                                        <div class="col-xs-6 col-md-4">Cantidad</div>
-                                                                        <div class="col-xs-6 col-md-4"><input type="text" name="txtCanti" id="txtCanti" class="form-control" placeholder="Nombre"></div>
+                                                                        </div>
 
+                                                                        <div class="form-control">
+                                                                            <label for="">Fecha inicio</label>
+                                                                            <input name="txtFechaIni" id="txtFecha" type="text" class="form-control" placeholder="Nombre" required>
+
+                                                                        </div>
+
+                                                                        <div class="form-control">
+                                                                            <label for="">Fecha caducidad</label>
+                                                                            <input name="txtFecha" id="txtFecha" type="text" class="form-control" placeholder="Nombre" required>
+
+                                                                        </div>
+                                                                        <div class="form-control">
+                                                                            <input type="submit" class="btn btn-primary btn-lg" />
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="row">
-                                                                        <div class="col-xs-6 col-md-4">Presentacion</div>
-                                                                        <div class="col-xs-6 col-md-4"><input name="txtpresen" id="txtpresen" type="text" class="form-control" placeholder="Nombre"></div>
-
-                                                                    </div>
-
-                                                                    <div class="row">
-                                                                        <div class="col-xs-6 col-md-4">Precio:</div>
-                                                                        <div class="col-xs-6 col-md-4"><input name="txtPrecio" id="txtFecha" type="text" class="form-control" placeholder="Nombre"></div>
-
-                                                                    </div>
-
-                                                                    <div class="row">
-                                                                        <div class="col-xs-6 col-md-4">Fecha inicio</div>
-                                                                        <div class="col-xs-6 col-md-4"><input name="txtFechaIni" id="txtFecha" type="text" class="form-control" placeholder="Nombre"></div>
-
-                                                                    </div>
-
-                                                                    <div class="row">
-                                                                        <div class="col-xs-6 col-md-4">Fecha caducidad</div>
-                                                                        <div class="col-xs-6 col-md-4"><input name="txtFecha" id="txtFecha" type="text" class="form-control" placeholder="Nombre"></div>
-                                                                        <input type="submit" />
-                                                                    </div>
-
-
 
                                                                 </div>
 
