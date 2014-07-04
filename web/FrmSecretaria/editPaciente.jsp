@@ -149,7 +149,7 @@
                                 <div class="panel-body">
                                     <input  name="codigoC" id="codigoC" value="<%=list.getIdpaciente()%>">
                                     <div class="row">
-                                        <div class="col-md-6" ><label>Primer Nombre</label><input name="txtnombrep" id="txtnombrep" class="form-control"  placeholder="nombre" value="<%=list.getNombre()%>" onblur="validatePass(this);"></div>
+                                        <div class="col-md-6" ><label>Primer Nombre</label><input name="txtnombre" id="txtnombre" class="form-control"  placeholder="nombre" value="<%=list.getNombre()%>" onblur="validatePass(this);"></div>
                                         <div class="col-md-6"><label>Segundo Nombre</label><input name="txtnombres" id="txtnombres" class="form-control" placeholder="nombre"  value="<%=list.getSnombre()%>"></div>
                                     </div>
                                     <div class="row">
