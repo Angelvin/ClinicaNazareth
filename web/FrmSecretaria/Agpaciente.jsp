@@ -146,10 +146,10 @@
                         </h1>
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Nuevo Documento</h3>
+                                <h3 class="panel-title">Nuevo Cita</h3>
                             </div>
                             <div class="panel-body">
-                                <form id="persona" method="post" action="../Snewdatosp ">
+                                <form id="persona" method="post" action="../SnCita ">
                                     <div class="row">
                                         <div class="col-xs-6">
 
@@ -169,8 +169,8 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">Datos de Paciente</div>
                                                 <div class="panel-body">
-                                                    <label name="lblApellido" > nombre </label><input name="txtNombre"  size="20" />
-                                                    <label name="lblNombre" >apellido </label><input name="txtApellido"  size="20" />
+                                                    <label name="lblApellido" > nombre </label><input name="txtNombre" value="<%=list.getNombre()%>" size="20" />
+                                                    <label name="lblNombre" >apellido </label><input name="txtApellido" value="<%=list.getApellido()%>" size="20" />
                                                 </div>
                                             </div>
 
@@ -194,10 +194,11 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">Correo</div>
                                                 <div class="panel-body">
-                                                    <input  name="codigoC"  type="hidden" id="codigoC">
+                                                    <input  name="codigoC"  value="<%=list.getIdpaciente()%>" id="codigoC">
 
 
                                                     <label name="lblApellido" > correo </label><input name="txtCorreo"  size="20" />
+                                                    <label name="lblApellido" > Motivo </label><input name="txtMotivo"  size="20" />
                                                 </div>
                                             </div>
 
