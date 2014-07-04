@@ -9,6 +9,8 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -34,11 +36,11 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Login.findByUsuLogin", query = "SELECT l FROM Login l WHERE l.usuLogin = :usuLogin"),
     @NamedQuery(name = "Login.findByPassLogin", query = "SELECT l FROM Login l WHERE l.passLogin = :passLogin")})
 public class Login implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "idLogin")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idLogin", nullable = false)
     private Integer idLogin;
     @Basic(optional = false)
     @NotNull
