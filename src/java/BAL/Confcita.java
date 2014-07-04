@@ -91,6 +91,7 @@ public class Confcita {
                 cu.setPaciente(rs.getString("Paciente"));
                 cu.setMotivo(rs.getString("Motivo"));
                 cu.setEspecialidad(rs.getString("Especialidad"));
+                cu.setMedico(rs.getString("Medico"));
                 cu.setHora(rs.getString("Hora"));
                 cu.setFecha(rs.getDate("Fecha"));
                 list.add(cu);

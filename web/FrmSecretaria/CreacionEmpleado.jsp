@@ -137,18 +137,23 @@
                         <div class="panel-body">
 
                             <div class="panel panel-info">
-                                <div class="panel-heading">Creracion de login </div>
+                                <div class="panel-heading">Crearcion de Acceso </div>
                                 <div class="panel-body">
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="row">
 
-                                                <div class="col-xs-6 col-md-2"><label >Usuario</label>
+                                                <div class="col-xs-6 col-md-6"><label >Usuario</label>
 
+<input class="form-control" name="txtUsu" id="txtUsu"  placeholder="EJEMPLO@EJEMPLO.COM" onblur="correo(this);" value="EJEMPLO@EJEMPLO.COM">
                                                 </div>
-                                                <div class="col-xs-6 col-md-4">
-                                                    <input class="form-control" name="txtrol" id="txtrol" placeholder="rol"  value="2">
-                                                    <input class="form-control" name="txtUsu" id="txtUsu"  placeholder="EJEMPLO@EJEMPLO.COM" onblur="correo(this);" value="EJEMPLO@EJEMPLO.COM">
+                                                <div class="col-xs-6 col-md-4"><label>Rol</label>
+                                                    <select class="form-control" name="txtrol" id="txtrol"  >
+                                                <option value="m">Masculino</option>
+                                                <option value="f">Femenino</option>
+
+                                            </select>
+                                                    
                                                 </div>
 
 
@@ -182,46 +187,35 @@
                                         <div class="col-md-6"><label>Primer Apellido</label><input name="txtPApe" id="txtPApe" class="form-control"  placeholder="apellido"onblur="validatePass(this);" value="medico"></div>
                                         <div class="col-md-6"><label>Segundo Apellido</label><input name="txtSApe"id="txtSApe"  class="form-control" placeholder="apellido"onblur="validatePass(this);" value="medico" ></div>
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col-xs-12 col-md-8" ><label>Fecha Nacimiento</label>
-
-                                            <input  name="txtfecha" id="txtfecha" class="form-control" value="2014-08-04" />
-
-
+                                     <div class="row">
+                                        <div class="col-md-6"><label>fecha nacimiento</label> <input  name="txtfecha" id="txtfecha" class="form-control" value="2014-08-04" /></div>
+                                        <div class="col-md-6"><label >genero </label><SELECT class="form-control" NAME="comboSex" id="comboSex" SIZE=1> 
+                                            <OPTION VALUE="m">Masculino</OPTION>
+                                            <OPTION VALUE="f">Femenino</OPTION>
 
 
-                                        </div>
-                                        <div class="col-xs-12 col-md-8"><label >Edad</label><p id="demo"></p></div>
-                                    </div>
-
-
-                                    <div class="col-xs-6 col-md-3">
-                                        <input class="form-control" name="txtCorreo" id="txtCorreo" placeholder="ejemplo@gmail.com" value="ejemplo@gmail.com" onblur="docu(this);">
-                                        <input NAME="comboTipoCorreo" id="comboTipoCorreo" class="form-control" value="pcorreo" />
-                                    </div>
-
-                                    <div class="col-xs-6 col-md-4"><label >tipo </label><SELECT  SIZE=1> 
-                                            <OPTION VALUE="1">Personal</OPTION>
-                                            <OPTION VALUE="2">Laboral</OPTION>
-
-
-                                        </SELECT>
-
-                                    </div>
-
-                                    <div class="col-xs-6 col-md-4"><label >Sexo </label><SELECT SIZE=1> 
-                                            <OPTION VALUE="1">Masculino</OPTION>
-                                            <OPTION VALUE="2">Femenino</OPTION>
-
-
-                                        </SELECT>
-                                        <input  NAME="comboSex" id="comboSex" class="form-control" value="m" />
+                                        </SELECT></div>
                                     </div>
 
                                 </div>
 
 
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">correo </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-xs-6 col-md-4"><input class="form-control" name="txtCorreo" id="txtCorreo" placeholder="ejemplo@gmail.com" value="ejemplo@gmail.com" onblur="docu(this);"></div>
+                                    
+                                    <div class="col-xs-6 col-md-2"><label >Tipo </label><SELECT NAME="comboTipoCorreo" id="comboTipoCorreo" class="form-control" SIZE=1> 
+                                            <OPTION VALUE="personal">Personal</OPTION>
+                                            <OPTION VALUE="trabajo">Laboral</OPTION>
+
+
+                                        </SELECT>
+</div>
+                                </div>
                             </div>
                         </div>
                         <div class="panel panel-info">
@@ -237,12 +231,13 @@
                                             </div>
                                             <div class="col-xs-6 col-md-3">
                                                 <input class="form-control" name="txtDocu" id="txtDocu" placeholder="Documento" onblur="docu(this);" value="12313">
-                                                <input  NAME="comboDocu" id="comboDocu"class="form-control" value="docu" />
+                                              
                                             </div>
-                                            <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT  SIZE=1> 
-                                                    <OPTION VALUE="1">DUI</OPTION>
-                                                    <OPTION VALUE="2">Carnet de Minoridad</OPTION>
-                                                    <OPTION VALUE="3">Pasaporte</OPTION>
+                                            <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT class="form-control" NAME="comboDocu" id="comboDocu" SIZE=1> 
+                                                    <OPTION VALUE="dui">DUI</OPTION>
+                                                    <OPTION VALUE="carnet">Carnet de Minoridad</OPTION>
+                                                    <OPTION VALUE="pasapote">Pasaporte</OPTION>
+                                                     <OPTION VALUE="nit">Nit</OPTION>
 
                                                 </SELECT>
 
@@ -259,9 +254,9 @@
                                             </div>
                                             <div class="col-xs-6 col-md-3">
                                                 <input class="form-control" name="txtCel" id="txtCel" placeholder="NUMERO TELEFONO" onblur="tele(this);" value="12345678">
-                                                <input  NAME="comboTipoCel" id="comboTipoCel" class="form-control" value="telefono" />
+                                                
                                             </div>
-                                            <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT  SIZE=1> 
+                                            <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT class="form-control" NAME="comboTipoCel" id="comboTipoCel" SIZE=1> 
                                                     <OPTION VALUE="1">FIJO</OPTION>
                                                     <OPTION VALUE="2">CELULAR</OPTION>
                                                     <OPTION VALUE="3">TRABAJO</OPTION>
@@ -285,12 +280,12 @@
                                 <div class="row">
                                     <div class="col-xs-6 col-md-4"><input class="form-control" name="txtcalle" id=txtcalle" values="calle" placeholder="Calle: San Antonio" onblur="validatePass(this);" value="planes"></div>
                                     <div class="col-xs-6 col-md-4"><input class="form-control" name="txtcasa" id=txtcasa" values="casa" placeholder="N° casa:45" onblur="validatePass(this);" value="tres"></div>
-                                    <input NAME="comboMunicipio" id="comboMunicipio" class="form-control" value="2" />
-                                    <div class="col-xs-6 col-md-2"><label >Municipio</label><SELECT  SIZE=1> 
+                                    
+                                    <div class="col-xs-6 col-md-2"><label >Municipio</label><SELECT class="form-control" NAME="comboMunicipio" id="comboMunicipio" SIZE=1> 
                                             <OPTION VALUE="1">PERSONAL</OPTION>
                                             <OPTION VALUE="2">TRABAJO</OPTION>
                                         </SELECT></div>
-                                    <div class="col-xs-6 col-md-2"><label >Departamento</label><SELECT NAME="comboDepa" SIZE=1> 
+                                    <div class="col-xs-6 col-md-2"><label >Departamento</label><SELECT class="form-control" NAME="comboDepa" SIZE=1> 
                                             <OPTION VALUE="1">PERSONAL</OPTION>
                                             <OPTION VALUE="2">TRABAJO</OPTION>
                                         </SELECT></div>
@@ -309,8 +304,8 @@
                                             </div>
 
                                             <div class="col-xs-6 col-md-2">
-                                                <input NAME="comboCargo" id="comboCargo" class="form-control" value="2" />
-                                                <SELECT  SIZE=1> 
+                                                
+                                                <SELECT class="form-control" SIZE=1 NAME="comboCargo" id="comboCargo"> 
                                                     <OPTION VALUE="1">PERSONAL</OPTION>
                                                     <OPTION VALUE="2">TRABAJO</OPTION>
 
@@ -329,8 +324,8 @@
                                             </div>
 
                                             <div class="col-xs-6 col-md-2">
-                                                <input NAME="comboTipoE" id="comboTipoE" class="form-control" value="2" />
-                                                <SELECT  SIZE=1> 
+                                                
+                                                <SELECT class="form-control" SIZE=1 NAME="comboTipoE" id="comboTipoE" > 
                                                     <OPTION VALUE="1">PERSONAL</OPTION>
                                                     <OPTION VALUE="2">TRABAJO</OPTION>
 
@@ -339,18 +334,7 @@
 
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-xs-6 col-md-4"><label >Junta de vijilacia</label>
-
-                                            </div>
-
-                                            <div class="col-xs-6 col-md-2">
-                                                <input class="form-control"  placeholder="nombre" onblur="docu(this);">
-
-
-                                            </div>
-
-                                        </div>
+                                        
 
 
                                     </div>
