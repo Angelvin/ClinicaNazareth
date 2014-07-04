@@ -1,8 +1,12 @@
-ï»¿<!DOCTYPE HTML>
+<%@page import="BEANS.btempleado"%>
+<%@page import="BEANS.bCargo"%>
+<%@page import="BEANS.bRol"%>
+<%@page import="java.sql.ResultSet"%>
+?<!DOCTYPE HTML>
 <html>
     <head>
         <meta charset="utf-8">
-        <title>ClÃ­nica Nazareth</title>
+        <title>Clínica Nazareth</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="Zaid Archila">
@@ -58,7 +62,7 @@
                 if ((campo.value.match(RegExPattern)) && (campo.value != '')) {
 
                 } else {
-                    alert('El campo debe ser llenado nÂª TELEFONO');
+                    alert('El campo debe ser llenado nª TELEFONO');
                 }
             }
 
@@ -92,8 +96,8 @@
 
                         <!--Edit Site Name and Slogan here-->
                         <div id="divLogo">
-                            <a href="index.jsp" id="divSiteTitle">ClÃ­nica Nazareth</a><br />
-                            <a href="index.jsp" id="divTagLine">Â¡<span class="camera_full_width">GestiÃ³n de AdministraciÃ³n</span>!</a>
+                            <a href="index.jsp" id="divSiteTitle">Clínica Nazareth</a><br />
+                            <a href="index.jsp" id="divTagLine">¡<span class="camera_full_width">Gestión de Administración</span>!</a>
 
                         </div>
 
@@ -107,7 +111,7 @@
             </div>
             <!--DENTRO DE ESTE DIV CREAR EL FROMULARIO FAVOR NO UTILZAR 
           TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE 
-          PUEDA VERSE EN CUALQUEIR TAMAÃ‘O
+          PUEDA VERSE EN CUALQUEIR TAMAÑO
             -->
 
 
@@ -118,7 +122,7 @@
 
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: LucÃ­a</h2></div>
+                            <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
                             <div class="col-xs-6 col-md-4">
                                 <ul class="pager">
                                     <li class="next"><a href="../Acceso.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
@@ -145,15 +149,23 @@
 
                                                 <div class="col-xs-6 col-md-6"><label >Usuario</label>
 
-<input class="form-control" name="txtUsu" id="txtUsu"  placeholder="EJEMPLO@EJEMPLO.COM" onblur="correo(this);" value="EJEMPLO@EJEMPLO.COM">
+                                                    <input class="form-control" name="txtUsu" id="txtUsu"  placeholder="EJEMPLO@EJEMPLO.COM" onblur="correo(this);" value="EJEMPLO@EJEMPLO.COM">
                                                 </div>
                                                 <div class="col-xs-6 col-md-4"><label>Rol</label>
                                                     <select class="form-control" name="txtrol" id="txtrol"  >
-                                                <option value="m">Masculino</option>
-                                                <option value="f">Femenino</option>
+                                                        <option >Seleccionar opcion</option>
+                                                        <%
+                                                            ResultSet rst = bRol.getRol();
+                                                            while (rst.next()) {%>
 
-                                            </select>
-                                                    
+                                                        <option value="<%= rst.getString("idRol")%>"><%= rst.getString("nombreRol")%></option>
+
+                                                        <%}
+
+                                                        %>
+
+                                                    </select>
+
                                                 </div>
 
 
@@ -164,8 +176,8 @@
                                         <div class="panel-body">
 
                                             <div class="row">
-                                                <div class="col-md-6" ><label>ContraseÃ±a</label> <input name="txtContra" id="txtContra" type="password" value="angel" class="form-control" placeholder="Password" required></div>
-                                                <div class="col-md-6"><label>repetir-ContraseÃ±a</label> <input  type="password" class="form-control" value="angel" placeholder="Password" required></div>
+                                                <div class="col-md-6" ><label>Contraseña</label> <input name="txtContra" id="txtContra" type="password" value="angel" class="form-control" placeholder="Password" required></div>
+                                                <div class="col-md-6"><label>repetir-Contraseña</label> <input  type="password" class="form-control" value="angel" placeholder="Password" required></div>
                                             </div>
                                         </div>
                                     </div>
@@ -187,14 +199,14 @@
                                         <div class="col-md-6"><label>Primer Apellido</label><input name="txtPApe" id="txtPApe" class="form-control"  placeholder="apellido"onblur="validatePass(this);" value="medico"></div>
                                         <div class="col-md-6"><label>Segundo Apellido</label><input name="txtSApe"id="txtSApe"  class="form-control" placeholder="apellido"onblur="validatePass(this);" value="medico" ></div>
                                     </div>
-                                     <div class="row">
+                                    <div class="row">
                                         <div class="col-md-6"><label>fecha nacimiento</label> <input  name="txtfecha" id="txtfecha" class="form-control" value="2014-08-04" /></div>
                                         <div class="col-md-6"><label >genero </label><SELECT class="form-control" NAME="comboSex" id="comboSex" SIZE=1> 
-                                            <OPTION VALUE="m">Masculino</OPTION>
-                                            <OPTION VALUE="f">Femenino</OPTION>
+                                                <OPTION VALUE="m">Masculino</OPTION>
+                                                <OPTION VALUE="f">Femenino</OPTION>
 
 
-                                        </SELECT></div>
+                                            </SELECT></div>
                                     </div>
 
                                 </div>
@@ -207,14 +219,14 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-xs-6 col-md-4"><input class="form-control" name="txtCorreo" id="txtCorreo" placeholder="ejemplo@gmail.com" value="ejemplo@gmail.com" onblur="docu(this);"></div>
-                                    
+
                                     <div class="col-xs-6 col-md-2"><label >Tipo </label><SELECT NAME="comboTipoCorreo" id="comboTipoCorreo" class="form-control" SIZE=1> 
                                             <OPTION VALUE="personal">Personal</OPTION>
                                             <OPTION VALUE="trabajo">Laboral</OPTION>
 
 
                                         </SELECT>
-</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -231,13 +243,13 @@
                                             </div>
                                             <div class="col-xs-6 col-md-3">
                                                 <input class="form-control" name="txtDocu" id="txtDocu" placeholder="Documento" onblur="docu(this);" value="12313">
-                                              
+
                                             </div>
                                             <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT class="form-control" NAME="comboDocu" id="comboDocu" SIZE=1> 
                                                     <OPTION VALUE="dui">DUI</OPTION>
                                                     <OPTION VALUE="carnet">Carnet de Minoridad</OPTION>
                                                     <OPTION VALUE="pasapote">Pasaporte</OPTION>
-                                                     <OPTION VALUE="nit">Nit</OPTION>
+                                                    <OPTION VALUE="nit">Nit</OPTION>
 
                                                 </SELECT>
 
@@ -249,12 +261,12 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <div class="row">
-                                            <div class="col-xs-6 col-md-2"><label >TelÃ©fono</label>
+                                            <div class="col-xs-6 col-md-2"><label >Teléfono</label>
 
                                             </div>
                                             <div class="col-xs-6 col-md-3">
                                                 <input class="form-control" name="txtCel" id="txtCel" placeholder="NUMERO TELEFONO" onblur="tele(this);" value="12345678">
-                                                
+
                                             </div>
                                             <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT class="form-control" NAME="comboTipoCel" id="comboTipoCel" SIZE=1> 
                                                     <OPTION VALUE="1">FIJO</OPTION>
@@ -279,8 +291,8 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-xs-6 col-md-4"><input class="form-control" name="txtcalle" id=txtcalle" values="calle" placeholder="Calle: San Antonio" onblur="validatePass(this);" value="planes"></div>
-                                    <div class="col-xs-6 col-md-4"><input class="form-control" name="txtcasa" id=txtcasa" values="casa" placeholder="NÂ° casa:45" onblur="validatePass(this);" value="tres"></div>
-                                    
+                                    <div class="col-xs-6 col-md-4"><input class="form-control" name="txtcasa" id=txtcasa" values="casa" placeholder="N° casa:45" onblur="validatePass(this);" value="tres"></div>
+
                                     <div class="col-xs-6 col-md-2"><label >Municipio</label><SELECT class="form-control" NAME="comboMunicipio" id="comboMunicipio" SIZE=1> 
                                             <OPTION VALUE="1">PERSONAL</OPTION>
                                             <OPTION VALUE="2">TRABAJO</OPTION>
@@ -304,10 +316,20 @@
                                             </div>
 
                                             <div class="col-xs-6 col-md-2">
-                                                
+
                                                 <SELECT class="form-control" SIZE=1 NAME="comboCargo" id="comboCargo"> 
-                                                    <OPTION VALUE="1">PERSONAL</OPTION>
-                                                    <OPTION VALUE="2">TRABAJO</OPTION>
+                                                    <OPTION >Selecciones </OPTION>
+                                                        <%
+                                                            ResultSet rs = bCargo.getCargo();
+                                                            while (rs.next()) {
+
+
+                                                        %>
+                                                    <option value="<%= rs.getString("idCargo")%>"><%= rs.getString("nombreCargo")%></option>
+                                                    <%
+                                                        }
+
+                                                    %>
 
 
                                                 </SELECT></div>
@@ -324,17 +346,27 @@
                                             </div>
 
                                             <div class="col-xs-6 col-md-2">
-                                                
+
                                                 <SELECT class="form-control" SIZE=1 NAME="comboTipoE" id="comboTipoE" > 
-                                                    <OPTION VALUE="1">PERSONAL</OPTION>
-                                                    <OPTION VALUE="2">TRABAJO</OPTION>
+                                                    <OPTION >Seleccione </OPTION>
+                                                        <%
+                                                            ResultSet rsm = btempleado.gettEmpleado();
+                                                            while (rsm.next()) {
+
+
+                                                        %>
+                                                    <option value="<%= rsm.getString("idTipoEmpleado")%>"><%= rsm.getString("nombreTipoEmp")%></option>
+                                                    <%
+                                                        }
+
+                                                    %>
 
 
                                                 </SELECT></div>
 
                                         </div>
 
-                                        
+
 
 
                                     </div>
@@ -370,7 +402,7 @@
             <div class="row-fluid">
                 <div class="span12">
                     <p class="copyright"> 
-                        Copyright ï¿½ 2014 ClÃ­nica Nazareth. All Rights Reserved.
+                        Copyright ? 2014 Clínica Nazareth. All Rights Reserved.
                     </p>
 
                     <div class="social_bookmarks"></div>
