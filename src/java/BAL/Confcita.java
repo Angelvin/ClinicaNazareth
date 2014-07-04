@@ -75,46 +75,36 @@ public class Confcita {
         this.fecha = fecha;
     }
 
-    public String getCitas() {
-        return Citas;
-    }
-
-    public void setCitas(String Citas) {
-        this.Citas = Citas;
-    }
-    public static String Citas = "select concat(f.pnombrePer,' ',f.snombrePer,' ',f.pApellPer,' ',f.sApellPer) as paciente, c.motivo as Motivo,ca.nombreCargo as Especialidad,per.pApellPer as Medico, h.horaini as Hora, c.fechaCita as Fecha   from cita as c inner join horario as h on h.idhorario=c.fkhorario inner join empleado as e on h.fkempleado=e.idEmpleado inner join persona as per on e.fkpersona=per.idPersona inner join cargo as ca on ca.idCargo=e.fkCargo inner join paciente as pe on c.fkPaciente=pe.idPaciente inner join persona as f on f.idPersona=pe.fkpersona where c.fechaCita=CONVERT (date, GETDATE())";
-
     public List<Confcita> getListado() {
         List<Confcita> list = new ArrayList<Confcita>(0);
+        Connection cnn = cConexion.conectar_ds();
+        CallableStatement buscar = null;
+        ResultSet rs = null;
+        String query = "{call ConsolaCita}";
+        Statement stmt = null;
         try {
-            Connection cnn = cConexion.conectar_ds();
-            CallableStatement buscador = null;
-            ResultSet rs = null;
-            String query = "{call ConsolaCita}";
-            Statement stmt = null;
-            buscador = cnn.prepareCall(query);
-
-            /* String pr = "{call pacienteConfirmado}"; */
+            stmt = cnn.createStatement();
+            buscar = cnn.prepareCall(query);
             rs = stmt.executeQuery(query);
-
             while (rs.next()) {
                 Confcita cu = new Confcita();
-
-                cu.setPaciente(rs.getString("paciente"));
+                cu.setPaciente(rs.getString("Paciente"));
                 cu.setMotivo(rs.getString("Motivo"));
                 cu.setEspecialidad(rs.getString("Especialidad"));
-                cu.setMedico(rs.getString("Medico"));
                 cu.setHora(rs.getString("Hora"));
-                cu.setFecha(rs.getDate("fecha"));
+                cu.setFecha(rs.getDate("Fecha"));
                 list.add(cu);
+
             }
             rs.close();
-
-            cnn.close();
             stmt.close();
+            cnn.close();
         } catch (Exception ex) {
+
+            System.out.println(ex.getMessage());
         } finally {
             return list;
+
         }
     }
 }

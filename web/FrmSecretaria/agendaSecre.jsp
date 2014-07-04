@@ -147,7 +147,7 @@
                         <c:set var="list" scope="request" value="${estado.listado}"/>
 
 
-                        <display:table name="list" export="true" id="fila" class="table table-condensed">
+                        <display:table name="list" export="true" id="fila" class="table table-condensed" pagesize="10">
                             <display:setProperty name="export.rtf.filename" value="example.rtf"/>
 
                             <display:column property="paciente" title="Paciente" />
