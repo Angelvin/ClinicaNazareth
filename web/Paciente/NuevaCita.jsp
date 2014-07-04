@@ -21,6 +21,10 @@
         <script src="../scripts/jquery.min.js" type="text/javascript"></script>
         <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="../scripts/modernizr2.6.2.js" type="text/javascript" ></script>
+
+        <script src="../scripts/bootstrap/js/moment.min.js" type="text/javascript"></script>
+        <script src="../scripts/bootstrap/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+        <link href="../scripts/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
         <script>
             // fallback para el datepicker con jquery
             Modernizr.load({
@@ -152,20 +156,25 @@
                                             <div class="panel-body">
                                                 <div class="row">
                                                     <div class="col-xs-6">
-                                                        <form>
-                                                            <fieldset class="well">
-                                                                <legend><span class="badge">3</span> Seleccione una fecha:</legend>
-                                                                <div class=" col-xs-6">
-                                                                    <script>
-                                                                        $(function() {
-                                                                            $('#fechaCita').datepicker({
-                                                                                beforeShowDay: $.datepicker.noWeekends});
-                                                                        });
-                                                                    </script>
-                                                                    <input type="date" id="txtDate1" name="fechaCita" min="2012-06-06" max="2012-06-06" class="form-control" placeholder="Clic aqui" required>
+                                                        <fieldset class="well">
+                                                            <legend><span class="badge">3</span> Seleccione una fecha:</legend>
+                                                            <div class='col-xs-8'>
+                                                                <div class="form-group">
+                                                                    <div class='input-group date' id='datetimepicker5' data-date-format="DD/MM/YYYY">
+                                                                        <input type='text' class="form-control" placeholder="Clic en la imagen" />
+                                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
+                                                                        </span>
+                                                                    </div>
                                                                 </div>
-                                                            </fieldset>
-                                                        </form>
+                                                            </div>
+                                                            <script type="text/javascript">
+                                                                $(function() {
+                                                                    $('#datetimepicker5').datetimepicker({
+                                                                        pickTime: false
+                                                                    });
+                                                                });
+                                                            </script>
+                                                        </fieldset>
                                                     </div>
                                                     <div class="col-xs-6">
 
