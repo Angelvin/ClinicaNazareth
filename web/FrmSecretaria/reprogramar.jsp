@@ -12,7 +12,7 @@
         <link href="../scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 
         <!-- Icons -->
-        <link href="../scripts/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css" />  
+        <link href="../scripts/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
         <link href="../scripts/icons/social/stylesheets/social_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
         <!--[if lt IE 8]>
             <link href="scripts/icons/general/stylesheets/general_foundicons_ie7.css" media="screen" rel="stylesheet" type="text/css" />
@@ -26,7 +26,7 @@
         <link href="../scripts/carousel/style.css" rel="stylesheet" type="text/css" /><link href="../scripts/camera/css/camera.css" rel="stylesheet" type="text/css" />
         <link href="../scripts/wookmark/css/style.css" rel="stylesheet" type="text/css" />  <link href="../scripts/yoxview/yoxview.css" rel="stylesheet" type="text/css" />
 
-        <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
+        <link href="../styles/custom.css" rel="stylesheet" type="text/css" />
 
         <script type="text/javascript">
             <!--
@@ -82,7 +82,7 @@
 
             <div class="divPanel notop nobottom">
                 <div class="row-fluid">
-                    <div class="span12">  
+                    <div class="span12">
 
 
                         <!--Edit Site Name and Slogan here-->
@@ -93,15 +93,15 @@
                         </div>
 
                     </div>
-                </div> 
+                </div>
 
                 <div class="row-fluid">
                     <div class="span12">
                     </div>
                 </div>
             </div>
-            <!--DENTRO DE ESTE DIV CREAR EL FROMULARIO FAVOR NO UTILZAR 
-          TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE 
+            <!--DENTRO DE ESTE DIV CREAR EL FROMULARIO FAVOR NO UTILZAR
+          TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE
           PUEDA VERSE EN CUALQUEIR TAMAÑO
             -->
 
@@ -127,79 +127,80 @@
 
                     </div>
                     <div class="panel-body">
-                        <h1> 
+                        <h1>
                             <% int algo = Integer.parseInt(request.getParameter("codigoCita"));
 
-                              DatoCita list = Ccita.getPersona(algo);
+                                DatoCita list = Ccita.getPersona(algo);
                             %>
 
 
                         </h1>
                         <form  id="updateCita" method="post" action="../Sactualizarcita ">
-<div class="row">
-  <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-6">
 
-<div class="panel panel-default">
-  <div class="panel-heading">Panel heading without title</div>
-  <div class="panel-body">
-  
-<label name="lblNombre" > horario </label><input name="txtHorario" id="txtHorario"  value="<%=list.getHorario()%>" size="20" />
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">Panel heading without title</div>
+                                        <div class="panel-body">
 
-
-  </div>
-</div>
-
-  </div>
-  <div class="col-xs-6">
-<div class="panel panel-default">
-  <div class="panel-heading">Panel heading without title</div>
-  <div class="panel-body">
-    <label name="lblApellido" > nombre </label><input name="txtNombre" value="<%=list.getNombre()%>" size="20" />
-                            <label name="lblNombre" >apellido </label><input name="txtApellido" value="<%=list.getApellido()%>" size="20" />
-  </div>
-</div>
+                                            <label name="lblNombre" > horario </label><input name="txtHorario" id="txtHorario"  value="<%=list.getHorario()%>" size="20" />
+                                            <label name="lblNombre" > Medico</label><input name="txtNomMedico" id="txtNomMedico"  value="<%=list.getMedico()%>" size="20" />
 
 
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-6">
-<div class="panel panel-default">
-  <div class="panel-heading">Panel heading without title</div>
-  <div class="panel-body">
-    Panel content
-  </div>
-</div>
-<label name="lblNombre" >fecha </label><input name="txtFecha" value="<%=list.getFecha()%>" size="20" />
- <label name="lblNombre" > estado</label><input name="txtEstado" value="<%=list.getEstado()%>" size="20" />
-                           
-  </div>
-  <div class="col-xs-6">
-      
-<div class="panel panel-default">
-  <div class="panel-heading">Panel heading without title</div>
-  <div class="panel-body">
-    Panel content
-  </div>
-</div>
+                                        </div>
+                                    </div>
 
-                            <input  name="codigoC" id="codigoC" value="<%=list.getIdcita()%>">
-                            
-                            
-                            <label name="lblApellido" > correo </label><input name="txtCorreo" value="<%=list.getCorreo()%>" size="20" />
-                           
-      
-  </div>
-</div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">Panel heading without title</div>
+                                        <div class="panel-body">
+                                            <label name="lblApellido" > nombre </label><input name="txtNombre" value="<%=list.getNombre()%>" size="20" />
+                                            <label name="lblNombre" >apellido </label><input name="txtApellido" value="<%=list.getApellido()%>" size="20" />
+                                        </div>
+                                    </div>
 
-                            
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">Panel heading without title</div>
+                                        <div class="panel-body">
+                                            <label name="lblNombre" >fecha </label><input name="txtFecha" value="<%=list.getFecha()%>" size="20" />
+                                            <label name="lblNombre" > estado</label><input name="txtEstado" value="<%=list.getEstado()%>" size="20" />
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="col-xs-6">
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">Panel heading without title</div>
+                                        <div class="panel-body">
+                                            <input  name="codigoC" id="codigoC" value="<%=list.getIdcita()%>">
+
+
+                                            <label name="lblApellido" > correo </label><input name="txtCorreo" value="<%=list.getCorreo()%>" size="20" />
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+
+
                             <input type="submit" name="cmdguardar" class="btn btn-link" value="Confirmar" POST="SUMIT"/>
 
 
 
                         </form>
 
-                    </div>   
+                    </div>
 
                     <div>
 
@@ -222,7 +223,7 @@
             <div class="divPanel"><br /><br />
                 <div class="row-fluid">
                     <div class="span12">
-                        <p class="copyright"> 
+                        <p class="copyright">
                             Copyright ? 2014 Clínica Nazareth. All Rights Reserved.
                         </p>
 
@@ -235,7 +236,7 @@
 
         <br /><br /><br />
 
-        <script src="../scripts/jquery.min.js" type="text/javascript"></script> 
+        <script src="../scripts/jquery.min.js" type="text/javascript"></script>
         <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="../scripts/default.js" type="text/javascript"></script>
 

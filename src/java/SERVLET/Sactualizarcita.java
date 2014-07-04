@@ -79,9 +79,9 @@ public class Sactualizarcita extends HttpServlet {
                 psta0.setInt(4, Integer.parseInt(ac));
                 contar = psta0.executeUpdate();
                 System.out.println("UPDATE PROCEDURE RETORNA: " + contar);
-                 out.println(DisplayEnvio());
+                out.println(DisplayEnvio());
             } else {
-                out.println(DisplayError());
+                out.println(DisplayError("Ya existe una cita reservada para ese dia!...", "/ClinicaNazareth/FrmSecretaria/indexSecre.jsp"));
             }
             rset.close();
             sta.close();
@@ -94,14 +94,17 @@ public class Sactualizarcita extends HttpServlet {
 
     }
 
-    private String DisplayError() {
+    private String DisplayError(String mensajeToDisplay, String urlToRedirect) {
         //METODO QUE RETORNA UN ERROR CON FORMATO(BOOTSTRAP)
-        String error = "<link href=\"scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login{font-size:2em; width: 60%;margin:auto;margin-top:50px; }</style><div id='login' class='alert alert-danger'>' Existe una Cita  .... Regersar a reprogamar'<br><a href='/ClinicaNazareth/FrmSecretaria/indexSecre.jsp'>Regresar</a></div>";
+        String error = "<link href=\"scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login{font-size:2em; width: 60%;margin:auto;margin-top:50px; }</style><div id='login' class='alert alert-danger'> ";
+        error = error + mensajeToDisplay;
+        error = error + "<br><a href='" + urlToRedirect + "'>Regresar</a></div>";
         return error;
     }
+
     private String DisplayEnvio() {
         //METODO QUE RETORNA UN ERROR CON FORMATO(BOOTSTRAP)
-        String error = "<link href=\"scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login{font-size:2em; width: 60%;margin:auto;margin-top:50px; }</style><div id='login' class='alert alert-danger'>'La Cita esta reprogramada'<br><a href='/ClinicaNazareth/FrmSecretaria/indexSecre.jsp'>Regresar</a></div>";
+        String error = "<link href=\"scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login{font-size:2em; width: 60%;margin:auto;margin-top:50px; }</style><div id='login' class='alert alert-success'>'La Cita esta reprogramada'<br><a href='/ClinicaNazareth/FrmSecretaria/indexSecre.jsp'>Regresar</a></div>";
         return error;
     }
 
