@@ -52,7 +52,7 @@
 
                                                 <li class="list-group-item"><span class="glyphicon glyphicon-list-alt"></span><a href="../medico/AgendaMedico.jsp">Agenda</a></li>
                                                 <li class="list-group-item"><span class="glyphicon glyphicon-search"></span><a href="../medico/BusquedaPacienteMedico.jsp">Busqueda de Paciente</a></li>
-                                                <li class="list-group-item"><span class="glyphicon glyphicon-folder-open"></span><a href="../medico/CrearCitaMedico.jsp">Crear Citas</a></li>
+                                                <li class="list-group-item"><span class="glyphicon glyphicon-folder-open"></span><a href="../medico/crearcitamedico.jsp">Crear Citas</a></li>
                                                 <li class="list-group-item"><span class="glyphicon glyphicon-shopping-cart"></span><a href="../medico/FarmaciaMedico.jsp">Farmacia</a></li>
 
                                             </ul>
