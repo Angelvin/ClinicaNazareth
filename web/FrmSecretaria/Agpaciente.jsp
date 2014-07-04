@@ -111,25 +111,26 @@
 
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
-                            <div class="col-xs-6 col-md-4">
-                                <ul class="pager">
-                                    <li class="next"><a href="../Acceso.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
+                <jsp:include page="menu.jsp"></jsp:include>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
+                                <div class="col-xs-6 col-md-4">
+                                    <ul class="pager">
+                                        <li class="next"><a href="../Acceso.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
 
-                                    <li class="next"></li>
+                                        <li class="next"></li>
 
-                                </ul>
+                                    </ul>
 
 
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
-                    <div class="panel-body">
-                        <h1>
+                        </div>
+                        <div class="panel-body">
+                            <h1>
                             <%
                                 int setUID = 0;
                                 //setUID = Integer.parseInt(request.getParameter("codigo"));
@@ -149,18 +150,65 @@
                             </div>
                             <div class="panel-body">
                                 <form id="persona" method="post" action="../Snewdatosp ">
-
-                                    <select name="cmbvalor" id="cmbvalor">
-                                        <option value="d" selected>Documente</option>
-                                        <option value="c">Correo</option>
-                                        <option value="T">Telefino</option>
-                                    </select>
-                                    <input  name="codigo" id="codigo" type="hidden" value="<%=list.getIdpaciente()%>">
                                     <div class="row">
-                                        <div class="col-md-8"><input id="txtnumero" name="txtnumero" type="text" class="form-control" placeholder="Numero"></div>
-                                        <div class="col-md-4"><input type="text" id="txttipo"  name="txttipo" class="form-control" placeholder="Tipo"></div>
-                                    </div><input type="submit" name="cmdguardar" class="btn btn-link" value="Agregar"  POST="SUMIT"/>
+                                        <div class="col-xs-6">
 
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">Horaio Medico</div>
+                                                <div class="panel-body">
+
+                                                    <label name="lblNombre" > horario </label> <input name="txtHorario" id="txtHorario"  size="20" />
+                                                    <label name="lblNombre" > Medico</label><input name="txtNomMedico" id="txtNomMedico"   size="20" />
+
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">Datos de Paciente</div>
+                                                <div class="panel-body">
+                                                    <label name="lblApellido" > nombre </label><input name="txtNombre"  size="20" />
+                                                    <label name="lblNombre" >apellido </label><input name="txtApellido"  size="20" />
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">Fecha de Cita</div>
+                                                <div class="panel-body">
+                                                    <label name="lblNombre" >fecha </label><input name="txtFecha"  size="20" />
+                                                    <a>la fecha debe se escrita yy-mes-dia  ejemplo:1999-12-31</a>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="col-xs-6">
+
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">Correo</div>
+                                                <div class="panel-body">
+                                                    <input  name="codigoC"  type="hidden" id="codigoC">
+
+
+                                                    <label name="lblApellido" > correo </label><input name="txtCorreo"  size="20" />
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </div>
+
+
+                                    <input type="submit" name="cmdguardar" class="btn btn-link" value="Confirmar" POST="SUMIT"/>
 
                                 </form>
 

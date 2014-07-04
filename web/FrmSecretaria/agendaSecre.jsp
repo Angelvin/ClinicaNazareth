@@ -63,71 +63,19 @@
 
                     </div>
                     <div class="panel-body">
-                        <div class="col-md-2">
-                            <br>
-                            <ul class="nav nav-pills nav-stacked panel panel-default">
-                                <li><a data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-edit"></i> Bloquear Fechas</a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-edit"></i>Bloquear Horarios</a></li>
-                                <li>·</li>
-                                <li>·</li>
-                                <li>·</li>
-                            </ul>
-                        </div>
+
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-xs-5">
-                                        <form>
-                                            <fieldset class="well">
-                                                <legend><span class="badge">1</span> Seleccione una especialidad:</legend>
-                                                <div class=" col-xs-6">
-                                                    <select class="form-control">
-                                                        <option value="volvo">Medicina General</option>
-                                                        <option value="saab">Ortoestetica</option>
-                                                        <option value="mercedes">Pediatria</option>
-                                                    </select>
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                    <div class="col-xs-5">
-                                        <form>
-                                            <fieldset class="well">
-                                                <legend><span class="badge">2</span> Seleccione un medico:</legend>
-                                                <div class=" col-xs-6">
-                                                    <select class="form-control">
-                                                        <option value="volvo">Dr John Doe</option>
-                                                        <option value="saab">Dr Juan Perez</option>
-                                                        <option value="mercedes">Dra Emily Santos</option>
-                                                    </select>
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                    <div class="col-xs-5">
-                                        <form>
-                                            <fieldset class="well">
-                                                <legend><span class="badge">3</span> Seleccione una fecha:</legend>
-                                                <div class=" col-xs-6">
-                                                    <input type="date" class="form-control" >
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                    <div class="col-xs-5">
-                                        <form>
-                                            <fieldset class="well">
-                                                <legend><span class="badge">4</span> Horarios Disponibles:</legend>
-                                                <select  class="form-control">
-                                                    <option value="volvo">8:00--8:30</option>
-                                                    <option value="saab">9:00--9:30</option>
-                                                    <option value="mercedes">10:00--10:30</option>
-                                                    <option value="audi">11:00--11:30</option>
-                                                </select>
-                                            </fieldset>
-                                        </form>
-                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-8">Mostrara las consultas programadas por especialidad</div>
+                                    <div class="col-xs-6 col-md-4"> <div class="alert alert-info" role="alert">
+                                            <a href="../FrmSecretaria/BusquedaPaciente.jsp" class="alert-link">Crear Cita</a>
+                                        </div></div>
                                 </div>
+
+
+
+
                             </div>
                         </div>
                     </div>   

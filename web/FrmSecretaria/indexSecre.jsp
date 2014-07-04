@@ -1,5 +1,9 @@
+<%@page import="org.eclipse.persistence.internal.oxm.schema.model.Include"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page language="java" session="true" errorPage="../WEB-INF/jspf/ErrorPage.jsp"   %>
 <!DOCTYPE HTML>
+
 <%@include file="../frementop.jspf" %>
 <html>
     <head>

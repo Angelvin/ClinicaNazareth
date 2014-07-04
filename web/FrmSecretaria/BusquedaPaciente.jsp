@@ -143,7 +143,7 @@
                                             <display:column title="Editar">
                                                 <form  id="updateCita" method="post" action="../FrmSecretaria/Agpaciente.jsp ">
                                                     <input type="hidden" name="codigo" value="${fila.codigo}" >
-                                                    <input type="submit" name="cmdguardar" class="btn btn-link" value="Agregar" POST="SUMIT"/>
+                                                    <input type="submit" name="cmdguardar" class="btn btn-link" value="Crear Cita" POST="SUMIT"/>
                                                 </form>
                                             </display:column>
                                         </display:table>
