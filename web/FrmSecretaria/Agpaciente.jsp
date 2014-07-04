@@ -117,7 +117,7 @@
                             <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
                             <div class="col-xs-6 col-md-4">
                                 <ul class="pager">
-                                    <li class="next"><a href="../login.html">Salir <span class="glyphicon glyphicon-off"></span></a></li>
+                                    <li class="next"><a href="../Acceso.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
 
                                     <li class="next"></li>
 
@@ -155,7 +155,7 @@
                                         <option value="c">Correo</option>
                                         <option value="T">Telefino</option>
                                     </select>
-                                    <input  name="codigo" id="codigo" value="<%=list.getIdpaciente()%>">
+                                    <input  name="codigo" id="codigo" type="hidden" value="<%=list.getIdpaciente()%>">
                                     <div class="row">
                                         <div class="col-md-8"><input id="txtnumero" name="txtnumero" type="text" class="form-control" placeholder="Numero"></div>
                                         <div class="col-md-4"><input type="text" id="txttipo"  name="txttipo" class="form-control" placeholder="Tipo"></div>

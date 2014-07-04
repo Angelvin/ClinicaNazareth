@@ -115,7 +115,7 @@
 
                                     <li class="next"><a href="../sistema/Acceso.js">Salir <span class="glyphicon glyphicon-off"></span></a></li>
 
-                                    <li class="next"><a href="../FrmSecretaria/indexSecre.jsp.jsp">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
+                                    <li class="next"><a href="../FrmSecretaria/indexSecre.jsp">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
                                     <li class="next"></li>
 
                                 </ul>

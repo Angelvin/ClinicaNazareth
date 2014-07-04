@@ -100,6 +100,13 @@
                                                                 <form  id="updateCita" method="post" action="../FrmSecretaria/reprogramar.jsp ">
                                                                     <input type="hidden" name="codigoCita" value="${fila.codigo}" >
                                                                     <input type="submit" name="cmdguardar" class="btn btn-link" value="Reprogramar" POST="SUMIT"/>
+
+                                                                </form>
+                                                            </display:column>
+                                                            <display:column title="Editar">
+                                                                <form  id="updateCita" method="post" action="../cConsulta ">
+                                                                    <input type="hidden" name="codigoCita" value="${fila.codigo}" >
+
                                                                     <input type="submit" name="cmdguardar" class="btn btn-link" value="cancelar" POST="SUMIT"/>
                                                                 </form>
                                                             </display:column>
