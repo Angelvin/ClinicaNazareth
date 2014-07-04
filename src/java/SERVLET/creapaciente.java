@@ -5,6 +5,7 @@
  */
 package SERVLET;
 
+import BAL.Assets;
 import BAL.registrarusuario;
 import DAL.cConexion;
 import java.io.IOException;
@@ -60,41 +61,77 @@ public class creapaciente extends HttpServlet {
         String correo = request.getParameter("correo");
         String tipocorreo = request.getParameter("tipocorreo");
 
-        /*   String tipo ="Consulta"; request.getParameter("cmdguardar");*/
+        String tipo = request.getParameter("cmdguardar");
+
 
         Connection bdconeccion = cConexion.conectar_ds();
 
-        /*if (tipo.equals("Guardar")){*/
+        if (tipo.equals("Guardar")) {
 
-        try {
+            try {
 
-            PreparedStatement pst = bdconeccion.prepareStatement(registrarusuario.query);
-            pst.setString(1, usuario);
-            pst.setString(2, contra);
-            pst.setString(3, nombre);
-            pst.setString(4, nombres);
-            pst.setString(5, apellido);
-            pst.setString(6, apellidos);
-            pst.setDate(7, Date.valueOf(fecha));
-            pst.setString(8, genero);
-            pst.setString(9, igle);
-            pst.setString(10, docu);
-            pst.setString(11, tipodocu);
-            pst.setString(12, tele);
-            pst.setString(13, tipotele);
-            pst.setString(14, calle);
-            pst.setString(15, casa);
-            pst.setInt(16, muni);
-            pst.setString(17, correo);
-            pst.setString(18, tipocorreo);
-            pst.executeUpdate();
-
-
-            out.println(DisplayEnvio());
+                PreparedStatement pst = bdconeccion.prepareStatement(registrarusuario.query);
+                pst.setString(1, usuario);
+                pst.setString(2, contra);
+                pst.setString(3, nombre);
+                pst.setString(4, nombres);
+                pst.setString(5, apellido);
+                pst.setString(6, apellidos);
+                pst.setDate(7, Date.valueOf(fecha));
+                pst.setString(8, genero);
+                pst.setString(9, igle);
+                pst.setString(10, docu);
+                pst.setString(11, tipodocu);
+                pst.setString(12, tele);
+                pst.setString(13, tipotele);
+                pst.setString(14, calle);
+                pst.setString(15, casa);
+                pst.setInt(16, muni);
+                pst.setString(17, correo);
+                pst.setString(18, tipocorreo);
+                pst.executeUpdate();
 
 
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+                out.println(DisplayEnvio());
+
+
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        } else if (tipo.equals("Registrar Paciente")) {
+            try {
+
+                PreparedStatement pst = bdconeccion.prepareStatement(registrarusuario.query);
+                pst.setString(1, usuario);
+                pst.setString(2, contra);
+                pst.setString(3, nombre);
+                pst.setString(4, nombres);
+                pst.setString(5, apellido);
+                pst.setString(6, apellidos);
+                pst.setDate(7, Date.valueOf(fecha));
+                pst.setString(8, genero);
+                pst.setString(9, igle);
+                pst.setString(10, docu);
+                pst.setString(11, tipodocu);
+                pst.setString(12, tele);
+                pst.setString(13, tipotele);
+                pst.setString(14, calle);
+                pst.setString(15, casa);
+                pst.setInt(16, muni);
+                pst.setString(17, correo);
+                pst.setString(18, tipocorreo);
+                pst.executeUpdate();
+
+
+                out.println(Assets.DisplayExito("Proceso Completo", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+
+
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+
+
+
         }
 
 
