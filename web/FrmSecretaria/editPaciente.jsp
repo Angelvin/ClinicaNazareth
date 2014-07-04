@@ -2,6 +2,7 @@
 <%@page import="BAL.edPaciente"%>
 <%@page import="BEANS.bedipaciente"%>
 <%@include file="/WEB-INF/jspf/validar.jspf" %>
+<%@page language="java" session="true" errorPage="../WEB-INF/jspf/ErrorPage.jsp"   %>
 <!DOCTYPE HTML>
 <html>
     <head>

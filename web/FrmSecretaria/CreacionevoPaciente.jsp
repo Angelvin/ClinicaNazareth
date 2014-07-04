@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE HTML>
 <%@include file="/WEB-INF/jspf/validar.jspf" %>
+<%@page language="java" session="true" errorPage="../WEB-INF/jspf/ErrorPage.jsp"   %>
 <html>
     <head>
         <meta charset="utf-8">
@@ -28,7 +29,7 @@
         <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
 
         <script type="text/javascript">
-        <!--
+            <!--
             function validatePass(campo) {
                 var RegExPattern = /([a-z])/;
 
@@ -38,7 +39,7 @@
                     alert('El campo debe ser llenado con texto');
                 }
             }
-        //-->
+            //-->
             function docu(campo) {
                 var RegExPattern = /([0-9]|-)/;
 
@@ -48,7 +49,7 @@
                     alert('El campo debe ser llenado con numero');
                 }
             }
-        //-->
+            //-->
             function tele(campo) {
                 var RegExPattern = /(^[0-9]{2,3}-? ?[0-8]{6,7}$)/;
 
@@ -86,8 +87,8 @@
 
                         <!--Edit Site Name and Slogan here-->
                         <div id="divLogo">
-                            <a href="index.html" id="divSiteTitle">Clínica Nazareth</a><br />
-                            <a href="index.html" id="divTagLine">¡<span class="camera_full_width">Gestión de Administración</span>!</a>
+                            <a href="index.jsp" id="divSiteTitle">Clínica Nazareth</a><br />
+                            <a href="index.jsp" id="divTagLine">¡<span class="camera_full_width">Gestión de Administración</span>!</a>
 
                         </div>
 
@@ -108,158 +109,175 @@
 
 
             <div class="col-xs-12 col-sm-12 col-md-12">
+
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
-                            <div class="col-xs-6 col-md-4">
-                                <ul class="pager">
-                                    <li class="next"><a href="../login.html">Salir <span class="glyphicon glyphicon-off"></span></a></li>
 
-                                    <li class="next"></li>
-
-                                </ul>
-
-
-                            </div>
-                        </div>
-
-                    </div>
                     <div class="panel-body">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">Creracion de login </div>
-                            <div class="panel-body">
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-xs-6 col-md-2"><label >Usuario</label>
+                        <form name="form1" method="post" action="../creapaciente">
 
-                                            </div>
-                                            <div class="col-xs-6 col-md-4">
-                                                <input class="form-control" placeholder="EJEMPLO@EJEMPLO.COM" onblur="correo(this);">
-                                            </div>
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">Usuario</div>
+                                <div class="panel-body">
 
+                                    <div class="row">
+                                        <div class="col-xs-6 col-md-2"><label >Usuario</label>
 
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-md-6" ><label>Contraseña</label><input name="contra" id="contra" type="password" class="form-control" placeholder="Password" required></div>
-                                            <div class="col-md-6"><label>repetir-Contraseña</label><input name="contra" id="contra" type="password" class="form-control" placeholder="Password" required></div>
+                                        <div class="col-xs-6 col-md-4">
+                                            <input class="form-control" name="txtusuario" id="txtusuario" placeholder="EJEMPLO@EJEMPLO.COM" onblur="correo(this);" value="EJEMPLO@EJEMPLO.COM">
                                         </div>
-                                    </div>
-                                </div>
-
-
-
-
-                            </div>
-                        </div>
-
-                        <div class="panel panel-info">
-                            <div class="panel-heading">Datos generales</div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-6" ><label>Primer Nombre</label><input class="form-control"  placeholder="nombre" onblur="validatePass(this);"></div>
-                                    <div class="col-md-6"><label>Segundo Nombre</label><input class="form-control" placeholder="nombre"></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6"><label>Primer Apellido</label><input class="form-control"  placeholder="apellido" onblur="validatePass(this);"></div>
-                                    <div class="col-md-6"><label>Segundo Apellido</label><input class="form-control" placeholder="apellido" onblur="validatePass(this);"></div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xs-12 col-md-8" ><label>Fecha Nacimiento</label>
-
-                                        <input type="date" class="form-control" name="fecha" value="" />
-
-
 
 
                                     </div>
-                                    <div class="col-xs-12 col-md-8"><label >Edad</label><p id="demo"></p></div>
+
                                 </div>
-
-
-
-
                             </div>
-                        </div>
-                        <div class="panel panel-info">
-                            <div class="panel-heading">Datos: Documento, telefono</div>
-                            <div class="panel-body">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">contraseña</div>
+                                <div class="panel-body">
+
+                                    <div class="row">
+                                        <div class="col-md-6" ><label>Contraseña</label><input name="txtcontra"  id="txtcontra" type="password" class="form-control" placeholder="Password" value="an" required></div>
+                                        <div class="col-md-6"><label>repetir-Contraseña</label><input  type="password" class="form-control" placeholder="Password" required value="an"  ></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">Datos</div>
+                                <div class="panel-body">
 
 
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-xs-6 col-md-2"><label >Documento</label>
 
-                                            </div>
-                                            <div class="col-xs-6 col-md-3">
-                                                <input class="form-control" placeholder="Documento" onblur="docu(this);">
-                                            </div>
-                                            <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT NAME="selCombo" SIZE=1> 
-                                                    <OPTION VALUE="1">DUI</OPTION>
-                                                    <OPTION VALUE="2">Carnet de Minoridad</OPTION>
-                                                    <OPTION VALUE="3">Pasaporte</OPTION>
+                                    <div class="row">
+                                        <div class="col-md-6" ><label>Primer Nombre</label><input name="txtnombrep" id="txtnombrep" class="form-control"  placeholder="nombre" value="lokito" onblur="validatePass(this);"></div>
+                                        <div class="col-md-6"><label>Segundo Nombre</label><input name="txtnombres" id="txtnombres" class="form-control" placeholder="nombre" value="lokito"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6"><label>Primer Apellido</label><input   id="txtapellido" name="txtapellido"    class="form-control"  placeholder="apellido" value="lokito" onblur="validatePass(this);"></div>
+                                        <div class="col-md-6"><label>Segundo Apellido</label><input   id="txtapellidos" name= "txtapellidos" class="form-control" placeholder="apellido" value="lokito" onblur="validatePass(this);"></div>
+                                    </div>
 
-                                                </SELECT>
 
-                                            </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">Fecha Nacimiento y Genero</div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6"><label>Fecha </label><input class="form-control" name="txtfecha" type="date" id="txtfecha" size="10" maxlength="10" > <a>La fecha debe ser menor a la actual</a></div>
+                                        <div class="col-md-6"><label>Genero</label><select class="form-control" name="txtgenero"  >
+                                                <option value="m">Masculino</option>
+                                                <option value="f">Femenino</option>
+
+                                            </select></div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">Iglesia</div>
+                                <div class="panel-body">
+                                    <label>Iglesia</label><input class="form-control" name="txtigle" type="text" id="txtigle" size="10" maxlength="10" value="ultimodia">
+                                </div>
+                            </div>
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">Documento y Telefono</div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-md-2"><label >Documento</label>
 
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-xs-6 col-md-2"><label >Teléfono</label>
-
-                                            </div>
-                                            <div class="col-xs-6 col-md-3">
-                                                <input class="form-control" placeholder="NUMERO TELEFONO"onblur="tele(this);">
-                                            </div>
-                                            <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT NAME="selCombo" SIZE=1> 
-                                                    <OPTION VALUE="1">FIJO</OPTION>
-                                                    <OPTION VALUE="2">CELULAR</OPTION>
-                                                    <OPTION VALUE="3">TRABAJO</OPTION>
-
-                                                </SELECT></div>
+                                        <div class="col-xs-6 col-md-3">
+                                            <input class="form-control" name="txtdocu" type="text" id="txtdocu" placeholder="Documento" onblur="docu(this);" value="12313">
 
                                         </div>
+                                        <div class="col-xs-6 col-md-4"><SELECT class="form-control" name="txttipodocu"   SIZE=1  > 
+                                                <OPTION VALUE="dui">DUI</OPTION>
+                                                <OPTION VALUE="cernet de menor">Carnet de Minoridad</OPTION>
+                                                <OPTION VALUE="pasaporte">Pasaporte</OPTION>
+
+                                            </SELECT>
+
+                                        </div>
+
                                     </div>
-                                </div>
+                                    <div class="row">
+                                        <div class="col-xs-6 col-md-2"><label >Teléfono</label>
+
+                                        </div>
+                                        <div class="col-xs-6 col-md-3">
+                                            <input class="form-control" name="txtele" type="text" id="txtele"  value="2123432" placeholder="NUMERO TELEFONO" onblur="tele(this);">
+
+                                        </div>
+                                        <div class="col-xs-6 col-md-4"><SELECT class="form-control" name="txttipotele"  SIZE=1   > 
+                                                <OPTION VALUE="fijo">FIJO</OPTION>
+                                                <OPTION VALUE="celular">CELULAR</OPTION>
+                                                <OPTION VALUE="trabajo">TRABAJO</OPTION>
+
+                                            </SELECT></div>
+
+                                    </div>
 
 
 
 
-
-
-                            </div>
-                        </div>
-                        <div class="panel panel-info">
-                            <div class="panel-heading">Direccion</div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-xs-6 col-md-4"><input class="form-control" placeholder="Calle"onblur="validatePass(this);"></div>
-                                    <div class="col-xs-6 col-md-2"><label >Municipio</label><SELECT NAME="selCombo" SIZE=1> 
-                                            <OPTION VALUE="1">PERSONAL</OPTION>
-                                            <OPTION VALUE="2">TRABAJO</OPTION>
-                                        </SELECT></div>
-                                    <div class="col-xs-6 col-md-2"><label >Departamento</label><SELECT NAME="selCombo" SIZE=1> 
-                                            <OPTION VALUE="1">PERSONAL</OPTION>
-                                            <OPTION VALUE="2">TRABAJO</OPTION>
-                                        </SELECT></div>
                                 </div>
                             </div>
-                        </div>
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">Direccion</div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6"><input name="txtcalle" type="text" id="txtcalle" class="form-control" placeholder="Calle" onblur="validatePass(this);" value="sajh"></div>
+                                        <div class="col-md-6"> <input name="txtcasa" type="text" id="txtcasa" class="form-control" placeholder="Casa" onblur="validatePass(this);" value="sajh"></div>
+                                    </div>
 
 
 
-                        <button type="button" class="btn btn-default">Ingresar</button>
+                                    <input name="txtmuni" type="text" id="txtmuni"  class="form-control" placeholder="Casa" onblur="" value="1">
+
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">correo adicional</div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6"><input class="form-control" name="correo" type="text" id="correo" placeholder="EJEMPLO@EJEMPLO.COM" onblur="correo(this);" value="EJEMPLO@EJEMPLO.COM"></div>
+                                        <div class="col-md-6"><SELECT name="tipocorreo" class="form-control" SIZE=1   > 
+                                                <OPTION VALUE="Personal">Personal</OPTION>
+                                                <OPTION VALUE="Trabajo">Trabajo</OPTION>
+
+                                            </SELECT></div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col-xs-6 col-md-4"></div>
+                                <div class="col-xs-6 col-md-4"> <input name="cmdguardar"  class="btn btn-group-lg btn-lg" type="submit" id="cmdguardar" value="Registrar Paciente"></div>
+                                <div class="col-xs-6 col-md-4"></div>
+                            </div>
+
+
+
+
+
+
+
+                        </form>
 
                     </div>   
 
@@ -285,7 +303,7 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <p class="copyright"> 
-                            Copyright � 2014 Clínica Nazareth. All Rights Reserved.
+                            Copyright ? 2014 Clínica Nazareth. All Rights Reserved.
                         </p>
 
                         <div class="social_bookmarks"></div>
@@ -304,39 +322,39 @@
         <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({responsive: true, width: '100%', scroll: 2, items: {width: 320, visible: {min: 2, max: 6}}});</script><script src="scripts/camera/scripts/camera.min.js" type="text/javascript"></script>
         <script src="scripts/easing/jquery.easing.1.3.js" type="text/javascript"></script>
         <script type="text/javascript">function startCamera() {
-        $('#camera_wrap').camera({fx: 'simpleFade, mosaicSpiralReverse', time: 2000, loader: 'none', playPause: false, navigation: true, height: '38%', pagination: true});
-    }
-    $(function() {
-        startCamera()
-    });</script>
+                $('#camera_wrap').camera({fx: 'simpleFade, mosaicSpiralReverse', time: 2000, loader: 'none', playPause: false, navigation: true, height: '38%', pagination: true});
+            }
+            $(function() {
+                startCamera()
+            });</script>
 
         <script src="scripts/wookmark/js/jquery.wookmark.js" type="text/javascript"></script>
         <script type="text/javascript">$(window).load(function() {
-        var options = {autoResize: true, container: $('#gridArea'), offset: 10};
-        var handler = $('#tiles li');
-        handler.wookmark(options);
-        $('#tiles li').each(function() {
-            var imgm = 0;
-            if ($(this).find('img').length > 0)
-                imgm = parseInt($(this).find('img').not('p img').css('margin-bottom'));
-            var newHeight = $(this).find('img').height() + imgm + $(this).find('div').height() + $(this).find('h4').height() + $(this).find('p').not('blockquote p').height() + $(this).find('iframe').height() + $(this).find('blockquote').height() + 5;
-            if ($(this).find('iframe').height())
-                newHeight = newHeight + 15;
-            $(this).css('height', newHeight + 'px');
-        });
-        handler.wookmark(options);
-        handler.wookmark(options);
-    });</script>
+                var options = {autoResize: true, container: $('#gridArea'), offset: 10};
+                var handler = $('#tiles li');
+                handler.wookmark(options);
+                $('#tiles li').each(function() {
+                    var imgm = 0;
+                    if ($(this).find('img').length > 0)
+                        imgm = parseInt($(this).find('img').not('p img').css('margin-bottom'));
+                    var newHeight = $(this).find('img').height() + imgm + $(this).find('div').height() + $(this).find('h4').height() + $(this).find('p').not('blockquote p').height() + $(this).find('iframe').height() + $(this).find('blockquote').height() + 5;
+                    if ($(this).find('iframe').height())
+                        newHeight = newHeight + 15;
+                    $(this).css('height', newHeight + 'px');
+                });
+                handler.wookmark(options);
+                handler.wookmark(options);
+            });</script>
         <script src="scripts/yoxview/yox.js" type="text/javascript"></script>
         <script src="scripts/yoxview/jquery.yoxview-2.21.js" type="text/javascript"></script>
         <script type="text/javascript">$(document).ready(function() {
-        $('.yoxview').yoxview({autoHideInfo: false, renderInfoPin: false, backgroundColor: '#ffffff', backgroundOpacity: 0.8, infoBackColor: '#000000', infoBackOpacity: 1});
-        $('.yoxview a img').hover(function() {
-            $(this).animate({opacity: 0.7}, 300)
-        }, function() {
-            $(this).animate({opacity: 1}, 300)
-        });
-    });</script>
+                $('.yoxview').yoxview({autoHideInfo: false, renderInfoPin: false, backgroundColor: '#ffffff', backgroundOpacity: 0.8, infoBackColor: '#000000', infoBackOpacity: 1});
+                $('.yoxview a img').hover(function() {
+                    $(this).animate({opacity: 0.7}, 300)
+                }, function() {
+                    $(this).animate({opacity: 1}, 300)
+                });
+            });</script>
 
     </body>
 </html>

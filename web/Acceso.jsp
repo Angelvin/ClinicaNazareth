@@ -34,6 +34,14 @@
                                 <input  class="form-control" style="border-radius:0px" name="txtpass" style="width: 150px" type="password">
                             </div>
                             <button type="submit" class="btn btn-sm btn-default">Entrar</button>
+                            <div>
+                                
+
+                                <ul class="pager">
+  <li><a href="../ClinicaNazareth/FrmSecretaria/CreacionevoPaciente.jsp">Crear Cuenta</a></li>
+  
+</ul>
+                            </div>
                         </form>
                     </div>
                 </div>
