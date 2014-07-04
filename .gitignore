@@ -3,3 +3,5 @@
 web/styles/mirrored_squares2.png
 web/styles/mirrored_squares.jpg
 /dist/
+src/java/BEANS/MensajeBean.java
+web/beanTest.jsp
