@@ -117,7 +117,7 @@
                             <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
                             <div class="col-xs-6 col-md-4">
                                 <ul class="pager">
-                                    <li class="next"><a href="../login.html">Salir <span class="glyphicon glyphicon-off"></span></a></li>
+                                    <li class="next"><a href="../Acesso.html">Salir <span class="glyphicon glyphicon-off"></span></a></li>
 
                                     <li class="next"></li>
 
@@ -167,16 +167,16 @@
                                     <div class="col-md-6"><label>fechanacimiento</label><input   id="txtFecha" name="txtFecha"    class="form-control"  placeholder="sexo" value="<%=list.getFecha()%>" onblur="validatePass(this);"></div>
 
                                 </div>
-                                         <div class="row">
-  <div class="col-md-6"></div>
-  <div class="col-md-6"><input type="submit" name="cmdguardar" class="btn btn-Contol" value="Guardar" POST="SUMIT"/></div>
-</div>
+                                <div class="row">
+                                    <div class="col-md-6"></div>
+                                    <div class="col-md-6"><input type="submit" name="cmdguardar" class="btn btn-Contol" value="Guardar" POST="SUMIT"/></div>
+                                </div>
                             </div>
                     </div>
 
-                    
+
                     </form>
-                   
+
                 </div>
 
                 <div>

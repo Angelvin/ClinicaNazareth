@@ -113,9 +113,9 @@
                             <div class="col-xs-6 col-md-4">
                                 <ul class="pager">
 
-                                    <li class="next"><a href="../sistema/login.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
+                                    <li class="next"><a href="../sistema/Acceso.js">Salir <span class="glyphicon glyphicon-off"></span></a></li>
 
-                                    <li class="next"><a href="../FrmSecretaria/Entrada.jsp">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
+                                    <li class="next"><a href="../FrmSecretaria/indexSecre.jsp.jsp">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
                                     <li class="next"></li>
 
                                 </ul>
@@ -126,7 +126,7 @@
                     </div>
                     <div class="panel-body">
                         <div>
-                           
+
                             <div class="row">
 
 
@@ -151,108 +151,108 @@
                                     </div>
                                 </form>
                             </div>
-                            
-                                    <div><table>
 
-                                            <!--          LISTADO     -->
-                                            <jsp:useBean id="estado2" scope="request" class="BAL.cbusqueda" />
+                            <div><table>
 
-                                            <c:set var="list" scope="request" value="${estado2.listado}"/>
+                                    <!--          LISTADO     -->
+                                    <jsp:useBean id="estado2" scope="request" class="BAL.cbusqueda" />
 
-                                            <display:table name="list" export="true" id="fila"  class="table table-condensed"  >
-                                                <display:setProperty name="export.rtf.filename" value="example.rtf" />
+                                    <c:set var="list" scope="request" value="${estado2.listado}"/>
 
-                                                <display:column property="codigo" title="Codigo" />
-                                                <display:column property="nombre" title="Nombre" />
-                                                <display:column property="apellido" title="Apellido" />
+                                    <display:table name="list" export="true" id="fila"  class="table table-condensed"  >
+                                        <display:setProperty name="export.rtf.filename" value="example.rtf" />
 
-                                                <display:setProperty name="export.pdf" value="true" />
-                                                <display:column title="Editar">
-                                                    <form  id="updateCita" method="post" action="../FrmSecretaria/editPaciente.jsp ">
-                                                        <input type="hidden" name="codigo" value="${fila.codigo}" >
-                                                        <input type="submit" name="cmdguardar" class="btn btn-link" value="Modificar" POST="SUMIT"/>
-                                                    </form>
-                                                </display:column>
-                                                <display:column title="Editar">
-                                                    <form  id="updateCita" method="post" action="../FrmSecretaria/Agpaciente.jsp ">
-                                                        <input type="hidden" name="codigo" value="${fila.codigo}" >
-                                                        <input type="submit" name="cmdguardar" class="btn btn-link" value="Agregar" POST="SUMIT"/>
-                                                    </form>
-                                                </display:column>
-                                            </display:table>
-                                        </table>
-                                    </div>
+                                        <display:column property="codigo" title="Codigo" />
+                                        <display:column property="nombre" title="Nombre" />
+                                        <display:column property="apellido" title="Apellido" />
+
+                                        <display:setProperty name="export.pdf" value="true" />
+                                        <display:column title="Editar">
+                                            <form  id="updateCita" method="post" action="../FrmSecretaria/editPaciente.jsp ">
+                                                <input type="hidden" name="codigo" value="${fila.codigo}" >
+                                                <input type="submit" name="cmdguardar" class="btn btn-link" value="Modificar" POST="SUMIT"/>
+                                            </form>
+                                        </display:column>
+                                        <display:column title="Editar">
+                                            <form  id="updateCita" method="post" action="../FrmSecretaria/Agpaciente.jsp ">
+                                                <input type="hidden" name="codigo" value="${fila.codigo}" >
+                                                <input type="submit" name="cmdguardar" class="btn btn-link" value="Agregar" POST="SUMIT"/>
+                                            </form>
+                                        </display:column>
+                                    </display:table>
+                                </table>
                             </div>
-
-
-
-
                         </div>
+
+
+
+
                     </div>
-                </div>
-
-
-            </div>
-            <div id="footerOuterSeparator"></div>
-
-            <div id="divFooter" class="footerArea shadow">
-
-                <div class="divPanel"><br /><br />
-                    <div class="row-fluid">
-                        <div class="span12">
-                            <p class="copyright">
-                                Copyright © 2014 Clinica Nazareth. All Rights Reserved.
-                            </p>
-
-                            <div class="social_bookmarks"></div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
-            <br /><br /><br />
 
-            <script src="../scripts/jquery.min.js" type="text/javascript"></script>
-            <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-            <script src="../scripts/default.js" type="text/javascript"></script>
+        </div>
+        <div id="footerOuterSeparator"></div>
 
-            <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({responsive: true, width: '100%', scroll: 2, items: {width: 320, visible: {min: 2, max: 6}}});</script><script src="scripts/camera/scripts/camera.min.js" type="text/javascript"></script>
-            <script src="scripts/easing/jquery.easing.1.3.js" type="text/javascript"></script>
-            <script type="text/javascript">function startCamera() {
-                    $('#camera_wrap').camera({fx: 'simpleFade, mosaicSpiralReverse', time: 2000, loader: 'none', playPause: false, navigation: true, height: '38%', pagination: true});
-                }
-                $(function() {
-                    startCamera()
-                });</script>
+        <div id="divFooter" class="footerArea shadow">
 
-            <script src="scripts/wookmark/js/jquery.wookmark.js" type="text/javascript"></script>
-            <script type="text/javascript">$(window).load(function() {
-                    var options = {autoResize: true, container: $('#gridArea'), offset: 10};
-                    var handler = $('#tiles li');
-                    handler.wookmark(options);
-                    $('#tiles li').each(function() {
-                        var imgm = 0;
-                        if ($(this).find('img').length > 0)
-                            imgm = parseInt($(this).find('img').not('p img').css('margin-bottom'));
-                        var newHeight = $(this).find('img').height() + imgm + $(this).find('div').height() + $(this).find('h4').height() + $(this).find('p').not('blockquote p').height() + $(this).find('iframe').height() + $(this).find('blockquote').height() + 5;
-                        if ($(this).find('iframe').height())
-                            newHeight = newHeight + 15;
-                        $(this).css('height', newHeight + 'px');
-                    });
-                    handler.wookmark(options);
-                    handler.wookmark(options);
-                });</script>
-            <script src="scripts/yoxview/yox.js" type="text/javascript"></script>
-            <script src="scripts/yoxview/jquery.yoxview-2.21.js" type="text/javascript"></script>
-            <script type="text/javascript">$(document).ready(function() {
-                    $('.yoxview').yoxview({autoHideInfo: false, renderInfoPin: false, backgroundColor: '#ffffff', backgroundOpacity: 0.8, infoBackColor: '#000000', infoBackOpacity: 1});
-                    $('.yoxview a img').hover(function() {
-                        $(this).animate({opacity: 0.7}, 300)
-                    }, function() {
-                        $(this).animate({opacity: 1}, 300)
-                    });
-                });</script>
+            <div class="divPanel"><br /><br />
+                <div class="row-fluid">
+                    <div class="span12">
+                        <p class="copyright">
+                            Copyright © 2014 Clinica Nazareth. All Rights Reserved.
+                        </p>
+
+                        <div class="social_bookmarks"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <br /><br /><br />
+
+        <script src="../scripts/jquery.min.js" type="text/javascript"></script>
+        <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../scripts/default.js" type="text/javascript"></script>
+
+        <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({responsive: true, width: '100%', scroll: 2, items: {width: 320, visible: {min: 2, max: 6}}});</script><script src="scripts/camera/scripts/camera.min.js" type="text/javascript"></script>
+        <script src="scripts/easing/jquery.easing.1.3.js" type="text/javascript"></script>
+        <script type="text/javascript">function startCamera() {
+                $('#camera_wrap').camera({fx: 'simpleFade, mosaicSpiralReverse', time: 2000, loader: 'none', playPause: false, navigation: true, height: '38%', pagination: true});
+            }
+            $(function() {
+                startCamera()
+            });</script>
+
+        <script src="scripts/wookmark/js/jquery.wookmark.js" type="text/javascript"></script>
+        <script type="text/javascript">$(window).load(function() {
+                var options = {autoResize: true, container: $('#gridArea'), offset: 10};
+                var handler = $('#tiles li');
+                handler.wookmark(options);
+                $('#tiles li').each(function() {
+                    var imgm = 0;
+                    if ($(this).find('img').length > 0)
+                        imgm = parseInt($(this).find('img').not('p img').css('margin-bottom'));
+                    var newHeight = $(this).find('img').height() + imgm + $(this).find('div').height() + $(this).find('h4').height() + $(this).find('p').not('blockquote p').height() + $(this).find('iframe').height() + $(this).find('blockquote').height() + 5;
+                    if ($(this).find('iframe').height())
+                        newHeight = newHeight + 15;
+                    $(this).css('height', newHeight + 'px');
+                });
+                handler.wookmark(options);
+                handler.wookmark(options);
+            });</script>
+        <script src="scripts/yoxview/yox.js" type="text/javascript"></script>
+        <script src="scripts/yoxview/jquery.yoxview-2.21.js" type="text/javascript"></script>
+        <script type="text/javascript">$(document).ready(function() {
+                $('.yoxview').yoxview({autoHideInfo: false, renderInfoPin: false, backgroundColor: '#ffffff', backgroundOpacity: 0.8, infoBackColor: '#000000', infoBackOpacity: 1});
+                $('.yoxview a img').hover(function() {
+                    $(this).animate({opacity: 0.7}, 300)
+                }, function() {
+                    $(this).animate({opacity: 1}, 300)
+                });
+            });</script>
 
     </body>
 </html>

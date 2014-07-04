@@ -72,9 +72,9 @@
                             <div class="col-xs-6 col-md-4">
                                 <ul class="pager">
 
-                                    <li class="next"><a class="btn btn-link" href="../cerrarSesion.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
+                                    <li class="next"><a class="btn btn-link" href="../Acceso.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
 
-                                    <li class="next"><a href="../FrmSecretaria/EntraSecret.jsp">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
+                                    <li class="next"><a href="../FrmSecretaria/indexSecre.jsp">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
                                     <li class="next"></li>
 
                                 </ul>

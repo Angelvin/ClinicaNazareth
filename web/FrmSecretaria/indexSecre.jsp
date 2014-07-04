@@ -39,16 +39,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <div class="row">
 
-                                <div class="col-xs-6 col-md-4">
-                                    <ul class="pager">
-                                        <li class="next"><a href="../sistema/login.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
-                                        <li class="next"><a href="../FrmSecretaria/Entrada.jsp">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
-                                        <li class="next"></li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                         <div class="panel-body">
                             <div class="container">
@@ -58,7 +49,7 @@
                                             <li class="active"><a href="#programadas" data-toggle="tab">Citas Programadas</a></li>
                                             <li><a href="#retraso" data-toggle="tab">Retraso</a></li>
                                             <li><a href="#estadosCitas" data-toggle="tab">Estado de Citas</a></li>
-                                            <li><a href="#otros" data-toggle="tab">Otros</a></li>
+                                            <li><a href="#Menu" data-toggle="tab">Menu</a></li>
                                         </ul>
 
                                         <div class="tab-content">
@@ -147,9 +138,18 @@
                                                 </table>
                                             </div>
                                         </div>
-                                        <div class="tab-pane" id="otros">
-                                            <h3>Nada que mostrar por el momento</h3>
-                                            <!-- @end #bluths -->
+                                        <div class="tab-pane" id="Menu">
+                                            <h3>Selecciones una opciòn</h3>
+                                            <ul class="list-group">
+
+
+                                                <li class="list-group-item"><span class="glyphicon glyphicon-user"></span><a href="../FrmSecretaria/RegistroP.jsp">Creacion Paciente</a></li>
+                                                <li class="list-group-item"><span class="glyphicon glyphicon-search"></span><a href="../FrmSecretaria/BusquedaPaciente.jsp">Busqueda de Paciente</a></li>
+                                                <li class="list-group-item"><span class="glyphicon glyphicon-list-alt"></span><a href="../FrmSecretaria/agendaSecre.jsp">Agenda</a></li>
+                                                <li class="list-group-item"><span class="glyphicon glyphicon-shopping-cart"></span><a href="../FrmSecretaria/Ingreso.jsp">Adquisicion</a></li>
+                                                <li class="list-group-item"><span class="glyphicon glyphicon-usd"></span><a href="../FrmSecretaria/factura.jsp">Facturacion</a></li>
+
+                                            </ul>
                                         </div><!-- @end .tab-content -->
 
                                     </div><!-- @end .span12 -->

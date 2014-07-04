@@ -76,8 +76,8 @@
                             <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
                             <div class="col-xs-6 col-md-4">
                                 <ul class="pager">
-                                    <li class="next"><a href="../login.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
-                                    <li class="next"><a href="../FrmSecretaria/Entrada.jsp">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
+                                    <li class="next"><a href="../Acesso.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
+                                    <li class="next"><a href="../FrmSecretaria/indexSecre.jsp">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
                                     <li class="next"></li>
 
                                 </ul>
@@ -223,18 +223,18 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">correo adicional</div>
                                 <div class="panel-body">
-                                <div class="row">
-  <div class="col-md-6"><input class="form-control" name="correo" type="text" id="correo" placeholder="EJEMPLO@EJEMPLO.COM" onblur="correo(this);" value="EJEMPLO@EJEMPLO.COM"></div>
-  <div class="col-md-6"><SELECT name="tipocorreo" class="form-control" SIZE=1   > 
-                                        <OPTION VALUE="Personal">Personal</OPTION>
-                                        <OPTION VALUE="Trabajo">Trabajo</OPTION>
+                                    <div class="row">
+                                        <div class="col-md-6"><input class="form-control" name="correo" type="text" id="correo" placeholder="EJEMPLO@EJEMPLO.COM" onblur="correo(this);" value="EJEMPLO@EJEMPLO.COM"></div>
+                                        <div class="col-md-6"><SELECT name="tipocorreo" class="form-control" SIZE=1   > 
+                                                <OPTION VALUE="Personal">Personal</OPTION>
+                                                <OPTION VALUE="Trabajo">Trabajo</OPTION>
 
-                                    </SELECT></div>
-</div>
+                                            </SELECT></div>
+                                    </div>
 
-                                    
 
-                                    
+
+
                                 </div>
                             </div>
 
