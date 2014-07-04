@@ -1,3 +1,4 @@
+<%@page import="BEANS.Bfecha"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="DAL.cConexion"%>
@@ -83,6 +84,8 @@
                             <% int algo = Integer.parseInt(request.getParameter("codigoCita"));
 
                                 DatoCita list = Ccita.getPersona(algo);
+
+                                Bfecha f = Bfecha.getFecha();
                             %>
 
 
@@ -180,7 +183,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">Fecha  y Estado</div>
                                     <div class="panel-body">
-                                        <label name="lblNombre" >fecha </label><input type="date" name="txtFecha" value="<%=list.getFecha()%>" size="20" />
+                                        <label name="lblNombre" >fecha </label><input type="date" min="<%=f.getFechalo()%>" name="txtFecha" value="<%=list.getFecha()%>" size="20" />
                                         <label name="lblNombre" > estado</label><input name="txtEstado" value="<%=list.getEstado()%>" size="20" />
                                     </div>
                                 </div>
