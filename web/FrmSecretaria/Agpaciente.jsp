@@ -154,10 +154,10 @@
                                         <div class="col-xs-6">
 
                                             <div class="panel panel-default">
-                                                <div class="panel-heading">Horaio Medico</div>
+                                                <div class="panel-heading">Horario Medico</div>
                                                 <div class="panel-body">
 
-                                                    <label name="lblNombre" > horario </label> <input name="txtHorario" id="txtHorario"  size="20" />
+                                                    <label name="lblNombre" > Horario </label> <input name="txtHorario" id="txtHorario"  size="20" />
                                                     <label name="lblNombre" > Medico</label><input name="txtNomMedico" id="txtNomMedico"   size="20" />
 
 
@@ -169,8 +169,8 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">Datos de Paciente</div>
                                                 <div class="panel-body">
-                                                    <label name="lblApellido" > nombre </label><input name="txtNombre" value="<%=list.getNombre()%>" size="20" />
-                                                    <label name="lblNombre" >apellido </label><input name="txtApellido" value="<%=list.getApellido()%>" size="20" />
+                                                    <label name="lblApellido" > Nombre </label><input name="txtNombre" value="<%=list.getNombre()%>" size="20" />
+                                                    <label name="lblNombre" >Apellido </label><input name="txtApellido" value="<%=list.getApellido()%>" size="20" />
                                                 </div>
                                             </div>
 
@@ -182,7 +182,7 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">Fecha de Cita</div>
                                                 <div class="panel-body">
-                                                    <label name="lblNombre" >fecha </label><input name="txtFecha"  size="20" />
+                                                    <label name="lblNombre" >Fecha </label><input name="txtFecha"  size="20" />
                                                     <a>la fecha debe se escrita yy-mes-dia  ejemplo:1999-12-31</a>
                                                 </div>
                                             </div>
@@ -194,10 +194,10 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">Correo</div>
                                                 <div class="panel-body">
-                                                    <input  name="codigoC"  value="<%=list.getIdpaciente()%>" id="codigoC">
+                                                    <input  name="codigoC" type="hidden" value="<%=list.getIdpaciente()%>" id="codigoC">
 
 
-                                                    <label name="lblApellido" > correo </label><input name="txtCorreo"  size="20" />
+                                                    <label name="lblApellido" > Correo </label><input name="txtCorreo"  size="20" />
                                                     <label name="lblApellido" > Motivo </label><input name="txtMotivo"  size="20" />
                                                 </div>
                                             </div>

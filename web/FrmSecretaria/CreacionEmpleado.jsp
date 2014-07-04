@@ -126,7 +126,7 @@
 
                         </div>
 
-                        <form name="gEmpleado" method="post" action="../sEmpleado">
+                        <form name="gEmpleado" method="post" action="../SrEmpleado ">
                             <div class="panel-body">
 
                                 <div class="panel panel-info">
