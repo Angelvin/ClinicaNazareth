@@ -1,4 +1,6 @@
 <!DOCTYPE HTML>
+<%@include file="/WEB-INF/jspf/validar.jspf" %>
+
 <html>
     <head>
         <meta charset="utf-8">

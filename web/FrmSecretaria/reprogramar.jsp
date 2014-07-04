@@ -1,6 +1,7 @@
 <%@page import="BAL.DatoCita"%>
 <%@page import="BAL.Ccita"%>
 <!DOCTYPE HTML>
+<%@include file="/WEB-INF/jspf/validar.jspf" %>
 <html>
     <head>
         <meta charset="utf-8">
@@ -157,7 +158,7 @@
                                     <div class="panel panel-default">
                                         <div class="panel-heading">Panel heading without title</div>
                                         <div class="panel-body">
-                                            <label name="lblNombre" >fecha </label><input name="txtFecha" value="<%=list.getFecha()%>" size="20" />
+                                            <label name="lblNombre" >fecha </label><input type="date" name="txtFecha" value="<%=list.getFecha()%>" size="20" />
                                             <label name="lblNombre" > estado</label><input name="txtEstado" value="<%=list.getEstado()%>" size="20" />
                                         </div>
                                     </div>

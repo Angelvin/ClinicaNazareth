@@ -1,11 +1,12 @@
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>ï»¿ï»¿
 <!DOCTYPE HTML>
+
 <%@include file="../frementop.jspf" %>
+<%@include file="/WEB-INF/jspf/validar.jspf" %>
 <html>
     <head>
         <meta charset="utf-8">
-        <title>ClÃ­nica Nazareth</title>
+        <title>Clínica Nazareth</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="Zaid Archila">
@@ -56,7 +57,7 @@
                 if ((campo.value.match(RegExPattern)) && (campo.value != '')) {
 
                 } else {
-                    alert('El campo debe ser llenado nÂª TELEFONO');
+                    alert('El campo debe ser llenado nª TELEFONO');
                 }
             }
 
@@ -86,8 +87,8 @@
 
                         <!--Edit Site Name and Slogan here-->
                         <div id="divLogo">
-                            <a href="index.jsp" id="divSiteTitle">ClÃ­nica Nazareth</a><br />
-                            <a href="index.jsp" id="divTagLine">Â¡<span class="camera_full_width">BÃºsqueda de Paciente</span>!</a>
+                            <a href="index.jsp" id="divSiteTitle">Clínica Nazareth</a><br />
+                            <a href="index.jsp" id="divTagLine">¡<span class="camera_full_width">Búsqueda de Paciente</span>!</a>
                         </div>
 
                     </div>
@@ -100,7 +101,7 @@
             </div>
             <!--DENTRO DE ESTE DIV CREAR EL FROMULARIO FAVOR NO UTILZAR
                 TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE
-                PUEDA VERSE EN CUALQUEIR TAMAÃ‘O
+                PUEDA VERSE EN CUALQUEIR TAMAÑO
             -->
 
 
@@ -168,7 +169,7 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <p class="copyright">
-                            Copyright Â© 2014 Clinica Nazareth. All Rights Reserved.
+                            Copyright © 2014 Clinica Nazareth. All Rights Reserved.
                         </p>
 
                         <div class="social_bookmarks"></div>

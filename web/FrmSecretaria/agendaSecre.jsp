@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <%@include file="../frementop.jspf" %>
+<%@include file="/WEB-INF/jspf/validar.jspf" %>
 <head>
     <meta charset="utf-8">
     <title>Clinica Nazareth</title>

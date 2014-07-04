@@ -3,7 +3,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page language="java" session="true" errorPage="../WEB-INF/jspf/ErrorPage.jsp"   %>
 <!DOCTYPE HTML>
-
+<%@include file="/WEB-INF/jspf/validar.jspf" %>
 <%@include file="../frementop.jspf" %>
 <html>
     <head>

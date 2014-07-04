@@ -2,7 +2,8 @@
 <%@page import="BEANS.bCargo"%>
 <%@page import="BEANS.bRol"%>
 <%@page import="java.sql.ResultSet"%>
-?<!DOCTYPE HTML>
+<!DOCTYPE HTML>
+<%@include file="/WEB-INF/jspf/validar.jspf" %>
 <html>
     <head>
         <meta charset="utf-8">
@@ -27,7 +28,22 @@
 
         <link href="../scripts/carousel/style.css" rel="stylesheet" type="text/css" /><link href="../scripts/camera/css/camera.css" rel="stylesheet" type="text/css" />
         <link href="../scripts/wookmark/css/style.css" rel="stylesheet" type="text/css" />  <link href="../scripts/yoxview/yoxview.css" rel="stylesheet" type="text/css" />
-
+        <%
+            String route = this.getServletContext().getContextPath() + "/Acceso.jsp";
+            String url = response.encodeRedirectURL(route);
+            try {
+                if (request.getSession(false) == null) {
+                    //si no hay session, redirecciona a login
+                    response.sendRedirect(url);
+                } else if (request.getSession().getAttribute("userName").equals("") || request.getSession().getAttribute("uidPaciente").equals("") || request.getSession().getAttribute("uidLogin").equals("")) {
+                    //si existen sessiiones y hay alguna vacia, redireccionar a login
+                    response.sendRedirect(url);
+                } else {
+                }
+            } catch (java.lang.NullPointerException ex) {
+                response.sendRedirect(url);
+            }
+        %>
 
 
 

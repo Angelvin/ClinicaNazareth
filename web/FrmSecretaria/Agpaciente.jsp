@@ -1,4 +1,4 @@
-
+<%@include file="/WEB-INF/jspf/validar.jspf" %>
 <%@page import="BAL.edPaciente"%>
 <%@page import="BEANS.bedipaciente"%>
 

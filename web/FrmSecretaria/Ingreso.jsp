@@ -4,7 +4,7 @@
 <%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
+<%@include file="/WEB-INF/jspf/validar.jspf" %>
 
 <!DOCTYPE HTML>
 <html>

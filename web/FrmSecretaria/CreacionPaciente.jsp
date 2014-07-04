@@ -1,10 +1,14 @@
 
 
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/jspf/validar.jspf" %>
 <!DOCTYPE HTML>
+
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Clínica Nazareth</title>
+        <title>ClÃ­nica Nazareth</title>
 
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,8 +32,20 @@
         <link href="../scripts/carousel/style.css" rel="stylesheet" type="text/css" /><link href="../scripts/camera/css/camera.css" rel="stylesheet" type="text/css" />
         <link href="../scripts/wookmark/css/style.css" rel="stylesheet" type="text/css" />  <link href="../scripts/yoxview/yoxview.css" rel="stylesheet" type="text/css" />
 
+        <script src="../scripts/modernizr.custom.62748.js" type="text/javascript" ></script>
+        <script>
+            // fallback para el datepicker con jquery
+            Modernizr.load({
+                test: Modernizr.inputtypes.date,
+                nope: ['http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js', 'jquery-ui.css'],
+                complete: function() {
+                    $('input[type=date]').datepicker({
+                        dateFormat: 'yy-mm-dd'
+                    });
+                }
 
-
+            });
+        </script>
 
 
         <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
@@ -48,8 +64,8 @@
 
                         <!--Edit Site Name and Slogan here-->
                         <div id="divLogo">
-                            <a href="index.jsp" id="divSiteTitle">Clínica Nazareth</a><br />
-                            <a href="index.jsp" id="divTagLine">¡<span class="camera_full_width">Gestión de Administración</span>!</a>
+                            <a href="index.jsp" id="divSiteTitle">ClÃ­nica Nazareth</a><br />
+                            <a href="index.jsp" id="divTagLine">Â¡<span class="camera_full_width">GestiÃ³n de AdministraciÃ³n</span>!</a>
 
                         </div>
 
@@ -63,7 +79,7 @@
             </div>
             <!--DENTRO DE ESTE DIV CREAR EL FROMULARIO FAVOR NO UTILZAR 
           TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE 
-          PUEDA VERSE EN CUALQUEIR TAMAÑO
+          PUEDA VERSE EN CUALQUEIR TAMAÃ‘O
             -->
 
 
@@ -94,12 +110,12 @@
                                 </div>
                             </div>
                             <div class="panel panel-default">
-                                <div class="panel-heading">contraseña</div>
+                                <div class="panel-heading">contraseÃ±a</div>
                                 <div class="panel-body">
 
                                     <div class="row">
-                                        <div class="col-md-6" ><label>Contraseña</label><input name="txtcontra"  id="txtcontra" type="password" class="form-control" placeholder="Password" value="an" required></div>
-                                        <div class="col-md-6"><label>repetir-Contraseña</label><input  type="password" class="form-control" placeholder="Password" required value="an"  ></div>
+                                        <div class="col-md-6" ><label>ContraseÃ±a</label><input name="txtcontra"  id="txtcontra" type="password" class="form-control" placeholder="Password" value="an" required></div>
+                                        <div class="col-md-6"><label>repetir-ContraseÃ±a</label><input  type="password" class="form-control" placeholder="Password" required value="an"  ></div>
                                     </div>
 
                                 </div>
@@ -126,7 +142,7 @@
                                 <div class="panel-heading">fecha Nacimiento y genero</div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-6"><input class="form-control" name="txtfecha" type="text" id="txtfecha" size="10" maxlength="10" value="1998-12-12"></div>
+                                        <div class="col-md-6"><input class="form-control" name="txtfecha" type="date" id="txtfecha" size="10" maxlength="10" ></div>
                                         <div class="col-md-6"><select class="form-control" name="txtgenero"  >
                                                 <option value="m">Masculino</option>
                                                 <option value="f">Femenino</option>
@@ -167,7 +183,7 @@
 
                                     </div>
                                     <div class="row">
-                                        <div class="col-xs-6 col-md-2"><label >Teléfono</label>
+                                        <div class="col-xs-6 col-md-2"><label >TelÃ©fono</label>
 
                                         </div>
                                         <div class="col-xs-6 col-md-3">
@@ -264,7 +280,7 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <p class="copyright"> 
-                            Copyright ? 2014 Clínica Nazareth. All Rights Reserved.
+                            Copyright ? 2014 ClÃ­nica Nazareth. All Rights Reserved.
                         </p>
 
                         <div class="social_bookmarks"></div>

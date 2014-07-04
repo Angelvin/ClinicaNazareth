@@ -1,7 +1,7 @@
 
 <%@page import="BAL.edPaciente"%>
 <%@page import="BEANS.bedipaciente"%>
-
+<%@include file="/WEB-INF/jspf/validar.jspf" %>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -24,6 +24,22 @@
         <!--[if IE 7]>
             <link rel="stylesheet" href="scripts/fontawesome/css/font-awesome-ie7.min.css">
         <![endif]-->
+        <%
+            String route = this.getServletContext().getContextPath() + "/Acceso.jsp";
+            String url = response.encodeRedirectURL(route);
+            try {
+                if (request.getSession(false) == null) {
+                    //si no hay session, redirecciona a login
+                    response.sendRedirect(url);
+                } else if (request.getSession().getAttribute("userName").equals("") || request.getSession().getAttribute("uidPaciente").equals("") || request.getSession().getAttribute("uidLogin").equals("")) {
+                    //si existen sessiiones y hay alguna vacia, redireccionar a login
+                    response.sendRedirect(url);
+                } else {
+                }
+            } catch (java.lang.NullPointerException ex) {
+                response.sendRedirect(url);
+            }
+        %>
 
         <link href="../scripts/carousel/style.css" rel="stylesheet" type="text/css" /><link href="../scripts/camera/css/camera.css" rel="stylesheet" type="text/css" />
         <link href="../scripts/wookmark/css/style.css" rel="stylesheet" type="text/css" />  <link href="../scripts/yoxview/yoxview.css" rel="stylesheet" type="text/css" />
