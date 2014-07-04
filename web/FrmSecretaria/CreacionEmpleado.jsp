@@ -24,7 +24,7 @@
         <link href="../scripts/carousel/style.css" rel="stylesheet" type="text/css" /><link href="../scripts/camera/css/camera.css" rel="stylesheet" type="text/css" />
         <link href="../scripts/wookmark/css/style.css" rel="stylesheet" type="text/css" />  <link href="../scripts/yoxview/yoxview.css" rel="stylesheet" type="text/css" />
 
-      
+
 
 
 
@@ -115,7 +115,7 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="panel panel-primary">
-              
+
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
@@ -132,94 +132,94 @@
                         </div>
 
                     </div>
-                    
+
                     <form name="gEmpleado" method="post" action="../sEmpleado">
-                    <div class="panel-body">
-                              
-                        <div class="panel panel-info">
-                            <div class="panel-heading">Creracion de login </div>
-                            <div class="panel-body">
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            
-                                            <div class="col-xs-6 col-md-2"><label >Usuario</label>
+                        <div class="panel-body">
+
+                            <div class="panel panel-info">
+                                <div class="panel-heading">Creracion de login </div>
+                                <div class="panel-body">
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <div class="row">
+
+                                                <div class="col-xs-6 col-md-2"><label >Usuario</label>
+
+                                                </div>
+                                                <div class="col-xs-6 col-md-4">
+                                                    <input class="form-control" name="txtrol" id="txtrol" placeholder="rol"  value="2">
+                                                    <input class="form-control" name="txtUsu" id="txtUsu"  placeholder="EJEMPLO@EJEMPLO.COM" onblur="correo(this);" value="EJEMPLO@EJEMPLO.COM">
+                                                </div>
+
 
                                             </div>
-                                            <div class="col-xs-6 col-md-4">
-                                                <input class="form-control" name="txtrol" id="txtrol" placeholder="rol"  value="2">
-                                                <input class="form-control" name="txtUsu" id="txtUsu"  placeholder="EJEMPLO@EJEMPLO.COM" onblur="correo(this);" value="EJEMPLO@EJEMPLO.COM">
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+
+                                            <div class="row">
+                                                <div class="col-md-6" ><label>Contraseña</label> <input name="txtContra" id="txtContra" type="password" value="angel" class="form-control" placeholder="Password" required></div>
+                                                <div class="col-md-6"><label>repetir-Contraseña</label> <input  type="password" class="form-control" value="angel" placeholder="Password" required></div>
                                             </div>
-
-
                                         </div>
                                     </div>
+
+
+
+
                                 </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        
-                                        <div class="row">
-                                            <div class="col-md-6" ><label>Contraseña</label> <input name="txtContra" id="txtContra" type="password" value="angel" class="form-control" placeholder="Password" required></div>
-                                            <div class="col-md-6"><label>repetir-Contraseña</label> <input  type="password" class="form-control" value="angel" placeholder="Password" required></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-
                             </div>
-                        </div>
 
-                        <div class="panel panel-info">
-                            <div class="panel-heading">Datos generales</div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-6" ><label>Primer Nombre</label><input name="txtPNombre"  id="txtPNombre" class="form-control"  placeholder="nombre" onblur="validatePass(this);" value="medico"></div>
-                                    <div class="col-md-6"><label>Segundo Nombre</label><input name="txtSNombre" id="txtSNombre" class="form-control" placeholder="nombre" onblur="validatePass(this);" value="medico" ></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6"><label>Primer Apellido</label><input name="txtPApe" id="txtPApe" class="form-control"  placeholder="apellido"onblur="validatePass(this);" value="medico"></div>
-                                    <div class="col-md-6"><label>Segundo Apellido</label><input name="txtSApe"id="txtSApe"  class="form-control" placeholder="apellido"onblur="validatePass(this);" value="medico" ></div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xs-12 col-md-8" ><label>Fecha Nacimiento</label>
-
-                                        <input  name="txtfecha" id="txtfecha" class="form-control" value="2014-08-04" />
-
-
-
-
+                            <div class="panel panel-info">
+                                <div class="panel-heading">Datos generales</div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6" ><label>Primer Nombre</label><input name="txtPNombre"  id="txtPNombre" class="form-control"  placeholder="nombre" onblur="validatePass(this);" value="medico"></div>
+                                        <div class="col-md-6"><label>Segundo Nombre</label><input name="txtSNombre" id="txtSNombre" class="form-control" placeholder="nombre" onblur="validatePass(this);" value="medico" ></div>
                                     </div>
-                                    <div class="col-xs-12 col-md-8"><label >Edad</label><p id="demo"></p></div>
-                                </div>
+                                    <div class="row">
+                                        <div class="col-md-6"><label>Primer Apellido</label><input name="txtPApe" id="txtPApe" class="form-control"  placeholder="apellido"onblur="validatePass(this);" value="medico"></div>
+                                        <div class="col-md-6"><label>Segundo Apellido</label><input name="txtSApe"id="txtSApe"  class="form-control" placeholder="apellido"onblur="validatePass(this);" value="medico" ></div>
+                                    </div>
 
-                               
-                                            <div class="col-xs-6 col-md-3">
-                                                <input class="form-control" name="txtCorreo" id="txtCorreo" placeholder="ejemplo@gmail.com" value="ejemplo@gmail.com" onblur="docu(this);">
-                                                        <input NAME="comboTipoCorreo" id="comboTipoCorreo" class="form-control" value="pcorreo" />
-                                            </div>
-                                                
-                                             <div class="col-xs-6 col-md-4"><label >tipo </label><SELECT  SIZE=1> 
-                                                    <OPTION VALUE="1">Personal</OPTION>
-                                                    <OPTION VALUE="2">Laboral</OPTION>
-                                                    
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-8" ><label>Fecha Nacimiento</label>
 
-                                                </SELECT>
+                                            <input  name="txtfecha" id="txtfecha" class="form-control" value="2014-08-04" />
 
-                                            </div>
-                                
-                                <div class="col-xs-6 col-md-4"><label >Sexo </label><SELECT SIZE=1> 
-                                                    <OPTION VALUE="1">Masculino</OPTION>
-                                                    <OPTION VALUE="2">Femenino</OPTION>
-                                                    
 
-                                                </SELECT>
-  <input  NAME="comboSex" id="comboSex" class="form-control" value="m" />
-                                            </div>
+
 
                                         </div>
+                                        <div class="col-xs-12 col-md-8"><label >Edad</label><p id="demo"></p></div>
+                                    </div>
+
+
+                                    <div class="col-xs-6 col-md-3">
+                                        <input class="form-control" name="txtCorreo" id="txtCorreo" placeholder="ejemplo@gmail.com" value="ejemplo@gmail.com" onblur="docu(this);">
+                                        <input NAME="comboTipoCorreo" id="comboTipoCorreo" class="form-control" value="pcorreo" />
+                                    </div>
+
+                                    <div class="col-xs-6 col-md-4"><label >tipo </label><SELECT  SIZE=1> 
+                                            <OPTION VALUE="1">Personal</OPTION>
+                                            <OPTION VALUE="2">Laboral</OPTION>
+
+
+                                        </SELECT>
+
+                                    </div>
+
+                                    <div class="col-xs-6 col-md-4"><label >Sexo </label><SELECT SIZE=1> 
+                                            <OPTION VALUE="1">Masculino</OPTION>
+                                            <OPTION VALUE="2">Femenino</OPTION>
+
+
+                                        </SELECT>
+                                        <input  NAME="comboSex" id="comboSex" class="form-control" value="m" />
+                                    </div>
+
+                                </div>
 
 
                             </div>
@@ -237,7 +237,7 @@
                                             </div>
                                             <div class="col-xs-6 col-md-3">
                                                 <input class="form-control" name="txtDocu" id="txtDocu" placeholder="Documento" onblur="docu(this);" value="12313">
-                                                  <input  NAME="comboDocu" id="comboDocu"class="form-control" value="docu" />
+                                                <input  NAME="comboDocu" id="comboDocu"class="form-control" value="docu" />
                                             </div>
                                             <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT  SIZE=1> 
                                                     <OPTION VALUE="1">DUI</OPTION>
@@ -247,7 +247,7 @@
                                                 </SELECT>
 
                                             </div>
-                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -259,7 +259,7 @@
                                             </div>
                                             <div class="col-xs-6 col-md-3">
                                                 <input class="form-control" name="txtCel" id="txtCel" placeholder="NUMERO TELEFONO" onblur="tele(this);" value="12345678">
-                                                    <input  NAME="comboTipoCel" id="comboTipoCel" class="form-control" value="telefono" />
+                                                <input  NAME="comboTipoCel" id="comboTipoCel" class="form-control" value="telefono" />
                                             </div>
                                             <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT  SIZE=1> 
                                                     <OPTION VALUE="1">FIJO</OPTION>
@@ -309,7 +309,7 @@
                                             </div>
 
                                             <div class="col-xs-6 col-md-2">
-                                                      <input NAME="comboCargo" id="comboCargo" class="form-control" value="2" />
+                                                <input NAME="comboCargo" id="comboCargo" class="form-control" value="2" />
                                                 <SELECT  SIZE=1> 
                                                     <OPTION VALUE="1">PERSONAL</OPTION>
                                                     <OPTION VALUE="2">TRABAJO</OPTION>
@@ -329,7 +329,7 @@
                                             </div>
 
                                             <div class="col-xs-6 col-md-2">
-                                                 <input NAME="comboTipoE" id="comboTipoE" class="form-control" value="2" />
+                                                <input NAME="comboTipoE" id="comboTipoE" class="form-control" value="2" />
                                                 <SELECT  SIZE=1> 
                                                     <OPTION VALUE="1">PERSONAL</OPTION>
                                                     <OPTION VALUE="2">TRABAJO</OPTION>
@@ -351,93 +351,93 @@
                                             </div>
 
                                         </div>
-                                   
-                                    
+
+
                                     </div>
-                                
+
                                 </div>
-                            
+
                             </div>
-                       
+
                         </div>
 
                         <input type="submit" value="guardar"/>
                     </form>
-                    </div>   
+                </div>   
 
-                    <div>
-
-
+                <div>
 
 
 
 
-                    </div>
+
+
                 </div>
-            </div>
-
-
-        </div>
-        <div id="footerOuterSeparator"></div>
-
-        <div id="divFooter" class="footerArea shadow">
-
-            <div class="divPanel"><br /><br />
-                <div class="row-fluid">
-                    <div class="span12">
-                        <p class="copyright"> 
-                            Copyright � 2014 Clínica Nazareth. All Rights Reserved.
-                        </p>
-
-                        <div class="social_bookmarks"></div>
-                    </div>
-                </div>
-
             </div>
         </div>
 
-        <br /><br /><br />
 
-        <script src="../scripts/jquery.min.js" type="text/javascript"></script> 
-        <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../scripts/default.js" type="text/javascript"></script>
+    </div>
+    <div id="footerOuterSeparator"></div>
 
-        <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({responsive: true, width: '100%', scroll: 2, items: {width: 320, visible: {min: 2, max: 6}}});</script><script src="scripts/camera/scripts/camera.min.js" type="text/javascript"></script>
-        <script src="scripts/easing/jquery.easing.1.3.js" type="text/javascript"></script>
-        <script type="text/javascript">function startCamera() {
-                $('#camera_wrap').camera({fx: 'simpleFade, mosaicSpiralReverse', time: 2000, loader: 'none', playPause: false, navigation: true, height: '38%', pagination: true});
-            }
-            $(function() {
-                startCamera()
-            });</script>
+    <div id="divFooter" class="footerArea shadow">
 
-        <script src="scripts/wookmark/js/jquery.wookmark.js" type="text/javascript"></script>
-        <script type="text/javascript">$(window).load(function() {
-                var options = {autoResize: true, container: $('#gridArea'), offset: 10};
-                var handler = $('#tiles li');
-                handler.wookmark(options);
-                $('#tiles li').each(function() {
-                    var imgm = 0;
-                    if ($(this).find('img').length > 0)
-                        imgm = parseInt($(this).find('img').not('p img').css('margin-bottom'));
-                    var newHeight = $(this).find('img').height() + imgm + $(this).find('div').height() + $(this).find('h4').height() + $(this).find('p').not('blockquote p').height() + $(this).find('iframe').height() + $(this).find('blockquote').height() + 5;
-                    if ($(this).find('iframe').height())
-                        newHeight = newHeight + 15;
-                    $(this).css('height', newHeight + 'px');
-                });
-                handler.wookmark(options);
-                handler.wookmark(options);
-            });</script>
-        <script src="scripts/yoxview/yox.js" type="text/javascript"></script>
-        <script src="scripts/yoxview/jquery.yoxview-2.21.js" type="text/javascript"></script>
-        <script type="text/javascript">$(document).ready(function() {
-                $('.yoxview').yoxview({autoHideInfo: false, renderInfoPin: false, backgroundColor: '#ffffff', backgroundOpacity: 0.8, infoBackColor: '#000000', infoBackOpacity: 1});
-                $('.yoxview a img').hover(function() {
-                    $(this).animate({opacity: 0.7}, 300)
-                }, function() {
-                    $(this).animate({opacity: 1}, 300)
-                });
-            });</script>
+        <div class="divPanel"><br /><br />
+            <div class="row-fluid">
+                <div class="span12">
+                    <p class="copyright"> 
+                        Copyright � 2014 Clínica Nazareth. All Rights Reserved.
+                    </p>
 
-    </body>
+                    <div class="social_bookmarks"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <br /><br /><br />
+
+    <script src="../scripts/jquery.min.js" type="text/javascript"></script> 
+    <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../scripts/default.js" type="text/javascript"></script>
+
+    <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({responsive: true, width: '100%', scroll: 2, items: {width: 320, visible: {min: 2, max: 6}}});</script><script src="scripts/camera/scripts/camera.min.js" type="text/javascript"></script>
+    <script src="scripts/easing/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script type="text/javascript">function startCamera() {
+            $('#camera_wrap').camera({fx: 'simpleFade, mosaicSpiralReverse', time: 2000, loader: 'none', playPause: false, navigation: true, height: '38%', pagination: true});
+        }
+        $(function() {
+            startCamera()
+        });</script>
+
+    <script src="scripts/wookmark/js/jquery.wookmark.js" type="text/javascript"></script>
+    <script type="text/javascript">$(window).load(function() {
+            var options = {autoResize: true, container: $('#gridArea'), offset: 10};
+            var handler = $('#tiles li');
+            handler.wookmark(options);
+            $('#tiles li').each(function() {
+                var imgm = 0;
+                if ($(this).find('img').length > 0)
+                    imgm = parseInt($(this).find('img').not('p img').css('margin-bottom'));
+                var newHeight = $(this).find('img').height() + imgm + $(this).find('div').height() + $(this).find('h4').height() + $(this).find('p').not('blockquote p').height() + $(this).find('iframe').height() + $(this).find('blockquote').height() + 5;
+                if ($(this).find('iframe').height())
+                    newHeight = newHeight + 15;
+                $(this).css('height', newHeight + 'px');
+            });
+            handler.wookmark(options);
+            handler.wookmark(options);
+        });</script>
+    <script src="scripts/yoxview/yox.js" type="text/javascript"></script>
+    <script src="scripts/yoxview/jquery.yoxview-2.21.js" type="text/javascript"></script>
+    <script type="text/javascript">$(document).ready(function() {
+            $('.yoxview').yoxview({autoHideInfo: false, renderInfoPin: false, backgroundColor: '#ffffff', backgroundOpacity: 0.8, infoBackColor: '#000000', infoBackOpacity: 1});
+            $('.yoxview a img').hover(function() {
+                $(this).animate({opacity: 0.7}, 300)
+            }, function() {
+                $(this).animate({opacity: 1}, 300)
+            });
+        });</script>
+
+</body>
 </html>
