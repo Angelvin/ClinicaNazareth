@@ -9,8 +9,8 @@
     <jsp:useBean id="datos" scope="request" class="BAL.getPacienteController" />
 
     <c:set var="lista" scope="request" value="${datos.getListado(uidLogin)}"/>
-    <display:table name="lista" export="true" id="fila"  class="table table-condensed"  >
-        <display:column title="">
+    <display:table name="lista" export="true" id="fila"  class="table table-condensed" pagesize="10" >
+        <display:column title="">S
             <form  id="updateCita" method="POST" action="../PacientePerfil">
                 <style> .form-control{font-size:2em;height:auto;padding:5px;padding-left:10px}label{padding:5px;font-size:1.4em}</style>
                 <fieldset class="well">
