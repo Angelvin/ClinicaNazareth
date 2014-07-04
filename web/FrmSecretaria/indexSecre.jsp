@@ -59,7 +59,7 @@
                                                         <!--          LISTADO     -->
                                                     <jsp:useBean id="estado2" scope="request" class="BAL.confimado" />
                                                     <c:set var="list" scope="request" value="${estado2.listado}"/>
-                                                    <display:table name="list" export="true" id="fila"  class="table table-condensed"  >
+                                                    <display:table name="list" export="true" id="fila"  class="table table-condensed" pagesize="10" >
                                                         <display:setProperty name="export.rtf.filename" value="example.rtf" />
                                                         <display:column property="codigo" title="Codigo" />
                                                         <display:column property="nombre" title="Nombre" />
@@ -90,7 +90,7 @@
                                                         <c:set var="lista" scope="request" value="${estado3.listado}"/>
 
 
-                                                        <display:table name="lista" export="true" id="fila" class="table table-condensed">
+                                                        <display:table name="lista" export="true" id="fila" class="table table-condensed" pagesize="10">
                                                             <display:setProperty name="export.rtf.filename" value="example.rtf"/>
 
                                                             <display:column property="codigo" title="Codigo" />
@@ -124,7 +124,7 @@
                                                     <jsp:useBean id="estado" scope="request" class="BAL.Espera" />
                                                     <c:set var="lista" scope="request" value="${estado.listado}"/>
 
-                                                    <display:table name="lista" export="true" id="fila" >
+                                                    <display:table name="lista" export="true" id="fila"pagesize="10" class="table table-condensed" >
                                                         <display:setProperty name="export.rtf.filename" value="example.rtf"/>
                                                         <display:column property="codigo" title="Codigo" />
                                                         <display:column property="correocita" title="Correo" />

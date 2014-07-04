@@ -127,61 +127,41 @@
                     <div class="panel-body">
                         <div>
 
-                            <div class="row">
 
 
-                                <form name="form1" method="post" action="../SBusqueda">
-                                    <div class="col-md-4"><label>Campo de Búsquedad</label>
-
-                                        <select name="dia" id="dia">
-                                            <option>Correo</option>
-                                            <option>Nombre</option>
-                                            <option>Teléfono</option>
-                                            <option>Documento</option>
-                                        </select>
+                            <form name="form1" method="post" action="../SBusqueda">
 
 
-                                    </div>
-                                    <div class="col-md-6 col-md-4">
-                                        <input class="form-control" name="txtdato" id="txtdato" value="123213" placeholder="valor de Busqueda" >
+                                <div><table>
 
-                                    </div>
-                                    <div class="col-md-6 col-md-4">
-                                        <input name="cmdguardar" type="submit" id="cmdguardar" value="Guardar">
-                                    </div>
-                                </form>
-                            </div>
+                                        <!--          LISTADO     -->
+                                        <jsp:useBean id="estado2" scope="request" class="BAL.cbusqueda" />
 
-                            <div><table>
+                                        <c:set var="list" scope="request" value="${estado2.listado}"/>
 
-                                    <!--          LISTADO     -->
-                                    <jsp:useBean id="estado2" scope="request" class="BAL.cbusqueda" />
+                                        <display:table name="list" export="true" id="fila"  class="table table-condensed" pagesize="10" >
+                                            <display:setProperty name="export.rtf.filename" value="example.rtf" />
 
-                                    <c:set var="list" scope="request" value="${estado2.listado}"/>
+                                            <display:column property="codigo" title="Codigo" />
+                                            <display:column property="nombre" title="Nombre" />
+                                            <display:column property="apellido" title="Apellido" />
 
-                                    <display:table name="list" export="true" id="fila"  class="table table-condensed"  >
-                                        <display:setProperty name="export.rtf.filename" value="example.rtf" />
-
-                                        <display:column property="codigo" title="Codigo" />
-                                        <display:column property="nombre" title="Nombre" />
-                                        <display:column property="apellido" title="Apellido" />
-
-                                        <display:setProperty name="export.pdf" value="true" />
-                                        <display:column title="Editar">
-                                            <form  id="updateCita" method="post" action="../FrmSecretaria/editPaciente.jsp ">
-                                                <input type="hidden" name="codigo" value="${fila.codigo}" >
-                                                <input type="submit" name="cmdguardar" class="btn btn-link" value="Modificar" POST="SUMIT"/>
-                                            </form>
-                                        </display:column>
-                                        <display:column title="Editar">
-                                            <form  id="updateCita" method="post" action="../FrmSecretaria/Agpaciente.jsp ">
-                                                <input type="hidden" name="codigo" value="${fila.codigo}" >
-                                                <input type="submit" name="cmdguardar" class="btn btn-link" value="Agregar" POST="SUMIT"/>
-                                            </form>
-                                        </display:column>
-                                    </display:table>
-                                </table>
-                            </div>
+                                            <display:setProperty name="export.pdf" value="true" />
+                                            <display:column title="Editar">
+                                                <form  id="updateCita" method="post" action="../FrmSecretaria/editPaciente.jsp ">
+                                                    <input type="hidden" name="codigo" value="${fila.codigo}" >
+                                                    <input type="submit" name="cmdguardar" class="btn btn-link" value="Modificar" POST="SUMIT"/>
+                                                </form>
+                                            </display:column>
+                                            <display:column title="Editar">
+                                                <form  id="updateCita" method="post" action="../FrmSecretaria/Agpaciente.jsp ">
+                                                    <input type="hidden" name="codigo" value="${fila.codigo}" >
+                                                    <input type="submit" name="cmdguardar" class="btn btn-link" value="Agregar" POST="SUMIT"/>
+                                                </form>
+                                            </display:column>
+                                        </display:table>
+                                    </table>
+                                </div>
                         </div>
 
 
