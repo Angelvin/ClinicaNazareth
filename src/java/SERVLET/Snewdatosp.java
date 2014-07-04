@@ -5,7 +5,6 @@
  */
 package SERVLET;
 
-import clases.creadas.Persona;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.persistence.EntityManager;
@@ -44,46 +43,51 @@ public class Snewdatosp extends HttpServlet {
         String accion = request.getParameter("cmbvalor");
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("primerejemploPU");
+
         EntityManager em = emf.createEntityManager();
+        CJPA.Documento ob = new CJPA.Documento();
+        ob.setNumero(numero);
+        ob.setTipo(tipo);
+        ob.setFkpersona(em.find(CJPA.Persona.class, codigo));
+        em.getTransaction().begin();
+        em.persist(ob);
+        em.getTransaction().commit();
+        em.close();
 
-        if (accion.equals("d")) {
+        emf.close();
 
-//esta parte es la encargada de modificar
-            try {
-                clases.creadas.Documento ob = new clases.creadas.Documento();
-                ob.setNumero(numero);
-                ob.setTipo(tipo);
-                ob.setFkpersona(em.find(Persona.class, codigo));
-                em.getTransaction().begin();
-                em.persist(ob);
-                em.getTransaction().commit();
-            } catch (Exception e) {
-                System.out.print("erroe" + e.getMessage());
-            }
-        } else if (accion.equals("c")) {
-            //esta parate es la encargada de insertar...
-            try {
-                clases.creadas.Correo ob = new clases.creadas.Correo();
-                ob.setCorreo(numero);
-                ob.setTipo(tipo);
-                ob.setFkPersona(em.find(Persona.class, codigo));
-                em.getTransaction().begin();
-                em.merge(ob);
-                em.getTransaction().commit();
 
-            } catch (Exception e) {
-                System.out.print("erroe" + e.getMessage());
-            }
-        } else if (accion.equals("T")) {
-            clases.creadas.Telefono ob = new clases.creadas.Telefono();
-            ob.setNumero(numero);
-            ob.setTipo(tipo);
-            ob.setIdPerson(em.find(Persona.class, codigo));
-            em.getTransaction().begin();
-            em.merge(ob);
-            em.getTransaction().commit();
+        /*   if (accion.equals("d")) {
 
-        }
+         //esta parte es la encargada de modificar
+         try {
+         } catch (Exception e) {
+         System.out.print("execcion fue: " + e.getMessage());
+         }
+         } else if (accion.equals("c")) {
+         //esta parate es la encargada de insertar...
+         try {
+         CJPA.Correo ob = new CJPA.Correo();
+         ob.setCorreo(numero);
+         ob.setTipo(tipo);
+         ob.setFkPersona(em.find(Persona.class, codigo));
+         em.getTransaction().begin();
+         em.merge(ob);
+         em.getTransaction().commit();
+
+         } catch (Exception e) {
+         System.out.print("erroe" + e.getMessage());
+         }
+         } else if (accion.equals("T")) {
+         CJPA.Telefono ob = new CJPA.Telefono();
+         ob.setNumero(numero);
+         ob.setTipo(tipo);
+         ob.setIdPerson(em.find(Persona.class, codigo));
+         em.getTransaction().begin();
+         em.merge(ob);
+         em.getTransaction().commit();
+
+         }*/
 
     }
 

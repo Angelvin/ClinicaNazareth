@@ -4,7 +4,7 @@
  */
 package SERVLET;
 
-import clases.creadas.Paciente;
+import CJPA.Paciente;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.persistence.EntityManager;

@@ -4,8 +4,8 @@
  */
 package SERVLET;
 
-import clases.creadas.Medicamento;
-import clases.creadas.Subgrupo;
+import CJPA.Medicamento;
+import CJPA.Subgrupo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.persistence.EntityManager;
