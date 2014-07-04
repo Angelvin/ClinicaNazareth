@@ -57,91 +57,83 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: LucÃ­a</h2></div>
-                        <div class="col-xs-6 col-md-4">
-                            <ul class="pager">
-                                <li class="next"><a href="../sistema/login.html">Salir <span class="glyphicon glyphicon-off"></span></a></li>
-                                <li class="next"><a href="../FrmSecretaria/EntraSecret.html">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
-                                <li class="next"></li>
+            <jsp:include page="menu.jsp"></jsp:include>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-2">
+                            <br>
+                            <ul class="nav nav-pills nav-stacked panel panel-default">
+                                <li><a data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-edit"></i> Bloquear Fechas</a></li>
+                                <li><a href="#"><i class="glyphicon glyphicon-edit"></i>Bloquear Horarios</a></li>
+                                <li>·</li>
+                                <li>·</li>
+                                <li>·</li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-                <div class="panel-body">
-                    <div class="col-md-2">
-                        <br>
-                        <ul class="nav nav-pills nav-stacked panel panel-default">
-                            <li><a data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-edit"></i> Bloquear Fechas</a></li>
-                            <li><a href="#"><i class="glyphicon glyphicon-edit"></i>Bloquear Horarios</a></li>
-                            <li>#</li>
-                            <li>#</li>
-                            <li>#</li>
-                        </ul>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-xs-5">
-                                    <form>
-                                        <fieldset class="well">
-                                            <legend><span class="badge">1</span> Seleccione una especialidad:</legend>
-                                            <div class=" col-xs-6">
-                                                <select class="form-control">
-                                                    <option value="volvo">Medicina General</option>
-                                                    <option value="saab">Ortoestetica</option>
-                                                    <option value="mercedes">Pediatria</option>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <form>
+                                            <fieldset class="well">
+                                                <legend><span class="badge">1</span> Seleccione una especialidad:</legend>
+                                                <div class=" col-xs-6">
+                                                    <select class="form-control">
+                                                        <option value="volvo">Medicina General</option>
+                                                        <option value="saab">Ortoestetica</option>
+                                                        <option value="mercedes">Pediatria</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <form>
+                                            <fieldset class="well">
+                                                <legend><span class="badge">2</span> Seleccione un medico:</legend>
+                                                <div class=" col-xs-6">
+                                                    <select class="form-control">
+                                                        <option value="volvo">Dr John Doe</option>
+                                                        <option value="saab">Dr Juan Perez</option>
+                                                        <option value="mercedes">Dra Emily Santos</option>
+                                                    </select>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <form>
+                                            <fieldset class="well">
+                                                <legend><span class="badge">3</span> Seleccione una fecha:</legend>
+                                                <div class=" col-xs-6">
+                                                    <input type="date" class="form-control" >
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <form>
+                                            <fieldset class="well">
+                                                <legend><span class="badge">4</span> Horarios Disponibles:</legend>
+                                                <select  class="form-control">
+                                                    <option value="volvo">8:00--8:30</option>
+                                                    <option value="saab">9:00--9:30</option>
+                                                    <option value="mercedes">10:00--10:30</option>
+                                                    <option value="audi">11:00--11:30</option>
                                                 </select>
-                                            </div>
-                                        </fieldset>
-                                    </form>
-                                </div>
-                                <div class="col-xs-5">
-                                    <form>
-                                        <fieldset class="well">
-                                            <legend><span class="badge">2</span> Seleccione un medico:</legend>
-                                            <div class=" col-xs-6">
-                                                <select class="form-control">
-                                                    <option value="volvo">Dr John Doe</option>
-                                                    <option value="saab">Dr Juan Perez</option>
-                                                    <option value="mercedes">Dra Emily Santos</option>
-                                                </select>
-                                            </div>
-                                        </fieldset>
-                                    </form>
-                                </div>
-                                <div class="col-xs-5">
-                                    <form>
-                                        <fieldset class="well">
-                                            <legend><span class="badge">3</span> Seleccione una fecha:</legend>
-                                            <div class=" col-xs-6">
-                                                <input type="date" class="form-control" >
-                                            </div>
-                                        </fieldset>
-                                    </form>
-                                </div>
-                                <div class="col-xs-5">
-                                    <form>
-                                        <fieldset class="well">
-                                            <legend><span class="badge">4</span> Horarios Disponibles:</legend>
-                                            <select  class="form-control">
-                                                <option value="volvo">8:00--8:30</option>
-                                                <option value="saab">9:00--9:30</option>
-                                                <option value="mercedes">10:00--10:30</option>
-                                                <option value="audi">11:00--11:30</option>
-                                            </select>
-                                        </fieldset>
-                                    </form>
+                                            </fieldset>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>   
-                <div>
-                    <table>
-                        <!--          LISTADO     -->
+                    </div>   
+                    <div>
+                        <table>
+                            <!--          LISTADO     -->
                         <jsp:useBean id="estado" scope="request" class="BAL.Confcita" />
 
                         <c:set var="list" scope="request" value="${estado.listado}"/>

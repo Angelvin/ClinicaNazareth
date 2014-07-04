@@ -118,42 +118,31 @@
 
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="panel panel-primary">
+                <jsp:include page="menu.jsp"></jsp:include>
+                    <div class="panel panel-primary">
 
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
-                            <div class="col-xs-6 col-md-4">
-                                <ul class="pager">
-                                    <li class="next"><a href="../Acceso.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
-                                    <li class="next"><a href="../FrmSecretaria/indexSecre.jsp.jsp">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
-                                    <li class="next"></li>
-
-                                </ul>
+                        <div class="panel-heading">
 
 
-                            </div>
                         </div>
 
-                    </div>
+                        <form name="gEmpleado" method="post" action="../sEmpleado">
+                            <div class="panel-body">
 
-                    <form name="gEmpleado" method="post" action="../sEmpleado">
-                        <div class="panel-body">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">Crearcion de Acceso </div>
+                                    <div class="panel-body">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <div class="row">
 
-                            <div class="panel panel-info">
-                                <div class="panel-heading">Crearcion de Acceso </div>
-                                <div class="panel-body">
-                                    <div class="panel panel-default">
-                                        <div class="panel-body">
-                                            <div class="row">
+                                                    <div class="col-xs-6 col-md-6"><label >Usuario</label>
 
-                                                <div class="col-xs-6 col-md-6"><label >Usuario</label>
-
-                                                    <input class="form-control" name="txtUsu" id="txtUsu"  placeholder="EJEMPLO@EJEMPLO.COM" onblur="correo(this);" value="EJEMPLO@EJEMPLO.COM">
-                                                </div>
-                                                <div class="col-xs-6 col-md-4"><label>Rol</label>
-                                                    <select class="form-control" name="txtrol" id="txtrol"  >
-                                                        <option >Seleccionar opcion</option>
+                                                        <input class="form-control" name="txtUsu" id="txtUsu"  placeholder="EJEMPLO@EJEMPLO.COM" onblur="correo(this);" value="EJEMPLO@EJEMPLO.COM">
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-4"><label>Rol</label>
+                                                        <select class="form-control" name="txtrol" id="txtrol"  >
+                                                            <option >Seleccionar opcion</option>
                                                         <%
                                                             ResultSet rst = bRol.getRol();
                                                             while (rst.next()) {%>

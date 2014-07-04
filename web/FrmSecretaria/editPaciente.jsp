@@ -111,25 +111,14 @@
 
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
-                            <div class="col-xs-6 col-md-4">
-                                <ul class="pager">
-                                    <li class="next"><a href="../Acesso.html">Salir <span class="glyphicon glyphicon-off"></span></a></li>
-
-                                    <li class="next"></li>
-
-                                </ul>
+                <jsp:include page="menu.jsp"></jsp:include>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
 
 
-                            </div>
                         </div>
-
-                    </div>
-                    <div class="panel-body">
-                        <h1>
+                        <div class="panel-body">
+                            <h1>
                             <%
                                 int setUID = 0;
                                 //setUID = Integer.parseInt(request.getParameter("codigo"));

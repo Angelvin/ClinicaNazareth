@@ -99,94 +99,81 @@
 
 
         <div class="col-xs-12 col-sm-6 col-md-12">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
-                        <div class="col-xs-6 col-md-4">
-                            <ul class="pager">
+            <jsp:include page="menu.jsp"></jsp:include>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
 
-                                <li class="next"><a href="../sistema/login.html">Salir <span class="glyphicon glyphicon-off"></span></a></li>
-
-                                <li class="next"><a href="../FrmSecretaria/EntraSecret.html">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
-                                <li class="next"></li>
-
-                            </ul>
-
-
-                        </div>
                     </div>
-                </div>
-                <div class="panel-body">
+                    <div class="panel-body">
 
 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-11">
-                                <div class="panel-group" id="accordion">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
-                                                    </span>Ingreso de Medicamento</a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseOne" class="panel-collapse collapse in">
-                                            <div class="panel-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-11">
+                                    <div class="panel-group" id="accordion">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                                                        </span>Ingreso de Medicamento</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseOne" class="panel-collapse collapse in">
+                                                <div class="panel-body">
 
 
-                                                <div class="row">
-                                                    <div class="col-xs-6 col-md-4">Código de Producto</div>
-                                                    <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="Codigo"> <button type="button" class="btn btn-default" data-dismiss="modal">buscar</button></div>
-                                                    <div class="col-xs-6 col-md-4">
+                                                    <div class="row">
+                                                        <div class="col-xs-6 col-md-4">Código de Producto</div>
+                                                        <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="Codigo"> <button type="button" class="btn btn-default" data-dismiss="modal">buscar</button></div>
+                                                        <div class="col-xs-6 col-md-4">
 
 
-                                                        <!-- Modal -->
-                                                        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                                        <h4 class="modal-title" id="myModalLabel">Nombre Medicamento</h4>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <div class="row">
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                            <h4 class="modal-title" id="myModalLabel">Nombre Medicamento</h4>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="row">
 
 
 
-                                                                            <div class="col-xs-6 col-md-4">Cantidad</div>
-                                                                            <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="cantidad de medicamento" onblur="docu(this);"></div>
+                                                                                <div class="col-xs-6 col-md-4">Cantidad</div>
+                                                                                <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="cantidad de medicamento" onblur="docu(this);"></div>
+
+                                                                            </div>
+
+
+                                                                            <div class="row">
+                                                                                <div class="col-xs-6 col-md-4">Presentacion</div>
+                                                                                <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="Nombre"></div>
+
+                                                                            </div>
+
+
+
+
+                                                                            <div class="row"><div class="col-xs-6 col-md-4">fecha ingreso</div>
+                                                                                <div class="col-xs-6 col-md-4"><input type="date" class="form-control" name="fecha" value="" /></div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Ingresar</button>
 
                                                                         </div>
-
-
-                                                                        <div class="row">
-                                                                            <div class="col-xs-6 col-md-4">Presentacion</div>
-                                                                            <div class="col-xs-6 col-md-4"><input type="text" class="form-control" placeholder="Nombre"></div>
-
-                                                                        </div>
-
-
-
-
-                                                                        <div class="row"><div class="col-xs-6 col-md-4">fecha ingreso</div>
-                                                                            <div class="col-xs-6 col-md-4"><input type="date" class="form-control" name="fecha" value="" /></div>
-
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Ingresar</button>
-
                                                                     </div>
                                                                 </div>
                                                             </div>
+
+
+
+
                                                         </div>
-
-
-
-
                                                     </div>
-                                                </div>
 
                                                 <jsp:useBean id="listaM" scope="request" class="BAL.listaMedicamento" />
 

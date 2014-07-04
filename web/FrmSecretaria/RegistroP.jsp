@@ -63,25 +63,11 @@
 
 
             <div class="col-xs-12 col-sm-6 col-md-12">
+                <jsp:include page="menu.jsp"></jsp:include>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
 
-                        <div class="row">
-                            <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria:<b> <c:out  value="${userName}"></c:out>
-                                    </b></h2></div>
-                            <div class="col-xs-6 col-md-4">
-                                <ul class="pager">
 
-                                    <li class="next"><a class="btn btn-link" href="../Acceso.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
-
-                                    <li class="next"><a href="../FrmSecretaria/indexSecre.jsp">Menu <span class="glyphicon glyphicon-tasks"></span></a></li>
-                                    <li class="next"></li>
-
-                                </ul>
-
-
-                            </div>
-                        </div>
                     </div>
                     <div class="panel-body">
                         <div class="alert alert-success">
