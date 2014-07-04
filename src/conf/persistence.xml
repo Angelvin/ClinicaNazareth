@@ -3,51 +3,9 @@
     <persistence-unit name="primerejemploPU" transaction-type="JTA">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <jta-data-source>clinica</jta-data-source>
-        <class>CJPA.Cargo</class>
-        <class>CJPA.Cita</class>
-        <class>CJPA.Consulta</class>
-        <class>CJPA.Correo</class>
-        <class>CJPA.Departamento</class>
-        <class>CJPA.DetalleEntrada</class>
-        <class>CJPA.DetalleFactura</class>
-        <class>CJPA.DetalleMedicina</class>
-        <class>CJPA.DetalleSalida</class>
-        <class>CJPA.Direccion</class>
-        <class>CJPA.Documento</class>
-        <class>CJPA.Empleado</class>
-        <class>CJPA.Entrada</class>
-        <class>CJPA.Examen</class>
-        <class>CJPA.Expediente</class>
-        <class>CJPA.Factura</class>
-        <class>CJPA.Grupo</class>
-        <class>CJPA.Horario</class>
-        <class>CJPA.Junta</class>
-        <class>CJPA.Login</class>
-        <class>CJPA.Medicamento</class>
-        <class>CJPA.Municipio</class>
-        <class>CJPA.Paciente</class>
-        <class>CJPA.Pago</class>
-        <class>CJPA.Persona</class>
-        <class>CJPA.Resultado</class>
-        <class>CJPA.Rol</class>
-        <class>CJPA.Salida</class>
-        <class>CJPA.Subgrupo</class>
-        <class>CJPA.Sysdiagrams</class>
-        <class>CJPA.Telefono</class>
-        <class>CJPA.TipoEmpleado</class>
-        <class>CJPA.TipoExamen</class>
-        <class>CJPA.TipoPago</class>
-        <class>CJPA.TipoSalida</class>
-        <class>CJPA.TipoTratamiento</class>
-        <class>CJPA.Tratamiento</class>
-        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
-            <property name="eclipselink.logging.level" value="FINEST"/>
             <property name="eclipselink.ddl-generation" value="create-tables"/>
-            <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=clinica"/>
-            <property name="javax.persistence.jdbc.user" value="sa"/>
-            <property name="javax.persistence.jdbc.password" value="destiny"/>
         </properties>
     </persistence-unit>
 </persistence>
