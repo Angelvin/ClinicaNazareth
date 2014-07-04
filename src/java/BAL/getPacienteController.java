@@ -85,7 +85,7 @@ public class getPacienteController {
         String query = "select idPersona, pnombrePer, snombrePer, pApellPer, sApellPer, fechaNacPer, sexo from persona as p inner join login as lo on lo.idLogin=p.fkLogin where lo.idLogin=";
         query = query + Integer.toString(queryParam);
 
-        List<getPacienteController> lista2 = new ArrayList<getPacienteController>(0);
+        List<getPacienteController> lista = new ArrayList<getPacienteController>(0);
         try {
             Connection cnn = cConexion.conectar_ds();
             ResultSet rs = null;
@@ -97,11 +97,11 @@ public class getPacienteController {
                 pac.setIdPersona(rs.getInt("idPersona"));
                 pac.setPnombrePer(rs.getString("pnombrePer"));
                 pac.setSnombrePer(rs.getString("snombrePer"));
-                pac.setpApellPer(rs.getString("pApellidoPer"));
-                pac.setsApellPer(rs.getString("sApellidoPer"));
+                pac.setpApellPer(rs.getString("pApellPer"));
+                pac.setsApellPer(rs.getString("sApellPer"));
                 pac.setFechaNacPer(rs.getString("fechaNacPer"));
                 pac.setSexo(rs.getString("sexo"));
-                lista2.add(pac);
+                lista.add(pac);
             }
             rs.close();
             sta.close();
@@ -110,7 +110,7 @@ public class getPacienteController {
         } catch (NullPointerException ex) {
             System.out.println("Truena el Controlador: " + ex.getMessage());
         } finally {
-            return lista2;
+            return lista;
         }
     }
 }
