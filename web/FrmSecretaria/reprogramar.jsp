@@ -1,3 +1,7 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="DAL.cConexion"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="BAL.DatoCita"%>
 <%@page import="BAL.Ccita"%>
 <!DOCTYPE HTML>
@@ -83,70 +87,129 @@
 
 
                         </h1>
-                        <form  id="updateCita" method="post" action="../Sactualizarcita ">
-                            <div class="row">
-                                <div class="col-xs-6">
 
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">Datos Medico</div>
-                                        <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-6">
 
-                                            <label name="lblNombre" > horario </label><input name="txtHorario" id="txtHorario"  value="<%=list.getHorario()%>" size="20" />
-                                            <label name="lblNombre" > Medico</label><input name="txtNomMedico" id="txtNomMedico"  value="<%=list.getMedico()%>" size="20" pattern="/([a-z])/" />
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Datos Medico</div>
+                                    <script>
+                                        $(function() {
+                                            $('#cmbDoctorid').change(function() {
+                                                $('#myForm').submit();
+                                            });
+                                        });</script>
+                                        <%
+                                            HttpSession cmbDoctor = request.getSession();
+                                            cmbDoctor.setAttribute("sDoctor", request.getParameter("cmbDoctors"));
+
+                                        %>
+                                    <div class="panel-body">
+                                        <form  id="updateCita" method="post" action="../Sactualizarcita">  
+
+                                            <label name="lblNombre" > Medico</label>
+                                            <%
 
 
-                                        </div>
+
+                                                Connection connection3 = cConexion.conectar_ds();
+                                                Statement pst3 = connection3.createStatement();
+                                                String query3 = "select (p.pApellPer) as idEmpleado, concat(p.pnombrePer,' ',p.snombrePer,' ',p.pApellPer,' ',p.sApellPer ) as Nombre from empleado as e inner join persona as p on p.idPersona=e.fkpersona inner join cargo as c on c.idCargo=e.fkCargo where c.nombreCargo=" + "'medico'";
+                                                ResultSet rs3 = null;
+
+                                                try {
+                                                    rs3 = pst3.executeQuery(query3);
+
+                                                    out.println("<select class='form-control' name='cmbDoctors' id='cmbDoctorid'>");
+                                                    while (rs3.next()) {
+                                                        out.println("<option value='" + rs3.getString("idEmpleado") + "'> Dr " + rs3.getString("Nombre") + "</option>");
+                                                    }
+                                                    out.println("</select>");
+                                                } catch (Exception e) {
+                                                    System.out.print(e.getMessage());
+                                                } finally {
+                                                    connection3.close();
+                                                    pst3.close();
+                                                }
+
+                                            %>
+                                            <label name="lblNombre" > horario </label>
+                                            <%
+
+                                                Connection connection = cConexion.conectar_ds();
+                                                Statement pst = connection.createStatement();
+                                                String query = "select (horaini) as idHora ,(horaini)as hora from horario where fkempleado=" + 2;
+                                                ResultSet rs = null;
+
+                                                try {
+                                                    rs = pst.executeQuery(query);
+                                                    out.println("<p>" + "Los medicos disponibles para:  " + cmbDoctor.getAttribute("sDoctor") + " son" + "</p>");
+                                                    out.println("<select class='form-control' name='Horio'>");
+                                                    while (rs.next()) {
+                                                        out.println("<option value='" + rs.getString("idHora") + "'> " + rs.getString("hora") + "</option>");
+                                                    }
+                                                    out.println("</select>");
+                                                } catch (Exception e) {
+                                                    System.out.print(e.getMessage());
+                                                } finally {
+                                                    connection.close();
+                                                    pst.close();
+                                                }
+
+                                            %>
+
                                     </div>
 
                                 </div>
-                                <div class="col-xs-6">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">Datos Paciente</div>
-                                        <div class="panel-body">
-                                            <label name="lblApellido" > nombre </label><input name="txtNombre" value="<%=list.getNombre()%>" size="20" />
-                                            <label name="lblNombre" >apellido </label><input name="txtApellido" value="<%=list.getApellido()%>" size="20" />
-                                        </div>
-                                    </div>
 
-
-                                </div>
                             </div>
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">Fecha  y Estado</div>
-                                        <div class="panel-body">
-                                            <label name="lblNombre" >fecha </label><input type="date" name="txtFecha" value="<%=list.getFecha()%>" size="20" />
-                                            <label name="lblNombre" > estado</label><input name="txtEstado" value="<%=list.getEstado()%>" size="20" />
-                                        </div>
+                            <div class="col-xs-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Datos Paciente</div>
+                                    <div class="panel-body">
+                                        <label name="lblApellido" > nombre </label><input name="txtNombre" value="<%=list.getNombre()%>" size="20" />
+                                        <label name="lblNombre" >apellido </label><input name="txtApellido" value="<%=list.getApellido()%>" size="20" />
                                     </div>
-
-
                                 </div>
-                                <div class="col-xs-6">
-
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">Correo de paciente</div>
-                                        <div class="panel-body">
-                                            <input  name="codigoC"  type="hidden" id="codigoC" value="<%=list.getIdcita()%>">
 
 
-                                            <label name="lblApellido" > correo </label><input name="txtCorreo" value="<%=list.getCorreo()%>" size="20" />
-                                        </div>
-                                    </div>
-
-
-
-
-                                </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Fecha  y Estado</div>
+                                    <div class="panel-body">
+                                        <label name="lblNombre" >fecha </label><input type="date" name="txtFecha" value="<%=list.getFecha()%>" size="20" />
+                                        <label name="lblNombre" > estado</label><input name="txtEstado" value="<%=list.getEstado()%>" size="20" />
+                                    </div>
+                                </div>
 
 
-                            <input type="submit" name="cmdguardar" class="btn btn-link" value="Confirmar" POST="SUMIT"/>
+                            </div>
+                            <div class="col-xs-6">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Correo de paciente</div>
+                                    <div class="panel-body">
+                                        <input  name="codigoC"  type="hidden" id="codigoC" value="<%=list.getIdcita()%>">
+
+
+                                        <label name="lblApellido" > correo </label><input name="txtCorreo" value="<%=list.getCorreo()%>" size="20" />
+                                    </div>
+                                </div>
 
 
 
-                        </form>
+
+                            </div>
+                        </div>
+
+
+                        <input type="submit" name="cmdguardar" class="btn btn-link" value="Confirmar" POST="SUMIT"/>
+
+
+                        </from>
 
                     </div>
 

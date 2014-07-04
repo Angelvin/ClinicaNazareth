@@ -1,3 +1,8 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="DAL.cConexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/jspf/validar.jspf" %>
 <!DOCTYPE HTML>
@@ -33,6 +38,19 @@
           TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE
           PUEDA VERSE EN CUALQUEIR TAMAÑO
             -->
+            <%
+                Connection cnp = cConexion.conectar_ds();
+                Statement pst2 = cnp.createStatement();
+                String fecha = "select CONVERT (date, GETDATE())";
+                ResultSet r = null;
+                Date f;
+                r = pst2.executeQuery(fecha);
+                while (r.next()) {
+
+                    f = r.getDate(1);
+                }
+
+            %>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <jsp:include page="menu.jsp"></jsp:include>
                 <div class="panel panel-primary">
@@ -71,7 +89,7 @@
                                 <div class="panel-heading">Fecha Nacimiento y Genero</div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-6"><label>Fecha </label><input class="form-control" name="txtfecha" type="date" id="txtfecha" size="10" maxlength="10" required> <a>La fecha debe ser menor a la actual</a></div>
+                                        <div class="col-md-6"><label>Fecha </label><input class="form-control" name="txtfecha" type="date" id="txtfecha"  required> <a>La fecha debe ser menor a la actual</a></div>
                                         <div class="col-md-6"><label>Genero</label><select class="form-control" name="txtgenero"  >
                                                 <option value="m">Masculino</option>
                                                 <option value="f">Femenino</option>

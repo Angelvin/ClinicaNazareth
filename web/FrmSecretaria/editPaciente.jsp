@@ -1,3 +1,4 @@
+<%@page import="BEANS.Bfecha"%>
 <%@page import="BAL.edPaciente" %>
 <%@page import="BEANS.bedipaciente" %>
 <%@include file="/WEB-INF/jspf/validar.jspf" %>
@@ -50,6 +51,7 @@ PUEDA VERSE EN CUALQUEIR TAMAÑO
                                     //do nothing
                                 }
                                 bedipaciente list = edPaciente.getPersona(setUID);
+                                Bfecha f = Bfecha.getFecha();
                             %>
 
 
@@ -93,7 +95,7 @@ PUEDA VERSE EN CUALQUEIR TAMAÑO
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>fecha Nacimiento</label>
-                                        <input type="date" id="txtFecha" name="txtFecha" class="form-control" placeholder="sexo" value="<%=list.getFecha()%>" onblur="validatePass(this);"> <a>La fecha debe ser menor a la actual</a>
+                                        <input type="date" id="txtFecha" name="txtFecha"  max="<%=f.getFechalo()%>" class="form-control" placeholder="sexo" value="<%=list.getFecha()%>" onblur="validatePass(this);"> <a>La fecha debe ser menor a la actual</a>
                                     </div>
                                 </div>
                                 <div class="row">

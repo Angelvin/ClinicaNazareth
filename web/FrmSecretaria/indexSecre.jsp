@@ -101,7 +101,7 @@
                                                             <display:column property="nombre" title="Nombre" />
                                                             <display:column property="medico" title="Mèdico" />
                                                             <display:column title="Editar">
-                                                                <form  id="updateCita" method="post" action="../FrmSecretaria/reprogramar.jsp ">
+                                                                <form  id="updateCita" method="GET" action="../FrmSecretaria/reprogramar.jsp ">
                                                                     <input type="hidden" name="codigoCita" value="${fila.codigo}" >
                                                                     <input type="submit" name="cmdguardar" class="btn btn-link" value="Reprogramar" POST="SUMIT"/>
 

@@ -46,8 +46,8 @@ public class Sactualizarcita extends HttpServlet {
         String ac = request.getParameter("codigoC");
 
         String fecha = request.getParameter("txtFecha");
-        String horario = request.getParameter("txtHorario");
-        String medico = request.getParameter("txtNomMedico");
+        String horario = request.getParameter("Horio");
+        String medico = request.getParameter("cmbDoctors");
         Connection cnn = cConexion.conectar_ds();
 
         int val = 0;
@@ -81,7 +81,7 @@ public class Sactualizarcita extends HttpServlet {
                 System.out.println("UPDATE PROCEDURE RETORNA: " + contar);
                 out.println(DisplayEnvio());
             } else {
-                out.println(DisplayError("Ya existe una cita reservada para ese dia!...", "/ClinicaNazareth/FrmSecretaria/indexSecre.jsp"));
+                out.println(DisplayError("Ya existe una cita reservada para ese dia!...", "/ClinicaNazareth/FrmSecretaria/reprogramar.jsp"));
             }
             rset.close();
             sta.close();
