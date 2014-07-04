@@ -180,7 +180,7 @@
                                     <div class="panel panel-default">
                                         <div class="panel-heading">Panel heading without title</div>
                                         <div class="panel-body">
-                                            <input  name="codigoC" id="codigoC" value="<%=list.getIdcita()%>">
+                                            <input  name="codigoC"  type="hidden" id="codigoC" value="<%=list.getIdcita()%>">
 
 
                                             <label name="lblApellido" > correo </label><input name="txtCorreo" value="<%=list.getCorreo()%>" size="20" />

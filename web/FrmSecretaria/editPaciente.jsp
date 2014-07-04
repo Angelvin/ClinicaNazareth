@@ -147,7 +147,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">Datos</div>
                                 <div class="panel-body">
-                                    <input  name="codigoC" id="codigoC" value="<%=list.getIdpaciente()%>">
+                                    <input  name="codigoC"  type="hidden" id="codigoC" value="<%=list.getIdpaciente()%>">
                                     <div class="row">
                                         <div class="col-md-6" ><label>Primer Nombre</label><input id="txtnombre" name="txtnombre" class="form-control"  placeholder="nombre" value="<%=list.getNombre()%>"></div>
 
