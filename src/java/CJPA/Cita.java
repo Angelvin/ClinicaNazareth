@@ -1,19 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+package CJPA;
 
-package clases.creadas;
-
-import DAL.cConexion;
 import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,11 +21,10 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import librebeans.Tipopago;
 
 /**
  *
- * @author Angel
+ * @author daMgeL
  */
 @Entity
 @Table(name = "cita", catalog = "clinica", schema = "dbo")
@@ -45,11 +36,7 @@ import librebeans.Tipopago;
     @NamedQuery(name = "Cita.findByCorreoCita", query = "SELECT c FROM Cita c WHERE c.correoCita = :correoCita"),
     @NamedQuery(name = "Cita.findByMotivo", query = "SELECT c FROM Cita c WHERE c.motivo = :motivo"),
     @NamedQuery(name = "Cita.findByEstadoCita", query = "SELECT c FROM Cita c WHERE c.estadoCita = :estadoCita")})
-
-
 public class Cita implements Serializable {
-    
-     public static String SELECT="select * from cita where estadoCita="+"espera";
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -160,33 +147,7 @@ public class Cita implements Serializable {
     public void setFkPaciente(Paciente fkPaciente) {
         this.fkPaciente = fkPaciente;
     }
-//CODIGO PARA LLENAR OBJETO LISTA
-      public List<Cita > getListado() {
-        List< Cita > list = new ArrayList< Cita >(0);
-        try {
-            Connection cnn = cConexion.conectar_ds();
-            ResultSet rset = null;
-            Statement sta = cnn.createStatement();
-            rset = sta.executeQuery(Cita.SELECT);
 
-            while (rset.next()) {
-           Cita current = new  Cita ();
-            current.setIdCita(rset.getInt("idCita"));
-            current.setEstadoCita(rset.getString("estadoCita"));
-            list.add(current);
-            }
-            rset.close();
-            sta.close();
-            cnn.close();
-
-        } catch (Exception ex) {
-        } finally {
-            return list;
-        }
-    }
-      
-      
-      
     @Override
     public int hashCode() {
         int hash = 0;
@@ -209,7 +170,6 @@ public class Cita implements Serializable {
 
     @Override
     public String toString() {
-        return "clases.creadas.Cita[ idCita=" + idCita + " ]";
+        return "CJPA.Cita[ idCita=" + idCita + " ]";
     }
-    
 }

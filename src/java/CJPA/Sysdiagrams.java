@@ -1,10 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package clases.creadas;
+package CJPA;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -21,66 +19,40 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Angel
+ * @author daMgeL
  */
 @Entity
 @Table(name = "sysdiagrams", catalog = "clinica", schema = "dbo")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Sysdiagrams.findAll", query = "SELECT s FROM Sysdiagrams s"),
+    @NamedQuery(name = "Sysdiagrams.findByDiagramId", query = "SELECT s FROM Sysdiagrams s WHERE s.diagramId = :diagramId"),
     @NamedQuery(name = "Sysdiagrams.findByName", query = "SELECT s FROM Sysdiagrams s WHERE s.name = :name"),
     @NamedQuery(name = "Sysdiagrams.findByPrincipalId", query = "SELECT s FROM Sysdiagrams s WHERE s.principalId = :principalId"),
-    @NamedQuery(name = "Sysdiagrams.findByDiagramId", query = "SELECT s FROM Sysdiagrams s WHERE s.diagramId = :diagramId"),
     @NamedQuery(name = "Sysdiagrams.findByVersion", query = "SELECT s FROM Sysdiagrams s WHERE s.version = :version")})
 public class Sysdiagrams implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 128)
-    @Column(name = "name")
-    private String name;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "principal_id")
-    private int principalId;
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "diagram_id")
     private Integer diagramId;
-    @Column(name = "version")
-    private Integer version;
     @Lob
     @Column(name = "definition")
     private byte[] definition;
+    @Size(max = 255)
+    @Column(name = "name")
+    private String name;
+    @Column(name = "principal_id")
+    private Integer principalId;
+    @Column(name = "version")
+    private Integer version;
 
     public Sysdiagrams() {
     }
 
     public Sysdiagrams(Integer diagramId) {
         this.diagramId = diagramId;
-    }
-
-    public Sysdiagrams(Integer diagramId, String name, int principalId) {
-        this.diagramId = diagramId;
-        this.name = name;
-        this.principalId = principalId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getPrincipalId() {
-        return principalId;
-    }
-
-    public void setPrincipalId(int principalId) {
-        this.principalId = principalId;
     }
 
     public Integer getDiagramId() {
@@ -91,20 +63,36 @@ public class Sysdiagrams implements Serializable {
         this.diagramId = diagramId;
     }
 
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
-
     public byte[] getDefinition() {
         return definition;
     }
 
     public void setDefinition(byte[] definition) {
         this.definition = definition;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getPrincipalId() {
+        return principalId;
+    }
+
+    public void setPrincipalId(Integer principalId) {
+        this.principalId = principalId;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 
     @Override
@@ -129,7 +117,6 @@ public class Sysdiagrams implements Serializable {
 
     @Override
     public String toString() {
-        return "clases.creadas.Sysdiagrams[ diagramId=" + diagramId + " ]";
+        return "CJPA.Sysdiagrams[ diagramId=" + diagramId + " ]";
     }
-    
 }

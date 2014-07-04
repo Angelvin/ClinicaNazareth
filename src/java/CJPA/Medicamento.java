@@ -1,10 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package clases.creadas;
+package CJPA;
 
 import java.io.Serializable;
 import java.util.List;
@@ -12,8 +10,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -28,7 +24,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Angel
+ * @author daMgeL
  */
 @Entity
 @Table(name = "medicamento", catalog = "clinica", schema = "dbo")
@@ -44,12 +40,9 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Medicamento implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    //@Basic(optional = false)
-   // @NotNull
-    //@Column(name = "idMedica")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-     
-    @Column(name = "id",nullable=false)
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "idMedica")
     private Integer idMedica;
     @Basic(optional = false)
     @NotNull
@@ -219,7 +212,6 @@ public class Medicamento implements Serializable {
 
     @Override
     public String toString() {
-        return "clases.creadas.Medicamento[ idMedica=" + idMedica + " ]";
+        return "CJPA.Medicamento[ idMedica=" + idMedica + " ]";
     }
-    
 }

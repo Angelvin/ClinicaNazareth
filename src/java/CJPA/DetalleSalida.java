@@ -1,10 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package clases.creadas;
+package CJPA;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -21,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Angel
+ * @author daMgeL
  */
 @Entity
 @Table(name = "detalle_salida", catalog = "clinica", schema = "dbo")
@@ -114,7 +112,6 @@ public class DetalleSalida implements Serializable {
 
     @Override
     public String toString() {
-        return "clases.creadas.DetalleSalida[ id=" + id + " ]";
+        return "CJPA.DetalleSalida[ id=" + id + " ]";
     }
-    
 }
