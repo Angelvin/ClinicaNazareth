@@ -92,14 +92,22 @@ public class sEmpleado extends HttpServlet {
             pst.setInt(19, Integer.parseInt(cargo));
             pst.setInt(20, Integer.parseInt(tipoEmp));
             pst.executeUpdate();
+            out.println(DisplayEnvio());
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
+
     }
 
+    private String DisplayEnvio() {
+        //METODO QUE RETORNA UN ERROR CON FORMATO(BOOTSTRAP)
+        String error = "<link href=\"scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login{font-size:2em; width: 60%;margin:auto;margin-top:50px; }</style><div id='login' class='alert alert-success'>'Se creo un nuevo empleado'<br><a href='/ClinicaNazareth/FrmSecretaria/RegistroP.jsp'>Regresar</a></div>";
+        return error;
+    }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+
     /**
      * Handles the HTTP
      * <code>GET</code> method.
