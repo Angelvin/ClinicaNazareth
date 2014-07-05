@@ -28,22 +28,7 @@
 
         <link href="../scripts/carousel/style.css" rel="stylesheet" type="text/css" /><link href="../scripts/camera/css/camera.css" rel="stylesheet" type="text/css" />
         <link href="../scripts/wookmark/css/style.css" rel="stylesheet" type="text/css" />  <link href="../scripts/yoxview/yoxview.css" rel="stylesheet" type="text/css" />
-        <%
-            String route = this.getServletContext().getContextPath() + "/Acceso.jsp";
-            String url = response.encodeRedirectURL(route);
-            try {
-                if (request.getSession(false) == null) {
-                    //si no hay session, redirecciona a login
-                    response.sendRedirect(url);
-                } else if (request.getSession().getAttribute("userName").equals("") || request.getSession().getAttribute("uidPaciente").equals("") || request.getSession().getAttribute("uidLogin").equals("")) {
-                    //si existen sessiiones y hay alguna vacia, redireccionar a login
-                    response.sendRedirect(url);
-                } else {
-                }
-            } catch (java.lang.NullPointerException ex) {
-                response.sendRedirect(url);
-            }
-        %>
+
 
 
 
@@ -90,6 +75,17 @@
                 } else {
                     $("#alert_template button").after('<span>Escriba un email valido</span>');
                     $('#alert_template').fadeIn('slow');
+                }
+            }
+
+            function validatePas(campo) {
+                var RegExPattern = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,10})$/;
+                var errorMessage = 'Password Incorrecta.';
+                if ((campo.value.match(RegExPattern)) && (campo.value != '')) {
+                    alert('Password Correcta');
+                } else {
+                    alert(errorMessage);
+                    campo.focus();
                 }
             }
         </script>
@@ -181,8 +177,10 @@
                                         <div class="panel-body">
 
                                             <div class="row">
-                                                <div class="col-md-6" ><label>Contraseña</label> <input name="txtContra" id="txtContra" type="password" value="angel" class="form-control" placeholder="Password" required></div>
-                                                <div class="col-md-6"><label>repetir-Contraseña</label> <input  type="password" class="form-control" value="angel" placeholder="Password" required></div>
+                                                <div class="col-md-6" ><label>Contraseña</label> <input name="txtContra" id="txtContra" type="password" onblur="validatePas(this);" class="form-control" placeholder="Password" required>
+                                                    <a>Debe de contener numero, letras en mayusculas y  minusculas</a>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -197,15 +195,17 @@
                                 <div class="panel-heading">Datos generales</div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-6" ><label>Primer Nombre</label><input name="txtPNombre"  id="txtPNombre" class="form-control"  placeholder="nombre" onblur="validatePass(this);" value="medico"></div>
-                                        <div class="col-md-6"><label>Segundo Nombre</label><input name="txtSNombre" id="txtSNombre" class="form-control" placeholder="nombre" onblur="validatePass(this);" value="medico" ></div>
+                                        <div class="col-md-6" ><label>Primer Nombre</label><input name="txtPNombre"  id="txtPNombre" class="form-control"  placeholder="nombre" onblur="validatePass(this);" ></div>
+                                        <div class="col-md-6"><label>Segundo Nombre</label><input name="txtSNombre" id="txtSNombre" class="form-control" placeholder="nombre" onblur="validatePass(this);"  ></div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6"><label>Primer Apellido</label><input name="txtPApe" id="txtPApe" class="form-control"  placeholder="apellido"onblur="validatePass(this);" value="medico"></div>
-                                        <div class="col-md-6"><label>Segundo Apellido</label><input name="txtSApe"id="txtSApe"  class="form-control" placeholder="apellido"onblur="validatePass(this);" value="medico" ></div>
+                                        <div class="col-md-6"><label>Primer Apellido</label><input name="txtPApe" id="txtPApe" class="form-control"  placeholder="apellido"onblur="validatePass(this);" ></div>
+                                        <div class="col-md-6"><label>Segundo Apellido</label><input name="txtSApe"id="txtSApe"  class="form-control" placeholder="apellido"onblur="validatePass(this);"  ></div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6"><label>fecha nacimiento</label> <input  name="txtfecha" id="txtfecha" class="form-control" value="2014-08-04" /></div>
+                                        <div class="col-md-6"><label>fecha nacimiento</label> <input  name="txtfecha" type="date" id="txtfecha" class="form-control"  />
+                                            <a>La fecha debe ser menor que la actual</a>
+                                        </div>
                                         <div class="col-md-6"><label >genero </label><SELECT class="form-control" NAME="comboSex" id="comboSex" SIZE=1> 
                                                 <OPTION VALUE="m">Masculino</OPTION>
                                                 <OPTION VALUE="f">Femenino</OPTION>
@@ -223,7 +223,7 @@
                             <div class="panel-heading">correo </div>
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-xs-6 col-md-4"><input class="form-control" name="txtCorreo" id="txtCorreo" placeholder="ejemplo@gmail.com" value="ejemplo@gmail.com" onblur="docu(this);"></div>
+                                    <div class="col-xs-6 col-md-4"><input class="form-control" name="txtCorreo" id="txtCorreo" placeholder="ejemplo@ejemplo.com" onblur="docu(this);"></div>
 
                                     <div class="col-xs-6 col-md-2"><label >Tipo </label><SELECT NAME="comboTipoCorreo" id="comboTipoCorreo" class="form-control" SIZE=1> 
                                             <OPTION VALUE="personal">Personal</OPTION>
@@ -247,7 +247,7 @@
 
                                             </div>
                                             <div class="col-xs-6 col-md-3">
-                                                <input class="form-control" name="txtDocu" id="txtDocu" placeholder="Documento" onblur="docu(this);" value="12313">
+                                                <input class="form-control" name="txtDocu" id="txtDocu" placeholder="Documento" onblur="docu(this);" >
 
                                             </div>
                                             <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT class="form-control" NAME="comboDocu" id="comboDocu" SIZE=1> 
@@ -270,7 +270,7 @@
 
                                             </div>
                                             <div class="col-xs-6 col-md-3">
-                                                <input class="form-control" name="txtCel" id="txtCel" placeholder="NUMERO TELEFONO" onblur="tele(this);" value="12345678">
+                                                <input class="form-control" name="txtCel" id="txtCel" placeholder="NUMERO TELEFONO" onblur="tele(this);" >
 
                                             </div>
                                             <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT class="form-control" NAME="comboTipoCel" id="comboTipoCel" SIZE=1> 
@@ -295,8 +295,8 @@
                             <div class="panel-heading">Direccion</div>
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-xs-6 col-md-4"><input class="form-control" name="txtcalle" id=txtcalle" values="calle" placeholder="Calle: San Antonio" onblur="validatePass(this);" value="planes"></div>
-                                    <div class="col-xs-6 col-md-4"><input class="form-control" name="txtcasa" id=txtcasa" values="casa" placeholder="N° casa:45" onblur="validatePass(this);" value="tres"></div>
+                                    <div class="col-xs-6 col-md-4"><input class="form-control" name="txtcalle" id=txtcalle" values="calle" placeholder="Calle: San Antonio" onblur="validatePass(this);" ></div>
+                                    <div class="col-xs-6 col-md-4"><input class="form-control" name="txtcasa" id=txtcasa" values="casa" placeholder="N° casa:45" onblur="validatePass(this);" ></div>
 
                                     <div class="col-xs-6 col-md-2"><label >Municipio</label><SELECT class="form-control" NAME="comboMunicipio" id="comboMunicipio" SIZE=1> 
                                             <OPTION VALUE="1">PERSONAL</OPTION>
@@ -381,8 +381,12 @@
                             </div>
 
                         </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-md-4"></div>
+                            <div class="col-xs-6 col-md-4"> <input name="cmdguardar"  class="btn btn-group-lg btn-primary" type="submit" id="cmdguardar" value="guardar"></div>
+                            <div class="col-xs-6 col-md-4"></div>
+                        </div>
 
-                        <input type="submit" value="guardar"/>
                     </form>
                 </div>   
 

@@ -131,7 +131,7 @@
                                 <div class="col-xs-6">
 
                                     <div class="panel panel-default">
-                                        <div class="panel-heading">Panel heading without title</div>
+                                        <div class="panel-heading">Datos Medico</div>
                                         <div class="panel-body">
 
                                             <label name="lblNombre" > horario </label><input name="txtHorario" id="txtHorario"  value="<%=list.getHorario()%>" size="20" />
@@ -144,7 +144,7 @@
                                 </div>
                                 <div class="col-xs-6">
                                     <div class="panel panel-default">
-                                        <div class="panel-heading">Panel heading without title</div>
+                                        <div class="panel-heading">Datos Paciente</div>
                                         <div class="panel-body">
                                             <label name="lblApellido" > nombre </label><input name="txtNombre" value="<%=list.getNombre()%>" size="20" />
                                             <label name="lblNombre" >apellido </label><input name="txtApellido" value="<%=list.getApellido()%>" size="20" />
@@ -157,7 +157,7 @@
                             <div class="row">
                                 <div class="col-xs-6">
                                     <div class="panel panel-default">
-                                        <div class="panel-heading">Panel heading without title</div>
+                                        <div class="panel-heading">Fecha  y Estado</div>
                                         <div class="panel-body">
                                             <label name="lblNombre" >fecha </label><input type="date" name="txtFecha" value="<%=list.getFecha()%>" size="20" />
                                             <label name="lblNombre" > estado</label><input name="txtEstado" value="<%=list.getEstado()%>" size="20" />
@@ -169,7 +169,7 @@
                                 <div class="col-xs-6">
 
                                     <div class="panel panel-default">
-                                        <div class="panel-heading">Panel heading without title</div>
+                                        <div class="panel-heading">Correo de paciente</div>
                                         <div class="panel-body">
                                             <input  name="codigoC"  type="hidden" id="codigoC" value="<%=list.getIdcita()%>">
 

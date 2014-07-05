@@ -182,8 +182,8 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">Fecha de Cita</div>
                                                 <div class="panel-body">
-                                                    <label name="lblNombre" >Fecha </label><input name="txtFecha"  size="20" />
-                                                    <a>la fecha debe se escrita yy-mes-dia  ejemplo:1999-12-31</a>
+                                                    <label name="lblNombre" >Fecha </label><input name="txtFecha"  type="Date" size="20" />
+                                                    <a> fecha debe ser mayor o igual a la actual </a>
                                                 </div>
                                             </div>
 
