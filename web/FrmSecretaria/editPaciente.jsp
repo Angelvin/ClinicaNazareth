@@ -167,33 +167,16 @@
                                     <div class="col-md-6"><label>fechanacimiento</label><input   id="txtFecha" name="txtFecha"    class="form-control"  placeholder="sexo" value="<%=list.getFecha()%>" onblur="validatePass(this);"></div>
 
                                 </div>
+                                         <div class="row">
+  <div class="col-md-6"></div>
+  <div class="col-md-6"><input type="submit" name="cmdguardar" class="btn btn-Contol" value="Guardar" POST="SUMIT"/></div>
+</div>
                             </div>
                     </div>
-                    <input type="submit" name="cmdguardar" class="btn btn-link" value="Guardar" POST="SUMIT"/>
+
+                    
                     </form>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Nuevo Documento</h3>
-                        </div>
-                        <div class="panel-body">
-                            <form id="persona" method="post" action="../Snewdatosp ">
-
-                                <select name="cmbvalor" id="cmbvalor">
-                                    <option value="d" selected>Documente</option>
-                                    <option value="c">Correo</option>
-                                    <option value="T">Telefino</option>
-                                </select>
-                                <input  name="codigo" id="codigo" value="<%=list.getIdpaciente()%>">
-                                <div class="row">
-                                    <div class="col-md-8"><input id="txtnumero" name="txtnumero" type="text" class="form-control" placeholder="Numero"></div>
-                                    <div class="col-md-4"><input type="text" id="txttipo"  name="txttipo" class="form-control" placeholder="Tipo"></div>
-                                </div><input type="submit" name="cmdguardar" class="btn btn-link" value="Agregar"  POST="SUMIT"/>
-
-
-                            </form>
-
-                        </div>
-                    </div>
+                   
                 </div>
 
                 <div>
