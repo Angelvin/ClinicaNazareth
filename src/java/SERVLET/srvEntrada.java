@@ -4,26 +4,25 @@
  */
 package SERVLET;
 
-import BEANS.bedipaciente;
-import DAL.cConexion;
+import CJPA.Empleado;
+import CJPA.Entrada;
+import CJPA.Medicamento;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author daMgeL
+ * @author Angel
  */
-@WebServlet(name = "Sedpaciente", urlPatterns = {"/Sedpaciente"})
-public class Sedpaciente extends HttpServlet {
+public class srvEntrada extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -39,40 +38,29 @@ public class Sedpaciente extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-
-        String nombre = request.getParameter("txtnombre");
-        String nombres = request.getParameter("txtnombres");
-        String apellido = request.getParameter("txtapellido");
-        String apellidos = request.getParameter("txtapellidos");
-        String genero = request.getParameter("txtsexo");
-        String iglesia = request.getParameter("txtiglesia");
-        String fecha = request.getParameter("txtFecha");
-        String codigo = request.getParameter("codigoC");
-
-
-        Connection bdconeccion = cConexion.conectar_ds();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("primerejemploPU");
+        EntityManager em = emf.createEntityManager();
         try {
-            PreparedStatement st = bdconeccion.prepareStatement(bedipaciente.Edipaciente);
-            st.setString(1, nombre);
-            st.setString(2, nombres);
-            st.setString(3, apellido);
-            st.setString(4, apellidos);
-            st.setDate(5, Date.valueOf(fecha));
-            st.setString(6, genero);
-            st.setString(7, iglesia);
-            st.setInt(8, Integer.parseInt(codigo));
-            st.executeUpdate();
-            out.println(DisplayEnvio());
+            Entrada en = new Entrada();
+            en.setCantidadEntrada(Integer.parseInt(request.getParameter("txtCanti")));
+            en.setPrecioEntrada(Long.parseLong(request.getParameter("txtPrecio")));
+            en.setFechaCaducidad(Date.valueOf(request.getParameter("txtFecha")));
+            en.setPresentacionEntrada(request.getParameter("txtpresen"));
+            en.setFkmedicamento(em.find(Medicamento.class, Integer.parseInt(request.getParameter("txtaccion"))));
+            en.setFkEmpleado(em.find(Empleado.class, 2));
+            en.setFechain(Date.valueOf(request.getParameter("txtFechaIni")));
+            em.getTransaction().begin();
+            em.persist(en);
+            em.getTransaction().commit();
+            out.print("<script>alert('se registro la operacion'); location.href='FrmSecretaria/Ingreso.jsp'</script>");
+        } catch (Exception ex) {
 
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            out.println("Error" + ex.getMessage());
+
+        } finally {
+            em.close();
+            emf.close();
         }
-    }
-
-    private String DisplayEnvio() {
-        //METODO QUE RETORNA UN ERROR CON FORMATO(BOOTSTRAP)
-        String error = "<link href=\"scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login{font-size:2em; width: 60%;margin:auto;margin-top:50px; }</style><div id='login' class='alert alert-success'>'Datos envidos con exito'<br><a href='/ClinicaNazareth/FrmSecretaria/BusquedaPaciente.jsp'>Regresar</a></div>";
-        return error;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

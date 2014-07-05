@@ -147,126 +147,112 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">Datos</div>
                                 <div class="panel-body">
-                                    <input  name="codigoC" id="codigoC" value="<%=list.getIdpaciente()%>">
+                                    <input  name="codigoC"  type="hidden" id="codigoC" value="<%=list.getIdpaciente()%>">
                                     <div class="row">
-                                        <div class="col-md-6" ><label>Primer Nombre</label><input name="txtnombrep" id="txtnombrep" class="form-control"  placeholder="nombre" value="<%=list.getNombre()%>" onblur="validatePass(this);"></div>
+                                        <div class="col-md-6" ><label>Primer Nombre</label><input id="txtnombre" name="txtnombre" class="form-control"  placeholder="nombre" value="<%=list.getNombre()%>"></div>
+
                                         <div class="col-md-6"><label>Segundo Nombre</label><input name="txtnombres" id="txtnombres" class="form-control" placeholder="nombre"  value="<%=list.getSnombre()%>"></div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-6"><label>Primer Apellido</label><input   id="txtapellido" name="txtapellido"    class="form-control"  placeholder="apellido" value="<%=list.getApellido()%>" onblur="validatePass(this);"></div>
-                                        <div class="col-md-6"><label>Segundo Apellido</label><input   id="txtapellidos" name= "txtapellidos" class="form-control" placeholder="apellido" value=" <%=list.getSapellido()%>"  onblur="validatePass(this);"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6"><label>Genero</label><input   id="txtsexo" name="txtsexo"    class="form-control"  placeholder="sexo" value="<%=list.getSexo()%>" onblur="validatePass(this);"></div>
-                                        <div class="col-md-6"><label>Iglesia</label><input   id="txtiglesia" name= "txtiglesia" class="form-control" placeholder="iglesia" value=" <%=list.getIglesia()%>"  onblur="validatePass(this);"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6"><label>fechanacimiento</label><input   id="txtFecha" name="txtFecha"    class="form-control"  placeholder="sexo" value="<%=list.getFecha()%>" onblur="validatePass(this);"></div>
-
-                                    </div>
                                 </div>
+                                <div class="row">
+
+                                    <div class="col-md-6"><label>Primer Apellido</label><input   id="txtapellido" name="txtapellido"    class="form-control"  placeholder="apellido" value="<%=list.getApellido()%>" onblur="validatePass(this);"></div>
+                                    <div class="col-md-6"><label>Segundo Apellido</label><input   id="txtapellidos" name= "txtapellidos" class="form-control" placeholder="apellido" value=" <%=list.getSapellido()%>"  onblur="validatePass(this);"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><label>Genero</label><input   id="txtsexo" name="txtsexo"    class="form-control"  placeholder="sexo" value="<%=list.getSexo()%>" onblur="validatePass(this);"></div>
+                                    <div class="col-md-6"><label>Iglesia</label><input   id="txtiglesia" name= "txtiglesia" class="form-control" placeholder="iglesia" value=" <%=list.getIglesia()%>"  onblur="validatePass(this);"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><label>fechanacimiento</label><input   id="txtFecha" name="txtFecha"    class="form-control"  placeholder="sexo" value="<%=list.getFecha()%>" onblur="validatePass(this);"></div>
+
+                                </div>
+                                         <div class="row">
+  <div class="col-md-6"></div>
+  <div class="col-md-6"><input type="submit" name="cmdguardar" class="btn btn-Contol" value="Guardar" POST="SUMIT"/></div>
+</div>
                             </div>
-                            <input type="submit" name="cmdguardar" class="btn btn-link" value="Guardar" POST="SUMIT"/>
-                        </form>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Nuevo Documento</h3>
-                            </div>
-                            <div class="panel-body">
-                                <form id="persona" method="post" action="../Snewdatosp ">
-
-                                    <select name="cmbvalor" id="cmbvalor">
-                                        <option value="d" selected>Documente</option>
-                                        <option value="c">Correo</option>
-                                        <option value="T">Telefino</option>
-                                    </select>
-                                    <input  name="codigo" id="codigo" value="<%=list.getIdpaciente()%>">
-                                    <div class="row">
-                                        <div class="col-md-8"><input id="txtnumero" name="txtnumero" type="text" class="form-control" placeholder="Numero"></div>
-                                        <div class="col-md-4"><input type="text" id="txttipo"  name="txttipo" class="form-control" placeholder="Tipo"></div>
-                                    </div><input type="submit" name="cmdguardar" class="btn btn-link" value="Agregar"  POST="SUMIT"/>
-
-
-                                </form>
-
-                            </div>
-                        </div>
                     </div>
 
-                    <div>
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-        <div id="footerOuterSeparator"></div>
-
-        <div id="divFooter" class="footerArea shadow">
-
-            <div class="divPanel"><br /><br />
-                <div class="row-fluid">
-                    <div class="span12">
-                        <p class="copyright">
-                            Copyright ? 2014 Clínica Nazareth. All Rights Reserved.
-                        </p>
-
-                        <div class="social_bookmarks"></div>
-                    </div>
+                    
+                    </form>
+                   
                 </div>
 
+                <div>
+
+
+
+
+
+
+
+                </div>
             </div>
         </div>
 
-        <br /><br /><br />
 
-        <script src="../scripts/jquery.min.js" type="text/javascript"></script>
-        <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="../scripts/default.js" type="text/javascript"></script>
+    </div>
+    <div id="footerOuterSeparator"></div>
 
-        <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({responsive: true, width: '100%', scroll: 2, items: {width: 320, visible: {min: 2, max: 6}}});</script><script src="scripts/camera/scripts/camera.min.js" type="text/javascript"></script>
-        <script src="scripts/easing/jquery.easing.1.3.js" type="text/javascript"></script>
-        <script type="text/javascript">function startCamera() {
-                $('#camera_wrap').camera({fx: 'simpleFade, mosaicSpiralReverse', time: 2000, loader: 'none', playPause: false, navigation: true, height: '38%', pagination: true});
-            }
-            $(function() {
-                startCamera()
-            });</script>
+    <div id="divFooter" class="footerArea shadow">
 
-        <script src="scripts/wookmark/js/jquery.wookmark.js" type="text/javascript"></script>
-        <script type="text/javascript">$(window).load(function() {
-                var options = {autoResize: true, container: $('#gridArea'), offset: 10};
-                var handler = $('#tiles li');
-                handler.wookmark(options);
-                $('#tiles li').each(function() {
-                    var imgm = 0;
-                    if ($(this).find('img').length > 0)
-                        imgm = parseInt($(this).find('img').not('p img').css('margin-bottom'));
-                    var newHeight = $(this).find('img').height() + imgm + $(this).find('div').height() + $(this).find('h4').height() + $(this).find('p').not('blockquote p').height() + $(this).find('iframe').height() + $(this).find('blockquote').height() + 5;
-                    if ($(this).find('iframe').height())
-                        newHeight = newHeight + 15;
-                    $(this).css('height', newHeight + 'px');
-                });
-                handler.wookmark(options);
-                handler.wookmark(options);
-            });</script>
-        <script src="scripts/yoxview/yox.js" type="text/javascript"></script>
-        <script src="scripts/yoxview/jquery.yoxview-2.21.js" type="text/javascript"></script>
-        <script type="text/javascript">$(document).ready(function() {
-                $('.yoxview').yoxview({autoHideInfo: false, renderInfoPin: false, backgroundColor: '#ffffff', backgroundOpacity: 0.8, infoBackColor: '#000000', infoBackOpacity: 1});
-                $('.yoxview a img').hover(function() {
-                    $(this).animate({opacity: 0.7}, 300)
-                }, function() {
-                    $(this).animate({opacity: 1}, 300)
-                });
-            });</script>
+        <div class="divPanel"><br /><br />
+            <div class="row-fluid">
+                <div class="span12">
+                    <p class="copyright">
+                        Copyright ? 2014 Clínica Nazareth. All Rights Reserved.
+                    </p>
 
-    </body>
+                    <div class="social_bookmarks"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <br /><br /><br />
+
+    <script src="../scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../scripts/default.js" type="text/javascript"></script>
+
+    <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({responsive: true, width: '100%', scroll: 2, items: {width: 320, visible: {min: 2, max: 6}}});</script><script src="scripts/camera/scripts/camera.min.js" type="text/javascript"></script>
+    <script src="scripts/easing/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script type="text/javascript">function startCamera() {
+            $('#camera_wrap').camera({fx: 'simpleFade, mosaicSpiralReverse', time: 2000, loader: 'none', playPause: false, navigation: true, height: '38%', pagination: true});
+        }
+        $(function() {
+            startCamera()
+        });</script>
+
+    <script src="scripts/wookmark/js/jquery.wookmark.js" type="text/javascript"></script>
+    <script type="text/javascript">$(window).load(function() {
+            var options = {autoResize: true, container: $('#gridArea'), offset: 10};
+            var handler = $('#tiles li');
+            handler.wookmark(options);
+            $('#tiles li').each(function() {
+                var imgm = 0;
+                if ($(this).find('img').length > 0)
+                    imgm = parseInt($(this).find('img').not('p img').css('margin-bottom'));
+                var newHeight = $(this).find('img').height() + imgm + $(this).find('div').height() + $(this).find('h4').height() + $(this).find('p').not('blockquote p').height() + $(this).find('iframe').height() + $(this).find('blockquote').height() + 5;
+                if ($(this).find('iframe').height())
+                    newHeight = newHeight + 15;
+                $(this).css('height', newHeight + 'px');
+            });
+            handler.wookmark(options);
+            handler.wookmark(options);
+        });</script>
+    <script src="scripts/yoxview/yox.js" type="text/javascript"></script>
+    <script src="scripts/yoxview/jquery.yoxview-2.21.js" type="text/javascript"></script>
+    <script type="text/javascript">$(document).ready(function() {
+            $('.yoxview').yoxview({autoHideInfo: false, renderInfoPin: false, backgroundColor: '#ffffff', backgroundOpacity: 0.8, infoBackColor: '#000000', infoBackOpacity: 1});
+            $('.yoxview a img').hover(function() {
+                $(this).animate({opacity: 0.7}, 300)
+            }, function() {
+                $(this).animate({opacity: 1}, 300)
+            });
+        });</script>
+
+</body>
 </html>

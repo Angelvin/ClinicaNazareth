@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package SERVLET;
 
+import BEANS.beanCita;
 import DAL.cConexion;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,7 +17,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import BEANS.beanCita;
 
 /**
  *
@@ -27,8 +26,9 @@ import BEANS.beanCita;
 public class cConsulta extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Processes requests for both HTTP
+     * <code>GET</code> and
+     * <code>POST</code> methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -39,65 +39,74 @@ public class cConsulta extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-          try {
-     String tipo = request.getParameter("cmdguardar");
+        try {
+            String tipo = request.getParameter("cmdguardar");
             int codigo = Integer.parseInt(request.getParameter("codigoCita"));
 
             Connection cnn = cConexion.conectar_ds();
             PreparedStatement psta;
-           
-               if (tipo.equals("Consulta")){
-               try {
+
+            if (tipo.equals("Consulta")) {
+                try {
                     psta = cnn.prepareStatement(beanCita.Consulta);
                     psta.setString(1, "Consulta");
                     psta.setInt(2, codigo);
                     psta.executeUpdate();
-
+                    out.println(DisplayError("Enviar con el medico...", "/ClinicaNazareth/FrmSecretaria/indexSecre.jsp"));
                 } catch (SQLException ex) {
                     out.println(ex.getMessage());
                 }
 
 
-        
-               
-               }else if(tipo.equals("Confirmar")){
-               try {
+
+
+            } else if (tipo.equals("Confirmar")) {
+                try {
                     psta = cnn.prepareStatement(beanCita.Consulta);
                     psta.setString(1, "Confirmar");
                     psta.setInt(2, codigo);
                     psta.executeUpdate();
-
+                    out.println(DisplayError("Estado de cita confirmada...", "/ClinicaNazareth/FrmSecretaria/indexSecre.jsp"));
                 } catch (SQLException ex) {
                     out.println(ex.getMessage());
                 }
-               }else if(tipo.equals("cancelar")){
-               try {
+            } else if (tipo.equals("cancelar")) {
+                try {
                     psta = cnn.prepareStatement(beanCita.Consulta);
                     psta.setString(1, "cancelar");
                     psta.setInt(2, codigo);
                     psta.executeUpdate();
-
+                    out.println(DisplayError("Estado de cita Cancelada...", "/ClinicaNazareth/FrmSecretaria/indexSecre.jsp"));
                 } catch (SQLException ex) {
                     out.println(ex.getMessage());
                 }
-               };
-               } catch (Exception e){
-                     //ENVIO A SERVLETS
-                    String route = this.getServletContext().getContextPath() + "../indexSecre.jsp";
-                    String url = response.encodeRedirectURL(route);
+            };
+        } catch (Exception e) {
+            //ENVIO A SERVLETS
+            String route = this.getServletContext().getContextPath() + "../indexSecre.jsp";
+            String url = response.encodeRedirectURL(route);
 
-                    response.sendRedirect(url);
-    } finally {
+            response.sendRedirect(url);
+        } finally {
             out.close();
         }
-                
-        
-        
+
+
+
+    }
+
+    private String DisplayError(String mensajeToDisplay, String urlToRedirect) {
+        //METODO QUE RETORNA UN ERROR CON FORMATO(BOOTSTRAP)
+        String error = "<link href=\"scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login{font-size:2em; width: 60%;margin:auto;margin-top:50px; }</style><div id='login' class='alert alert-success'> ";
+        error = error + mensajeToDisplay;
+        error = error + "<br><a href='" + urlToRedirect + "'>Regresar</a></div>";
+        return error;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Handles the HTTP <code>GET</code> method.
+     * Handles the HTTP
+     * <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -111,7 +120,8 @@ public class cConsulta extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP <code>POST</code> method.
+     * Handles the HTTP
+     * <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -133,5 +143,4 @@ public class cConsulta extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

@@ -97,25 +97,23 @@
                                                         <jsp:useBean id="estado3" scope="request" class="BAL.tarde" />
 
                                                         <c:set var="lista" scope="request" value="${estado3.listado}"/>
-                                                        <ajax:displayTag id="displayTagFrame" ajaxFlag="displayAjax">
 
-                                                            <display:table name="lista" export="true" id="fila" class="table table-condensed">
-                                                                <display:setProperty name="export.rtf.filename" value="example.rtf"/>
-                                                                <display:column title="saber">
-                                                                    <input type="radio">
-                                                                </display:column>
-                                                                <display:column property="codigo" title="Codigo" />
-                                                                <display:column property="nombre" title="Nombre" />
-                                                                <display:column property="medico" title="Mèdico" />
-                                                                <display:column title="Editar">
-                                                                    <form  id="updateCita" method="post" action="../FrmSecretaria/reprogramar.jsp ">
-                                                                        <input type="hidden" name="codigoCita" value="${fila.codigo}" >
-                                                                        <input type="submit" name="cmdguardar" class="btn btn-link" value="Reprogramar" POST="SUMIT"/>
-                                                                        <input type="submit" name="cmdguardar" class="btn btn-link" value="cancelar" POST="SUMIT"/>
-                                                                    </form>
-                                                                </display:column>
-                                                            </display:table>
-                                                        </ajax:displayTag>
+
+                                                        <display:table name="lista" export="true" id="fila" class="table table-condensed">
+                                                            <display:setProperty name="export.rtf.filename" value="example.rtf"/>
+
+                                                            <display:column property="codigo" title="Codigo" />
+                                                            <display:column property="nombre" title="Nombre" />
+                                                            <display:column property="medico" title="Mèdico" />
+                                                            <display:column title="Editar">
+                                                                <form  id="updateCita" method="post" action="../FrmSecretaria/reprogramar.jsp ">
+                                                                    <input type="hidden" name="codigoCita" value="${fila.codigo}" >
+                                                                    <input type="submit" name="cmdguardar" class="btn btn-link" value="Reprogramar" POST="SUMIT"/>
+                                                                    <input type="submit" name="cmdguardar" class="btn btn-link" value="cancelar" POST="SUMIT"/>
+                                                                </form>
+                                                            </display:column>
+                                                        </display:table>
+
                                                     </table>
                                                 </div>
                                             </div>
@@ -127,25 +125,25 @@
                                                     <!--          LISTADO     -->
                                                     <jsp:useBean id="estado" scope="request" class="BAL.Espera" />
                                                     <c:set var="lista" scope="request" value="${estado.listado}"/>
-                                                    <ajax:displayTag id="displayTagFrame" ajaxFlag="displayAjax">
-                                                        <display:table name="lista" export="true" id="fila" >
-                                                            <display:setProperty name="export.rtf.filename" value="example.rtf"/>
-                                                            <display:column property="codigo" title="Codigo" />
-                                                            <display:column property="correocita" title="Correo" />
-                                                            <display:column property="nombre" title="Nombre" />
-                                                            <display:column property="fechasoli" title="Fecha Solicitud" />
-                                                            <display:column property="fecha" title="Fecha" />
-                                                            <display:column property="hora" title="Hora" />
-                                                            <display:column property="estado" title="Estado Cita" />
-                                                            <display:column title="Editar">
-                                                                <form  id="updateCita" method="post" action="../cConsulta ">
-                                                                    <input type="hidden" name="codigoCita" value="${fila.codigo}" >
-                                                                    <input type="submit" name="cmdguardar" class="btn btn-link" value="Confirmar" POST="SUMIT"/>
-                                                                    <input type="submit" name="cmdguardar" class="btn btn-link" value="cancelar" POST="SUMIT"/>
-                                                                </form>
-                                                            </display:column>
-                                                        </display:table>
-                                                    </ajax:displayTag>
+
+                                                    <display:table name="lista" export="true" id="fila" >
+                                                        <display:setProperty name="export.rtf.filename" value="example.rtf"/>
+                                                        <display:column property="codigo" title="Codigo" />
+                                                        <display:column property="correocita" title="Correo" />
+                                                        <display:column property="nombre" title="Nombre" />
+                                                        <display:column property="fechasoli" title="Fecha Solicitud" />
+                                                        <display:column property="fecha" title="Fecha" />
+                                                        <display:column property="hora" title="Hora" />
+                                                        <display:column property="estado" title="Estado Cita" />
+                                                        <display:column title="Editar">
+                                                            <form  id="updateCita" method="post" action="../cConsulta ">
+                                                                <input type="hidden" name="codigoCita" value="${fila.codigo}" >
+                                                                <input type="submit" name="cmdguardar" class="btn btn-link" value="Confirmar" POST="SUMIT"/>
+                                                                <input type="submit" name="cmdguardar" class="btn btn-link" value="cancelar" POST="SUMIT"/>
+                                                            </form>
+                                                        </display:column>
+                                                    </display:table>
+
                                                 </table>
                                             </div>
                                         </div>

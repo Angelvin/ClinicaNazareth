@@ -145,7 +145,7 @@ function correo(campo) {
 <div class="panel panel-default">
   <div class="panel-body">
    <div class="row">
-  <div class="col-md-6" ><label>Contraseña</label><input name=contra" id="contra" type="password" class="form-control" placeholder="Password" required></div>
+  <div class="col-md-6" ><label>Contraseña</label><input name="contra" id="contra" type="password" class="form-control" placeholder="Password" required></div>
   <div class="col-md-6"><label>repetir-Contraseña</label><input name="contra" id="contra" type="password" class="form-control" placeholder="Password" required></div>
 </div>
   </div>

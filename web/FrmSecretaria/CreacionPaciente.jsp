@@ -5,8 +5,8 @@
     <head>
         <meta charset="utf-8">
         <title>Clínica Nazareth</title>
-         
-       
+
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="Zaid Archila">
@@ -139,14 +139,24 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">fecha Nacimiento y genero</div>
                                 <div class="panel-body">
-                                    <input name="txtfecha" type="text" id="txtfecha" size="10" maxlength="10" value="1998-12-12">
-                                    <input name="txtgenero" type="text" id="txtgenero" size="10" maxlength="10" value="m">
+                                    <div class="row">
+                                        <div class="col-md-6"><input class="form-control" name="txtfecha" type="text" id="txtfecha" size="10" maxlength="10" value="1998-12-12"></div>
+                                        <div class="col-md-6"><select class="form-control" name="txtgenero"  >
+                                                <option value="m">Masculino</option>
+                                                <option value="f">Femenino</option>
+
+                                            </select></div>
+                                    </div>
+
+
+
+
                                 </div>
                             </div>
                             <div class="panel panel-default">
-                                <div class="panel-heading">iglesia</div>
+                                <div class="panel-heading">Iglesia</div>
                                 <div class="panel-body">
-                                    <label>iglecia</label><input name="txtigle" type="text" id="txtigle" size="10" maxlength="10" value="ultimodia">
+                                    <label>Iglecia</label><input class="form-control" name="txtigle" type="text" id="txtigle" size="10" maxlength="10" value="ultimodia">
                                 </div>
                             </div>
                             <div class="panel panel-default">
@@ -158,9 +168,9 @@
                                         </div>
                                         <div class="col-xs-6 col-md-3">
                                             <input class="form-control" name="txtdocu" type="text" id="txtdocu" placeholder="Documento" onblur="docu(this);" value="12313">
-                                            <input class="form-control"name="txttipodocu" id="txttipodocu" type="text"  placeholder="Documento" onblur="" value="Documento">
+
                                         </div>
-                                        <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT   SIZE=1  > 
+                                        <div class="col-xs-6 col-md-4"><SELECT class="form-control" name="txttipodocu"   SIZE=1  > 
                                                 <OPTION VALUE="dui">DUI</OPTION>
                                                 <OPTION VALUE="cernet de menor">Carnet de Minoridad</OPTION>
                                                 <OPTION VALUE="pasaporte">Pasaporte</OPTION>
@@ -176,9 +186,9 @@
                                         </div>
                                         <div class="col-xs-6 col-md-3">
                                             <input class="form-control" name="txtele" type="text" id="txtele"  value="2123432" placeholder="NUMERO TELEFONO" onblur="tele(this);">
-                                            <input class="form-control" id="txttipotele" type="text"  name="txttipotele" value="2123432" placeholder="NUMERO TELEFONO" onblur="">
+
                                         </div>
-                                        <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT  SIZE=1   > 
+                                        <div class="col-xs-6 col-md-4"><SELECT class="form-control" name="txttipotele"  SIZE=1   > 
                                                 <OPTION VALUE="fijo">FIJO</OPTION>
                                                 <OPTION VALUE="celular">CELULAR</OPTION>
                                                 <OPTION VALUE="trabajo">TRABAJO</OPTION>
@@ -195,39 +205,45 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">Direccion</div>
                                 <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6"><input name="txtcalle" type="text" id="txtcalle" class="form-control" placeholder="Calle" onblur="validatePass(this);" value="sajh"></div>
+                                        <div class="col-md-6"> <input name="txtcasa" type="text" id="txtcasa" class="form-control" placeholder="Casa" onblur="validatePass(this);" value="sajh"></div>
+                                    </div>
 
-                                    <input name="txtcalle" type="text" id="txtcalle" class="form-control" placeholder="Calle" onblur="validatePass(this);" value="sajh">
-                                    <input name="txtcasa" type="text" id="txtcasa" class="form-control" placeholder="Casa" onblur="validatePass(this);" value="sajh">
+
+
                                     <input name="txtmuni" type="text" id="txtmuni"  class="form-control" placeholder="Casa" onblur="" value="1">
-                                     <table border="0" align="center">
-        <tr>
-            <td>Departamento: </td>
-            <td>
-             
-            </td>
-        </tr>
-        <tr>
-            <td>Municipio: </td>
-            <td id="result_detalle">
-                <select name="detalle_producto" id="uno">
-                </select>
-            </td>
-        </tr>
-     
-       
-        </table>
-                                    
-                                    
-                                    
+
+
+
+
                                 </div>
                             </div>
 
                             <div class="panel panel-default">
                                 <div class="panel-heading">correo adicional</div>
                                 <div class="panel-body">
-                                    <input name="correo" type="text" id="correo" size="10" maxlength="10" value="asdjjjhsd">
-                                    <input name="tipocorreo" type="text" id="tipocorreo" size="10" maxlength="10" value="cas">
+                                <div class="row">
+  <div class="col-md-6"><input class="form-control" name="correo" type="text" id="correo" placeholder="EJEMPLO@EJEMPLO.COM" onblur="correo(this);" value="EJEMPLO@EJEMPLO.COM"></div>
+  <div class="col-md-6"><SELECT name="tipocorreo" class="form-control" SIZE=1   > 
+                                        <OPTION VALUE="Personal">Personal</OPTION>
+                                        <OPTION VALUE="Trabajo">Trabajo</OPTION>
+
+                                    </SELECT></div>
+</div>
+
+                                    
+
+                                    
                                 </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col-xs-6 col-md-4"></div>
+                                <div class="col-xs-6 col-md-4"> <input name="cmdguardar"  class="btn btn-group-lg btn-primary" type="submit" id="cmdguardar" value="Guardar"></div>
+                                <div class="col-xs-6 col-md-4"></div>
                             </div>
 
 
@@ -235,10 +251,6 @@
 
 
 
-
-
-
-                            <input name="cmdguardar" type="submit" id="cmdguardar" value="Guardar">
 
                         </form>
 
@@ -285,39 +297,39 @@
         <script src="scripts/carousel/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script><script type="text/javascript">$('#list_photos').carouFredSel({responsive: true, width: '100%', scroll: 2, items: {width: 320, visible: {min: 2, max: 6}}});</script><script src="scripts/camera/scripts/camera.min.js" type="text/javascript"></script>
         <script src="scripts/easing/jquery.easing.1.3.js" type="text/javascript"></script>
         <script type="text/javascript">function startCamera() {
-                                            $('#camera_wrap').camera({fx: 'simpleFade, mosaicSpiralReverse', time: 2000, loader: 'none', playPause: false, navigation: true, height: '38%', pagination: true});
-                                        }
-                                        $(function() {
-                                            startCamera()
-                                        });</script>
+                $('#camera_wrap').camera({fx: 'simpleFade, mosaicSpiralReverse', time: 2000, loader: 'none', playPause: false, navigation: true, height: '38%', pagination: true});
+            }
+            $(function() {
+                startCamera()
+            });</script>
 
         <script src="scripts/wookmark/js/jquery.wookmark.js" type="text/javascript"></script>
         <script type="text/javascript">$(window).load(function() {
-                                            var options = {autoResize: true, container: $('#gridArea'), offset: 10};
-                                            var handler = $('#tiles li');
-                                            handler.wookmark(options);
-                                            $('#tiles li').each(function() {
-                                                var imgm = 0;
-                                                if ($(this).find('img').length > 0)
-                                                    imgm = parseInt($(this).find('img').not('p img').css('margin-bottom'));
-                                                var newHeight = $(this).find('img').height() + imgm + $(this).find('div').height() + $(this).find('h4').height() + $(this).find('p').not('blockquote p').height() + $(this).find('iframe').height() + $(this).find('blockquote').height() + 5;
-                                                if ($(this).find('iframe').height())
-                                                    newHeight = newHeight + 15;
-                                                $(this).css('height', newHeight + 'px');
-                                            });
-                                            handler.wookmark(options);
-                                            handler.wookmark(options);
-                                        });</script>
+                var options = {autoResize: true, container: $('#gridArea'), offset: 10};
+                var handler = $('#tiles li');
+                handler.wookmark(options);
+                $('#tiles li').each(function() {
+                    var imgm = 0;
+                    if ($(this).find('img').length > 0)
+                        imgm = parseInt($(this).find('img').not('p img').css('margin-bottom'));
+                    var newHeight = $(this).find('img').height() + imgm + $(this).find('div').height() + $(this).find('h4').height() + $(this).find('p').not('blockquote p').height() + $(this).find('iframe').height() + $(this).find('blockquote').height() + 5;
+                    if ($(this).find('iframe').height())
+                        newHeight = newHeight + 15;
+                    $(this).css('height', newHeight + 'px');
+                });
+                handler.wookmark(options);
+                handler.wookmark(options);
+            });</script>
         <script src="scripts/yoxview/yox.js" type="text/javascript"></script>
         <script src="scripts/yoxview/jquery.yoxview-2.21.js" type="text/javascript"></script>
         <script type="text/javascript">$(document).ready(function() {
-                                            $('.yoxview').yoxview({autoHideInfo: false, renderInfoPin: false, backgroundColor: '#ffffff', backgroundOpacity: 0.8, infoBackColor: '#000000', infoBackOpacity: 1});
-                                            $('.yoxview a img').hover(function() {
-                                                $(this).animate({opacity: 0.7}, 300)
-                                            }, function() {
-                                                $(this).animate({opacity: 1}, 300)
-                                            });
-                                        });</script>
+                $('.yoxview').yoxview({autoHideInfo: false, renderInfoPin: false, backgroundColor: '#ffffff', backgroundOpacity: 0.8, infoBackColor: '#000000', infoBackOpacity: 1});
+                $('.yoxview a img').hover(function() {
+                    $(this).animate({opacity: 0.7}, 300)
+                }, function() {
+                    $(this).animate({opacity: 1}, 300)
+                });
+            });</script>
 
     </body>
 </html>
