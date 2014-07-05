@@ -40,7 +40,7 @@ public class Sedpaciente extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-        String nombre = request.getParameter("txtnombre ");
+        String nombre = request.getParameter("txtnombrep ");
         String nombres = request.getParameter("txtnombres");
         String apellido = request.getParameter("txtapellido");
         String apellidos = request.getParameter("txtapellidos");
