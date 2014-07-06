@@ -7,22 +7,7 @@
 <%@page import="org.eclipse.persistence.internal.oxm.schema.model.Include"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-    String route = this.getServletContext().getContextPath() + "/Acceso.jsp";
-    String url = response.encodeRedirectURL(route);
-    try {
-        if (request.getSession(false) == null) {
-            //si no hay session, redirecciona a login
-            response.sendRedirect(url);
-        } else if (request.getSession().getAttribute("userName").equals("") || request.getSession().getAttribute("uidPaciente").equals("") || request.getSession().getAttribute("uidLogin").equals("")) {
-            //si existen sessiiones y hay alguna vacia, redireccionar a login
-            response.sendRedirect(url);
-        } else {
-        }
-    } catch (java.lang.NullPointerException ex) {
-        response.sendRedirect(url);
-    }
-%>
+<%@page language="java" session="true" errorPage="../WEB-INF/jspf/ErrorPage.jsp"   %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -35,6 +20,7 @@
         <style>
             body{background-color: #eee6ff;}
             .container{background-color: #ffffff;border: solid 2px darkgrey;border-radius: 4px;display: block;margin:auto;padding: 20px;width: 90%;}
+            .badge{background-color:#0088cc;}
         </style>
     </head>
     <body>
