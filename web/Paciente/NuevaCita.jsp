@@ -39,7 +39,14 @@
                                 <div class="panel panel-info">
                                     <div class="panel-heading"><h3>Nueva Cita</h3> </div>
                                     <div class="panel-body">
-                                        <form method="post" acction="..">
+                                        <script>
+                                            $(function() {
+                                                $('#cmbEspecialidad').change(function() {
+                                                    $('#myForm').submit();
+                                                });
+                                            });
+                                        </script>
+                                        <form method="GET" action="NuevaCita.jsp" id="myForm">
                                             <div class="panel panel-default">
                                                 <div class="panel-body">
                                                     <div class="row">
@@ -61,7 +68,7 @@
                                                                         ResultSet rs2 = null;
                                                                         try {
                                                                             rs2 = pst2.executeQuery(query2);
-                                                                            out.println("<select class='form-control'>");
+                                                                            out.println("<select class='form-control' id='cmbEspecialidad'>");
                                                                             while (rs2.next()) {
                                                                                 out.println("<option value='" + rs2.getInt("ID") + "'>" + rs2.getString("Nombre") + "</option>");
                                                                                 // out.println(rs.getString("horaini"));
@@ -86,35 +93,63 @@
                                                             <fieldset class="well">
                                                                 <legend><span class="badge">2</span> Seleccione un medico:</legend>
                                                                 <div class=" col-xs-6">
-                                                                    <select class="form-control">
-                                                                        <option value="volvo">Dr John Doe</option>
-                                                                        <option value="saab">Dr Juan Perez</option>
-                                                                        <option value="mercedes">Dra Emily Santos</option>
-                                                                    </select>
-                                                                </div>
-                                                            </fieldset>
-                                                        </form>
+                                                                    <%
+                                                                        HttpSession cmbEspecialidad = request.getSession();
+                                                                        cmbEspecialidad.setAttribute("sEspecialidad", request.getParameter("cmbEspecialidad"));
+
+                                                                        if (cmbEspecialidad == null || cmbEspecialidad.equals("")) {
+                                                                            //do nothing, load nothing
+                                                                            out.println(BAL.Assets.DisplayError("Primero seleccione una especialidad", "/Acceso.jsp", "100", "1.2em"));
+                                                                        } else {
+                                                                            Connection connection3 = cConexion.conectar_ds();
+                                                                            Statement pst3 = connection3.createStatement();
+                                                                            String query3 = "SELECT e.idEmpleado as iD,CONCAT( p.pnombrePer,'  ', p.snombrePer, ' ',p.pApellPer ) as Nombre FROM empleado as e, persona as p WHERE e.fkpersona=p.idPersona  and e.fkTipoemple=6";
+                                                                            ResultSet rs3 = null;
+
+                                                                            try {
+                                                                                rs3 = pst3.executeQuery(query3);
+                                                                                out.println("<select class='form-control' name='cmbDoctor'>");
+                                                                                while (rs3.next()) {
+                                                                                    out.println("<option value='" + rs3.getInt("ID") + "'> Dr " + rs3.getString("Nombre") + "</option>");
+                                                                                    // out.println(rs.getString("horaini"));
+                                                                                    //out.println(rs.getString("fkempleado"));
+                                                                                }
+                                                                                out.println("</select>");
+                                                                            } catch (Exception e) {
+                                                                                System.out.print(e.getMessage());
+                                                                            } finally {
+                                                                                connection3.close();
+                                                                                pst3.close();
+                                                                            }
+                                                                        }
+
+
+                                                                    %>
+                                                                    La especialidad en sesion: <c:out value="${sEspecialidad}"></c:out>
+                                                                    </div>
+                                                                </fieldset>
+                                                            </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-xs-6">
-                                                        <form>
-                                                            <fieldset class="well">
-                                                                <legend><span class="badge">3</span> Seleccione una fecha:</legend>
-                                                                <div class=" col-xs-6">
-                                                                    <input type="date" class="form-control" >
-                                                                </div>
-                                                            </fieldset>
-                                                        </form>
-                                                    </div>
-                                                    <div class="col-xs-6">
+                                            <div class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-xs-6">
+                                                            <form>
+                                                                <fieldset class="well">
+                                                                    <legend><span class="badge">3</span> Seleccione una fecha:</legend>
+                                                                    <div class=" col-xs-6">
+                                                                        <input type="date" class="form-control" >
+                                                                    </div>
+                                                                </fieldset>
+                                                            </form>
+                                                        </div>
+                                                        <div class="col-xs-6">
 
-                                                        <fieldset class="well">
-                                                            <legend><span class="badge">4</span> Horarios Disponibles:</legend>
+                                                            <fieldset class="well">
+                                                                <legend><span class="badge">4</span> Horarios Disponibles:</legend>
                                                             <%
                                                                 Connection connection = cConexion.conectar_ds();
                                                                 Statement pst = connection.createStatement();
