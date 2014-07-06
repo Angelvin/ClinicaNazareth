@@ -76,6 +76,9 @@ public class srvSession extends HttpServlet {
                 response.sendRedirect(url);
             } else if (id_rol == 2) {
                 //ROL ASGINADO A MEDICO
+                String route = this.getServletContext().getContextPath() + "/medico/indexmedico.jsp";
+                String url = response.encodeRedirectURL(route);
+                response.sendRedirect(url);
             } else if (id_rol == 3) {
                 //ROL ASIGNADO A SECRETARIA
                 String route = this.getServletContext().getContextPath() + "/FrmSecretaria/indexSecre.jsp";
