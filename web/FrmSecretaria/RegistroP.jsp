@@ -1,5 +1,3 @@
-<%@page import="BEANS.bhorario"%>
-<%@page import="java.sql.ResultSet"%>
 <!DOCTYPE HTML>
 <%@include file="/WEB-INF/jspf/validar.jspf" %>
 
@@ -48,7 +46,7 @@
                         <!--Edit Site Name and Slogan here-->
                         <div id="divLogo">
                             <a href="index.html" id="divSiteTitle">Clinica Nazareth</a><br />
-                            <a href="index.html" id="divTagLine">�<span class="camera_full_width">Registro de Persona</span>!</a>
+                            <a href="index.html" id="divTagLine">¡<span class="camera_full_width">Registro de Persona</span>!</a>
                         </div>
 
                     </div>
@@ -61,53 +59,27 @@
             </div>
             <!--DENTRO DE ESTE DIV CREAR EL FROMULARIO FAVOR NO UTILZAR 
                 TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE 
-                PUEDA VERSE EN CUALQUEIR TAMAÑO
+                PUEDA VERSE EN CUALQUEIR TAMAÃ‘O
             -->
 
 
 
             <div class="col-xs-12 col-sm-6 col-md-12">
                 <jsp:include page="menu.jsp"></jsp:include>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
 
 
+                    </div>
+                    <div class="panel-body">
+                        <div class="alert alert-success">
+                            <a href="../FrmSecretaria/CreacionPaciente.jsp" class="alert-link" >Crear paciente</a>
                         </div>
-                        <div class="panel-body">
-                            <div class="alert alert-success">
-                                <a href="../FrmSecretaria/CreacionPaciente.jsp" class="alert-link" >Crear paciente</a>
-                            </div>
-                            <div class="alert alert-info">
-                                <a href="../FrmSecretaria/CreacionEmpleado.jsp" class="alert-link" >crear empleado</a>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Crear Horario Medico</h3>
-                            </div>
-                            <div class="panel-body">
-                                <form name="form1" method="post" action="../Shorarioe">
-                                    <div class="row">
-                                        <div class="col-xs-6"><SELECT class="form-control" NAME="comboDepa" SIZE=1> 
-                                            <%
-                                                ResultSet rst = bhorario.getmedico();
-                                                while (rst.next()) {%>
-
-                                            <option value="<%= rst.getInt(" idEmpleado")%>"><%= rst.getString("medico")%></option>
-
-                                            <%}
-
-                                            %>
-
-                                        </select>></div>
-                                    <div class="col-xs-6"><input name="cmdguardar"  class="btn btn-group-lg btn-primary" type="submit" id="cmdguardar" value="guardar"></div>
-                                </div>
-
-
-
-                            </form>
+                        <div class="alert alert-info">
+                            <a href="../FrmSecretaria/CreacionEmpleado.jsp" class="alert-link" >crear empleado</a>
                         </div>
                     </div>
+                 
 
 
 
@@ -124,7 +96,7 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <p class="copyright"> 
-                            Copyright � 2014 Clinica Nazareth. All Rights Reserved.
+                            Copyright © 2014 Clinica Nazareth. All Rights Reserved.
                         </p>
 
                         <div class="social_bookmarks"></div>

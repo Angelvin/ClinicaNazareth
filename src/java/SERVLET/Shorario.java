@@ -14,8 +14,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,8 +24,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Angel
  */
-@WebServlet(name = "Shorarioe", urlPatterns = {"/Shorarioe"})
-public class Shorarioe extends HttpServlet {
+@WebServlet(name = "Shorario", urlPatterns = {"/Shorario"})
+public class Shorario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -40,7 +38,7 @@ public class Shorarioe extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String medico = request.getParameter("codigo");
@@ -66,10 +64,11 @@ public class Shorarioe extends HttpServlet {
             if (val == 0) {
                 PreparedStatement pst = cnn.prepareStatement(registrarusuario.horario);
                 pst.setInt(1, Integer.parseInt(medico));
-                pst.executeQuery();
-                out.println(Assets.DisplayExito("Horarios Creados Con exito", "/ClinicaNazareth/FrmSecretaria/indexSecre.jsp", "80", "1em"));
+                pst.executeUpdate();
+                out.println(DisplayEnvio());
+
             } else {
-                out.println(Assets.DisplayError(" YA cuente con Horario creado ", "/ClinicaNazareth/FrmSecretaria/BusquedaMedico.jsp", "100", "2em"));
+                out.println(Assets.DisplayError(" Ya cuenta con Horario creado ", "/ClinicaNazareth/FrmSecretaria/BusquedaMedico.jsp", "100", "2em"));
 
             }
 
@@ -79,6 +78,12 @@ public class Shorarioe extends HttpServlet {
         } catch (SQLException ex) {
             out.println(ex.getMessage());
         }
+    }
+
+    private String DisplayEnvio() {
+        //METODO QUE RETORNA UN ERROR CON FORMATO(BOOTSTRAP)
+        String error = "<link href=\"scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login{font-size:2em; width: 60%;margin:auto;margin-top:50px; }</style><div id='login' class='alert alert-success'>'Horarios Creados Con exito'<br><a href='/ClinicaNazareth/FrmSecretaria/indexSecre.jsp'>Regresar</a></div>";
+        return error;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -94,11 +99,7 @@ public class Shorarioe extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(Shorarioe.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -113,11 +114,7 @@ public class Shorarioe extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(Shorarioe.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
