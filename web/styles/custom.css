@@ -96,7 +96,7 @@ ul#contact-info {list-style:none;}
 /* Header Area */
 
 #decorative1 {
-    margin-top:-2px;padding-top:2px;    
+    margin-top:-2px;padding-top:2px;
     margin-left: -20px !important;
     margin-right: -20px !important; /* fix bg cover issue */
 }
@@ -260,13 +260,8 @@ img {max-width:100%;height:auto;width:auto;-moz-box-sizing:border-box;-webkit-bo
 
 .btn .caret {margin-top: 8px !important;}
 
-
-
-body {background-color:#fff ; }
-
 #divBoxed {margin-top: 51px; ;;}
 
-#divLogo{margin-top: 48px; margin-bottom: 0px; text-align: center;}
 
 #divSiteTitle {font-family: Syncopate; font-size: 28px; line-height: 49px; color: rgb(104, 152, 204); text-shadow: rgba(0, 0, 0, 0.0980392) 0px 3px 5px, rgba(255, 255, 255, 0.298039) 0px -5px 35px; letter-spacing: 4px; font-weight: normal; font-style: normal; text-transform: uppercase;}
 
@@ -340,7 +335,7 @@ h2 {font-weight: normal; font-style: normal; color: rgb(69, 68, 68); font-family
 
 .text-center {
     text-align:center;
-} 
+}
 
 a.btn, a.btn-large, a.btn-small, a.btn-mini {color:#333}
 
@@ -452,7 +447,7 @@ h6,.page-content h6 a {font-weight: normal; font-style: normal; font-family: 'So
 }
 
 
-@media (max-width: 767px) {    
+@media (max-width: 767px) {
     #divLogo {margin-top:10px;margin-bottom:10px;}
 
     #divSiteTitle {font-size: 25px;}

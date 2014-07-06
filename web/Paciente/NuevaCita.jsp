@@ -20,6 +20,20 @@
         <link href="../scripts/bootstrap/css/contenido.css" rel="stylesheet">
         <script src="../scripts/jquery.min.js" type="text/javascript"></script>
         <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../scripts/modernizr2.6.2.js" type="text/javascript" ></script>
+        <script>
+            // fallback para el datepicker con jquery
+            Modernizr.load({
+                test: Modernizr.inputtypes.date,
+                nope: ['http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js', 'jquery-ui.css'],
+                complete: function() {
+                    $('input[type=date]').datepicker({
+                        dateFormat: 'yy-mm-dd'
+                    });
+                }
+
+            });</script>
+        <link href="../scripts/jqueryUI.css" rel="stylesheet" type="text/css" />
         <title>Bienvenido Paciente</title>
         <style>
             body{background-color: #eee6ff;}
@@ -44,8 +58,7 @@
                                                 $('#cmbEspecialidadID').change(function() {
                                                     $('#myForm').submit();
                                                 });
-                                            });
-                                        </script>
+                                            });</script>
                                         <form method="GET" action="NuevaCita.jsp" id="myForm">
                                             <div class="panel panel-default">
                                                 <div class="panel-body">
@@ -142,8 +155,14 @@
                                                         <form>
                                                             <fieldset class="well">
                                                                 <legend><span class="badge">3</span> Seleccione una fecha:</legend>
-                                                                <div class=" col-xs-6">>
-                                                                    <input type="date"  name="fechaCita" min="2012-06-06" max="2012-06-06" class="form-control"  required>
+                                                                <div class=" col-xs-6">
+                                                                    <script>
+                                                                        $(function() {
+                                                                            $('#fechaCita').datepicker({
+                                                                                beforeShowDay: $.datepicker.noWeekends});
+                                                                        });
+                                                                    </script>
+                                                                    <input type="date" id="txtDate1" name="fechaCita" min="2012-06-06" max="2012-06-06" class="form-control" placeholder="Clic aqui" required>
                                                                 </div>
                                                             </fieldset>
                                                         </form>
