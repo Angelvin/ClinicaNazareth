@@ -11,22 +11,7 @@
 <%@page import="org.eclipse.persistence.internal.oxm.schema.model.Include"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-    String route = this.getServletContext().getContextPath() + "/Acceso.jsp";
-    String url = response.encodeRedirectURL(route);
-    try {
-        if (request.getSession(false) == null) {
-            //si no hay session, redirecciona a login
-            response.sendRedirect(url);
-        } else if (request.getSession().getAttribute("userName").equals("") || request.getSession().getAttribute("uidPaciente").equals("") || request.getSession().getAttribute("uidLogin").equals("")) {
-            //si existen sessiiones y hay alguna vacia, redireccionar a login
-            response.sendRedirect(url);
-        } else {
-        }
-    } catch (java.lang.NullPointerException ex) {
-        response.sendRedirect(url);
-    }
-%>
+<%@include file="/WEB-INF/jspf/validar.jspf" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -72,7 +57,7 @@
                                                                     <%
                                                                         Connection connection2 = cConexion.conectar_ds();
                                                                         Statement pst2 = connection2.createStatement();
-                                                                        String query2 = "select te.idTipoEmpleado as ID, te.nombreTipoEmp as Nombre from tipo_empleado AS te where te.idTipoEmpleado='5' or te.idTipoEmpleado='7'";
+                                                                        String query2 = "select te.idTipoEmpleado as ID, te.nombreTipoEmp as Nombre from tipo_empleado AS te where te.idTipoEmpleado between 4 and 8";
                                                                         ResultSet rs2 = null;
                                                                         try {
                                                                             rs2 = pst2.executeQuery(query2);
@@ -149,7 +134,7 @@
                                                                     System.out.print(e.getMessage());
                                                                 } finally {
                                                                 }
-                                                            %> 
+                                                            %>
                                                         </fieldset>
 
                                                     </div>
