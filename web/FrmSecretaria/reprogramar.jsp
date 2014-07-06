@@ -30,49 +30,6 @@
 
         <link href="../styles/custom.css" rel="stylesheet" type="text/css" />
 
-        <script type="text/javascript">
-            <!--
-        function validatePass(campo) {
-                var RegExPattern = /([a-z])/;
-
-                if ((campo.value.match(RegExPattern)) && (campo.value != '')) {
-
-                } else {
-                    alert('El campo debe ser llenado con texto');
-                }
-            }
-            //-->
-            function docu(campo) {
-                var RegExPattern = /([0-9]|-)/;
-
-                if ((campo.value.match(RegExPattern)) && (campo.value != '')) {
-
-                } else {
-                    alert('El campo debe ser llenado con numero');
-                }
-            }
-            //-->
-            function tele(campo) {
-                var RegExPattern = /(^[0-9]{2,3}-? ?[0-8]{6,7}$)/;
-
-                if ((campo.value.match(RegExPattern)) && (campo.value != '')) {
-
-                } else {
-                    alert('El campo debe ser llenado nª TELEFONO');
-                }
-            }
-
-            function correo(campo) {
-                var RegExPattern = /([\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4})/;
-
-                if ((campo.value.match(RegExPattern)) && (campo.value != '')) {
-
-                } else {
-                    alert('El campo debe ser llenado con el Correo');
-                }
-            }
-        </script>
-
 
 
     </head>
@@ -135,7 +92,7 @@
                                         <div class="panel-body">
 
                                             <label name="lblNombre" > horario </label><input name="txtHorario" id="txtHorario"  value="<%=list.getHorario()%>" size="20" />
-                                            <label name="lblNombre" > Medico</label><input name="txtNomMedico" id="txtNomMedico"  value="<%=list.getMedico()%>" size="20" />
+                                            <label name="lblNombre" > Medico</label><input name="txtNomMedico" id="txtNomMedico"  value="<%=list.getMedico()%>" size="20" pattern="/([a-z])/" />
 
 
                                         </div>

@@ -25,19 +25,7 @@
     <script src="assets/js/holder.js"></script>
     <script src="assets/js/validarRegEmpleador.js"></script>
 
-    <script>
-        // fallback para el datepicker con jquery
-        Modernizr.load({
-            test: Modernizr.inputtypes.date,
-            nope: ['http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js', 'jquery-ui.css'],
-            complete: function() {
-                $('input[type=date]').datepicker({
-                    dateFormat: 'yy-mm-dd'
-                });
-            }
 
-        });
-    </script>
 </head>
 <body id="pageBody">
     <div id="divBoxed" class="container">
