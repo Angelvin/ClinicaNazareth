@@ -97,7 +97,7 @@
 
                                                     <div class="col-xs-6 col-md-6"><label >Usuario</label>
 
-                                                        <input class="form-control" name="txtUsu" id="txtUsu"  placeholder="ejemplo@ejemplo.com" type="email" >
+                                                        <input class="form-control" name="txtUsu" id="txtUsu"  placeholder="ejemplo@ejemplo.com" type="email" required >
                                                     </div>
                                                     <div class="col-xs-6 col-md-4"><label>Rol</label>
                                                         <select class="form-control" name="txtrol" id="txtrol"  >
@@ -124,7 +124,7 @@
                                         <div class="panel-body">
 
                                             <div class="row">
-                                                <div class="col-md-6" ><label>Contraseña</label> <input name="txtContra" id="txtContra" type="password"  class="form-control" placeholder="Password"  pattern="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,10})$">
+                                                <div class="col-md-6" ><label>Contraseña</label> <input name="txtContra" id="txtContra" type="password"  class="form-control" placeholder="Password"  pattern="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,10})$" required>
                                                     <a>(Entre 8 y 10 caracteres, por lo menos un digito y un alfanumérico, y no puede contener caracteres espaciales)</a>
                                                 </div>
 
@@ -142,15 +142,15 @@
                                 <div class="panel-heading">Datos generales</div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-6" ><label>Primer Nombre</label><input name="txtPNombre"  id="txtPNombre" class="form-control"  placeholder="nombre" pattern="/([a-z])/" ></div>
-                                        <div class="col-md-6"><label>Segundo Nombre</label><input name="txtSNombre" id="txtSNombre" class="form-control" placeholder="nombre" pattern="/([a-z])/" ></div>
+                                        <div class="col-md-6" ><label>Primer Nombre</label><input name="txtPNombre"  id="txtPNombre" class="form-control"  placeholder="nombre" pattern="[a-z]"required ></div>
+                                        <div class="col-md-6"><label>Segundo Nombre</label><input name="txtSNombre" id="txtSNombre" class="form-control" placeholder="nombre" pattern="[a-z]" required></div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6"><label>Primer Apellido</label><input name="txtPApe" id="txtPApe" class="form-control"  placeholder="apellido" pattern="/([a-z])/"  ></div>
-                                        <div class="col-md-6"><label>Segundo Apellido</label><input name="txtSApe"id="txtSApe"  class="form-control" placeholder="apellido"  pattern="/([a-z])/" ></div>
+                                        <div class="col-md-6"><label>Primer Apellido</label><input name="txtPApe" id="txtPApe" class="form-control"  placeholder="apellido" pattern="[a-z]" required ></div>
+                                        <div class="col-md-6"><label>Segundo Apellido</label><input name="txtSApe"id="txtSApe"  class="form-control" placeholder="apellido"  pattern="[a-z]" required></div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6"><label>fecha nacimiento</label> <input  name="txtfecha" type="date" id="txtfecha" class="form-control"  />
+                                        <div class="col-md-6"><label>fecha nacimiento</label> <input  name="txtfecha" type="date" id="txtfecha" class="form-control" required />
                                             <a>La fecha debe ser menor que la actual</a>
                                         </div>
                                         <div class="col-md-6"><label >genero </label><SELECT class="form-control" NAME="comboSex" id="comboSex" SIZE=1> 
@@ -170,7 +170,7 @@
                             <div class="panel-heading">correo </div>
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-xs-6 col-md-4"><input class="form-control" name="txtCorreo" id="txtCorreo" placeholder="ejemplo@ejemplo.com"  type="email"></div>
+                                    <div class="col-xs-6 col-md-4"><input class="form-control" name="txtCorreo" id="txtCorreo" placeholder="ejemplo@ejemplo.com"  type="email" required></div>
 
                                     <div class="col-xs-6 col-md-2"><label >Tipo </label><SELECT NAME="comboTipoCorreo" id="comboTipoCorreo" class="form-control" SIZE=1> 
                                             <OPTION VALUE="personal">Personal</OPTION>
@@ -194,7 +194,7 @@
 
                                             </div>
                                             <div class="col-xs-6 col-md-3">
-                                                <input class="form-control" name="txtDocu" id="txtDocu" placeholder="Documento" pattern="/([0-9]|-)/" >
+                                                <input class="form-control" name="txtDocu" id="txtDocu" placeholder="Documento" pattern="/([0-9]|-)/" required >
 
                                             </div>
                                             <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT class="form-control" NAME="comboDocu" id="comboDocu" SIZE=1> 
@@ -217,7 +217,7 @@
 
                                             </div>
                                             <div class="col-xs-6 col-md-3">
-                                                <input class="form-control" name="txtCel" id="txtCel" placeholder="Numero Telefono" pattern="/([0-9]|-)/" >
+                                                <input class="form-control" name="txtCel" id="txtCel" placeholder="Numero Telefono" pattern="/([0-9]|-)/" required >
 
                                             </div>
                                             <div class="col-xs-6 col-md-4"><label >Tipo </label><SELECT class="form-control" NAME="comboTipoCel" id="comboTipoCel" SIZE=1> 
@@ -242,8 +242,8 @@
                             <div class="panel-heading">Direccion</div>
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-xs-6 col-md-4"><input class="form-control" name="txtcalle" id=txtcalle" values="calle" placeholder="Calle: San Antonio" pattern="/([a-z])/" ></div>
-                                    <div class="col-xs-6 col-md-4"><input class="form-control" name="txtcasa" id=txtcasa" values="casa" placeholder="N° casa:45" pattern="/([a-z])/" ></div>
+                                    <div class="col-xs-6 col-md-4"><input class="form-control" name="txtcalle" id=txtcalle" values="calle" placeholder="Calle: San Antonio" pattern="/([a-z])/" required ></div>
+                                    <div class="col-xs-6 col-md-4"><input class="form-control" name="txtcasa" id=txtcasa" values="casa" placeholder="N° casa:45" pattern="/([a-z])/" required></div>
 
                                     <div class="col-xs-6 col-md-2"><label >Municipio</label><SELECT class="form-control" NAME="comboMunicipio" id="comboMunicipio" SIZE=1> 
                                             <OPTION VALUE="1">PERSONAL</OPTION>

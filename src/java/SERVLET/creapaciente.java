@@ -57,7 +57,7 @@ public class creapaciente extends HttpServlet {
         String tipotele = request.getParameter("txttipotele");
         String calle = request.getParameter("txtcalle");
         String casa = request.getParameter("txtcasa");
-        int muni = Integer.parseInt(request.getParameter("txtmuni"));
+        String muni = request.getParameter("txtmuni");
         String correo = request.getParameter("correo");
         String tipocorreo = request.getParameter("tipocorreo");
 
@@ -68,69 +68,145 @@ public class creapaciente extends HttpServlet {
 
         if (tipo.equals("Guardar")) {
 
-            try {
+            if (usuario.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else if (contra.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else if (nombre.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else if (nombres.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else if (apellido.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else if (apellidos.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else if (fecha.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else if (genero.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else if (igle.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else if (docu.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else if (tipodocu.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else if (tele.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else if (tipotele.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else if (calle.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else if (casa.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else if (muni.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else if (correo.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else if (tipocorreo.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+            } else {
+                try {
 
-                PreparedStatement pst = bdconeccion.prepareStatement(registrarusuario.query);
-                pst.setString(1, usuario);
-                pst.setString(2, contra);
-                pst.setString(3, nombre);
-                pst.setString(4, nombres);
-                pst.setString(5, apellido);
-                pst.setString(6, apellidos);
-                pst.setDate(7, Date.valueOf(fecha));
-                pst.setString(8, genero);
-                pst.setString(9, igle);
-                pst.setString(10, docu);
-                pst.setString(11, tipodocu);
-                pst.setString(12, tele);
-                pst.setString(13, tipotele);
-                pst.setString(14, calle);
-                pst.setString(15, casa);
-                pst.setInt(16, muni);
-                pst.setString(17, correo);
-                pst.setString(18, tipocorreo);
-                pst.executeUpdate();
+                    PreparedStatement pst = bdconeccion.prepareStatement(registrarusuario.query);
+                    pst.setString(1, usuario);
+                    pst.setString(2, contra);
+                    pst.setString(3, nombre);
+                    pst.setString(4, nombres);
+                    pst.setString(5, apellido);
+                    pst.setString(6, apellidos);
+                    pst.setDate(7, Date.valueOf(fecha));
+                    pst.setString(8, genero);
+                    pst.setString(9, igle);
+                    pst.setString(10, docu);
+                    pst.setString(11, tipodocu);
+                    pst.setString(12, tele);
+                    pst.setString(13, tipotele);
+                    pst.setString(14, calle);
+                    pst.setString(15, casa);
+                    pst.setInt(16, Integer.parseInt(muni));
+                    pst.setString(17, correo);
+                    pst.setString(18, tipocorreo);
+                    pst.executeUpdate();
 
 
-                out.println(DisplayEnvio());
+                    out.println(DisplayEnvio());
 
 
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+
             }
         } else if (tipo.equals("Registrar Paciente")) {
-            try {
+            if (usuario.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else if (contra.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else if (nombre.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else if (nombres.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else if (apellido.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else if (apellidos.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else if (fecha.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else if (genero.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else if (igle.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else if (docu.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else if (tipodocu.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else if (tele.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else if (tipotele.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else if (calle.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else if (casa.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else if (muni.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else if (correo.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else if (tipocorreo.equals("")) {
+                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+            } else {
+                try {
 
-                PreparedStatement pst = bdconeccion.prepareStatement(registrarusuario.query);
-                pst.setString(1, usuario);
-                pst.setString(2, contra);
-                pst.setString(3, nombre);
-                pst.setString(4, nombres);
-                pst.setString(5, apellido);
-                pst.setString(6, apellidos);
-                pst.setDate(7, Date.valueOf(fecha));
-                pst.setString(8, genero);
-                pst.setString(9, igle);
-                pst.setString(10, docu);
-                pst.setString(11, tipodocu);
-                pst.setString(12, tele);
-                pst.setString(13, tipotele);
-                pst.setString(14, calle);
-                pst.setString(15, casa);
-                pst.setInt(16, muni);
-                pst.setString(17, correo);
-                pst.setString(18, tipocorreo);
-                pst.executeUpdate();
+                    PreparedStatement pst = bdconeccion.prepareStatement(registrarusuario.query);
+                    pst.setString(1, usuario);
+                    pst.setString(2, contra);
+                    pst.setString(3, nombre);
+                    pst.setString(4, nombres);
+                    pst.setString(5, apellido);
+                    pst.setString(6, apellidos);
+                    pst.setDate(7, Date.valueOf(fecha));
+                    pst.setString(8, genero);
+                    pst.setString(9, igle);
+                    pst.setString(10, docu);
+                    pst.setString(11, tipodocu);
+                    pst.setString(12, tele);
+                    pst.setString(13, tipotele);
+                    pst.setString(14, calle);
+                    pst.setString(15, casa);
+                    pst.setInt(16, Integer.parseInt(muni));
+                    pst.setString(17, correo);
+                    pst.setString(18, tipocorreo);
+                    pst.executeUpdate();
 
 
-                out.println(Assets.DisplayExito("Proceso Completo", "/ClinicaNazareth/Acceso.jsp", "80", "1em"));
+                    out.println(DisplayEnvio());
 
 
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+
             }
-
-
 
         }
 
