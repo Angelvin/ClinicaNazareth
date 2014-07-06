@@ -1,12 +1,12 @@
-<%@page import="BEANS.bhorario"%>
-<%@page import="java.sql.ResultSet"%>
+
 <!DOCTYPE HTML>
-<%@include file="/WEB-INF/jspf/validar.jspf" %>
+
+<%@include file="../frementop.jspf" %>
 
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Clinica Nazareth</title>
+        <title>Clínica Nazareth</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="Zaid Archila">
@@ -14,12 +14,9 @@
         <link href="../scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 
         <!-- Icons -->
-        <link href="../scripts/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css" />  
+        <link href="../scripts/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
         <link href="../scripts/icons/social/stylesheets/social_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
-        <!--[if lt IE 8]>
-            <link href="scripts/icons/general/stylesheets/general_foundicons_ie7.css" media="screen" rel="stylesheet" type="text/css" />
-            <link href="scripts/icons/social/stylesheets/social_foundicons_ie7.css" media="screen" rel="stylesheet" type="text/css" />
-        <![endif]-->
+
         <link rel="stylesheet" href="../scripts/fontawesome/css/font-awesome.min.css">
         <!--[if IE 7]>
             <link rel="stylesheet" href="scripts/fontawesome/css/font-awesome-ie7.min.css">
@@ -29,8 +26,51 @@
         <link href="../scripts/wookmark/css/style.css" rel="stylesheet" type="text/css" />  <link href="../scripts/yoxview/yoxview.css" rel="stylesheet" type="text/css" />
 
 
+        <link href="../styles/custom.css" rel="stylesheet" type="text/css" />
 
-        <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
+
+        <script type="text/javascript">
+            <!--
+        function validatePass(campo) {
+                var RegExPattern = /([a-z])/;
+
+                if ((campo.value.match(RegExPattern)) && (campo.value != '')) {
+
+                } else {
+                    alert('El campo debe ser llenado con texto');
+                }
+            }
+            //-->
+            function docu(campo) {
+                var RegExPattern = /([0-9]|-)/;
+
+                if ((campo.value.match(RegExPattern)) && (campo.value != '')) {
+
+                } else {
+                    alert('El campo debe ser llenado con numero');
+                }
+            }
+            //-->
+            function tele(campo) {
+                var RegExPattern = /(^[0-9]{2,3}-? ?[0-8]{6,7}$)/;
+
+                if ((campo.value.match(RegExPattern)) && (campo.value != '')) {
+
+                } else {
+                    alert('El campo debe ser llenado nª TELEFONO');
+                }
+            }
+
+            function correo(campo) {
+                var RegExPattern = /([\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4})/;
+
+                if ((campo.value.match(RegExPattern)) && (campo.value != '')) {
+
+                } else {
+                    alert('El campo debe ser llenado con el Correo');
+                }
+            }
+        </script>
 
 
     </head>
@@ -42,80 +82,85 @@
 
             <div class="divPanel notop nobottom">
                 <div class="row-fluid">
-                    <div class="span12">	
+                    <div class="span12">
 
 
                         <!--Edit Site Name and Slogan here-->
                         <div id="divLogo">
-                            <a href="index.html" id="divSiteTitle">Clinica Nazareth</a><br />
-                            <a href="index.html" id="divTagLine">¡<span class="camera_full_width">Registro de Persona</span>!</a>
+                            <a href="index.jsp" id="divSiteTitle">Clínica Nazareth</a><br />
+                            <a href="index.jsp" id="divTagLine">¡<span class="camera_full_width">Búsqueda de Paciente</span>!</a>
                         </div>
 
                     </div>
-                </div> 
+                </div>
 
                 <div class="row-fluid">
                     <div class="span12">
                     </div>
                 </div>
             </div>
-            <!--DENTRO DE ESTE DIV CREAR EL FROMULARIO FAVOR NO UTILZAR 
-                TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE 
-                PUEDA VERSE EN CUALQUEIR TAMAÃ‘O
+            <!--DENTRO DE ESTE DIV CREAR EL FROMULARIO FAVOR NO UTILZAR
+                TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE
+                PUEDA VERSE EN CUALQUEIR TAMAÑO
             -->
 
 
 
-            <div class="col-xs-12 col-sm-6 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12">
                 <jsp:include page="menu.jsp"></jsp:include>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
 
-
                         </div>
                         <div class="panel-body">
-                            <div class="alert alert-success">
-                                <a href="../FrmSecretaria/CreacionPaciente.jsp" class="alert-link" >Crear paciente</a>
-                            </div>
-                            <div class="alert alert-info">
-                                <a href="../FrmSecretaria/CreacionEmpleado.jsp" class="alert-link" >crear empleado</a>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Crear Horario Medico</h3>
-                            </div>
-                            <div class="panel-body">
-                                <form name="form1" method="post" action="../Shorarioe">
-                                    <div class="row">
-                                        <div class="col-xs-6"><SELECT class="form-control" NAME="comboDepa" SIZE=1> 
-                                            <%
-                                                ResultSet rst = bhorario.getmedico();
-                                                while (rst.next()) {%>
+                            <div>
 
-                                            <option value="<%= rst.getInt(" idEmpleado")%>"><%= rst.getString("medico")%></option>
 
-                                            <%}
 
-                                            %>
+                                <form name="form1" method="post" action="../SBusqueda">
 
-                                        </select>></div>
-                                    <div class="col-xs-6"><input name="cmdguardar"  class="btn btn-group-lg btn-primary" type="submit" id="cmdguardar" value="guardar"></div>
+
+                                    <div><table>
+
+                                            <!--          LISTADO     -->
+                                        <jsp:useBean id="estado" scope="request" class="BEANS.bhorario" />
+
+                                        <c:set var="list" scope="request" value="${estado.listado}"/>
+
+                                        <display:table name="list" export="true" id="fila"  class="table table-condensed" pagesize="10" >
+                                            <display:setProperty name="export.rtf.filename" value="example.rtf" />
+
+                                            <display:column property="idempleado" title="Empleado" />
+                                            <display:column property="medico" title="Medico" />
+
+
+                                            <display:setProperty name="export.pdf" value="true" />
+                                            <display:column title="Editar">
+                                                <form  id="updateCita" method="post" action="../FrmSecretaria/editPaciente.jsp ">
+                                                    <input type="hidden" name="codigo" value="${fila.idempleado}" >
+                                                    <input type="submit" name="cmdguardar" class="btn btn-link" value="Modificar" POST="SUMIT"/>
+                                                </form>
+                                            </display:column>
+                                            <display:column title="Editar">
+                                                <form  id="updateCita" method="post" action="../Shorarioe ">
+                                                    <input type="hidden" name="codigo" value="${fila.idempleado}" >
+                                                    <input type="submit" name="cmdguardar" class="btn btn-link" value="Crear Horario" POST="SUMIT"/>
+                                                </form>
+                                            </display:column>
+                                        </display:table>
+                                    </table>
                                 </div>
-
-
-
-                            </form>
                         </div>
+
+
+
+
                     </div>
-
-
-
-
                 </div>
             </div>
-        </div>
 
+
+        </div>
         <div id="footerOuterSeparator"></div>
 
         <div id="divFooter" class="footerArea shadow">
@@ -123,7 +168,7 @@
             <div class="divPanel"><br /><br />
                 <div class="row-fluid">
                     <div class="span12">
-                        <p class="copyright"> 
+                        <p class="copyright">
                             Copyright © 2014 Clinica Nazareth. All Rights Reserved.
                         </p>
 
@@ -136,7 +181,7 @@
 
         <br /><br /><br />
 
-        <script src="../scripts/jquery.min.js" type="text/javascript"></script> 
+        <script src="../scripts/jquery.min.js" type="text/javascript"></script>
         <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="../scripts/default.js" type="text/javascript"></script>
 
