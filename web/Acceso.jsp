@@ -27,17 +27,27 @@
                         <form name="session" method="post" action="srvSession">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Ususario</label>
-                                <input class="form-control" style="border-radius:0px" name="txtuser" style="width: 250px" type="text" required>
+                                <input class="form-control" style="border-radius:0px" name="txtuser" style="width: 250px" type="text">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Contrasenia</label>
-                                <input  class="form-control" style="border-radius:0px" name="txtpass" style="width: 150px" type="password" required>
+                                <input  class="form-control" style="border-radius:0px" name="txtpass" style="width: 150px" type="password">
                             </div>
                             <button type="submit" class="btn btn-sm btn-default">Entrar</button>
                         </form>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container">
+            <%
+                if (session.getAttribute("errorCredentialsInvalid") == null) {
+                    //la sesion es null, significa q no se ha intentado loguear.
+                } else {
+                    out.println(session.getAttribute("errorCredentialsInvalid"));
+                    //la session de error retorno un mensaje, bad credentials.
+                }
+            %>
         </div>
     </body>
 </html>
