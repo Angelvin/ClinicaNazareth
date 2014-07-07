@@ -4,6 +4,7 @@
  */
 package BEANS;
 
+import BAL.Assets;
 import DAL.cConexion;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,66 +35,77 @@ public class srvSession extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
+    private void setSession(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
         HttpSession session = request.getSession();
         HttpSession uidPaciente = request.getSession();
         HttpSession uidLogin = request.getSession();
+        HttpSession errorCredentialsInvalid = request.getSession();
+
         String nombreU = null;
         int id_rol = 0;
         int uidPacientev = 0;
         int valLogin = 0;
         try {
-            Connection cnn = cConexion.conectar_ds();
-            ResultSet rset = null;
-            PreparedStatement sta;
-            sta = cnn.prepareStatement(ingreso.session);
-            sta.setString(1, request.getParameter("txtuser"));
-            sta.setString(2, request.getParameter("txtpass"));
-            rset = sta.executeQuery();
-
-            while (rset.next()) {
-                id_rol = rset.getInt("fkRol");
-                nombreU = rset.getString("usuLogin");
-                uidPacientev = rset.getInt("idLogin");
-                valLogin = rset.getInt("idLogin");
-
-                session.setAttribute("userName", nombreU);
-                uidPaciente.setAttribute("uidPaciente", uidPacientev);
-                uidLogin.setAttribute("uidLogin", valLogin);
-            }
-            rset.close();
-            sta.close();
-            cnn.close();
-            if (id_rol == 1) {
-                //ROL ASIGNADO A PACIENTE
-                String route = this.getServletContext().getContextPath() + "/Paciente/Perfil.jsp";
-                String url = response.encodeRedirectURL(route);
-                response.sendRedirect(url);
-            } else if (id_rol == 2) {
-                //ROL ASGINADO A MEDICO
-                String route = this.getServletContext().getContextPath() + "/medico/indexmedico.jsp";
-                String url = response.encodeRedirectURL(route);
-                response.sendRedirect(url);
-            } else if (id_rol == 3) {
-                //ROL ASIGNADO A SECRETARIA
-                String route = this.getServletContext().getContextPath() + "/FrmSecretaria/indexSecre.jsp";
-                String url = response.encodeRedirectURL(route);
-                response.sendRedirect(url);
-
+            if (request.getParameter("txtuser") == null || request.getParameter("txtpass") == null) {
+                //si los valores llegan vacios, meanwhile, do nothing...
             } else {
-                out.println(DisplayError());
+                Connection cnn = cConexion.conectar_ds();
+                ResultSet rset = null;
+                PreparedStatement sta;
+                sta = cnn.prepareStatement(ingreso.session);
+                sta.setString(1, request.getParameter("txtuser"));
+                sta.setString(2, request.getParameter("txtpass"));
+                rset = sta.executeQuery();
+
+                while (rset.next()) {
+                    id_rol = rset.getInt("fkRol");
+                    nombreU = rset.getString("usuLogin");
+                    uidPacientev = rset.getInt("idLogin");
+                    valLogin = rset.getInt("idLogin");
+
+                    session.setAttribute("userName", nombreU);
+                    uidPaciente.setAttribute("uidPaciente", uidPacientev);
+                    uidLogin.setAttribute("uidLogin", valLogin);
+                }
+                rset.close();
+                sta.close();
+                cnn.close();
+                if (id_rol == 1) {
+                    //ROL ASIGNADO A PACIENTE
+                    Assets.RedirectToUrl("/Paciente/Perfil.jsp", response);
+                } else if (id_rol == 2) {
+                    //ROL ASGINADO A MEDICO
+                    Assets.RedirectToUrl("/medico/indexmedico.jsp", response);
+                } else if (id_rol == 3) {
+                    //ROL ASIGNADO A SECRETARIA
+                    Assets.RedirectToUrl("/FrmSecretaria/indexSecre.jsp", response);
+
+                } else {
+                    errorCredentialsInvalid.setAttribute("errorCredentialsInvalid", DisplayError());
+                    Assets.RedirectToUrl("/Acceso.jsp", response);
+                }
             }
+
         } catch (Exception e) {
             out.println(e);
         } finally {
 
             out.close();
         }
+    }
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        //Invocando al metodo que procesa la sesion
+        setSession(request, response);
+
+
     }
 
     private String DisplayError() {
