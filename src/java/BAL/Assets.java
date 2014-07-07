@@ -30,4 +30,13 @@ public class Assets {
         error = error + "<br><a href='" + UrlToRedirect + "'>Regresar</a></div>";
         return error;
     }
+
+    public static String DisplayExito(String MensajeToDisplay, String UrlToRedirect, String Ancho, String TamanioFuente) {
+        //METODO QUE RETORNA UN ERROR CON FORMATO(BOOTSTRAP)
+        String AnchoPlusPercent = Ancho + "%";
+        String error = "<link href=\"../" + "scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login" + Ancho + TamanioFuente + "{font-size:" + TamanioFuente + "; width:" + AnchoPlusPercent + ";margin:auto;margin-top:50px; }</style><div id='login" + Ancho + TamanioFuente + "' class='alert alert-success'> ";
+        error = error + MensajeToDisplay;
+        error = error + "<br><a href='" + UrlToRedirect + "'>Regresar</a></div>";
+        return error;
+    }
 }
