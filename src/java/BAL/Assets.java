@@ -21,4 +21,13 @@ public class Assets {
         System.out.println("LA RUTA EN ASSETS ES:" + url);
         response.sendRedirect(url);
     }
+
+    public static String DisplayError(String MensajeToDisplay, String UrlToRedirect, String Ancho, String TamanioFuente) {
+        //METODO QUE RETORNA UN ERROR CON FORMATO(BOOTSTRAP)
+        String AnchoPlusPercent = Ancho + "%";
+        String error = "<link href=\"../" + "scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login" + Ancho + TamanioFuente + "{font-size:" + TamanioFuente + "; width:" + AnchoPlusPercent + ";margin:auto;margin-top:50px; }</style><div id='login" + Ancho + TamanioFuente + "' class='alert alert-danger'> ";
+        error = error + MensajeToDisplay;
+        error = error + "<br><a href='" + UrlToRedirect + "'>Regresar</a></div>";
+        return error;
+    }
 }
