@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package libreservlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,7 +33,7 @@ public class srvLogout extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-       
+
         try {
             HttpSession sesion = request.getSession();
             sesion.invalidate();
