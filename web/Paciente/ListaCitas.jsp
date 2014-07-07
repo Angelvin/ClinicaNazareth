@@ -9,11 +9,11 @@
     <jsp:useBean id="pacientes" scope="request" class="BAL.PacienteController" />
 
     <c:set var="lista" scope="request" value="${pacientes.getListado(uidPaciente)}"/>
-    <display:table name="lista" export="true" id="fila"  class="table table-condensed"  >
+    <display:table name="lista" export="true" id="fila"  class="table table-condensed" pagesize="10">
         <display:setProperty name="export.rtf.filename" value="example.rtf" />
         <display:column property="idCita" title="Codigo" />
-        <display:column property="motivo" title="Motivo" />
-        <display:column property="estadoCita" title="Estado cita" />
+        <display:column property="motivo" title="Motivo"  />
+        <display:column property="estadoCita" title="Estado cita" sortable="true" />
         <display:setProperty name="export.pdf" value="true" />
         <display:column title="Editar">
             <form  id="updateCita" method="POST" action="../Paciente">
