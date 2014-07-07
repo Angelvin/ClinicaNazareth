@@ -19,6 +19,7 @@
     <body>
         <div class="container">
             <h3>Fuente a 2em</h3>
+            <% out.println(Assets.DisplayExito("A friendly Succes message WITH 20%", "/Acceso.jsp", "80", "1em"));%>
             <% out.println(Assets.DisplayError("A friendly error message WITH 20%", "/Acceso.jsp", "20", "2em"));%>
             <% out.println(Assets.DisplayError("A friendly error message WITH 40%", "/Acceso.jsp", "40", "2em"));%>
             <% out.println(Assets.DisplayError("A friendly error message WITH 60%", "/Acceso.jsp", "60", "2em"));%>
