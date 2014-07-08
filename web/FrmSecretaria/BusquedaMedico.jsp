@@ -1,6 +1,6 @@
 
 <!DOCTYPE HTML>
-
+<%@include file="/WEB-INF/jspf/validar.jspf" %>
 <%@include file="../frementop.jspf" %>
 
 <html>
@@ -142,7 +142,7 @@
                                                 </form>
                                             </display:column>
                                             <display:column title="Editar">
-                                                <form  id="updateCita" method="post" action="../Shorarioe ">
+                                                <form  id="updateCita" method="post" action="../Shorario ">
                                                     <input type="hidden" name="codigo" value="${fila.idempleado}" >
                                                     <input type="submit" name="cmdguardar" class="btn btn-link" value="Crear Horario" POST="SUMIT"/>
                                                 </form>

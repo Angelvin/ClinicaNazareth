@@ -156,6 +156,7 @@
 
                                                 <li class="list-group-item"><span class="glyphicon glyphicon-user"></span><a href="../FrmSecretaria/RegistroP.jsp">Creacion Paciente</a></li>
                                                 <li class="list-group-item"><span class="glyphicon glyphicon-search"></span><a href="../FrmSecretaria/BusquedaPaciente.jsp">Busqueda de Paciente</a></li>
+                                                <li class="list-group-item"><span class="glyphicon glyphicon-search"></span><a href="../FrmSecretaria/BusquedaMedico.jsp">Medico</a></li>
                                                 <li class="list-group-item"><span class="glyphicon glyphicon-list-alt"></span><a href="../FrmSecretaria/agendaSecre.jsp">Agenda</a></li>
                                                 <li class="list-group-item"><span class="glyphicon glyphicon-shopping-cart"></span><a href="../FrmSecretaria/Ingreso.jsp">Adquisicion</a></li>
                                                 <li class="list-group-item"><span class="glyphicon glyphicon-usd"></span><a href="../FrmSecretaria/factura.jsp">Facturacion</a></li>

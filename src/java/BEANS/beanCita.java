@@ -17,5 +17,5 @@ public class beanCita {
     public static String confirmado = "UPDATE Cita estadoCita=? where idcita=?";
     public static String Consulta = "UPDATE Cita set estadoCita=? where idcita=?";
     public static String cancelado = "UPDATE Cita estadoCita=? where idcita=?";
-    public static String validarhorario = "select count(fkempleado) from horario where fkempleado=?";
+    public static String validarhorario = "select count(idhorario)as idhorario from horario where fkempleado=?";
 }
