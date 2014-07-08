@@ -41,7 +41,7 @@
                                     <div class="panel-body">
                                         <script>
                                             $(function() {
-                                                $('#cmbEspecialidad').change(function() {
+                                                $('#cmbEspecialidadID').change(function() {
                                                     $('#myForm').submit();
                                                 });
                                             });
@@ -62,19 +62,29 @@
                                                                     <legend><span class="badge">1</span> Seleccione una especialidad:</legend>
                                                                     <div class=" col-xs-6">
                                                                     <%
+                                                                        HttpSession cmbEspecialidad = request.getSession();
+                                                                        cmbEspecialidad.setAttribute("sEspecialidad", request.getParameter("cEspecialidad"));
+
+                                                                    %>
+
+                                                                    <%
                                                                         Connection connection2 = cConexion.conectar_ds();
                                                                         Statement pst2 = connection2.createStatement();
                                                                         String query2 = "select te.idTipoEmpleado as ID, te.nombreTipoEmp as Nombre from tipo_empleado AS te where te.idTipoEmpleado between 4 and 8";
                                                                         ResultSet rs2 = null;
                                                                         try {
-                                                                            rs2 = pst2.executeQuery(query2);
-                                                                            out.println("<select class='form-control' id='cmbEspecialidad'>");
-                                                                            while (rs2.next()) {
-                                                                                out.println("<option value='" + rs2.getInt("ID") + "'>" + rs2.getString("Nombre") + "</option>");
-                                                                                // out.println(rs.getString("horaini"));
-                                                                                //out.println(rs.getString("fkempleado"));
+                                                                            if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals("")) {
+                                                                                rs2 = pst2.executeQuery(query2);
+                                                                                out.println("<select class='form-control' name='cEspecialidad' id='cmbEspecialidadID'>");
+                                                                                out.println("<option></option>");
+                                                                                while (rs2.next()) {
+                                                                                    out.println("<option value='" + rs2.getInt("ID") + "'>" + rs2.getString("Nombre") + "</option>");
+                                                                                }
+                                                                                out.println("</select>");
+                                                                            } else {
+                                                                                out.println("<p>" + "La especialidad Seleccionada es: " + cmbEspecialidad.getAttribute("sEspecialidad") + "</p>");
+
                                                                             }
-                                                                            out.println("</select>");
                                                                         } catch (Exception e) {
                                                                             System.out.print(e.getMessage());
                                                                         } finally {
@@ -92,18 +102,16 @@
                                                         <form>
                                                             <fieldset class="well">
                                                                 <legend><span class="badge">2</span> Seleccione un medico:</legend>
-                                                                <div class=" col-xs-6">
+                                                                <div class=" col-xs-8">
                                                                     <%
-                                                                        HttpSession cmbEspecialidad = request.getSession();
-                                                                        cmbEspecialidad.setAttribute("sEspecialidad", request.getParameter("cmbEspecialidad"));
 
-                                                                        if (cmbEspecialidad == null || cmbEspecialidad.equals("")) {
-                                                                            //do nothing, load nothing
+
+                                                                        if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals("")) {
                                                                             out.println(BAL.Assets.DisplayError("Primero seleccione una especialidad", "/Acceso.jsp", "100", "1.2em"));
                                                                         } else {
                                                                             Connection connection3 = cConexion.conectar_ds();
                                                                             Statement pst3 = connection3.createStatement();
-                                                                            String query3 = "SELECT e.idEmpleado as iD,CONCAT( p.pnombrePer,'  ', p.snombrePer, ' ',p.pApellPer ) as Nombre FROM empleado as e, persona as p WHERE e.fkpersona=p.idPersona  and e.fkTipoemple=6";
+                                                                            String query3 = "SELECT e.idEmpleado as iD,CONCAT( p.pnombrePer,'  ', p.snombrePer, ' ',p.pApellPer ) as Nombre FROM empleado as e, persona as p WHERE e.fkpersona=p.idPersona  and e.fkTipoemple=" + cmbEspecialidad.getAttribute("sEspecialidad");
                                                                             ResultSet rs3 = null;
 
                                                                             try {
@@ -111,8 +119,6 @@
                                                                                 out.println("<select class='form-control' name='cmbDoctor'>");
                                                                                 while (rs3.next()) {
                                                                                     out.println("<option value='" + rs3.getInt("ID") + "'> Dr " + rs3.getString("Nombre") + "</option>");
-                                                                                    // out.println(rs.getString("horaini"));
-                                                                                    //out.println(rs.getString("fkempleado"));
                                                                                 }
                                                                                 out.println("</select>");
                                                                             } catch (Exception e) {
@@ -122,34 +128,31 @@
                                                                                 pst3.close();
                                                                             }
                                                                         }
-
-
                                                                     %>
-                                                                    La especialidad en sesion: <c:out value="${sEspecialidad}"></c:out>
-                                                                    </div>
-                                                                </fieldset>
-                                                            </form>
-                                                        </div>
+                                                                </div>
+                                                            </fieldset>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="panel panel-default">
-                                                <div class="panel-body">
-                                                    <div class="row">
-                                                        <div class="col-xs-6">
-                                                            <form>
-                                                                <fieldset class="well">
-                                                                    <legend><span class="badge">3</span> Seleccione una fecha:</legend>
-                                                                    <div class=" col-xs-6">
-                                                                        <input type="date" class="form-control" >
-                                                                    </div>
-                                                                </fieldset>
-                                                            </form>
-                                                        </div>
-                                                        <div class="col-xs-6">
-
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <form>
                                                             <fieldset class="well">
-                                                                <legend><span class="badge">4</span> Horarios Disponibles:</legend>
+                                                                <legend><span class="badge">3</span> Seleccione una fecha:</legend>
+                                                                <div class=" col-xs-6">
+                                                                    <input type="date" class="form-control" >
+                                                                </div>
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                    <div class="col-xs-6">
+
+                                                        <fieldset class="well">
+                                                            <legend><span class="badge">4</span> Horarios Disponibles:</legend>
                                                             <%
                                                                 Connection connection = cConexion.conectar_ds();
                                                                 Statement pst = connection.createStatement();
