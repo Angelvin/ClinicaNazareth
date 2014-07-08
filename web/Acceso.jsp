@@ -24,6 +24,12 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><h3 class="panel-title"><strong>Acceso </strong></h3></div>
                     <div class="panel-body">
+                        <style>
+                            .form-group
+                            {
+                                font-size: 1.6em;
+                            }
+                        </style>
                         <form name="session" method="post" action="srvSession">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Ususario</label>
@@ -33,14 +39,14 @@
                                 <label for="exampleInputPassword1">Contrasenia</label>
                                 <input  class="form-control" style="border-radius:0px" name="txtpass" style="width: 150px" type="password">
                             </div>
-                            <button type="submit" class="btn btn-sm btn-default">Entrar</button>
+                            <center><button  style="width: 70%; font-size: 1.6em;font-weight: bold;" type="submit"  class="btn btn-success btn-block">Entrar</button></center>
                             <div>
-                                
+                                <center>
+                                    <ul class="pager"  style="width: 70%; font-size: 1.6em;font-weight: bold;">
+                                        <li><a href="../ClinicaNazareth/FrmSecretaria/CreacionevoPaciente.jsp">Crear Cuenta</a></li>
 
-                                <ul class="pager">
-  <li><a href="../ClinicaNazareth/FrmSecretaria/CreacionevoPaciente.jsp">Crear Cuenta</a></li>
-  
-</ul>
+                                    </ul>
+                                </center>
                             </div>
                         </form>
                     </div>
