@@ -155,7 +155,9 @@
                                     <div class="col-md-6"><label>Iglesia</label><input   id="txtiglesia" name= "txtiglesia" class="form-control" placeholder="iglesia" value=" <%=list.getIglesia()%>"  onblur="validatePass(this);"></div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6"><label>fechanacimiento</label><input   id="txtFecha" name="txtFecha"    class="form-control"  placeholder="sexo" value="<%=list.getFecha()%>" onblur="validatePass(this);"></div>
+                                    <div class="col-md-6"><label>fecha Nacimiento</label><input type="date"  id="txtFecha" name="txtFecha"    class="form-control"  placeholder="sexo" value="<%=list.getFecha()%>" onblur="validatePass(this);">
+                                        <a>La fecha debe ser menor a la actual</a>
+                                    </div>
 
                                 </div>
                                 <div class="row">

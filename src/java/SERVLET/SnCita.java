@@ -105,7 +105,7 @@ public class SnCita extends HttpServlet {
 
     private String DisplayEnvio() {
         //METODO QUE RETORNA UN ERROR CON FORMATO(BOOTSTRAP)
-        String error = "<link href=\"scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login{font-size:2em; width: 60%;margin:auto;margin-top:50px; }</style><div id='login' class='alert alert-success'>'La Cita esta reprogramada'<br><a href='/ClinicaNazareth/FrmSecretaria/indexSecre.jsp'>Regresar</a></div>";
+        String error = "<link href=\"scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login{font-size:2em; width: 60%;margin:auto;margin-top:50px; }</style><div id='login' class='alert alert-success'>'La Cita esta creada eesperadon confirmacion'<br><a href='/ClinicaNazareth/FrmSecretaria/indexSecre.jsp'>Regresar</a></div>";
         return error;
     }
 
