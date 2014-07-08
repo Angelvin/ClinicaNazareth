@@ -4,6 +4,10 @@
     Author     : daMgeL
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="DAL.cConexion"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="org.eclipse.persistence.internal.oxm.schema.model.Include"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -43,33 +47,51 @@
                 <div class="row">
                     <div class="col-md-2">
                     <jsp:include page="leftMenu.jsp"></jsp:include>
-                </div>
-                <div class="col-md-10">
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="Citas">
-                            <div class="panel panel-info">
-                                <div class="panel-heading"><h3>Nueva Cita</h3> </div>
-                                <div class="panel-body">
-                                    <form method="post" acction="..">
-                                        <div class="panel panel-default">
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-xs-6">
-                                                        <form>
-                                                            <fieldset class="well">
-                                                                <style>
-                                                                    .badge
-                                                                    {
-                                                                        font-size: 1.5em;
-                                                                    }
-                                                                </style>
-                                                                <legend><span class="badge">1</span> Seleccione una especialidad:</legend>
-                                                                <div class=" col-xs-6">
-                                                                    <select class="form-control">
-                                                                        <option value="volvo">Medicina General</option>
-                                                                        <option value="saab">Ortoestetica</option>
-                                                                        <option value="mercedes">Pediatria</option>
-                                                                    </select>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="Citas">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading"><h3>Nueva Cita</h3> </div>
+                                    <div class="panel-body">
+                                        <form method="post" acction="..">
+                                            <div class="panel panel-default">
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-xs-6">
+                                                            <form>
+                                                                <fieldset class="well">
+                                                                    <style>
+                                                                        .badge
+                                                                        {
+                                                                            font-size: 1.5em;
+                                                                        }
+                                                                    </style>
+                                                                    <legend><span class="badge">1</span> Seleccione una especialidad:</legend>
+                                                                    <div class=" col-xs-6">
+                                                                    <%
+                                                                        Connection connection2 = cConexion.conectar_ds();
+                                                                        Statement pst2 = connection2.createStatement();
+                                                                        String query2 = "select te.idTipoEmpleado as ID, te.nombreTipoEmp as Nombre from tipo_empleado AS te where te.idTipoEmpleado='5' or te.idTipoEmpleado='7'";
+                                                                        ResultSet rs2 = null;
+                                                                        try {
+                                                                            rs2 = pst2.executeQuery(query2);
+                                                                            out.println("<select class='form-control'>");
+                                                                            while (rs2.next()) {
+                                                                                out.println("<option value='" + rs2.getInt("ID") + "'>" + rs2.getString("Nombre") + "</option>");
+                                                                                // out.println(rs.getString("horaini"));
+                                                                                //out.println(rs.getString("fkempleado"));
+                                                                            }
+                                                                            out.println("</select>");
+                                                                        } catch (Exception e) {
+                                                                            System.out.print(e.getMessage());
+                                                                        } finally {
+                                                                            connection2.close();
+                                                                            pst2.close();
+                                                                        }
+
+
+                                                                    %>
                                                                 </div>
                                                             </fieldset>
                                                         </form>
@@ -108,12 +130,26 @@
 
                                                         <fieldset class="well">
                                                             <legend><span class="badge">4</span> Horarios Disponibles:</legend>
-                                                            <select  class="form-control">
-                                                                <option value="volvo">8:00--8:30</option>
-                                                                <option value="saab">9:00--9:30</option>
-                                                                <option value="mercedes">10:00--10:30</option>
-                                                                <option value="audi">11:00--11:30</option>
-                                                            </select>
+                                                            <%
+                                                                Connection connection = cConexion.conectar_ds();
+                                                                Statement pst = connection.createStatement();
+                                                                String query = "select DISTINCT(h.horaini) as HorasDisponibles, h.idhorario from  horario as h inner join cita as c on h.idhorario=c.fkhorario where h.fkempleado='2' order by HorasDisponibles asc";
+                                                                ResultSet rs = null;
+                                                                try {
+                                                                    rs = pst.executeQuery(query);
+                                                                    out.println("<select class='form-control'>");
+                                                                    while (rs.next()) {
+                                                                        out.println("<option value='" + rs.getString("idhorario") + "'>" + rs.getString("HorasDisponibles") + "</option>");
+                                                                        // out.println(rs.getString("horaini"));
+                                                                        //out.println(rs.getString("fkempleado"));
+                                                                    }
+                                                                    out.println("</select>");
+
+                                                                } catch (Exception e) {
+                                                                    System.out.print(e.getMessage());
+                                                                } finally {
+                                                                }
+                                                            %> 
                                                         </fieldset>
 
                                                     </div>
