@@ -1,8 +1,8 @@
-<!DOCTYPE HTML>
 <%@include file="../frementop.jspf" %>
 <%@include file="/WEB-INF/jspf/validar.jspf" %>
+<%@page language="java" session="true" errorPage="../WEB-INF/jspf/ErrorPage.jsp" %>
+<!DOCTYPE HTML>
 <html>
-
     <head>
         <meta charset="utf-8">
         <title>Clínica Nazareth</title>
@@ -14,7 +14,7 @@
     </head>
 
     <body>
-        <div id="divBoxed" class="container panel panel-default">
+        <div class="container panel panel-default">
             <div class="divPanel notop nobottom">
                 <div class="row-fluid">
                     <div class="span12">
@@ -24,24 +24,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="row-fluid">
-                    <div class="span12"></div>
-                </div>
             </div>
-            <!--DENTRO DE ESTE DIV CREAR EL FROMULARIO FAVOR NO UTILZAR
-            TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE
-            PUEDA VERSE EN CUALQUEIR TAMAÑO
-            -->
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <jsp:include page="menu.jsp"></jsp:include>
                     <div class="panel panel-primary">
-                        <div class="panel-heading"></div>
+                        <div class="panel-heading">
+                            Pacientes Existentes
+                        </div>
                         <div class="panel-body">
                             <div>
                                 <form name="form1" method="post" action="../SBusqueda">
                                     <div>
                                         <table>
-                                            <!--          LISTADO     -->
                                         <jsp:useBean id="estado2" scope="request" class="BAL.cbusqueda" />
                                         <c:set var="list" scope="request" value="${estado2.listado}" />
                                         <display:table name="list" export="true" id="fila" class="table table-condensed" pagesize="10">
@@ -51,13 +45,15 @@
                                             <display:column property="apellido" title="Apellido" />
                                             <display:setProperty name="export.pdf" value="true" />
                                             <display:column title="Editar">
-                                                <form id="updateCita" method="post" action="../FrmSecretaria/editPaciente.jsp ">
+                                                <form id="editPaciente" method="GET" action="../FrmSecretaria/editPaciente.jsp ">
                                                     <input type="hidden" name="codigo" value="${fila.codigo}">
-                                                    <input type="submit" name="cmdguardar" class="btn btn-link" value="Modificar" POST="SUMIT" />
+                                                    <input type="hidden" name="cmdEdit" class="btn btn-link" value="Modificar" POST="SUMIT" />
                                                 </form>
-                                            </display:column>
-                                            <display:column title="Editar">
-                                                <form id="updateCita" method="post" action="../FrmSecretaria/Agpaciente.jsp ">
+                                                <form id="updateCita" method="GET" action="../FrmSecretaria/editPaciente.jsp?codigo=">
+                                                    <input type="hidden" name="codigo" value="${fila.codigo}">
+                                                    <input type="submit" name="cmdguardar" class="btn btn-link" value="Editar Paciente" POST="SUMIT" />
+                                                </form>
+                                                <form id="updateCita" method="GET" action="../FrmSecretaria/Agpaciente.jsp ">
                                                     <input type="hidden" name="codigo" value="${fila.codigo}">
                                                     <input type="submit" name="cmdguardar" class="btn btn-link" value="Crear Cita" POST="SUMIT" />
                                                 </form>

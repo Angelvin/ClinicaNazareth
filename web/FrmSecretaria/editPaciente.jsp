@@ -54,11 +54,11 @@ PUEDA VERSE EN CUALQUEIR TAMAÑO
 
 
                         </h1>
-                        <form id="updateCita" method="post" action="../Sedpaciente ">
+                        <form id="updateCita" method="POST" action="../Sedpaciente ">
                             <div class="panel panel-default">
                                 <div class="panel-heading">Datos</div>
                                 <div class="panel-body">
-                                    <input name="codigoC" type="hidden" id="codigoC" value="<%=list.getIdpaciente()%>">
+                                    <input name="codigoC" class="form-control well-sm" type="text" id="codigoC" value="<%=list.getIdpaciente()%>" readonly>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label>Primer Nombre</label>
@@ -103,10 +103,10 @@ PUEDA VERSE EN CUALQUEIR TAMAÑO
                                     </div>
                                 </div>
                             </div>
+                        </form>
                     </div>
-                    </form>
+
                 </div>
-                <div></div>
             </div>
         </div>
     </div>
