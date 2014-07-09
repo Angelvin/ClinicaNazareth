@@ -61,7 +61,7 @@
                 }
             }
         </script>
-        <script src="../scripts/modernizr.custom.62748.js" type="text/javascript" ></script>
+        <script src="../scripts/modernizr2.6.2.js" type="text/javascript" ></script>
         <script>
             // fallback para el datepicker con jquery
             Modernizr.load({
@@ -75,6 +75,7 @@
 
             });
         </script>
+        <link href="../scripts/jqueryUI.css" rel="stylesheet" type="text/css" />
         <link href="../styles/custom.css" rel="stylesheet" type="text/css" />
     </head>
     <body id="pageBody">
