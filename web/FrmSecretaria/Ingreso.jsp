@@ -14,66 +14,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="Zaid Archila">
-        <script src="../scripts/jquery.min.js" type="text/javascript"></script> 
+        <script src="../scripts/jquery.min.js" type="text/javascript"></script>
         <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
-        <script type="text/javascript">
-            <!--
-            function validatePass(campo) {
-                var RegExPattern = /([a-z])/;
-
-                if ((campo.value.match(RegExPattern)) && (campo.value != '')) {
-
-                } else {
-                    alert('El campo debe ser llenado con texto');
-                }
-            }
-            //-->
-            function docu(campo) {
-                var RegExPattern = /([0-9]|-)/;
-
-                if ((campo.value.match(RegExPattern)) && (campo.value != '')) {
-
-                } else {
-                    alert('El campo debe ser llenado con numero');
-                }
-            }
-            //-->
-            function tele(campo) {
-                var RegExPattern = /(^[0-9]{2,3}-? ?[0-8]{6,7}$)/;
-
-                if ((campo.value.match(RegExPattern)) && (campo.value != '')) {
-
-                } else {
-                    alert('El campo debe ser llenado nª TELEFONO');
-                }
-            }
-
-            function correo(campo) {
-                var RegExPattern = /([\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4})/;
-
-                if ((campo.value.match(RegExPattern)) && (campo.value != '')) {
-
-                } else {
-                    alert('El campo debe ser llenado con el Correo');
-                }
-            }
-        </script>
-
-
-
+        <link href="../styles/custom.css" rel="stylesheet" type="text/css" />
     </style>
 </head>
 <body id="pageBody">
-
     <div id="divBoxed" class="container">
-
         <div class="transparent-bg" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: -1;zoom: 1;"></div>
-
         <div class="divPanel notop nobottom">
             <div class="row-fluid">
-                <div class="span12">  
+                <div class="span12">
 
 
                     <!--Edit Site Name and Slogan here-->
@@ -84,15 +36,15 @@
                     </div>
 
                 </div>
-            </div> 
+            </div>
 
             <div class="row-fluid">
                 <div class="span12">
                 </div>
             </div>
         </div>
-        <!--DENTRO DE ESTE DIV CREAR EL FROMULARIO FAVOR NO UTILZAR 
-      TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE 
+        <!--DENTRO DE ESTE DIV CREAR EL FROMULARIO FAVOR NO UTILZAR
+      TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE
       PUEDA VERSE EN CUALQUEIR TAMAÑO
         -->
 
@@ -202,11 +154,11 @@
 
                                                 </display:table>
                                                 <script type="text/javascript">
-            function kk(UUID, nm) {
-                document.getElementById('txtaccion').value = UUID;
-                document.getElementById('txtnombre').value = nm;
+                                                                                    function kk(UUID, nm) {
+                                                                                        document.getElementById('txtaccion').value = UUID;
+                                                                                        document.getElementById('txtnombre').value = nm;
 
-            }
+                                                                                    }
                                                 </script>
                                                 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                                     <form method="post" action="../srvEntrada">
@@ -342,7 +294,7 @@
                                                     <div class="col-xs-6 col-md-4"><label>SubGrupo</label></div>
                                                     <div class="col-xs-6 col-md-4">
 
-                                                        <SELECT NAME="selCombo" SIZE=1> 
+                                                        <SELECT NAME="selCombo" SIZE=1>
                                                             <OPTION VALUE="1">FIJO</OPTION>
                                                             <OPTION VALUE="2">CELULAR</OPTION>
                                                             <OPTION VALUE="3">TRABAJO</OPTION>
@@ -453,7 +405,7 @@
     <div class="divPanel"><br /><br />
         <div class="row-fluid">
             <div class="span12">
-                <p class="copyright"> 
+                <p class="copyright">
                     Copyright © 2014 Clinica Nazareth. All Rights Reserved.
                 </p>
 

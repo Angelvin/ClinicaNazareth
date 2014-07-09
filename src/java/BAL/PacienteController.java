@@ -49,7 +49,7 @@ public class PacienteController {
      *
      * @param
      */
-    public static String TodasByIdPaciente = "select idCita, motivo, estadoCita from cita as c inner join paciente as paci on paci.idPaciente=c.fkPaciente inner join persona as p on p.idPersona=paci.fkpersona inner join login as lo on lo.idLogin=p.fkLogin where lo.idLogin=";
+    public static String TodasByIdPaciente = "select idCita, motivo, estadoCita from cita as c inner join paciente as paci on paci.idPaciente=c.fkPaciente inner join persona as p on p.idPersona=paci.fkpersona inner join login as lo on lo.idLogin=p.fkLogin where c.estadoCita='espera' and lo.idLogin=";
 
     public List<PacienteController> getListado(Integer queryParam) {
         String query = TodasByIdPaciente + Integer.toString(queryParam);
