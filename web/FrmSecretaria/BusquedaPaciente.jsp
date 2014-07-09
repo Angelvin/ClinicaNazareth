@@ -76,7 +76,7 @@
                                 <div>
                                     <table>
                                         <c:set var="list" scope="request" value="${estado2.listado}" />
-                                        <display:table name="list" export="true" id="fila" class="table table-condensed" pagesize="10">
+                                        <display:table name="list" export="true" id="fila" class="table table-condensed" >
                                             <display:header>
                                                 <input type="hidden" name="codigo" class="BusquedaPaciente" class="form-control">
                                             </display:header>
