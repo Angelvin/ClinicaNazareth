@@ -46,8 +46,8 @@ public class SnCita extends HttpServlet {
         String correo = request.getParameter("txtCorreo");
         String fecha = request.getParameter("txtFecha");
         String motivo = request.getParameter("txtMotivo");
-        String horario = request.getParameter("txtHorario");
-        String medico = request.getParameter("txtNomMedico");
+        String horario = request.getParameter("Horio");
+        String medico = request.getParameter("cmbDoctors");
         Connection cnn = cConexion.conectar_ds();
 
         int val = 0;
