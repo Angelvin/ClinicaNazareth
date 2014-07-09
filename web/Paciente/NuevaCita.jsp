@@ -104,8 +104,6 @@
                                                                 <legend><span class="badge">2</span> Seleccione un medico:</legend>
                                                                 <div class=" col-xs-8">
                                                                     <%
-
-
                                                                         if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals("")) {
                                                                             out.println(BAL.Assets.DisplayError("Primero seleccione una especialidad", "/Acceso.jsp", "100", "1.2em"));
                                                                         } else {
@@ -116,6 +114,7 @@
 
                                                                             try {
                                                                                 rs3 = pst3.executeQuery(query3);
+                                                                                out.println("<p>" + "Los medicos disponibles para:  " + cmbEspecialidad.getAttribute("sEspecialidad") + " son" + "</p>");
                                                                                 out.println("<select class='form-control' name='cmbDoctor'>");
                                                                                 while (rs3.next()) {
                                                                                     out.println("<option value='" + rs3.getInt("ID") + "'> Dr " + rs3.getString("Nombre") + "</option>");
@@ -143,8 +142,8 @@
                                                         <form>
                                                             <fieldset class="well">
                                                                 <legend><span class="badge">3</span> Seleccione una fecha:</legend>
-                                                                <div class=" col-xs-6">
-                                                                    <input type="date" class="form-control" >
+                                                                <div class=" col-xs-6">>
+                                                                    <input type="date"  name="fechaCita" min="2012-06-06" max="2012-06-06" class="form-control"  required>
                                                                 </div>
                                                             </fieldset>
                                                         </form>
