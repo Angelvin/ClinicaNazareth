@@ -20,6 +20,10 @@
         <servlet-name>CrearCita</servlet-name>
         <servlet-class>SERVLET.CrearCita</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>srvMedicamento</servlet-name>
+        <servlet-class>SERVLET.srvMedicamento</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Paciente</servlet-name>
         <url-pattern>/Paciente</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>CrearCita</servlet-name>
         <url-pattern>/CrearCita</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvMedicamento</servlet-name>
+        <url-pattern>/srvMedicamento</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

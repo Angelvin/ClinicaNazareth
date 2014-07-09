@@ -14,19 +14,21 @@ import java.sql.ResultSet;
  * @author Marlon
  */
 public class selGrupo extends cConexion {
-          static private  PreparedStatement pst =null;
-    public  static ResultSet getGrupo(){
-        
-     ResultSet rs=null;
-        try{
-            
-            String sql="select * from Grupo";
-        pst=conectar_ds().prepareStatement(sql);
-        rs=pst.executeQuery();
-        }catch(Exception e){
+
+    static private PreparedStatement pst = null;
+
+    public static ResultSet getGrupo() {
+
+        ResultSet rs = null;
+        try {
+
+            String sql = "select * from subgrupo";
+            pst = conectar_ds().prepareStatement(sql);
+            rs = pst.executeQuery();
+        } catch (Exception e) {
             System.out.print(e.getMessage());
         }
         return rs;
-    
+
     }
 }
