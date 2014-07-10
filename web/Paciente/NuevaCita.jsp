@@ -58,6 +58,29 @@
                 sideBySide: false, //show the date and time picker side by side
                 daysOfWeekDisabled: [0, 6]          //for example use daysOfWeekDisabled: [0,6] to disable weekends
             };</script>
+        <script type="text/javascript">
+            $(function() {
+                $('#datetimepicker5').datetimepicker({
+                    pickTime: false,
+                    showToday: true,
+                    language: 'es',
+                    daysOfWeekDisabled: [0, 7]
+
+                });
+            });
+        </script>
+        <script>
+            $(function() {
+                $('#cmbEspecialidadID').change(function() {
+                    $('#myForm').submit();
+                });
+            });
+            $(function() {
+                $('#cmbDoctor').change(function() {
+                    $('#myForm').submit();
+                });
+            });
+        </script>
         <link href="../scripts/jqueryUI.css" rel="stylesheet" type="text/css" />
         <title>Bienvenido Paciente</title>
         <style>
@@ -74,174 +97,167 @@
                     </div>
                     <div class="col-md-10">
                         <div class="tab-content">
-                            <div class="tab-pane active" id="Citas">
-                                <div class="panel panel-info">
-                                    <div class="panel-heading"><h3>Nueva Cita</h3> </div>
-                                    <div class="panel-body">
-                                        <script>
-                                            $(function() {
-                                                $('#cmbEspecialidadID').change(function() {
-                                                    $('#myForm').submit();
-                                                });
-                                            });</script>
-                                        <form method="GET" action="NuevaCita.jsp" id="myForm">
+                            <form method="GET" action="NuevaCita.jsp" id="myForm">
+                                <div class="tab-pane active" id="Citas">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading"><h3>Nueva Cita</h3> </div>
+                                        <div class="panel-body">
                                             <div class="panel panel-default">
                                                 <div class="panel-body">
                                                     <div class="row">
                                                         <div class="col-xs-6">
-                                                            <form>
-                                                                <fieldset class="well">
-                                                                    <style>
-                                                                        .badge
-                                                                        {
-                                                                            font-size: 1.5em;
-                                                                        }
-                                                                    </style>
-                                                                    <legend><span class="badge">1</span> Seleccione una especialidad:</legend>
-                                                                    <div class=" col-xs-6">
-                                                                    <%
-                                                                        HttpSession cmbEspecialidad = request.getSession();
-                                                                        cmbEspecialidad.setAttribute("sEspecialidad", request.getParameter("cEspecialidad"));
-
-                                                                    %>
-
-                                                                    <%
-                                                                        Connection connection2 = cConexion.conectar_ds();
-                                                                        Statement pst2 = connection2.createStatement();
-                                                                        String query2 = "select te.idTipoEmpleado as ID, te.nombreTipoEmp as Nombre from tipo_empleado AS te where te.idTipoEmpleado between 4 and 8";
-                                                                        ResultSet rs2 = null;
-                                                                        try {
-                                                                            if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals("")) {
-                                                                                rs2 = pst2.executeQuery(query2);
-                                                                                out.println("<select class='form-control' name='cEspecialidad' id='cmbEspecialidadID'>");
-                                                                                out.println("<option></option>");
-                                                                                while (rs2.next()) {
-                                                                                    out.println("<option value='" + rs2.getInt("ID") + "'>" + rs2.getString("Nombre") + "</option>");
-                                                                                }
-                                                                                out.println("</select>");
-                                                                            } else {
-                                                                                out.println("<p>" + "La especialidad Seleccionada es: " + cmbEspecialidad.getAttribute("sEspecialidad") + "</p>");
-
-                                                                            }
-                                                                        } catch (Exception e) {
-                                                                            System.out.print(e.getMessage());
-                                                                        } finally {
-                                                                            connection2.close();
-                                                                            pst2.close();
-                                                                        }
-
-
-                                                                    %>
-                                                                </div>
-                                                            </fieldset>
-                                                        </form>
-                                                    </div>
-                                                    <div class="col-xs-6">
-                                                        <form>
                                                             <fieldset class="well">
-                                                                <legend><span class="badge">2</span> Seleccione un medico:</legend>
-                                                                <div class=" col-xs-8">
-                                                                    <%
-                                                                        if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals("")) {
-                                                                            out.println(BAL.Assets.DisplayError("Primero seleccione una especialidad", "/Acceso.jsp", "100", "1.2em"));
-                                                                        } else {
-                                                                            Connection connection3 = cConexion.conectar_ds();
-                                                                            Statement pst3 = connection3.createStatement();
-                                                                            String query3 = "SELECT e.idEmpleado as iD,CONCAT( p.pnombrePer,'  ', p.snombrePer, ' ',p.pApellPer ) as Nombre FROM empleado as e, persona as p WHERE e.fkpersona=p.idPersona  and e.fkTipoemple=" + cmbEspecialidad.getAttribute("sEspecialidad");
-                                                                            ResultSet rs3 = null;
-
-                                                                            try {
-                                                                                rs3 = pst3.executeQuery(query3);
-                                                                                out.println("<p>" + "Los medicos disponibles para:  " + cmbEspecialidad.getAttribute("sEspecialidad") + " son" + "</p>");
-                                                                                out.println("<select class='form-control' name='cmbDoctor'>");
-                                                                                while (rs3.next()) {
-                                                                                    out.println("<option value='" + rs3.getInt("ID") + "'> Dr " + rs3.getString("Nombre") + "</option>");
-                                                                                }
-                                                                                out.println("</select>");
-                                                                            } catch (Exception e) {
-                                                                                System.out.print(e.getMessage());
-                                                                            } finally {
-                                                                                connection3.close();
-                                                                                pst3.close();
-                                                                            }
-                                                                        }
-                                                                    %>
-                                                                </div>
-                                                            </fieldset>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default">
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-xs-6">
-                                                        <fieldset class="well">
-                                                            <legend><span class="badge">3</span> Seleccione una fecha:</legend>
-                                                            <div class='col-xs-8'>
-                                                                <div class="form-group">
-                                                                    <div class='input-group date' id='datetimepicker5' data-date-format="DD/MM/YYYY">
-                                                                        <input type='text' class="form-control" placeholder="Clic en la imagen" />
-                                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <script type="text/javascript">
-                                                                $(function() {
-                                                                    $('#datetimepicker5').datetimepicker({
-                                                                        pickTime: false,
-                                                                        language: 'es',
-                                                                        daysOfWeekDisabled: [0, 7]
-
-                                                                    });
-                                                                });
-                                                            </script>
-                                                        </fieldset>
-                                                    </div>
-                                                    <div class="col-xs-6">
-
-                                                        <fieldset class="well">
-                                                            <legend><span class="badge">4</span> Horarios Disponibles:</legend>
-                                                            <%
-                                                                Connection connection = cConexion.conectar_ds();
-                                                                Statement pst = connection.createStatement();
-                                                                String query = "select DISTINCT(h.horaini) as HorasDisponibles, h.idhorario from  horario as h inner join cita as c on h.idhorario=c.fkhorario where h.fkempleado='2' order by HorasDisponibles asc";
-                                                                ResultSet rs = null;
-                                                                try {
-                                                                    rs = pst.executeQuery(query);
-                                                                    out.println("<select class='form-control'>");
-                                                                    while (rs.next()) {
-                                                                        out.println("<option value='" + rs.getString("idhorario") + "'>" + rs.getString("HorasDisponibles") + "</option>");
-                                                                        // out.println(rs.getString("horaini"));
-                                                                        //out.println(rs.getString("fkempleado"));
+                                                                <style>
+                                                                    .badge
+                                                                    {
+                                                                        font-size: 1.5em;
                                                                     }
-                                                                    out.println("</select>");
+                                                                </style>
+                                                                <legend><span class="badge">1</span> Seleccione una especialidad:</legend>
+                                                                <div class=" col-xs-6">
+                                                                <%
+                                                                    HttpSession cmbEspecialidad = request.getSession();
+                                                                    cmbEspecialidad.setAttribute("sEspecialidad", request.getParameter("cEspecialidad"));
 
-                                                                } catch (Exception e) {
-                                                                    System.out.print(e.getMessage());
-                                                                } finally {
-                                                                }
-                                                            %>
+                                                                %>
+
+                                                                <%
+                                                                    Connection connection2 = cConexion.conectar_ds();
+                                                                    Statement pst2 = connection2.createStatement();
+                                                                    String query2 = "select te.idTipoEmpleado as ID, te.nombreTipoEmp as Nombre from tipo_empleado AS te where te.idTipoEmpleado between 4 and 8";
+                                                                    ResultSet rs2 = null;
+                                                                    try {
+                                                                        if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals("")) {
+                                                                            rs2 = pst2.executeQuery(query2);
+                                                                            out.println("<select class='form-control' name='cEspecialidad' id='cmbEspecialidadID'>");
+                                                                            out.println("<option></option>");
+                                                                            while (rs2.next()) {
+                                                                                out.println("<option value='" + rs2.getInt("ID") + "'>" + rs2.getString("Nombre") + "</option>");
+                                                                            }
+                                                                            out.println("</select>");
+                                                                        } else {
+                                                                            out.println("<p>" + "La especialidad Seleccionada es: " + cmbEspecialidad.getAttribute("sEspecialidad") + "</p>");
+
+                                                                        }
+                                                                    } catch (Exception e) {
+                                                                        System.out.print(e.getMessage());
+                                                                    } finally {
+                                                                        connection2.close();
+                                                                        pst2.close();
+                                                                    }
+
+
+                                                                %>
+                                                            </div>
                                                         </fieldset>
-
                                                     </div>
-                                                    <input type="submit" name="cmdguardar" class="btn btn-primary btn-lg" value="Crear"  POST="SUMIT"/>
-
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-xs-6">
+                                            <fieldset class="well">
+                                                <legend><span class="badge">2</span> Seleccione un medico:</legend>
+                                                <div class=" col-xs-8">
+                                                    <%
+                                                        HttpSession cmbDoctor = request.getSession();
+                                                        cmbDoctor.setAttribute("sDoctor", request.getParameter("cDoctor"));
+                                                    %>
 
-                                </div>
-                                <div>
-                                    </form>
+                                                    <%
+                                                        if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals("")) {
+                                                            out.println(BAL.Assets.DisplayError("Primero seleccione una especialidad", "/Acceso.jsp", "100", "1.2em"));
+                                                        } else {
+                                                            Connection connection3 = cConexion.conectar_ds();
+                                                            Statement pst3 = connection3.createStatement();
+                                                            String query3 = "SELECT e.idEmpleado as iD,CONCAT( p.pnombrePer,'  ', p.snombrePer, ' ',p.pApellPer ) as Nombre FROM empleado as e, persona as p WHERE e.fkpersona=p.idPersona  and e.fkTipoemple=" + cmbEspecialidad.getAttribute("sEspecialidad");
+                                                            ResultSet rs3 = null;
+
+                                                            try {
+                                                                rs3 = pst3.executeQuery(query3);
+                                                                out.println("<p>" + "Los medicos disponibles para:  " + cmbEspecialidad.getAttribute("sEspecialidad") + " son" + "</p>");
+                                                                out.println("<select class='form-control' name='cDoctor' id='cmbDoctor'>");
+                                                                while (rs3.next()) {
+                                                                    out.println("<option value='" + rs3.getInt("ID") + "'> Dr " + rs3.getString("Nombre") + "</option>");
+                                                                }
+                                                                out.println("</select>");
+                                                            } catch (Exception e) {
+                                                                System.out.print(e.getMessage());
+                                                            } finally {
+                                                                connection3.close();
+                                                                pst3.close();
+                                                            }
+                                                        }
+                                                    %>
+                                                </div>
+                                            </fieldset>
+
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <fieldset class="well">
+                                                <legend><span class="badge">3</span> Seleccione una fecha:</legend>
+                                                <div class='col-xs-8'>
+                                                    <div class="form-group">
+                                                        <div class='input-group date' id='datetimepicker5' data-date-format="DD/MM/YYYY">
+                                                            <input type='text' class="form-control" placeholder="Clic en la imagen" />
+                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <fieldset class="well">
+                                                <legend><span class="badge">4</span> Horarios Disponibles:</legend>
+
+                                                <%
+                                                    if (cmbDoctor.getAttribute("sDoctor") == null || cmbDoctor.getAttribute("sDoctor").equals("")) {
+                                                        out.println(BAL.Assets.DisplayError("Seleccione un Dr valido", "/Acceso.jsp", "100", "1.2em"));
+                                                    } else {
+                                                        Connection connection = cConexion.conectar_ds();
+                                                        Statement pst = connection.createStatement();
+                                                        String query = "select DISTINCT(h.horaini) as HorasDisponibles, h.idhorario from  horario as h inner join cita as c on h.idhorario=c.fkhorario where h.fkempleado='2' order by HorasDisponibles asc";
+                                                        ResultSet rs = null;
+                                                        try {
+                                                            rs = pst.executeQuery(query);
+                                                            out.println("<select class='form-control'>");
+                                                            while (rs.next()) {
+                                                                out.println("<option value='" + rs.getString("idhorario") + "'>" + rs.getString("HorasDisponibles") + "</option>");
+                                                                // out.println(rs.getString("horaini"));
+                                                                //out.println(rs.getString("fkempleado"));
+                                                            }
+                                                            out.println("</select>");
+
+                                                        } catch (Exception e) {
+                                                            System.out.print(e.getMessage());
+                                                        } finally {
+                                                        }
+
+                                                    }
+
+                                                %>
+                                            </fieldset>
+
+                                        </div>
+                                        <input type="submit" name="cmdguardar" class="btn btn-primary btn-lg" value="Crear"  POST="SUMIT"/>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</div>
+</div>
+</body>
 </html>
