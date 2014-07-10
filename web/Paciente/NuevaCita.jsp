@@ -24,15 +24,13 @@
         <link href="../scripts/bootstrap/css/contenido.css" rel="stylesheet">
         <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="../scripts/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
         <script>
             // fallback para el datepicker con jquery
             Modernizr.load({test: Modernizr.inputtypes.date, nope: ["http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js", "jquery-ui.css"], complete: function() {
                     $("input[type=date]").datepicker({dateFormat: "yy-mm-dd"})
                 }})
         </script>
-        <script type="text/javascript">$(function() {
-                $("#datetimepicker5").datetimepicker({pickTime: false, showToday: true, language: "es", daysOfWeekDisabled: [0, 7]})
-            })</script>
         <script>
             $(function() {
                 $("#cmbEspecialidadID").change(function() {
@@ -43,13 +41,18 @@
                 $("#cmbDoctor").change(function() {
                     $("#myForm").submit()
                 })
-            })
-        </script>
-        <script type="text/javascript">
-            function kk(UUID, nm) {
-                document.getElementById('horario').value = UUID;
-                document.getElementById('txtnombre').value = nm;
-            }
+            });
+
+            $(function() {
+                $("#fecha").change(function() {
+                    $("#myForm").submit()
+                })
+            });
+            $(function() {
+                $("#idHorario").change(function() {
+                    $("#myForm").submit()
+                })
+            });
         </script>
         <title>Bienvenido Paciente</title>
     </head>
@@ -133,10 +136,19 @@
                                         %>
                                     </div>
                                     <div class="form-group">
+                                        <legend><span class="badge">3</span> Fechas:</legend>
+                                        <input type="date" id="fechaC" name="fecha" class="form-control" min="01-01-2014" value="2014-07-10" >
+                                    </div>
+
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
                                         <legend><span class="badge">4</span> Horarios Disponibles:</legend>
                                         <%
                                             if (cmbDoctor.getAttribute("sDoctor") == null || cmbDoctor.getAttribute("sDoctor").equals("")) {
                                                 out.println(BAL.Assets.DisplayError("Seleccione un Dr valido", "/Acceso.jsp", "100", "1.2em"));
+                                            } else if (request.getParameter("Horario") != null) {
+                                                out.println("<input type='text' class='form-control well' name='txtiDHorario' value='" + request.getParameter("Horario") + "' readonly >");
                                             } else {
                                                 Connection connection = cConexion.conectar_ds();
                                                 Statement pst = connection.createStatement();
@@ -144,11 +156,9 @@
                                                 ResultSet rs = null;
                                                 try {
                                                     rs = pst.executeQuery(query);
-                                                    out.println("<select class='form-control'>");
+                                                    out.println("<select class='form-control' id='idHorario' name='Horario'>");
                                                     while (rs.next()) {
-                                                        out.println("<option value='" + rs.getString("idhorario") + "'>" + rs.getString("HorasDisponibles") + "</option>");
-                                                        // out.println(rs.getString("horaini"));
-                                                        //out.println(rs.getString("fkempleado"));
+                                                        out.println("<option value='" + rs.getString("idhorario") + "' name='idHorario'>" + rs.getString("HorasDisponibles") + "</option>");
                                                     }
                                                     out.println("</select>");
 
@@ -161,16 +171,6 @@
 
                                         %>
                                     </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <legend><span class="badge">3</span> Fechas:</legend>
-                                        <div class='input-group date' id='datetimepicker5' data-date-format="DD/MM/YYYY">
-                                            <input type='text' class="form-control" placeholder="Clic en la imagen" />
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
-                                            </span>
-                                        </div>
-                                    </div>
                                     <div class="form-group">
                                         <legend><span class="badge">5</span> Motivo:</legend>
                                         <select class="form-control">
@@ -180,10 +180,12 @@
                                         </select>
                                     </div>
                                     <div class="form-control">
-                                        <input type="hidden" name="horario" class="form-control" value="<% %>">
-                                        <input type="hidden" name="pacienteID" class="form-control" value="<% %>">
+                                        <br><br>
+                                        <input type="text" name="horario" class="form-control" value="<% out.println(request.getParameter("idHorario"));%>">
+                                        <input type="text" name="pacienteID" class="form-control" value="<% out.println(request.getParameter("cDoctor"));%>">
                                         <input type="hidden" name="fecha" class="form-control" value="<% %>">
                                         <input type="hidden" name="motivo" class="form-control" value="<% %>">
+                                        <br><br><br>
                                         <input type="submit" name="setC" class="btn btn-primary btn-lg" value="CrearCita"  POST="SUMIT"/>
                                     </div>
                                 </div>
