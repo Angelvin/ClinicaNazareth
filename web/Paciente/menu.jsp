@@ -18,14 +18,12 @@
 <div class="navbar navbar-default navbar-static-top">
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li><a href="panel.php">Citas</a></li>
-            <li><a href="ofertas.php">Historial Medico</a></li>
-            <li><a href="contactar.php">Enviar Notificacion</a></li>
+            <li><a href="Paciente.jsp">Citas</a></li>
+            <li><a href="NuevaCita.jsp">Nueva Cita</a></li>
+            <li><a href="Perfil.jsp">Datos Personales</a></li>
         </ul>
-
-        <div class="navbar-form navbar-right" role="search">
-            Bienvenido:<b> <c:out  value="${userName}"></c:out>
-                <a class="btn btn-link" href="../cerrarSesion.jsp">Cerra Sesion</a></b>
-        </div>
+        <ul class="navbar-form navbar-right" role="search">
+            Bienvenido:<b> <c:out  value="${userName}"></c:out><a class="btn btn-link" href="../cerrarSesion.jsp">Cerra Sesion</a></b>
+        </ul>
     </div>
 </div>

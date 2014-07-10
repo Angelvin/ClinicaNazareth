@@ -37,8 +37,8 @@
         <script src="../scripts/bootstrap/js/jquery.dataTables.min.js" type="text/javascript"></script>
         <title>Bienvenido Paciente</title>
         <style>
-            body{background-color: #eee6ff;}
-            .container{background-color: #ffffff;border: solid 2px darkgrey;border-radius: 4px;display: block;margin:auto;padding: 20px;width: 90%;}
+            body{background-color: #e9eaed;}
+            .container{background-color: #ffffff;border: solid 1px darkgrey;border-radius: 4px;display: block;margin:auto;padding: 20px;width: 90%;}
 
         </style>
         <script type="text/javascript">
