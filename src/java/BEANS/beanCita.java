@@ -11,6 +11,7 @@ package BEANS;
  */
 public class beanCita {
 
+    public static String validaCitapaciente = "select count(idCita) as idCita from cita where fechaCita=? and fkhorario=?";
     public static String CrearCita = "INSERT INTO cita (fechaCita,correoCita,fkhorario,motivo,fkpaciente)VALUES(?,?,?,?,(SELECT  pa.idPaciente FROM  LOGIN AS l INNER JOIN persona AS p ON l.idLogin=p.fkLogin INNER JOIN paciente AS pa ON p.idPersona=pa.fkpersona WHERE l.idLogin=?))";
     public static String validar = "select count(idCita) as idCita from cita where fechaCita=? and fkhorario=(select h.idhorario from horario  as h where h.horaini=? and h.fkempleado=(select e.idEmpleado from empleado as e inner join persona as p on p.idPersona=e.fkpersona where p.pApellPer =?) ) ";
     public static String Actlizar = "update cita set fechaCita=? , fkhorario=(select h.idhorario from horario  as h where h.horaini=? and h.fkempleado=(select e.idEmpleado from empleado as e inner join persona as p on p.idPersona=e.fkpersona where p.pApellPer =?) ) where idCita=?";

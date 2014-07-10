@@ -5,6 +5,7 @@
  */
 package SERVLET;
 
+import BEANS.beanCita;
 import DAL.*;
 import java.io.*;
 import java.sql.*;
@@ -19,8 +20,10 @@ import javax.servlet.http.*;
 public class CrearCita extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Processes requests for both HTTP
+     * <code>GET</code> and
+     * <code>POST</code> methods.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -31,27 +34,48 @@ public class CrearCita extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-        try
-        {
+        try {
+
+
             PreparedStatement pstm;
             Date date = Date.valueOf(request.getParameter("fecha"));
-            String motivo = request.getParameter("motivo");
+            int horario = Integer.parseInt(request.getParameter("thorario"));
 
             Connection cnn = cConexion.conectar_ds();
-            pstm = cnn.prepareStatement(BEANS.beanCita.CrearCita);
+            int val = 0;
 
-            pstm.setDate(1, Date.valueOf(request.getParameter("fecha")));
-            pstm.setString(2, "algunCorreo@correo.com");
-            pstm.setInt(3, Integer.parseInt(request.getParameter("thorario")));
-            pstm.setString(4, request.getParameter("motivo"));
-            pstm.setInt(5, Integer.parseInt(request.getParameter("txtLoginID")));
-            pstm.executeUpdate();
-            out.println(BAL.Assets.DisplayExito("Cita creada correctamente :)", "Paciente/Perfil.jsp", "100", "2em"));
-        } catch (SQLException ex)
-        {
+            ResultSet rset = null;
+            PreparedStatement sta;
+            sta = cnn.prepareStatement(beanCita.validaCitapaciente);
+            sta.setDate(1, date);
+            sta.setInt(2, horario);
+
+
+            rset = sta.executeQuery();
+            while (rset.next()) {
+                val = Integer.parseInt(rset.getString("idCita"));
+
+            }
+
+            if (val == 0) {
+                pstm = cnn.prepareStatement(BEANS.beanCita.CrearCita);
+
+                pstm.setDate(1, Date.valueOf(request.getParameter("fecha")));
+                pstm.setString(2, "algunCorreo@correo.com");
+                pstm.setInt(3, Integer.parseInt(request.getParameter("thorario")));
+                pstm.setString(4, request.getParameter("motivo"));
+                pstm.setInt(5, Integer.parseInt(request.getParameter("txtLoginID")));
+                pstm.executeUpdate();
+                out.println(BAL.Assets.DisplayExito("Cita creada correctamente :)", "Paciente/Perfil.jsp", "100", "2em"));
+            } else {
+                out.println("nose puede");
+            }
+            rset.close();
+            sta.close();
+            cnn.close();
+        } catch (SQLException ex) {
             System.out.println("El inserte se rompio en: " + ex.getMessage());
-        } finally
-        {
+        } finally {
             Logger.getLogger(CrearCita.class.getName()).log(Level.FINEST, "Loking for a bug: ");
             out.close();
 
@@ -61,7 +85,9 @@ public class CrearCita extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Handles the HTTP <code>GET</code> method.
+     * Handles the HTTP
+     * <code>GET</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -74,7 +100,9 @@ public class CrearCita extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP <code>POST</code> method.
+     * Handles the HTTP
+     * <code>POST</code> method.
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -89,11 +117,11 @@ public class CrearCita extends HttpServlet {
 
     /**
      * Returns a short description of the servlet.
+     *
      * @return a String containing servlet description
      */
     @Override
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }
