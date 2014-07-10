@@ -1,6 +1,6 @@
 <%@include file="../frementop.jspf" %>
-<%@include file="/WEB-INF/jspf/validar.jspf" %>
-<%@page language="java" session="true" errorPage="../WEB-INF/jspf/ErrorPage.jsp" %>
+
+
 <%-- 
     Document   : BusquedaPacienteMedico
     Created on : Jul 9, 2014, 9:00:22 AM
@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <meta charset="utf-8">
+        <meta charset="utf-8">
         <title>Clínica Nazareth</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
@@ -39,26 +39,28 @@
                         </div>
                         <div class="panel-body">
                             <div>
-                                <form name="form1" method="post" action="../SBusqueda">
-                                    <div>
-                                        <table>
-                                        <jsp:useBean id="estado2" scope="request" class="BAL.cbusqueda" />
-                                        <c:set var="list" scope="request" value="${estado2.listado}" />
-                                        <display:table name="list" export="true" id="fila" class="table table-condensed" pagesize="10">
-                                            <display:setProperty name="export.rtf.filename" value="example.rtf" />
-                                            <display:column property="codigo" title="Codigo" />
-                                            <display:column property="nombre" title="Nombre" />
-                                            <display:column property="apellido" title="Apellido" />
-                                            <display:setProperty name="export.pdf" value="true" />
-                                            <display:column title="Acción">
-                                                <form id="updateCita" method="GET" action="../medico/ConsultaMedico.jsp ">
-                                                    <input type="hidden" name="codigo" value="${fila.codigo}">
-                                                    <input type="submit" name="action" class="btn btn-link" value="A consulta" POST="SUMIT" />
-                                                </form>
-                                            </display:column>
-                                        </display:table>
-                                    </table>
-                                </div>
+
+                                <div>
+                                    <table>
+                                    <jsp:useBean id="estado2" scope="request" class="BAL.Bcitamedico" />
+                                    <c:set var="list" scope="request" value="${estado2.getlistado(2)}" />
+                                    <display:table name="list" export="true" id="fila" class="table table-condensed" pagesize="10">
+                                        <display:setProperty name="export.rtf.filename" value="example.rtf" />
+                                        <display:column property="idcita" title="Codigo" />
+                                        <display:column property="motivo" title="Nombre" />
+                                        <display:column property="horario" title="Apellido" />
+                                        <display:column property="paciente" title="Apellido" />
+                                        <display:column property="medico" title="Apellido" />
+                                        <display:setProperty name="export.pdf" value="true" />
+                                        <display:column title="Acción">
+                                            <form id="updateCita" method="GET" action="../medico/ConsultaMedico.jsp ">
+                                                <input type="hidden" name="codigo" value="${fila.codigo}">
+                                                <input type="submit" name="action" class="btn btn-link" value="A consulta" POST="SUMIT" />
+                                            </form>
+                                        </display:column>
+                                    </display:table>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
