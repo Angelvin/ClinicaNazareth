@@ -166,11 +166,11 @@
                                                 try
                                                 {
                                                     rs = pst.executeQuery(query);
-                                                    out.println("<select class='form-control'");
+                                                    out.println("<select class='form-control' id='idHorario' name='Horario'");
                                                     out.println("<option></option>");
                                                     while (rs.next())
                                                     {
-                                                        out.println("<option value='" + rs.getString("idhorario") + "' id='idHorario' name='Horario'>" + rs.getString("HorasDisponibles") + "</option>");
+                                                        out.println("<option value='" + rs.getString("idhorario") + "'>" + rs.getString("HorasDisponibles") + "</option>");
                                                     }
                                                     out.println("</select>");
 
