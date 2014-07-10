@@ -16,6 +16,10 @@
         <servlet-name>SrEmpleado</servlet-name>
         <servlet-class>SERVLET.SrEmpleado</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CrearCita</servlet-name>
+        <servlet-class>SERVLET.CrearCita</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Paciente</servlet-name>
         <url-pattern>/Paciente</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>SrEmpleado</servlet-name>
         <url-pattern>/SrEmpleado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearCita</servlet-name>
+        <url-pattern>/CrearCita</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
