@@ -208,7 +208,7 @@
                                 </script>
                             </form>
                             <div class="col-md-4 well">
-                                <form method="GET" action="../CrearCita">
+                                <form method="POST" action="../CrearCita">
                                     <legend>Los datos de la cita:</legend>
                                     <fieldset>
                                         UIDLOGIN: <input type="text" class="form-control" name="txtLoginID" value="${uidLogin}" readonly>
