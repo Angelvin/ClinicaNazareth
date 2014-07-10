@@ -7,16 +7,14 @@
     <title>Clinica Nazareth</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="Zaid Archila">
+    <meta name="author" content="Angel Alvarado">
+
     <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-    <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
-    <style>
-        .badge
-        {
-            font-size: 1.5em;
-        }
-    </style>
+    <link href="../scripts/bootstrap/css/contenido.css" rel="stylesheet">
+    <script src="../scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <script src="../scripts/bootstrap/js/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="assets/js/jquery-v1.10.2.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery-ui.js"></script>
@@ -25,7 +23,37 @@
     <script src="assets/js/holder.js"></script>
     <script src="assets/js/validarRegEmpleador.js"></script>
 
+    <script type="text/javascript">
+        $(function() {
+            /* #txt is display table id & employee_search_ class is field id which you want to filter */
+            var oTable = $('#fila').dataTable({
+                "bPaginate": false,
+                "bLengthChange": false,
+                "bFilter": true,
+                "bSort": false,
+                "bInfo": false,
+                "bAutoWidth": false,
+                "bStateSave": false
+            });
+            $("thead input").keyup(function() {
+                oTable.fnFilter(this.value, $("thead input").index(this));
+            });
 
+            $("thead input").focus(function() {
+                if (this.className == "Busquedaespecialidad") {
+                    this.className = "";
+                    this.value = "";
+                }
+            });
+
+            $("thead input").blur(function(i) {
+                if (this.value == "") {
+                    this.className = "Busquedaespecialidad";
+                    this.value = asInitVals[$("thead input").index(this)];
+                }
+            });
+        });
+    </script>
 </head>
 <body id="pageBody">
     <div id="divBoxed" class="container">
@@ -76,7 +104,10 @@
                         <c:set var="list" scope="request" value="${estado.listado}"/>
 
 
-                        <display:table name="list" export="true" id="fila" class="table table-condensed" pagesize="10">
+                        <display:table name="list" export="true" id="fila" class="table table-condensed" >
+                            <display:header>
+                                <input type="hidden" name="especialidad" class="Busquedaespecialidad" class="form-control">
+                            </display:header>
                             <display:setProperty name="export.rtf.filename" value="example.rtf"/>
 
                             <display:column property="paciente" title="Paciente" />
@@ -136,8 +167,6 @@
         </div>
     </div>
 
-    <script src="../scripts/jquery.min.js" type="text/javascript"></script> 
-    <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="../scripts/default.js" type="text/javascript"></script>        
 </body>
 </html>
