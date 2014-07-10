@@ -80,6 +80,7 @@
                             <display:table name="list" export="true" id="fila" class="table table-condensed" pagesize="10">
                                 <display:setProperty name="export.rtf.filename" value="example.rtf" />
                                 <display:column property="idcita" title="Codigo" />
+                                <display:column property="codipaciente" title="Codigopaciente" />
                                 <display:column property="motivo" title="Motivo" />
                                 <display:column property="horario" title="Horario" />
                                 <display:column property="paciente" title="Paciente" />
