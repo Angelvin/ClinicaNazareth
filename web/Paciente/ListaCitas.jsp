@@ -16,6 +16,7 @@
         <display:setProperty name="export.rtf.filename" value="example.rtf" />
         <display:column property="idCita" title="Codigo" />
         <display:column property="motivo" title="Motivo"  />
+        <display:column property="fechaCita" title="Fecha de Cita"  />
         <display:column property="estadoCita" title="Estado cita" sortable="true" />
         <display:setProperty name="export.pdf" value="true" />
         <display:column title="Editar">
