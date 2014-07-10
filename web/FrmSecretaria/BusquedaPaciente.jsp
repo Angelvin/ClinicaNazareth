@@ -1,16 +1,53 @@
-<%@include file="../frementop.jspf" %>
+
 <%@include file="/WEB-INF/jspf/validar.jspf" %>
 <%@page language="java" session="true" errorPage="../WEB-INF/jspf/ErrorPage.jsp" %>
 <!DOCTYPE HTML>
 <html>
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Clínica Nazareth</title>
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
-        <meta name="author" content="Zaid Archila">
-        <link href="../scripts/bootstrap/css/bootstrap.css" rel="stylesheet">
-        <link href="../styles/custom.css" rel="stylesheet" type="text/css" />
+        <meta name="author" content="Angel Alvarado">
+
+        <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../scripts/bootstrap/css/contenido.css" rel="stylesheet">
+        <script src="../scripts/jquery.min.js" type="text/javascript"></script>
+        <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+        <script src="../scripts/bootstrap/js/jquery.dataTables.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function() {
+                /* #txt is display table id & employee_search_ class is field id which you want to filter */
+                var oTable = $('#fila').dataTable({
+                    "bPaginate": false,
+                    "bLengthChange": false,
+                    "bFilter": true,
+                    "bSort": false,
+                    "bInfo": false,
+                    "bAutoWidth": false,
+                    "bStateSave": false
+                });
+                $("thead input").keyup(function() {
+                    oTable.fnFilter(this.value, $("thead input").index(this));
+                });
+
+                $("thead input").focus(function() {
+                    if (this.className == "BusquedaPaciente") {
+                        this.className = "";
+                        this.value = "";
+                    }
+                });
+
+                $("thead input").blur(function(i) {
+                    if (this.value == "") {
+                        this.className = "BusquedaPaciente";
+                        this.value = asInitVals[$("thead input").index(this)];
+                    }
+                });
+            });
+        </script>
     </head>
 
     <body>
@@ -33,12 +70,16 @@
                         </div>
                         <div class="panel-body">
                             <div>
-                                <form name="form1" method="post" action="../SBusqueda">
-                                    <div>
-                                        <table>
-                                        <jsp:useBean id="estado2" scope="request" class="BAL.cbusqueda" />
+                            <%@include file="../frementop.jspf" %>
+                            <jsp:useBean id="estado2" scope="request" class="BAL.cbusqueda" />
+                            <form name="form1" method="post" action="../SBusqueda">
+                                <div>
+                                    <table>
                                         <c:set var="list" scope="request" value="${estado2.listado}" />
                                         <display:table name="list" export="true" id="fila" class="table table-condensed" pagesize="10">
+                                            <display:header>
+                                                <input type="hidden" name="codigo" class="BusquedaPaciente" class="form-control">
+                                            </display:header>
                                             <display:setProperty name="export.rtf.filename" value="example.rtf" />
                                             <display:column property="codigo" title="Codigo" />
                                             <display:column property="nombre" title="Nombre" />
@@ -82,8 +123,5 @@
         <br />
         <br />
         <br />
-        <link href="../scripts/bootstrap/css/contenido.css" rel="stylesheet">
-        <script src="../scripts/jquery.min.js" type="text/javascript"></script>
-        <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     </body>
 </html>
