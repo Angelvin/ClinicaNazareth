@@ -38,19 +38,7 @@
           TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE
           PUEDA VERSE EN CUALQUEIR TAMAÑO
             -->
-            <%
-                Connection cnp = cConexion.conectar_ds();
-                Statement pst2 = cnp.createStatement();
-                String fecha = "select CONVERT (date, GETDATE())";
-                ResultSet r = null;
-                Date f;
-                r = pst2.executeQuery(fecha);
-                while (r.next()) {
 
-                    f = r.getDate(1);
-                }
-
-            %>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <jsp:include page="menu.jsp"></jsp:include>
                 <div class="panel panel-primary">
@@ -76,7 +64,7 @@
                                 <div class="panel-heading">Datos</div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-6" ><label>Primer Nombre</label><input name="txtnombrep" id="txtnombrep" class="form-control"  placeholder="nombre" pattern="/([a-z])/" required></div>
+                                        <div class="col-md-6" ><label>Primer Nombre</label><input name="txtnombrep" id="txtnombrep" class="form-control"  placeholder="nombre" pattern="[a-z]" required></div>
                                         <div class="col-md-6"><label>Segundo Nombre</label><input name="txtnombres" id="txtnombres" class="form-control" placeholder="nombre" pattern="/([a-z])/" required ></div>
                                     </div>
                                     <div class="row">
