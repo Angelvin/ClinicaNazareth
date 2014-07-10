@@ -23,6 +23,7 @@
         <script src="../scripts/modernizr2.6.2.js" type="text/javascript" ></script>
 
         <script src="../scripts/bootstrap/js/moment.min.js" type="text/javascript"></script>
+        <script src="../scripts/bootstrap/js/bootstrap-datetimepicker.es.js" type="text/javascript"></script>
         <script src="../scripts/bootstrap/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
         <link href="../scripts/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
         <script>
@@ -37,6 +38,26 @@
                 }
 
             });</script>
+        <script>
+
+            $.fn.datetimepicker.defaults = {
+                pickDate: true, //en/disables the date picker
+                pickTime: true, //en/disables the time picker
+                useMinutes: true, //en/disables the minutes picker
+                useSeconds: true, //en/disables the seconds picker
+                useCurrent: true, //when true, picker will set the value to the current date/time
+                minuteStepping: 1, //set the minute stepping
+                minDate: '1 / 1 / 1900', //set a minimum date
+                //set a maximum date (defaults to today +100 years)
+                showToday: true, //shows the today indicator
+                language: 'es', //sets language locale
+                defaultDate: "", //sets a default date, accepts js dates, strings and moment objects
+                disabledDates: [], //an array of dates that cannot be selected
+                enabledDates: [], //an array of dates that can be selected
+                useStrict: false, //use "strict" when validating dates
+                sideBySide: false, //show the date and time picker side by side
+                daysOfWeekDisabled: [0, 6]          //for example use daysOfWeekDisabled: [0,6] to disable weekends
+            };</script>
         <link href="../scripts/jqueryUI.css" rel="stylesheet" type="text/css" />
         <title>Bienvenido Paciente</title>
         <style>
@@ -170,7 +191,10 @@
                                                             <script type="text/javascript">
                                                                 $(function() {
                                                                     $('#datetimepicker5').datetimepicker({
-                                                                        pickTime: false
+                                                                        pickTime: false,
+                                                                        language: 'es',
+                                                                        daysOfWeekDisabled: [0, 7]
+
                                                                     });
                                                                 });
                                                             </script>
