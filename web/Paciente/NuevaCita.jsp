@@ -28,32 +28,28 @@
         <script>
             // fallback para el datepicker con jquery
             Modernizr.load({test: Modernizr.inputtypes.date, nope: ["http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js", "jquery-ui.css"], complete: function() {
-                    $("input[type=date]").datepicker({dateFormat: "yy-mm-dd"})
-                }})
+                    $("input[type=date]").datepicker({dateFormat: "yy-mm-dd"});
+                }});
         </script>
         <script>
             $(function() {
                 $("#cmbEspecialidadID").change(function() {
-                    $("#myForm").submit()
-                })
+                    $("#myForm").submit();
+                });
             });
             $(function() {
                 $("#cmbDoctor").change(function() {
-                    $("#myForm").submit()
-                })
+                    $("#myForm").submit();
+                });
             });
 
             $(function() {
-                $("#fecha").change(function() {
-                    $("#myForm").submit()
-                })
-            });
-            $(function() {
                 $("#idHorario").change(function() {
-                    $("#myForm").submit()
-                })
+                    $("#myForm").submit();
+                });
             });
         </script>
+
         <title>Bienvenido Paciente</title>
     </head>
     <body>
@@ -64,8 +60,7 @@
                 </div>
                 <div class="col-md-10">
                     <div class="tab-content">
-                    <%
-                        HttpSession cmbEspecialidad = request.getSession();
+                    <%                        HttpSession cmbEspecialidad = request.getSession();
                         cmbEspecialidad.setAttribute("sEspecialidad", request.getParameter("cEspecialidad"));
 
                         HttpSession cmbDoctor = request.getSession();
@@ -76,29 +71,34 @@
                         <div class="panel panel-heading"><b>Creacion de Cita</b></div>
                         <div class="panel panel-body">
                             <form method="GET" action="NuevaCita.jsp" id="myForm">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <legend><span class="badge">1</span> Eliga una especialidad:</legend>
-                                        <%
-                                            Connection connection2 = cConexion.conectar_ds();
+                                        <%                                            Connection connection2 = cConexion.conectar_ds();
                                             Statement pst2 = connection2.createStatement();
                                             String query2 = "select te.idTipoEmpleado as ID, te.nombreTipoEmp as Nombre from tipo_empleado AS te where te.idTipoEmpleado between 4 and 8";
                                             ResultSet rs2 = null;
-                                            try {
-                                                if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals("")) {
+                                            try
+                                            {
+                                                if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals(""))
+                                                {
                                                     rs2 = pst2.executeQuery(query2);
                                                     out.println("<select class='form-control' name='cEspecialidad' id='cmbEspecialidadID'>");
                                                     out.println("<option>Seleccione:</option>");
-                                                    while (rs2.next()) {
+                                                    while (rs2.next())
+                                                    {
                                                         out.println("<option value='" + rs2.getInt("ID") + "'>" + rs2.getString("Nombre") + "</option>");
                                                     }
                                                     out.println("</select>");
-                                                } else {
+                                                } else
+                                                {
                                                     out.println("<input type='text' class='form-control well' name='cEspecialidad' value='" + cmbEspecialidad.getAttribute("sEspecialidad") + "' readonly >");
                                                 }
-                                            } catch (Exception e) {
+                                            } catch (Exception e)
+                                            {
                                                 System.out.print(e.getMessage());
-                                            } finally {
+                                            } finally
+                                            {
                                                 connection2.close();
                                                 pst2.close();
                                             }
@@ -108,27 +108,33 @@
                                     </div>
                                     <div class="form-group">
                                         <legend><span class="badge">2</span> Seleccione un medico:</legend>
-                                        <%
-                                            if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals("")) {
+                                        <%                                            if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals(""))
+                                            {
                                                 out.println(BAL.Assets.DisplayError("Primero seleccione una especialidad", "Perfil.jsp", "100", "1.2em"));
-                                            } else if (cmbDoctor.getAttribute("sDoctor") != null) {
+                                            } else if (cmbDoctor.getAttribute("sDoctor") != null)
+                                            {
                                                 out.println("<input type='text' class='form-control well' name='cDoctor' value='" + cmbDoctor.getAttribute("sDoctor") + "' readonly >");
-                                            } else {
+                                            } else
+                                            {
                                                 Connection connection3 = cConexion.conectar_ds();
                                                 Statement pst3 = connection3.createStatement();
                                                 String query3 = "SELECT e.idEmpleado as iD,CONCAT( p.pnombrePer,'  ', p.snombrePer, ' ',p.pApellPer ) as Nombre FROM empleado as e, persona as p WHERE e.fkpersona=p.idPersona  and e.fkTipoemple=" + cmbEspecialidad.getAttribute("sEspecialidad");
                                                 ResultSet rs3 = null;
-                                                try {
+                                                try
+                                                {
                                                     rs3 = pst3.executeQuery(query3);
                                                     out.println("<select class='form-control' name='cDoctor' id='cmbDoctor'>");
                                                     out.println("<option></option>");
-                                                    while (rs3.next()) {
+                                                    while (rs3.next())
+                                                    {
                                                         out.println("<option value='" + rs3.getInt("ID") + "'> Dr " + rs3.getString("Nombre") + "</option>");
                                                     }
                                                     out.println("</select>");
-                                                } catch (Exception e) {
+                                                } catch (Exception e)
+                                                {
                                                     System.out.print(e.getMessage());
-                                                } finally {
+                                                } finally
+                                                {
                                                     connection3.close();
                                                     pst3.close();
                                                 }
@@ -137,34 +143,42 @@
                                     </div>
                                     <div class="form-group">
                                         <legend><span class="badge">3</span> Fechas:</legend>
-                                        <input type="date" id="fechaC" name="fecha" class="form-control" min="01-01-2014" value="2014-07-10" >
+                                        <input type="date" id="fechaC" name="fecha" class="form-control" min="01-01-2014" value="2014-07-10" onchange="kk();" >
                                     </div>
 
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <legend><span class="badge">4</span> Horarios Disponibles:</legend>
                                         <%
-                                            if (cmbDoctor.getAttribute("sDoctor") == null || cmbDoctor.getAttribute("sDoctor").equals("")) {
+                                            if (cmbDoctor.getAttribute("sDoctor") == null || cmbDoctor.getAttribute("sDoctor").equals(""))
+                                            {
                                                 out.println(BAL.Assets.DisplayError("Seleccione un Dr valido", "/Acceso.jsp", "100", "1.2em"));
-                                            } else if (request.getParameter("Horario") != null) {
+                                            } else if (request.getParameter("Horario") != null)
+                                            {
                                                 out.println("<input type='text' class='form-control well' name='txtiDHorario' value='" + request.getParameter("Horario") + "' readonly >");
-                                            } else {
+                                            } else
+                                            {
                                                 Connection connection = cConexion.conectar_ds();
                                                 Statement pst = connection.createStatement();
                                                 String query = "select DISTINCT(h.horaini) as HorasDisponibles, h.idhorario from  horario as h inner join cita as c on h.idhorario=c.fkhorario where h.fkempleado='2' order by HorasDisponibles asc";
                                                 ResultSet rs = null;
-                                                try {
+                                                try
+                                                {
                                                     rs = pst.executeQuery(query);
-                                                    out.println("<select class='form-control' id='idHorario' name='Horario'>");
-                                                    while (rs.next()) {
-                                                        out.println("<option value='" + rs.getString("idhorario") + "' name='idHorario'>" + rs.getString("HorasDisponibles") + "</option>");
+                                                    out.println("<select class='form-control'");
+                                                    out.println("<option></option>");
+                                                    while (rs.next())
+                                                    {
+                                                        out.println("<option value='" + rs.getString("idhorario") + "' id='idHorario' name='Horario'>" + rs.getString("HorasDisponibles") + "</option>");
                                                     }
                                                     out.println("</select>");
 
-                                                } catch (Exception e) {
+                                                } catch (Exception e)
+                                                {
                                                     System.out.print(e.getMessage());
-                                                } finally {
+                                                } finally
+                                                {
                                                 }
 
                                             }
@@ -173,23 +187,39 @@
                                     </div>
                                     <div class="form-group">
                                         <legend><span class="badge">5</span> Motivo:</legend>
-                                        <select class="form-control">
-                                            <option>Seguimiento</option>
-                                            <option>Primera vez</option>
-                                            <option>Consulta General</option>
+                                        <select class="form-control" id="txtMotivo" onchange="kk2();">
+                                            <option value="Primera vez">Primera vez</option>
+                                            <option value="Consulta General">Consulta General</option>
+                                            <option value="Seguimiento">Seguimiento</option>
+                                            <option value="Emergencia">Emergencia</option>
+                                            <option value="Otros">Otros</option>
                                         </select>
                                     </div>
-                                    <div class="form-control">
-                                        <br><br>
-                                        <input type="text" name="horario" class="form-control" value="<% out.println(request.getParameter("idHorario"));%>">
-                                        <input type="text" name="pacienteID" class="form-control" value="<% out.println(request.getParameter("cDoctor"));%>">
-                                        <input type="hidden" name="fecha" class="form-control" value="<% %>">
-                                        <input type="hidden" name="motivo" class="form-control" value="<% %>">
+                                </div>
+                                <script>
+                                    function kk() {
+                                        document.getElementById('txtfecha').value = document.getElementById("fechaC").value;
+
+                                    }
+                                    function kk2() {
+                                        document.getElementById('txtSMotivo').value = document.getElementById("txtMotivo").value;
+
+                                    }
+                                </script>
+                            </form>
+                            <div class="col-md-4 well">
+                                <form method="GET" action="../CrearCita">
+                                    <legend>Los datos de la cita:</legend>
+                                    <fieldset>
+                                        Dr: <input type="text" name="doctorID" class="form-control" value="<% out.println(request.getParameter("cDoctor"));%>" readonly>
+                                        Horario: <input type="text" name="thorario" class="form-control" value="<% out.println(request.getParameter("Horario"));%>" readonly>
+                                        Fecha: <input type="text" id="txtfecha" name="fecha" class="form-control" value="<% request.getParameter("fecha");%>" readonly>
+                                        Motivo: <input type="text" id="txtSMotivo" name="motivo" class="form-control" value="<% request.getParameter("cMotivo");%>" readonly>
                                         <br><br><br>
                                         <input type="submit" name="setC" class="btn btn-primary btn-lg" value="CrearCita"  POST="SUMIT"/>
-                                    </div>
-                                </div>
-                            </form>
+                                    </fieldset>
+                                </form>
+                            </div>
                         </div>
                     </div>
 
