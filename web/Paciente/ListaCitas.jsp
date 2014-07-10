@@ -9,7 +9,10 @@
     <jsp:useBean id="pacientes" scope="request" class="BAL.PacienteController" />
 
     <c:set var="lista" scope="request" value="${pacientes.getListado(uidPaciente)}"/>
-    <display:table name="lista" export="true" id="fila"  class="table table-condensed" pagesize="10">
+    <display:table name="lista" export="true" id="fila"  class="table table-condensed">
+        <display:header>
+            <input type="hidden" name="idCita" class="BusquedaCita" class="form-control">
+        </display:header>
         <display:setProperty name="export.rtf.filename" value="example.rtf" />
         <display:column property="idCita" title="Codigo" />
         <display:column property="motivo" title="Motivo"  />

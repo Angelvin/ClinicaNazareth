@@ -23,6 +23,8 @@
         response.sendRedirect(url);
     }
 %>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,11 +33,44 @@
         <link href="../scripts/bootstrap/css/contenido.css" rel="stylesheet">
         <script src="../scripts/jquery.min.js" type="text/javascript"></script>
         <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+        <script src="../scripts/bootstrap/js/jquery.dataTables.min.js" type="text/javascript"></script>
         <title>Bienvenido Paciente</title>
         <style>
             body{background-color: #eee6ff;}
             .container{background-color: #ffffff;border: solid 2px darkgrey;border-radius: 4px;display: block;margin:auto;padding: 20px;width: 90%;}
         </style>
+        <script type="text/javascript">
+            $(function() {
+                /* #txt is display table id & employee_search_ class is field id which you want to filter */
+                var oTable = $('#fila').dataTable({
+                    "bPaginate": false,
+                    "bLengthChange": false,
+                    "bFilter": true,
+                    "bSort": false,
+                    "bInfo": false,
+                    "bAutoWidth": false,
+                    "bStateSave": false
+                });
+                $("thead input").keyup(function() {
+                    oTable.fnFilter(this.value, $("thead input").index(this));
+                });
+
+                $("thead input").focus(function() {
+                    if (this.className == "BusquedaCita") {
+                        this.className = "";
+                        this.value = "";
+                    }
+                });
+
+                $("thead input").blur(function(i) {
+                    if (this.value == "") {
+                        this.className = "BusquedaCita";
+                        this.value = asInitVals[$("thead input").index(this)];
+                    }
+                });
+            });
+        </script>
     </head>
     <body>
         <jsp:include page="menu.jsp"></jsp:include>

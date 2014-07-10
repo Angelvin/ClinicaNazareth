@@ -22,10 +22,14 @@
         <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="../scripts/modernizr2.6.2.js" type="text/javascript" ></script>
 
+
+
         <script src="../scripts/bootstrap/js/moment.min.js" type="text/javascript"></script>
         <script src="../scripts/bootstrap/js/bootstrap-datetimepicker.es.js" type="text/javascript"></script>
         <script src="../scripts/bootstrap/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
         <link href="../scripts/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+
         <script>
             // fallback para el datepicker con jquery
             Modernizr.load({
