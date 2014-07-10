@@ -47,14 +47,14 @@
                                     <display:table name="list" export="true" id="fila" class="table table-condensed" pagesize="10">
                                         <display:setProperty name="export.rtf.filename" value="example.rtf" />
                                         <display:column property="idcita" title="Codigo" />
-                                        <display:column property="motivo" title="Nombre" />
-                                        <display:column property="horario" title="Apellido" />
-                                        <display:column property="paciente" title="Apellido" />
-                                        <display:column property="medico" title="Apellido" />
+                                        <display:column property="motivo" title="Motivo" />
+                                        <display:column property="horario" title="Horario" />
+                                        <display:column property="paciente" title="Paciente" />
+                                        <display:column property="medico" title="Medico" />
                                         <display:setProperty name="export.pdf" value="true" />
                                         <display:column title="Acción">
-                                            <form id="updateCita" method="GET" action="../medico/ConsultaMedico.jsp ">
-                                                <input type="hidden" name="codigo" value="${fila.codigo}">
+                                            <form id="updateCita" method="GET" action="../medico/datosPre.jsp ">
+                                                <input type="hidden" name="codigo" value="${fila.idcita}">
                                                 <input type="submit" name="action" class="btn btn-link" value="A consulta" POST="SUMIT" />
                                             </form>
                                         </display:column>
