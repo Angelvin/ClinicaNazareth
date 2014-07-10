@@ -38,21 +38,8 @@ public class PacientePerfil extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet PacientePerfil</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet PacientePerfil at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
-        }
+
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -68,23 +55,9 @@ public class PacientePerfil extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
 
-    /**
-     * Handles the HTTP
-     * <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
         processRequest(request, response);
-
+        PrintWriter out = response.getWriter();
         String nombre = request.getParameter("txtnombre");
         String nombres = request.getParameter("txtnombres");
         String apellido = request.getParameter("txtapellido");
@@ -101,12 +74,28 @@ public class PacientePerfil extends HttpServlet {
         try {
             pstm = cnn.prepareStatement(updatepersona);
             returnVal = pstm.executeUpdate();
-            String route = this.getServletContext().getContextPath() + "/Paciente/Perfil.jsp";
-            String url = response.encodeRedirectURL(route);
-            response.sendRedirect(url);
+            out.println(BAL.Assets.DisplayExito("Datos modificados correctamente :)", "Paciente/Perfil.jsp", "100", "2em"));
         } catch (SQLException ex) {
             Logger.getLogger(Paciente.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    /**
+     * Handles the HTTP
+     * <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    }
+
+    protected void doUpdate(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
     }
 
     /**

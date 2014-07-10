@@ -5,13 +5,12 @@
 --%>
 <%@include file="../frementop.jspf" %>
 
-<table>
-    <jsp:useBean id="datos" scope="request" class="BAL.getPacienteController" />
-
-    <c:set var="lista" scope="request" value="${datos.getListado(uidLogin)}"/>
-    <display:table name="lista" id="fila"  class="table table-condensed" >
-        <display:column title="">
-            <form  id="updateCita" method="POST" action="../PacientePerfil">
+<form  id="updateCita" method="GET" action="../PacientePerfil">
+    <table>
+        <jsp:useBean id="datos" scope="request" class="BAL.getPacienteController" />
+        <c:set var="lista" scope="request" value="${datos.getListado(uidLogin)}"/>
+        <display:table name="lista" id="fila"  class="table table-condensed" >
+            <display:column title="">
                 <style> .form-control{font-size:2em;height:auto;padding:5px;padding-left:10px}label{padding:5px;font-size:1.4em}</style>
                 <fieldset class="well">
                     <div class="col-md-6">
@@ -40,7 +39,8 @@
                     <br>
                     <input type="submit" name="cmdguardar" class="btn btn-primary btn-lg" value="Guardar Cambios" POST="SUMIT"/>
                 </div>
-            </form>
-        </display:column>
-    </display:table>
-</table>
+
+            </display:column>
+        </display:table>
+    </table>
+</form>
