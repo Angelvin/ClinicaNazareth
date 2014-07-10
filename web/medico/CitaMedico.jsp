@@ -4,6 +4,8 @@
     Author     : daMgeL
 --%>
 
+<%@page import="BAL.CitaMedicoCheck"%>
+<%@page import="SERVLET.Smedico"%>
 <%@page import="org.eclipse.persistence.internal.oxm.schema.model.Include"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -69,6 +71,8 @@
                                 </display:column>
                             </display:table>
                             <%
+                                CitaMedicoCheck ccM = new CitaMedicoCheck();
+
                                 out.println("EL UID MALEFICO: " + request.getParameter("codigo"));
 
                             %>

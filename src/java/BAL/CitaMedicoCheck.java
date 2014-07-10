@@ -28,7 +28,6 @@ public class CitaMedicoCheck {
             rset = sta.executeQuery();
             while (rset.next())
             {
-
                 num = Integer.parseInt(rset.getString("expediente"));
             }
             if (num == 0)
