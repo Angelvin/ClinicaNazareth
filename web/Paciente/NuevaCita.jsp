@@ -211,6 +211,7 @@
                                 <form method="GET" action="../CrearCita">
                                     <legend>Los datos de la cita:</legend>
                                     <fieldset>
+                                        <input type="text" name="txtLoginID" value="${uidLogin}">
                                         Dr: <input type="text" name="doctorID" class="form-control" value="<% out.println(request.getParameter("cDoctor"));%>" readonly>
                                         Horario: <input type="text" name="thorario" class="form-control" value="<% out.println(request.getParameter("Horario"));%>" readonly>
                                         Fecha: <input type="text" id="txtfecha" name="fecha" class="form-control" value="<% request.getParameter("fecha");%>" readonly>

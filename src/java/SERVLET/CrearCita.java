@@ -4,12 +4,9 @@
  */
 package SERVLET;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
 /**
  *
@@ -18,9 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 public class CrearCita extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -31,8 +27,11 @@ public class CrearCita extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
+        try
+        {
+            /*
+             * TODO output your page here. You may use following sample code.
+             */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -40,18 +39,23 @@ public class CrearCita extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet CrearCita at " + request.getContextPath() + "</h1>");
-            out.println(request.getParameter("cEspecialidad"));
+            out.println(request.getParameter("txtLoginID") + "<br>");
+            out.println(request.getParameter("doctorID") + "<br>");
+            out.println(request.getParameter("thorario") + "<br>");
+            out.println(request.getParameter("fecha") + "<br>");
+            out.println(request.getParameter("motivo") + "<br>");
+
             out.println("</body>");
             out.println("</html>");
-        } finally {
+        } finally
+        {
             out.close();
         }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Handles the HTTP
-     * <code>GET</code> method.
+     * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -65,8 +69,7 @@ public class CrearCita extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP
-     * <code>POST</code> method.
+     * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response
