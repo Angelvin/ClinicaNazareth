@@ -60,9 +60,8 @@ public class CrearCita extends HttpServlet {
             pstm.setDate(1, Date.valueOf(request.getParameter("fecha")));
             pstm.setString(2, "algunCorreo@correo.com");
             pstm.setInt(3, Integer.parseInt(request.getParameter("thorario")));
-            pstm.setString(4, "espera");
-            pstm.setString(5, request.getParameter("motivo"));
-            pstm.setInt(6, Integer.parseInt(request.getParameter("txtLoginID")));
+            pstm.setString(4, request.getParameter("motivo"));
+            pstm.setInt(5, Integer.parseInt(request.getParameter("txtLoginID")));
             pstm.executeUpdate();
             out.println(BAL.Assets.DisplayExito("Cita creada correctamente :)", "Paciente/Perfil.jsp", "100", "2em"));
         } catch (SQLException ex)
