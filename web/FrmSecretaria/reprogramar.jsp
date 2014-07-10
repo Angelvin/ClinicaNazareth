@@ -170,8 +170,8 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">Datos Paciente</div>
                                     <div class="panel-body">
-                                        <label name="lblApellido" > nombre </label><input name="txtNombre" value="<%=list.getNombre()%>" size="20" />
-                                        <label name="lblNombre" >apellido </label><input name="txtApellido" value="<%=list.getApellido()%>" size="20" />
+                                        <label name="lblApellido" > nombre </label><input name="txtNombre" value="<%=list.getNombre()%>" class="form-control well-sm"  size="20" readonly />
+                                        <label name="lblNombre" >apellido </label><input name="txtApellido" value="<%=list.getApellido()%>"  class="form-control well-sm" size="20" readonly/>
                                     </div>
                                 </div>
 
@@ -184,7 +184,7 @@
                                     <div class="panel-heading">Fecha  y Estado</div>
                                     <div class="panel-body">
                                         <label name="lblNombre" >fecha </label><input type="date" min="<%=f.getFechalo()%>" name="txtFecha" value="<%=list.getFecha()%>" size="20" />
-                                        <label name="lblNombre" > estado</label><input name="txtEstado" value="<%=list.getEstado()%>" size="20" />
+                                        <label name="lblNombre" > estado</label><input name="txtEstado" value="<%=list.getEstado()%>" size="20" class="form-control well-sm"  readonly />
                                     </div>
                                 </div>
 
@@ -198,7 +198,7 @@
                                         <input  name="codigoC"  type="hidden" id="codigoC" value="<%=list.getIdcita()%>">
 
 
-                                        <label name="lblApellido" > correo </label><input name="txtCorreo" value="<%=list.getCorreo()%>" size="20" />
+                                        <label name="lblApellido" > correo </label><input name="txtCorreo" value="<%=list.getCorreo()%>" size="20" class="form-control well-sm"  readonly />
                                     </div>
                                 </div>
 

@@ -1,3 +1,8 @@
+<%@page import="BEANS.Bfecha"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="DAL.cConexion"%>
+<%@page import="java.sql.Connection"%>
 <%@include file="/WEB-INF/jspf/validar.jspf" %>
 <%@page import="BAL.edPaciente"%>
 <%@page import="BEANS.bedipaciente"%>
@@ -114,19 +119,7 @@
                 <jsp:include page="menu.jsp"></jsp:include>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-12 col-md-8"><h2 class="panel-title">Bienvenida Secretaria: Lucía</h2></div>
-                                <div class="col-xs-6 col-md-4">
-                                    <ul class="pager">
-                                        <li class="next"><a href="../Acceso.jsp">Salir <span class="glyphicon glyphicon-off"></span></a></li>
 
-                                        <li class="next"></li>
-
-                                    </ul>
-
-
-                                </div>
-                            </div>
 
                         </div>
                         <div class="panel-body">
@@ -140,6 +133,7 @@
                                     //do nothing
                                 }
                                 bedipaciente list = edPaciente.getPersona(setUID);
+                                Bfecha f = Bfecha.getFecha();
                             %>
 
 
@@ -156,9 +150,58 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">Horario Medico</div>
                                                 <div class="panel-body">
+                                                    <label name="lblNombre" > Medico
+                                                        <%
 
-                                                    <label name="lblNombre" > Horario </label> <input name="txtHorario" id="txtHorario"  size="20" />
-                                                    <label name="lblNombre" > Medico</label><input name="txtNomMedico" id="txtNomMedico"   size="20" />
+
+
+                                                            Connection connection3 = cConexion.conectar_ds();
+                                                            Statement pst3 = connection3.createStatement();
+                                                            String query3 = "select (p.pApellPer) as idEmpleado, concat(p.pnombrePer,' ',p.snombrePer,' ',p.pApellPer,' ',p.sApellPer ) as Nombre from empleado as e inner join persona as p on p.idPersona=e.fkpersona inner join cargo as c on c.idCargo=e.fkCargo where c.nombreCargo=" + "'medico'";
+                                                            ResultSet rs3 = null;
+
+                                                            try {
+                                                                rs3 = pst3.executeQuery(query3);
+
+                                                                out.println("<select class='form-control' name='cmbDoctors' id='cmbDoctorid'>");
+                                                                while (rs3.next()) {
+                                                                    out.println("<option value='" + rs3.getString("idEmpleado") + "'> Dr " + rs3.getString("Nombre") + "</option>");
+                                                                }
+                                                                out.println("</select>");
+                                                            } catch (Exception e) {
+                                                                System.out.print(e.getMessage());
+                                                            } finally {
+                                                                connection3.close();
+                                                                pst3.close();
+                                                            }
+
+                                                        %>
+
+
+                                                        <label name="lblNombre" > Horario </label> 
+                                                        <%
+
+                                                            Connection connection = cConexion.conectar_ds();
+                                                            Statement pst = connection.createStatement();
+                                                            String query = "select (horaini) as idHora ,(horaini)as hora from horario where fkempleado=" + 2;
+                                                            ResultSet rs = null;
+
+                                                            try {
+                                                                rs = pst.executeQuery(query);
+
+                                                                out.println("<select class='form-control' name='Horio'>");
+                                                                while (rs.next()) {
+                                                                    out.println("<option value='" + rs.getString("idHora") + "'> " + rs.getString("hora") + "</option>");
+                                                                }
+                                                                out.println("</select>");
+                                                            } catch (Exception e) {
+                                                                System.out.print(e.getMessage());
+                                                            } finally {
+                                                                connection.close();
+                                                                pst.close();
+                                                            }
+
+                                                        %>
 
 
                                                 </div>
@@ -169,8 +212,8 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">Datos de Paciente</div>
                                                 <div class="panel-body">
-                                                    <label name="lblApellido" > Nombre </label><input name="txtNombre" value="<%=list.getNombre()%>" size="20" />
-                                                    <label name="lblNombre" >Apellido </label><input name="txtApellido" value="<%=list.getApellido()%>" size="20" />
+                                                    <label name="lblApellido" > Nombre </label><input name="txtNombre" class="form-control well-sm" value="<%=list.getNombre()%>" size="20" readonly/>
+                                                    <label name="lblNombre" >Apellido </label><input name="txtApellido" class="form-control well-sm" value="<%=list.getApellido()%>" size="20" readonly/>
                                                 </div>
                                             </div>
 
@@ -182,7 +225,7 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">Fecha de Cita</div>
                                                 <div class="panel-body">
-                                                    <label name="lblNombre" >Fecha </label><input name="txtFecha"  type="Date" size="20" />
+                                                    <label name="lblNombre" >Fecha </label><input name="txtFecha"   min="<%=f.getFechalo()%>"  type="Date" size="20" />
                                                     <a> fecha debe ser mayor o igual a la actual </a>
                                                 </div>
                                             </div>

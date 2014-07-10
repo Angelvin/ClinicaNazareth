@@ -38,8 +38,11 @@ public class srvMedicamento extends HttpServlet {
         PrintWriter out = response.getWriter();
         EntityManagerFactory emf=Persistence.createEntityManagerFactory("primerejemploPU");
         EntityManager em=emf.createEntityManager();
+        String ac=request.getParameter("accion");
         try {
+            
            Medicamento md= new Medicamento();
+           if (ac.equals("1")){
            md.setNombreMedica(request.getParameter("txtNombreMedica"));
            md.setPresentaMedica(request.getParameter("txtPresen"));
            md.setViaAdmonMedica(request.getParameter("txtViaAdmon"));
@@ -50,6 +53,19 @@ public class srvMedicamento extends HttpServlet {
            em.persist(md);
            em.getTransaction().commit();
            out.print("<script>alert('se registro la operacion'); location.href='FrmSecretaria/Ingreso.jsp'</script>");
+           } else if(ac.equals("2")){
+               md=em.find(Medicamento.class,Integer.parseInt(request.getParameter("codigoMed")));
+               em.getTransaction().begin();
+               em.remove(md);
+               em.getTransaction().commit();
+             out.print("<script>alert('Registro Borrado'); location.href='FrmSecretaria/Ingreso.jsp'</script>");  
+           } else if (ac.equals("3")){
+               md=em.find(Medicamento.class,Integer.parseInt(request.getParameter("codigoMed")));
+               em.getTransaction().begin();
+               em.merge(md);
+               em.getTransaction().commit();
+           }
+           
         } catch (Exception ex){
             
             out.println("Error"+ ex.getMessage());
