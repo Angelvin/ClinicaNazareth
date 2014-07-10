@@ -85,6 +85,12 @@
                 });
             });
         </script>
+        <style>
+            .badge
+            {
+                font-size: 1.5em;
+            }
+        </style>
         <link href="../scripts/jqueryUI.css" rel="stylesheet" type="text/css" />
         <title>Bienvenido Paciente</title>
         <style>
@@ -101,30 +107,26 @@
                     </div>
                     <div class="col-md-10">
                         <div class="tab-content">
-                            <form method="GET" action="NuevaCita.jsp" id="myForm">
-                                <div class="tab-pane active" id="Citas">
-                                    <div class="panel panel-info">
-                                        <div class="panel-heading"><h3>Nueva Cita</h3> </div>
-                                        <div class="panel-body">
-                                            <div class="panel panel-default">
-                                                <div class="panel-body">
-                                                    <div class="row">
-                                                        <div class="col-xs-6">
-                                                            <fieldset class="well">
-                                                                <style>
-                                                                    .badge
-                                                                    {
-                                                                        font-size: 1.5em;
-                                                                    }
-                                                                </style>
-                                                                <legend><span class="badge">1</span> Seleccione una especialidad:</legend>
-                                                                <div class=" col-xs-6">
-                                                                <%
-                                                                    HttpSession cmbEspecialidad = request.getSession();
-                                                                    cmbEspecialidad.setAttribute("sEspecialidad", request.getParameter("cEspecialidad"));
+                        <%
+                            HttpSession cmbEspecialidad = request.getSession();
+                            cmbEspecialidad.setAttribute("sEspecialidad", request.getParameter("cEspecialidad"));
 
-                                                                %>
+                            HttpSession cmbDoctor = request.getSession();
+                            cmbDoctor.setAttribute("sDoctor", (request.getParameter("cDoctor")));
 
+                        %>
+                        <form method="GET" action="NuevaCita.jsp" id="myForm">
+                            <div class="tab-pane active" id="Citas">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading"><h3>Nueva Cita</h3> </div>
+                                    <div class="panel-body">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <fieldset class="well">
+                                                            <legend><span class="badge">1</span> Seleccione una especialidad:</legend>
+                                                            <div class=" col-xs-6">
                                                                 <%
                                                                     Connection connection2 = cConexion.conectar_ds();
                                                                     Statement pst2 = connection2.createStatement();
@@ -140,7 +142,7 @@
                                                                             }
                                                                             out.println("</select>");
                                                                         } else {
-                                                                            out.println("<p>" + "La especialidad Seleccionada es: " + cmbEspecialidad.getAttribute("sEspecialidad") + "</p>");
+                                                                            out.println("<input type='text'  class='form-control well' name='cEspecialidad' value='" + cmbEspecialidad.getAttribute("sEspecialidad") + "' readonly");
 
                                                                         }
                                                                     } catch (Exception e) {
@@ -155,106 +157,100 @@
                                                             </div>
                                                         </fieldset>
                                                     </div>
+                                                    <div class="col-xs-6">
+                                                        <fieldset class="well">
+                                                            <legend><span class="badge">2</span> Seleccione un medico:</legend>
+                                                            <div class=" col-xs-6">
+                                                                <%
+                                                                    if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals("")) {
+                                                                        out.println(BAL.Assets.DisplayError("Primero seleccione una especialidad", "/Acceso.jsp", "100", "1.2em"));
+                                                                    } else {
+                                                                        Connection connection3 = cConexion.conectar_ds();
+                                                                        Statement pst3 = connection3.createStatement();
+                                                                        String query3 = "SELECT e.idEmpleado as iD,CONCAT( p.pnombrePer,'  ', p.snombrePer, ' ',p.pApellPer ) as Nombre FROM empleado as e, persona as p WHERE e.fkpersona=p.idPersona  and e.fkTipoemple=" + cmbEspecialidad.getAttribute("sEspecialidad");
+                                                                        ResultSet rs3 = null;
+
+                                                                        try {
+                                                                            rs3 = pst3.executeQuery(query3);
+
+                                                                            out.println("<select class='form-control' name='cDoctor' id='cmbDoctor'>");
+                                                                            out.println("<option></option>");
+                                                                            while (rs3.next()) {
+                                                                                out.println("<option value='" + rs3.getInt("ID") + "'> Dr " + rs3.getString("Nombre") + "</option>");
+                                                                            }
+                                                                            out.println("</select>");
+                                                                        } catch (Exception e) {
+                                                                            System.out.print(e.getMessage());
+                                                                        } finally {
+                                                                            connection3.close();
+                                                                            pst3.close();
+                                                                        }
+                                                                    }
+                                                                %>
+                                                            </div>
+                                                        </fieldset>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <fieldset class="well">
+                                                            <legend><span class="badge">3</span> Seleccione una fecha:</legend>
+                                                            <div class='col-xs-6'>
+                                                                <div class="form-group">
+                                                                    <div class='input-group date' id='datetimepicker5' data-date-format="DD/MM/YYYY">
+                                                                        <input type='text' class="form-control" placeholder="Clic en la imagen" />
+                                                                        <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <fieldset class="well">
+                                                            <legend><span class="badge">4</span> Horarios Disponibles:</legend>
+
+                                                            <%
+                                                                if (cmbDoctor.getAttribute("sDoctor") == null || cmbDoctor.getAttribute("sDoctor").equals("")) {
+                                                                    out.println(BAL.Assets.DisplayError("Seleccione un Dr valido", "/Acceso.jsp", "100", "1.2em"));
+                                                                } else {
+                                                                    Connection connection = cConexion.conectar_ds();
+                                                                    Statement pst = connection.createStatement();
+                                                                    String query = "select DISTINCT(h.horaini) as HorasDisponibles, h.idhorario from  horario as h inner join cita as c on h.idhorario=c.fkhorario where h.fkempleado='2' order by HorasDisponibles asc";
+                                                                    ResultSet rs = null;
+                                                                    try {
+                                                                        rs = pst.executeQuery(query);
+                                                                        out.println("<select class='form-control'>");
+                                                                        while (rs.next()) {
+                                                                            out.println("<option value='" + rs.getString("idhorario") + "'>" + rs.getString("HorasDisponibles") + "</option>");
+                                                                            // out.println(rs.getString("horaini"));
+                                                                            //out.println(rs.getString("fkempleado"));
+                                                                        }
+                                                                        out.println("</select>");
+
+                                                                    } catch (Exception e) {
+                                                                        System.out.print(e.getMessage());
+                                                                    } finally {
+                                                                    }
+
+                                                                }
+
+                                                            %>
+                                                        </fieldset>
+                                                    </div>
+
+
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xs-6">
-                                            <fieldset class="well">
-                                                <legend><span class="badge">2</span> Seleccione un medico:</legend>
-                                                <div class=" col-xs-8">
-                                                    <%
-                                                        HttpSession cmbDoctor = request.getSession();
-                                                        cmbDoctor.setAttribute("sDoctor", request.getParameter("cDoctor"));
-                                                    %>
-
-                                                    <%
-                                                        if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals("")) {
-                                                            out.println(BAL.Assets.DisplayError("Primero seleccione una especialidad", "/Acceso.jsp", "100", "1.2em"));
-                                                        } else {
-                                                            Connection connection3 = cConexion.conectar_ds();
-                                                            Statement pst3 = connection3.createStatement();
-                                                            String query3 = "SELECT e.idEmpleado as iD,CONCAT( p.pnombrePer,'  ', p.snombrePer, ' ',p.pApellPer ) as Nombre FROM empleado as e, persona as p WHERE e.fkpersona=p.idPersona  and e.fkTipoemple=" + cmbEspecialidad.getAttribute("sEspecialidad");
-                                                            ResultSet rs3 = null;
-
-                                                            try {
-                                                                rs3 = pst3.executeQuery(query3);
-                                                                out.println("<p>" + "Los medicos disponibles para:  " + cmbEspecialidad.getAttribute("sEspecialidad") + " son" + "</p>");
-                                                                out.println("<select class='form-control' name='cDoctor' id='cmbDoctor'>");
-                                                                while (rs3.next()) {
-                                                                    out.println("<option value='" + rs3.getInt("ID") + "'> Dr " + rs3.getString("Nombre") + "</option>");
-                                                                }
-                                                                out.println("</select>");
-                                                            } catch (Exception e) {
-                                                                System.out.print(e.getMessage());
-                                                            } finally {
-                                                                connection3.close();
-                                                                pst3.close();
-                                                            }
-                                                        }
-                                                    %>
-                                                </div>
-                                            </fieldset>
-
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            <fieldset class="well">
-                                                <legend><span class="badge">3</span> Seleccione una fecha:</legend>
-                                                <div class='col-xs-8'>
-                                                    <div class="form-group">
-                                                        <div class='input-group date' id='datetimepicker5' data-date-format="DD/MM/YYYY">
-                                                            <input type='text' class="form-control" placeholder="Clic en la imagen" />
-                                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-xs-6">
-                                            <fieldset class="well">
-                                                <legend><span class="badge">4</span> Horarios Disponibles:</legend>
-
-                                                <%
-                                                    if (cmbDoctor.getAttribute("sDoctor") == null || cmbDoctor.getAttribute("sDoctor").equals("")) {
-                                                        out.println(BAL.Assets.DisplayError("Seleccione un Dr valido", "/Acceso.jsp", "100", "1.2em"));
-                                                    } else {
-                                                        Connection connection = cConexion.conectar_ds();
-                                                        Statement pst = connection.createStatement();
-                                                        String query = "select DISTINCT(h.horaini) as HorasDisponibles, h.idhorario from  horario as h inner join cita as c on h.idhorario=c.fkhorario where h.fkempleado='2' order by HorasDisponibles asc";
-                                                        ResultSet rs = null;
-                                                        try {
-                                                            rs = pst.executeQuery(query);
-                                                            out.println("<select class='form-control'>");
-                                                            while (rs.next()) {
-                                                                out.println("<option value='" + rs.getString("idhorario") + "'>" + rs.getString("HorasDisponibles") + "</option>");
-                                                                // out.println(rs.getString("horaini"));
-                                                                //out.println(rs.getString("fkempleado"));
-                                                            }
-                                                            out.println("</select>");
-
-                                                        } catch (Exception e) {
-                                                            System.out.print(e.getMessage());
-                                                        } finally {
-                                                        }
-
-                                                    }
-
-                                                %>
-                                            </fieldset>
-
-                                        </div>
-                                        <input type="submit" name="cmdguardar" class="btn btn-primary btn-lg" value="Crear"  POST="SUMIT"/>
-
-                                    </div>
-                                </div>
-                            </div>
+                        </form>
+                        <form method="GET" action="CrearCita">
+                            <input type="text" name="fecha" class="form-control" value="<% %>">
+                            <input type="text" name="horario" class="form-control" value="<% %>">
+                            <input type="text" name="pacienteID" class="form-control" value="<% %>">
+                            <input type="text" name="motivo" class="form-control" value="<% %>">
+                            <input type="submit" name="setC" class="btn btn-primary btn-lg" value="CrearCita"  POST="SUMIT"/>
                         </form>
                     </div>
                 </div>
