@@ -4,7 +4,10 @@
  */
 package SERVLET;
 
+import DAL.*;
 import java.io.*;
+import java.sql.*;
+import java.util.logging.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -22,35 +25,12 @@ public class CrearCita extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * @throws java.sql.SQLException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try
-        {
-            /*
-             * TODO output your page here. You may use following sample code.
-             */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CrearCita</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CrearCita at " + request.getContextPath() + "</h1>");
-            out.println(request.getParameter("txtLoginID") + "<br>");
-            out.println(request.getParameter("doctorID") + "<br>");
-            out.println(request.getParameter("thorario") + "<br>");
-            out.println(request.getParameter("fecha") + "<br>");
-            out.println(request.getParameter("motivo") + "<br>");
 
-            out.println("</body>");
-            out.println("</html>");
-        } finally
-        {
-            out.close();
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -65,7 +45,36 @@ public class CrearCita extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+        PrintWriter out = response.getWriter();
+        PreparedStatement pstm;
+
+        try
+        {
+            Date date = Date.valueOf(request.getParameter("fecha"));
+            String motivo = request.getParameter("motivo");
+
+            Connection cnn = cConexion.conectar_ds();
+            pstm = cnn.prepareStatement(BEANS.beanCita.CrearCita);
+
+            pstm.setDate(1, Date.valueOf(request.getParameter("fecha")));
+            pstm.setString(2, "algunCorreo@correo.com");
+            pstm.setInt(3, Integer.parseInt(request.getParameter("thorario")));
+            pstm.setString(4, "espera");
+            pstm.setString(5, request.getParameter("motivo"));
+            pstm.setInt(6, Integer.parseInt(request.getParameter("txtLoginID")));
+            pstm.executeUpdate();
+            out.println(BAL.Assets.DisplayExito("Cita creada correctamente :)", "Paciente/Perfil.jsp", "100", "2em"));
+        } catch (SQLException ex)
+        {
+            System.out.println("El inserte se rompio en: " + ex.getMessage());
+        } finally
+        {
+            Logger.getLogger(CrearCita.class.getName()).log(Level.FINEST, "Loking for a bug: ");
+            out.close();
+
+        }
+
     }
 
     /**
@@ -79,7 +88,13 @@ public class CrearCita extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try
+        {
+            processRequest(request, response);
+        } catch (SQLException ex)
+        {
+            Logger.getLogger(CrearCita.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
