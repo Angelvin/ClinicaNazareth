@@ -4,18 +4,11 @@
  */
 package SERVLET;
 
-import CJPA.Cita;
-import CJPA.Consulta;
-import CJPA.DetalleMedicina;
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import CJPA.*;
+import java.io.*;
+import javax.persistence.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
 /**
  *
@@ -24,9 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 public class srvConsulta extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -37,11 +29,14 @@ public class srvConsulta extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        EntityManagerFactory emf=Persistence.createEntityManagerFactory("primerejemploPU");
-        EntityManager em=emf.createEntityManager();
-        try {
-            Consulta consul=new Consulta();
-            Cita cta=new Cita();
+        int idcita = Integer.parseInt(request.getParameter("codigoCita"));
+        int idPaciente = Integer.parseInt(request.getParameter("codigoPac"));
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("primerejemploPU");
+        EntityManager em = emf.createEntityManager();
+        try
+        {
+            Consulta consul = new Consulta();
+            Cita cta = new Cita();
             consul.setPeso(request.getParameter("txtpeso"));
             consul.setTemperatura(request.getParameter("txttemperatura"));
             consul.setTensionalterial(request.getParameter("txttensionarterial"));
@@ -51,27 +46,27 @@ public class srvConsulta extends HttpServlet {
             consul.setExamenes(request.getParameter("txtexamen"));
             consul.setSintomasConsulta(request.getParameter("txtsintomas"));
             consul.setFkcita(em.find(Cita.class, Integer.parseInt(request.getParameter(""))));
-            consul.setFkDetMedTrata(DetalleMedicina.class,Integer.parseInt(request.getParameter()));
-         
+            consul.setFkDetMedTrata(DetalleMedicina.class, Integer.parseInt(request.getParameter()));
+
             //agrega consulta
             em.getTransaction().begin();
             em.persist(consul);
             em.getTransaction().commit();
             //actualiza cita
-            cta=em.find(Cita.class,Integer.parseInt(request.getParameter("txtIDCita")));
+            cta = em.find(Cita.class, Integer.parseInt(request.getParameter("txtIDCita")));
             cta.setEstadoCita("Finalizado");
             em.getTransaction().begin();
             em.merge(cta);
             em.getTransaction().commit();
-            
-        } catch (Exception e) {
+
+        } catch (Exception e)
+        {
         }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Handles the HTTP
-     * <code>GET</code> method.
+     * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -85,8 +80,7 @@ public class srvConsulta extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP
-     * <code>POST</code> method.
+     * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response
