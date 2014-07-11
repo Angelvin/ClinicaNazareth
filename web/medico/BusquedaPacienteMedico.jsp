@@ -1,6 +1,7 @@
-<%@include file="../frementop.jspf" %>
+
+
+
 <%@include file="/WEB-INF/jspf/validar.jspf" %>
-<%@page language="java" session="true" errorPage="../WEB-INF/jspf/ErrorPage.jsp" %>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -9,9 +10,8 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
-        <meta name="author" content="Cesar Cordova">
+        <meta name="author" content="Angel Alvarado">
 
-        <link href="../styles/custom.css" rel="stylesheet" type="text/css" />
         <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="../scripts/bootstrap/css/contenido.css" rel="stylesheet">
         <script src="../scripts/jquery.min.js" type="text/javascript"></script>
@@ -64,8 +64,8 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <jsp:include page="Bienvenida.jsp"></jsp:include></div>
-                     <div class="panel panel-primary">
+                <jsp:include page="menu.jsp"></jsp:include>
+                    <div class="panel panel-primary">
                         <div class="panel-heading">
                             Pacientes Existentes
                         </div>
@@ -91,11 +91,11 @@
                                                     <input type="hidden" name="codigo" value="${fila.codigo}">
                                                     <input type="hidden" name="cmdEdit" class="btn btn-link" value="Modificar" POST="SUMIT" />
                                                 </form>
-                                                <form id="updateCita" method="GET" action="../medico/CitaMedico.jsp?">
+                                                <form id="updateCita" method="GET" action="../FrmSecretaria/editPaciente.jsp?">
                                                     <input type="hidden" name="codigo" value="${fila.codigo}">
-                                                    <input type="submit" name="action" class="btn btn-link" value="A Consulta" POST="SUMIT" />
+                                                    <input type="submit" name="action" class="btn btn-link" value="EditarPaciente" POST="SUMIT" />
                                                 </form>
-                                                <form id="updateCita" method="GET" action="../medico/crearcitamedico.jsp ">
+                                                <form id="updateCita" method="GET" action="../FrmSecretaria/Agpaciente.jsp ">
                                                     <input type="hidden" name="codigo" value="${fila.codigo}">
                                                     <input type="submit" name="action" class="btn btn-link" value="Crear Cita" POST="SUMIT" />
                                                 </form>
