@@ -20,6 +20,9 @@
                     $("input[type=date]").datepicker({dateFormat: "yy-mm-dd"});
                 }});
         </script>
+        <script>
+            $(".datepicker").datepicker({maxDate: '0'});
+        </script>
 
         <%
             Bfecha f = Bfecha.getFecha();
