@@ -38,17 +38,13 @@
         <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
 
         <script src="../scripts/modernizr2.6.2.js" type="text/javascript" ></script>
+
         <script>
             // fallback para el datepicker con jquery
             Modernizr.load({test: Modernizr.inputtypes.date, nope: ["http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js", "jquery-ui.css"], complete: function() {
-                    $("input[type=date]").datepicker({dateFormat: "yy-mm-dd"});
+                    $("input[type=date]").datepicker({dateFormat: "yy-mm-dd", maxDate: '0'});
                 }});
-
         </script>
-        <script>
-            $(".datepicker").datepicker({maxDate: '0'});
-        </script>
-
     </head>
     <body id="pageBody">
         <div class="alert alert-danger" id="alert_template" style="display: none; width: 60%; z-index: 0009;  ">
