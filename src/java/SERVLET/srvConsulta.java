@@ -63,7 +63,7 @@ public class srvConsulta extends HttpServlet {
             em.merge(cta);
             em.getTransaction().commit();
 
-        } catch (Exception e)
+        } catch (java.lang.NumberFormatException ex)
         {
         }
     }
