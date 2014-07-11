@@ -75,12 +75,12 @@
                                     <div class="panel-heading">Datos</div>
                                     <div class="panel-body">
                                         <div class="row">
-                                            <div class="col-md-6" ><label>Primer Nombre</label><input name="txtnombrep" id="txtnombrep" class="form-control"  placeholder="nombre" pattern="[a-z]" required></div>
-                                            <div class="col-md-6"><label>Segundo Nombre</label><input name="txtnombres" id="txtnombres" class="form-control" placeholder="nombre" pattern="/([a-z])/" required ></div>
+                                            <div class="col-md-6" ><label>Primer Nombre</label><input name="txtnombrep" id="txtnombrep" class="form-control"  placeholder="nombre"  required></div>
+                                            <div class="col-md-6"><label>Segundo Nombre</label><input name="txtnombres" id="txtnombres" class="form-control" placeholder="nombre" required ></div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6"><label>Primer Apellido</label><input   id="txtapellido" name="txtapellido"    class="form-control"  placeholder="apellido" pattern="/([a-z])/" required></div>
-                                            <div class="col-md-6"><label>Segundo Apellido</label><input   id="txtapellidos" name= "txtapellidos" class="form-control" placeholder="apellido"  pattern="/([a-z])/" required></div>
+                                            <div class="col-md-6"><label>Primer Apellido</label><input   id="txtapellido" name="txtapellido"    class="form-control"  placeholder="apellido"  required></div>
+                                            <div class="col-md-6"><label>Segundo Apellido</label><input   id="txtapellidos" name= "txtapellidos" class="form-control" placeholder="apellido"   required></div>
                                         </div>
                                     </div>
                                 </div>
@@ -99,7 +99,7 @@
                             <div class="panel panel-primary">
                                 <div class="panel-heading">Iglesia</div>
                                 <div class="panel-body">
-                                    <label>Iglesia</label><input class="form-control" name="txtigle" type="text" id="txtigle" size="10" maxlength="10" pattern="/([a-z])/" required>
+                                    <label>Iglesia</label><input class="form-control" name="txtigle" type="text" id="txtigle" size="10" maxlength="10" required>
                                 </div>
                             </div>
                             <div class="panel panel-primary">
@@ -109,7 +109,7 @@
                                         <div class="col-xs-6 col-md-2"><label >Documento</label>
                                         </div>
                                         <div class="col-xs-6 col-md-3">
-                                            <input class="form-control" name="txtdocu" type="text" id="txtdocu" placeholder="Documento" pattern="/([0-9]|-)/" required>
+                                            <input class="form-control" name="txtdocu" type="text" id="txtdocu" placeholder="Documento"  required>
                                         </div>
                                         <div class="col-xs-6 col-md-4"><SELECT class="form-control" name="txttipodocu"   SIZE=1  >
                                                 <OPTION VALUE="dui">DUI</OPTION>
@@ -122,7 +122,7 @@
                                         <div class="col-xs-6 col-md-2"><label >Teléfono</label>
                                         </div>
                                         <div class="col-xs-6 col-md-3">
-                                            <input class="form-control" name="txtele" type="text" id="txtele"  placeholder="NUMERO TELEFONO" pattern="/([0-9]|-)/" required>
+                                            <input class="form-control" name="txtele" type="text" id="txtele"  placeholder="NUMERO TELEFONO"  required>
                                         </div>
                                         <div class="col-xs-6 col-md-4"><SELECT class="form-control" name="txttipotele"  SIZE=1   >
                                                 <OPTION VALUE="fijo">FIJO</OPTION>
@@ -137,8 +137,8 @@
                                 <div class="panel-heading">Direccion</div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-6"><input name="txtcalle" type="text" id="txtcalle" class="form-control" placeholder="Calle" pattern="/([a-z])/" required></div>
-                                        <div class="col-md-6"> <input name="txtcasa" type="text" id="txtcasa" class="form-control" placeholder="Casa" pattern="/([a-z])/" required></div>
+                                        <div class="col-md-6"><input name="txtcalle" type="text" id="txtcalle" class="form-control" placeholder="Calle" required></div>
+                                        <div class="col-md-6"> <input name="txtcasa" type="text" id="txtcasa" class="form-control" placeholder="Casa" required></div>
                                         <div class="col-md-4"><label>Municipio</label><SELECT class="form-control" NAME="txtmuni" id="txtmuni" SIZE=1> 
                                                 <option >Seleccionar opcion</option>
                                                 <%
