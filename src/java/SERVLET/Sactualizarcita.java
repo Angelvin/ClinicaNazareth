@@ -53,41 +53,45 @@ public class Sactualizarcita extends HttpServlet {
         int val = 0;
         int contar;
         try {
-
-            ResultSet rset = null;
-            PreparedStatement sta;
-            sta = cnn.prepareStatement(beanCita.validar);
-
-            sta.setDate(1, Date.valueOf(fecha));
-            sta.setString(2, horario);
-            sta.setString(3, medico);
-            rset = sta.executeQuery();
-            while (rset.next()) {
-                val = Integer.parseInt(rset.getString("idCita"));
-
-            }
+            if (fecha.equals("") || horario.equals("") || medico.equals("")) {
+                out.println(DisplayError("Ya existe una cita reservada para ese dia!...", "/ClinicaNazareth/FrmSecretaria/indexSecre.jsp"));
 
 
-            if (val == 0) {
-                Logger logger = Logger.getLogger("com.microsoft.sqlserver.jdbc.Statement");
-                logger.setLevel(Level.FINER);
-
-                PreparedStatement psta0 = cnn.prepareStatement(beanCita.Actlizar);
-                psta0.setDate(1, Date.valueOf(fecha));
-                psta0.setString(2, horario);
-                psta0.setString(3, medico);
-                psta0.setInt(4, Integer.parseInt(ac));
-                contar = psta0.executeUpdate();
-                System.out.println("UPDATE PROCEDURE RETORNA: " + contar);
-                out.println(DisplayEnvio());
             } else {
-                out.println(DisplayError("Ya existe una cita reservada para ese dia!...", "/ClinicaNazareth/FrmSecretaria/reprogramar.jsp"));
+                ResultSet rset = null;
+                PreparedStatement sta;
+                sta = cnn.prepareStatement(beanCita.validar);
+
+                sta.setDate(1, Date.valueOf(fecha));
+                sta.setString(2, horario);
+                sta.setString(3, medico);
+                rset = sta.executeQuery();
+                while (rset.next()) {
+                    val = Integer.parseInt(rset.getString("idCita"));
+
+                }
+
+
+                if (val == 0) {
+                    Logger logger = Logger.getLogger("com.microsoft.sqlserver.jdbc.Statement");
+                    logger.setLevel(Level.FINER);
+
+                    PreparedStatement psta0 = cnn.prepareStatement(beanCita.Actlizar);
+                    psta0.setDate(1, Date.valueOf(fecha));
+                    psta0.setString(2, horario);
+                    psta0.setString(3, medico);
+                    psta0.setInt(4, Integer.parseInt(ac));
+                    contar = psta0.executeUpdate();
+                    System.out.println("UPDATE PROCEDURE RETORNA: " + contar);
+                    out.println(DisplayEnvio());
+                } else {
+                    out.println(DisplayError("Ya existe una cita reservada para ese dia!...", "/ClinicaNazareth/FrmSecretaria/indexSecre.jsp"));
+                }
+                rset.close();
+                sta.close();
+                cnn.close();
+
             }
-            rset.close();
-            sta.close();
-            cnn.close();
-
-
         } catch (SQLException ex) {
             out.println(ex.getMessage());
         }

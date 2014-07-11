@@ -14,7 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -32,6 +31,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "DetalleMedicina.findByIdDetMedTrata", query = "SELECT d FROM DetalleMedicina d WHERE d.idDetMedTrata = :idDetMedTrata"),
     @NamedQuery(name = "DetalleMedicina.findByFkSalidaPro", query = "SELECT d FROM DetalleMedicina d WHERE d.fkSalidaPro = :fkSalidaPro")})
 public class DetalleMedicina implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -40,7 +40,6 @@ public class DetalleMedicina implements Serializable {
     private Integer idDetMedTrata;
     @Column(name = "fkSalidaPro")
     private Integer fkSalidaPro;
-    @OneToMany(mappedBy = "fkDetMedTrata")
     private List<Expediente> expedienteList;
     @JoinColumn(name = "fkTratamiento", referencedColumnName = "idTratamiento")
     @ManyToOne

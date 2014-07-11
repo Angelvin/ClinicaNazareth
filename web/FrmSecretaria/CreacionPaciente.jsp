@@ -1,8 +1,10 @@
+<%@page import="BEANS.Bfecha"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="DAL.cConexion"%>
+<%@page import="librebeans.municipio"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/jspf/validar.jspf" %>
 <!DOCTYPE HTML>
@@ -38,46 +40,50 @@
           TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE
           PUEDA VERSE EN CUALQUEIR TAMAÑO
             -->
+            <%
+                Bfecha f = Bfecha.getFecha();
 
+
+            %>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <jsp:include page="menu.jsp"></jsp:include>
-                <div class="panel panel-primary">
-                    <div class="panel-body">
-                        <form name="form1" method="post" action="../creapaciente">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">Usuario</div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-6" ><label >Usuario</label>
-                                            <input class="form-control" name="txtusuario" id="txtusuario" placeholder="ejemplo@ejemplo.COM" type="email" required>
-                                        </div>
-                                        <div class="col-md-6" >
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            <form name="form1" method="post" action="../creapaciente">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">Usuario</div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-6" ><label >Usuario</label>
+                                                <input class="form-control" name="txtusuario" id="txtusuario" placeholder="ejemplo@ejemplo.COM" type="email" required>
+                                            </div>
+                                            <div class="col-md-6" >
 
-                                            <label>Contraseña</label><input name="txtcontra"  id="txtcontra" type="password" class="form-control" placeholder="Password" pattern="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,10})$"required >
-                                            <a>(Entre 8 y 10 caracteres, por lo menos un digito y un alfanumérico, y no puede contener caracteres espaciales)</a>
+                                                <label>Contraseña</label><input name="txtcontra"  id="txtcontra" type="password" class="form-control" placeholder="Password" pattern="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,10})$"required >
+                                                <a>(Entre 8 y 10 caracteres, por lo menos un digito y un alfanumérico, y no puede contener caracteres espaciales)</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">Datos</div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-6" ><label>Primer Nombre</label><input name="txtnombrep" id="txtnombrep" class="form-control"  placeholder="nombre" pattern="[a-z]" required></div>
-                                        <div class="col-md-6"><label>Segundo Nombre</label><input name="txtnombres" id="txtnombres" class="form-control" placeholder="nombre" pattern="/([a-z])/" required ></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6"><label>Primer Apellido</label><input   id="txtapellido" name="txtapellido"    class="form-control"  placeholder="apellido" pattern="/([a-z])/" required></div>
-                                        <div class="col-md-6"><label>Segundo Apellido</label><input   id="txtapellidos" name= "txtapellidos" class="form-control" placeholder="apellido"  pattern="/([a-z])/" required></div>
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">Datos</div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-6" ><label>Primer Nombre</label><input name="txtnombrep" id="txtnombrep" class="form-control"  placeholder="nombre"  required></div>
+                                            <div class="col-md-6"><label>Segundo Nombre</label><input name="txtnombres" id="txtnombres" class="form-control" placeholder="nombre"  required ></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6"><label>Primer Apellido</label><input   id="txtapellido" name="txtapellido"    class="form-control"  placeholder="apellido"  required></div>
+                                            <div class="col-md-6"><label>Segundo Apellido</label><input   id="txtapellidos" name= "txtapellidos" class="form-control" placeholder="apellido"  required></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">Fecha Nacimiento y Genero</div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-6"><label>Fecha </label><input class="form-control" name="txtfecha" type="date" id="txtfecha"  required> <a>La fecha debe ser menor a la actual</a></div>
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">Fecha Nacimiento y Genero</div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-6"><label>Fecha </label><input class="form-control" name="txtfecha" type="date" id="txtfecha" max="<%=f.getFechalo()%>" required> <a>La fecha debe ser menor a la actual</a></div>
                                         <div class="col-md-6"><label>Genero</label><select class="form-control" name="txtgenero"  >
                                                 <option value="m">Masculino</option>
                                                 <option value="f">Femenino</option>
@@ -88,7 +94,7 @@
                             <div class="panel panel-primary">
                                 <div class="panel-heading">Iglesia</div>
                                 <div class="panel-body">
-                                    <label>Iglesia</label><input class="form-control" name="txtigle" type="text" id="txtigle" size="10" maxlength="10" pattern="/([a-z])/" required>
+                                    <label>Iglesia</label><input class="form-control" name="txtigle" type="text" id="txtigle" size="10" maxlength="10" required>
                                 </div>
                             </div>
                             <div class="panel panel-primary">
@@ -98,7 +104,7 @@
                                         <div class="col-xs-6 col-md-2"><label >Documento</label>
                                         </div>
                                         <div class="col-xs-6 col-md-3">
-                                            <input class="form-control" name="txtdocu" type="text" id="txtdocu" placeholder="Documento" pattern="/([0-9]|-)/" required>
+                                            <input class="form-control" name="txtdocu" type="text" id="txtdocu" placeholder="Documento"  required>
                                         </div>
                                         <div class="col-xs-6 col-md-4"><SELECT class="form-control" name="txttipodocu"   SIZE=1  >
                                                 <OPTION VALUE="dui">DUI</OPTION>
@@ -111,7 +117,7 @@
                                         <div class="col-xs-6 col-md-2"><label >Teléfono</label>
                                         </div>
                                         <div class="col-xs-6 col-md-3">
-                                            <input class="form-control" name="txtele" type="text" id="txtele"  placeholder="NUMERO TELEFONO" pattern="/([0-9]|-)/" required>
+                                            <input class="form-control" name="txtele" type="text" id="txtele"  placeholder="NUMERO TELEFONO"  required>
                                         </div>
                                         <div class="col-xs-6 col-md-4"><SELECT class="form-control" name="txttipotele"  SIZE=1   >
                                                 <OPTION VALUE="fijo">FIJO</OPTION>
@@ -126,10 +132,22 @@
                                 <div class="panel-heading">Direccion</div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-6"><input name="txtcalle" type="text" id="txtcalle" class="form-control" placeholder="Calle" pattern="/([a-z])/" required></div>
-                                        <div class="col-md-6"> <input name="txtcasa" type="text" id="txtcasa" class="form-control" placeholder="Casa" pattern="/([a-z])/" required></div>
+                                        <div class="col-md-6"><input name="txtcalle" type="text" id="txtcalle" class="form-control" placeholder="Calle"  required></div>
+                                        <div class="col-md-6"> <input name="txtcasa" type="text" id="txtcasa" class="form-control" placeholder="Casa"  required></div>
+                                        <div class="col-xs-6 col-md-2"><SELECT class="form-control"  name="txtmuni"id="comboMunicipio" SIZE=1> 
+                                                <%
+                                                    ResultSet rstm = municipio.getmuni();
+                                                    while (rstm.next()) {%>
+
+                                                <option value="<%= rstm.getString("idmuni")%>"><%= rstm.getString("nombreMui")%></option>
+
+                                                <%}
+
+                                                %>
+                                            </SELECT></div>
                                     </div>
-                                    <input name="txtmuni" type="text" id="txtmuni"  class="form-control" placeholder="Casa" onblur="" value="1">
+
+
                                 </div>
                             </div>
                             <div class="panel panel-primary">
