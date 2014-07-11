@@ -76,15 +76,15 @@
                                 <div class="panel-body">
 
                                     <div class="row">
-                                        <div class="col-md-6"><label>Peso</label><input name="txtpeso" id="txtpeso" class="form-control"  placeholder="en numero"  required></div>
-                                        <div class="col-md-6"><label>Temperatura</label><input name="txttemperatura" id="txttemperatura" class="form-control"  placeholder="en numero" pattern="[a-z]" required></div>
+                                        <div class="col-md-6"><label>Peso</label><input type="number" min="0" step="1" pattern="\d+" name="txtpeso" id="txtpeso" class="form-control"  placeholder="en numero"  required></div>
+                                        <div class="col-md-6"><label>Temperatura</label><input type="number" min="0" step="1" pattern="\d+" name="txttemperatura" id="txttemperatura" class="form-control"  placeholder="en numero" required></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-6"><label>Tension Arterial</label><input name="txttensionarterial" id="txttensionarterial" class="form-control"  placeholder="en numero " pattern="[a-z]" required></div>
+                                        <div class="col-md-6"><label>Tension Arterial</label><input type="number" min="0" step="1" pattern="\d+" name="txttensionarterial" id="txttensionarterial" class="form-control"  placeholder="en numero "  required></div>
                                         <div class="col-md-6"><label>Causa de Cosulta</label><textarea name="txtconsultapor" id="txtconsultapor" placeholder="texto" placeholder="motivos  "  class="form-control" rows="3"></textarea></div>
                                     </div>
                                 </div>
@@ -92,15 +92,15 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-6"><label>Pulso</label><input name="txtpulso" id="txtpulso" class="form-control"  placeholder="en numero" pattern="[a-z]" required></div>
-                                        <div class="col-md-6"><label>Tipo Consulta</label><input name="txttipoconsulta" id="txttipoconsulta" class="form-control"  placeholder="texto" pattern="[a-z]" required></div>
+                                        <div class="col-md-6"><label>Pulso</label><input type="number" min="0" step="1" pattern="\d+" name="txtpulso" id="txtpulso" class="form-control"  placeholder="en numero" required></div>
+                                        <div class="col-md-6"><label>Tipo Consulta</label><input type="text" name="txttipoconsulta" id="txttipoconsulta" class="form-control"  placeholder="texto" required></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-6"><label>Examenes</label><input name="txtexamen" id="txtexamen" class="form-control"  placeholder="examenes recomendados" pattern="[a-z]" required></div>
+                                        <div class="col-md-6"><label>Examenes</label><input type="text" name="txtexamen" id="txtexamen" class="form-control"  placeholder="examenes recomendados" required></div>
                                         <div class="col-md-6"><label>Sintomas </label><textarea name="txtsintomas" id="txtsintomas" placeholder="texto" class="form-control" rows="3"></textarea>
                                         </div>
                                     </div>
@@ -108,7 +108,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-4"></div>
-                                <div class="col-md-4"><input name="cmdguardar"  class="btn btn-lg btn-primary" disabled="disabled" type="submit" id="cmdguardar" value="Guardar"></div>
+                                <div class="col-md-4"><input name="cmdguardar"  class="btn btn-lg btn-primary" type="submit" id="cmdguardar" value="Guardar"></div>
                                 <div class="col-md-4"></div>
                             </div>
 

@@ -8,12 +8,17 @@ import CJPA.*;
 import java.io.*;
 import javax.persistence.*;
 import javax.servlet.*;
+import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
 /**
  *
  * @author Marlon
  */
+@WebServlet(name = "srvConsulta", urlPatterns =
+{
+    "/srvConsulta"
+})
 public class srvConsulta extends HttpServlet {
 
     /**
