@@ -15,16 +15,6 @@ import java.sql.*;
  */
 public class CitaMedicoCheck {
 
-    public int getExpediente;
-
-    public int getGetExpediente() {
-        return getExpediente;
-    }
-
-    public void setGetExpediente(int getExpediente) {
-        this.getExpediente = getExpediente;
-    }
-
     public static int getExpediente(int valor) {
         int num = 0;
         try
@@ -40,7 +30,6 @@ public class CitaMedicoCheck {
             {
                 CitaMedicoCheck cmc = new CitaMedicoCheck();
                 num = Integer.parseInt(rset.getString("expediente"));
-                cmc.setGetExpediente(num);
             }
             if (num > 0)
             {
@@ -55,4 +44,32 @@ public class CitaMedicoCheck {
         return num;
     }
 
+    public static int getEmpleadoID(int valor) {
+        int num = 0;
+        try
+        {
+            // String valor = request.getParameter("idpaciente");
+            Connection cnn = cConexion.conectar_ds();
+            ResultSet rset = null;
+            PreparedStatement sta;
+            sta = cnn.prepareStatement(beanCita.getEmpleadoID);
+            sta.setInt(1, valor);
+            rset = sta.executeQuery();
+            while (rset.next())
+            {
+                CitaMedicoCheck cmc = new CitaMedicoCheck();
+                num = Integer.parseInt(rset.getString("EmpleadoID"));
+            }
+            if (num > 0)
+            {
+            } else
+            {
+            }
+        } catch (SQLException ex)
+        {
+            // out.println(ex.getMessage());
+        }
+
+        return num;
+    }
 }

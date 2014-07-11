@@ -25,7 +25,10 @@
                     <%
                         int idcita = (Integer) session.getAttribute("sCitaID");
                         int idPaciente = (Integer) session.getAttribute("sPacienteID");
-                        out.println("UID CITA: " + idcita + " UID PAC:" + idPaciente);
+                        int empleado = (Integer) session.getAttribute("uidLogin");
+
+                        int EmpleadoID = BAL.CitaMedicoCheck.getEmpleadoID(empleado);
+                        out.println("<br>UID CITA: " + idcita + "<br> UID PAC:" + idPaciente + "<br>IDEMPLEADO: " + EmpleadoID);
                     %>
                     <form action="#">
                         <input type="text" class="form-control">
