@@ -46,8 +46,8 @@ public class CrearCita extends HttpServlet {
             out.println(BAL.Assets.DisplayError("No se admiten parametros nulos", "Paciente/NuevaCita.jsp", "100", "2em"));
         } else {
             //para email  
-            final String username = "redhood7086@gmail.com";
-            final String password = "matroshka70";
+            final String username = "ClinicaNazarethES@gmail.com";
+            final String password = "clinica1";
 
             Properties props = new Properties();
             props.put("mail.smtp.auth", "true");
@@ -87,7 +87,7 @@ public class CrearCita extends HttpServlet {
 
                 if (val == 0) {
                     pstm = cnn.prepareStatement(BEANS.beanCita.CrearCita, Statement.RETURN_GENERATED_KEYS);
-
+                    String fecha = request.getParameter("fecha");
                     pstm.setDate(1, Date.valueOf(request.getParameter("fecha")));
                     pstm.setString(2, "algunCorreo@correo.com");
                     pstm.setInt(3, Integer.parseInt(request.getParameter("thorario")));
@@ -98,20 +98,25 @@ public class CrearCita extends HttpServlet {
                     out.println(BAL.Assets.DisplayExito("Cita creada correctamente :)", "Paciente/Perfil.jsp", "100", "2em"));
 
 
-
-                    int autoIncKeyFromApi = -1;
+                    int idC = -1;
                     rset = pstm.getGeneratedKeys();
                     while (rset.next()) {
-                        autoIncKeyFromApi = rset.getInt(1);
+                        idC = rset.getInt(1);
                     }
-                    out.println(autoIncKeyFromApi);
+                    out.println(idC);
                     //armando EMAIL
                     Message message = new MimeMessage(session);
-                    message.setFrom(new InternetAddress("redhood7086@gmail.com"));
+                    message.setFrom(new InternetAddress("ClinicaNazarethES@gmail.com"));
                     message.setRecipients(Message.RecipientType.TO,
                             InternetAddress.parse("redhood7086@gmail.com"));
-                    message.setSubject("Envio de link");
-                    message.setContent("<a href='http://localhost:8089/ClinicaNazareth/srvCambioEstado?idCita=" + autoIncKeyFromApi + "'>Confirma</a>", "text/html; charset=ISO-8859-1");
+                    message.setSubject("Confirmacion Cita");
+                    message.setContent(" <body>\n"
+                            + "        <h1>Clinica Nazareth</h1>\n"
+                            + "        <p>Buen dia estimado usuario: </p>\n"
+                            + "        <p>El proposito de este correo, es informarle acerca de que usted a programado una cita para el dia: " + fecha + "</p>\n"
+                            + "        <p>Favor confirmar su cita haciendo click sobre  confirmar, en la parte inferior de este mensaje.</p>\n"
+                            + "        <p></p>\n"
+                            + "   <a href='http://localhost:8080/ClinicaNazareth/srvCambioEstado?idCita=" + idC + "'>Confirma</a> </body>", "text/html; charset=ISO-8859-1");
 
                     Transport.send(message);
 

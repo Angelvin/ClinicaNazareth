@@ -35,23 +35,22 @@ public class srvCambioEstado extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String idCita=request.getParameter("idCita");
-        EntityManagerFactory emf=Persistence.createEntityManagerFactory("primerejemploPU");
-        EntityManager em=emf.createEntityManager();
+        String idCita = request.getParameter("idCita");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("primerejemploPU");
+        EntityManager em = emf.createEntityManager();
         try {
-          Cita ct= em.find(Cita.class,Integer.parseInt(idCita));
-           em.getTransaction().begin();
-           
-           ct.setEstadoCita("CONFIRMADO");
-          
-           em.getTransaction().commit();
-           out.println("<script>alert('Cita Confirmada');</script>");  
-        } catch (Exception e){
-            out.println("Error"+e.getMessage());
+            Cita ct = em.find(Cita.class, Integer.parseInt(idCita));
+            em.getTransaction().begin();
+
+            ct.setEstadoCita("confirmado");
+
+            em.getTransaction().commit();
+            out.println("<script>alert('Cita Confirmada');</script>");
+        } catch (Exception e) {
+            out.println("Error" + e.getMessage());
+        } finally {
+            out.close();
         }
-            finally {            
-                        out.close();
-                    }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

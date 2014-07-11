@@ -24,6 +24,10 @@
         <servlet-name>srvMedicamento</servlet-name>
         <servlet-class>SERVLET.srvMedicamento</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>srvCambioEstado</servlet-name>
+        <servlet-class>SERVLET.srvCambioEstado</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Paciente</servlet-name>
         <url-pattern>/Paciente</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>srvMedicamento</servlet-name>
         <url-pattern>/srvMedicamento</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvCambioEstado</servlet-name>
+        <url-pattern>/srvCambioEstado</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
