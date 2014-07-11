@@ -96,14 +96,10 @@
                                     <display:setProperty name="export.pdf" value="true" />
                                     <display:column title="Editar">
 
-                                        <input  type="hidden" id="codigoMed" name="codigoMed" value="${fila.idMedica}" >
-                                        <input  type="hidden" id="nombreMedi" name="codigoMedi" value="${fila.nombreMe}" >
-                                        <a class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" onClick="kk(${fila.idMedica}, '${fila.nombreMe}');">
-                                            enviar
-                                        </a>
-                                        <form method="post" action="../srvMedicamento?accion=2">
-                                            <input  type="hidden" id="codigoMed" name="codigoMed" value="${fila.idMedica}" >
-                                            <input type="submit" value="Eliminar" onClick="return confirm('Desea Eliminar el medicamento?');"/>
+
+                                        <form method="post" action="??">
+                                            <input  type="text" id="codigoMed" name="codigoMed" value="${fila.idMedica}" >
+
                                         </form>
                                     </display:column>
 
