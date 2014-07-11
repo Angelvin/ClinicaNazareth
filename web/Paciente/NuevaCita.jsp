@@ -43,10 +43,10 @@
                 });
             });
 
+        </script>
+        <script>
             $(function() {
-                $("#idHorario").change(function() {
-                    $("#myForm").submit();
-                });
+                $("[data-toggle='tooltip']").tooltip();
             });
         </script>
 
@@ -73,32 +73,26 @@
                             <form method="GET" action="NuevaCita.jsp" id="myForm">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <legend><span class="badge">1</span> Eliga una especialidad:</legend>
+                                        <legend><span class="badge">1</span> Eliga una especialidad:<a class="btn btn-lg btn-link glyphicon glyphicon-dashboard" data-toggle="tooltip" data-placement="right" title="" data-original-title="Clic para cambiar la especialidad ;) !" href="NuevaCita.jsp"></a></legend>
                                         <%                                            Connection connection2 = cConexion.conectar_ds();
                                             Statement pst2 = connection2.createStatement();
                                             String query2 = "select te.idTipoEmpleado as ID, te.nombreTipoEmp as Nombre from tipo_empleado AS te where te.idTipoEmpleado between 4 and 8";
                                             ResultSet rs2 = null;
-                                            try
-                                            {
-                                                if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals(""))
-                                                {
+                                            try {
+                                                if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals("")) {
                                                     rs2 = pst2.executeQuery(query2);
                                                     out.println("<select class='form-control' name='cEspecialidad' id='cmbEspecialidadID'>");
                                                     out.println("<option>Seleccione:</option>");
-                                                    while (rs2.next())
-                                                    {
+                                                    while (rs2.next()) {
                                                         out.println("<option value='" + rs2.getInt("ID") + "'>" + rs2.getString("Nombre") + "</option>");
                                                     }
                                                     out.println("</select>");
-                                                } else
-                                                {
+                                                } else {
                                                     out.println("<input type='text' class='form-control well' name='cEspecialidad' value='" + cmbEspecialidad.getAttribute("sEspecialidad") + "' readonly >");
                                                 }
-                                            } catch (Exception e)
-                                            {
+                                            } catch (Exception e) {
                                                 System.out.print(e.getMessage());
-                                            } finally
-                                            {
+                                            } finally {
                                                 connection2.close();
                                                 pst2.close();
                                             }
@@ -108,33 +102,26 @@
                                     </div>
                                     <div class="form-group">
                                         <legend><span class="badge">2</span> Seleccione un medico:</legend>
-                                        <%                                            if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals(""))
-                                            {
-                                                out.println(BAL.Assets.DisplayError("Primero seleccione una especialidad", "Perfil.jsp", "100", "1.2em"));
-                                            } else if (cmbDoctor.getAttribute("sDoctor") != null)
-                                            {
+                                        <%                                            if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals("")) {
+                                                out.println(BAL.Assets.DisplayError("Primero seleccione una especialidad", "NuevaCita.jsp", "100", "1.2em"));
+                                            } else if (cmbDoctor.getAttribute("sDoctor") != null) {
                                                 out.println("<input type='text' class='form-control well' name='cDoctor' value='" + cmbDoctor.getAttribute("sDoctor") + "' readonly >");
-                                            } else
-                                            {
+                                            } else {
                                                 Connection connection3 = cConexion.conectar_ds();
                                                 Statement pst3 = connection3.createStatement();
                                                 String query3 = "SELECT e.idEmpleado as iD,CONCAT( p.pnombrePer,'  ', p.snombrePer, ' ',p.pApellPer ) as Nombre FROM empleado as e, persona as p WHERE e.fkpersona=p.idPersona  and e.fkTipoemple=" + cmbEspecialidad.getAttribute("sEspecialidad");
                                                 ResultSet rs3 = null;
-                                                try
-                                                {
+                                                try {
                                                     rs3 = pst3.executeQuery(query3);
                                                     out.println("<select class='form-control' name='cDoctor' id='cmbDoctor'>");
                                                     out.println("<option></option>");
-                                                    while (rs3.next())
-                                                    {
+                                                    while (rs3.next()) {
                                                         out.println("<option value='" + rs3.getInt("ID") + "'> Dr " + rs3.getString("Nombre") + "</option>");
                                                     }
                                                     out.println("</select>");
-                                                } catch (Exception e)
-                                                {
+                                                } catch (Exception e) {
                                                     System.out.print(e.getMessage());
-                                                } finally
-                                                {
+                                                } finally {
                                                     connection3.close();
                                                     pst3.close();
                                                 }
@@ -145,41 +132,33 @@
                                         <legend><span class="badge">3</span> Fechas:</legend>
                                         <input type="date" id="fechaC" name="fecha" class="form-control" min="01-01-2014" value="2014-07-10" onchange="kk();" >
                                     </div>
-
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <legend><span class="badge">4</span> Horarios Disponibles:</legend>
                                         <%
-                                            if (cmbDoctor.getAttribute("sDoctor") == null || cmbDoctor.getAttribute("sDoctor").equals(""))
-                                            {
-                                                out.println(BAL.Assets.DisplayError("Seleccione un Dr valido", "/Acceso.jsp", "100", "1.2em"));
-                                            } else if (request.getParameter("Horario") != null)
-                                            {
+                                            if (cmbDoctor.getAttribute("sDoctor") == null || cmbDoctor.getAttribute("sDoctor").equals("")) {
+                                                out.println(BAL.Assets.DisplayError("Seleccione un Dr valido", "NuevaCita.jsp", "100", "1.2em"));
+                                            } else if (request.getParameter("Horario") != null) {
                                                 out.println("<input type='text' class='form-control well' name='txtiDHorario' value='" + request.getParameter("Horario") + "' readonly >");
-                                            } else
-                                            {
+                                            } else {
 
                                                 Connection connection = cConexion.conectar_ds();
                                                 Statement pst = connection.createStatement();
                                                 String query = "select DISTINCT(h.horaini) as HorasDisponibles, h.idhorario from  horario as h inner join cita as c on h.idhorario=c.fkhorario where h.fkempleado=" + cmbDoctor.getAttribute("sDoctor") + " order by HorasDisponibles asc";
                                                 ResultSet rs = null;
-                                                try
-                                                {
+                                                try {
                                                     rs = pst.executeQuery(query);
-                                                    out.println("<select class='form-control' id='idHorario' name='Horario'");
+                                                    out.println("<select class='form-control' id='idHorario' name='Horario' onchange='kk3();'");
                                                     out.println("<option></option>");
-                                                    while (rs.next())
-                                                    {
+                                                    while (rs.next()) {
                                                         out.println("<option value='" + rs.getString("idhorario") + "'>" + rs.getString("HorasDisponibles") + "</option>");
                                                     }
                                                     out.println("</select>");
 
-                                                } catch (Exception e)
-                                                {
+                                                } catch (Exception e) {
                                                     System.out.print(e.getMessage());
-                                                } finally
-                                                {
+                                                } finally {
                                                 }
 
                                             }
@@ -198,14 +177,18 @@
                                     </div>
                                 </div>
                                 <script>
-                                    function kk() {
-                                        document.getElementById('txtfecha').value = document.getElementById("fechaC").value;
+            function kk() {
+                document.getElementById('txtfecha').value = document.getElementById("fechaC").value;
 
-                                    }
-                                    function kk2() {
-                                        document.getElementById('txtSMotivo').value = document.getElementById("txtMotivo").value;
+            }
+            function kk2() {
+                document.getElementById('txtSMotivo').value = document.getElementById("txtMotivo").value;
 
-                                    }
+            }
+            function kk3() {
+                document.getElementById('txthorario').value = document.getElementById("idHorario").value;
+
+            }
                                 </script>
                             </form>
                             <div class="col-md-4 well">
@@ -214,8 +197,8 @@
                                     <fieldset>
                                         UIDLOGIN: <input type="text" class="form-control" name="txtLoginID" value="${uidLogin}" readonly>
                                         Dr: <input type="text" name="doctorID" class="form-control" value="<% out.println(request.getParameter("cDoctor"));%>" readonly>
-                                        Horario: <input type="text" name="thorario" class="form-control" value="<% out.println(request.getParameter("Horario"));%>" readonly>
                                         Fecha: <input type="text" id="txtfecha" name="fecha" class="form-control" value="<% request.getParameter("fecha");%>" readonly>
+                                        Horario: <input type="text" id="txthorario" name="thorario" class="form-control" value="<% out.println(request.getParameter("Horario"));%>" readonly>
                                         Motivo: <input type="text" id="txtSMotivo" name="motivo" class="form-control" value="<% request.getParameter("cMotivo");%>" readonly>
                                         <br><br><br>
                                         <input type="submit" name="setC" class="btn btn-primary btn-lg" value="CrearCita"  POST="SUMIT"/>
