@@ -7,8 +7,8 @@
 <%@page import="BAL.CitaMedicoCheck"%>
 <%@page import="SERVLET.Smedico"%>
 <%@page import="org.eclipse.persistence.internal.oxm.schema.model.Include"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="../frementop.jspf" %>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -52,30 +52,34 @@
                     </div>
                     <div class="panel-body">
                         <table>
+
+
+
                             <jsp:useBean id="estado2" scope="request" class="BAL.Bcitamedico" />
                             <c:set var="list" scope="request" value="${estado2.getlistado(uidPaciente)}" />
                             <display:table name="list" export="true" id="fila" class="table table-condensed" pagesize="10">
                                 <display:setProperty name="export.rtf.filename" value="example.rtf" />
-                                <display:column property="idcita" title="Codigo" />
-                                <display:column property="codipaciente" title="Codigopaciente" />
+                                <display:column property="idcita" title="Codigo Cita" />
+                                <display:column property="codipaciente" title="Codigo Paciente" />
                                 <display:column property="motivo" title="Motivo" />
                                 <display:column property="horario" title="Horario" />
                                 <display:column property="paciente" title="Paciente" />
                                 <display:column property="medico" title="Medico" />
                                 <display:setProperty name="export.pdf" value="true" />
                                 <display:column title="Acción">
-                                    <form id="updateCita" method="GET" action="../medico/datosPre.jsp ">
-                                        <input type="hidden" name="codigo" value="${fila.idcita}">
+
+                                    <c:if test="${BAL.CitaMedicoCheck.getExpediente(fila.codipaciente) == 0}">
+                                        <html:link action="/exceptionScoreCardGrandReport.do?zone=${fila.idcita}">
+                                            <b>TIENE ${fila.codipaciente}</b>
+                                        </html:link>
+                                    </c:if>
+                                    <form id="updateCita" method="POST" action="../medico/datosPre.jsp ">
+                                        <input type="text" name="codigoCita" value="${fila.idcita}">
+                                        <input type="text" name="codigoPac" value="${fila.codipaciente}">
                                         <input type="submit" name="action" class="btn btn-link" value="A consulta" POST="SUMIT" />
                                     </form>
                                 </display:column>
                             </display:table>
-                            <%
-                                CitaMedicoCheck ccM = new CitaMedicoCheck();
-
-                                out.println("EL UID MALEFICO: " + request.getParameter("codigo"));
-
-                            %>
                         </table>
                     </div>
                 </div>
