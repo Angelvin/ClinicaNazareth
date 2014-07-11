@@ -10,16 +10,21 @@
 <%
     String route = this.getServletContext().getContextPath() + "/Acceso.jsp";
     String url = response.encodeRedirectURL(route);
-    try {
-        if (request.getSession(false) == null) {
+    try
+    {
+        if (request.getSession(false) == null)
+        {
             //si no hay session, redirecciona a login
             response.sendRedirect(url);
-        } else if (request.getSession().getAttribute("userName").equals("") || request.getSession().getAttribute("uidPaciente").equals("") || request.getSession().getAttribute("uidLogin").equals("")) {
+        } else if (request.getSession().getAttribute("userName").equals("") || request.getSession().getAttribute("uidPaciente").equals("") || request.getSession().getAttribute("uidLogin").equals(""))
+        {
             //si existen sessiiones y hay alguna vacia, redireccionar a login
             response.sendRedirect(url);
-        } else {
+        } else
+        {
         }
-    } catch (java.lang.NullPointerException ex) {
+    } catch (java.lang.NullPointerException ex)
+    {
         response.sendRedirect(url);
     }
 %>
@@ -36,11 +41,6 @@
 
         <script src="../scripts/bootstrap/js/jquery.dataTables.min.js" type="text/javascript"></script>
         <title>Bienvenido Paciente</title>
-        <style>
-            body{background-color: #e9eaed;}
-            .container{background-color: #ffffff;border: solid 1px darkgrey;border-radius: 4px;display: block;margin:auto;padding: 20px;width: 90%;}
-
-        </style>
         <script type="text/javascript">
             $(function() {
                 /* #txt is display table id & employee_search_ class is field id which you want to filter */

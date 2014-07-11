@@ -12,14 +12,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="../scripts/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="../scripts/bootstrap/css/contenido.css" rel="stylesheet">
         <script src="../scripts/jquery.min.js" type="text/javascript"></script>
         <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <title>Bienvenido Paciente</title>
         <style>
-            body{background-color: #eee6ff;}
-            .container{background-color: #ffffff;border: solid 2px darkgrey;border-radius: 4px;display: block;margin:auto;padding: 20px;width: 90%;}
             .badge{background-color:#0088cc;}
         </style>
     </head>
