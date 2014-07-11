@@ -34,10 +34,9 @@ public class CrearExpediente extends HttpServlet {
         int PacienteID = Integer.parseInt(request.getParameter("txtPacienteID"));
         int EmpleadoID = Integer.parseInt(request.getParameter("txtEmpleadoID"));
 
-        out.println("Valores en request: Paciente->" + PacienteID + "Empleado ->" + EmpleadoID);
-
         String InsertExpediente = "INSERT INTO expediente(fkEmpleado, fkpaciente)values(";
         InsertExpediente = InsertExpediente + PacienteID + "," + EmpleadoID + ")";
+
         PreparedStatement pstm;
         Connection cnn = cConexion.conectar_ds();
         int returnVal;
@@ -45,6 +44,7 @@ public class CrearExpediente extends HttpServlet {
         {
             pstm = cnn.prepareStatement(InsertExpediente);
             returnVal = pstm.executeUpdate();
+            out.println("Valores en request: Paciente->" + PacienteID + "Empleado ->" + EmpleadoID);
             out.println(BAL.Assets.DisplayExito("Expediente Creado correctamente :)", "medico/datosPre.jsp", "100", "2em"));
         } catch (SQLException ex)
         {

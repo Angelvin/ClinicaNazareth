@@ -33,7 +33,7 @@
 
                     %>
 
-                    <form action="../CrearExpediente">
+                    <form method="GET" action="../CrearExpediente">
                         Codigo del Paciente:<input type="text" class="form-control" name="txtPacienteID" value="<%= idPaciente%>" disabled>
                         Codigo del Empleado:<input type="text" class="form-control" name="txtEmpleadoID" value="<%= EmpleadoID%>" disabled>
                         <br>
