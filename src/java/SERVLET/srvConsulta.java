@@ -29,6 +29,7 @@ public class srvConsulta extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        //VARIABLES DE SESION QUE TRAEN VALORES DESDE datosPre.jsp
         int idcita = Integer.parseInt(request.getParameter("codigoCita"));
         int idPaciente = Integer.parseInt(request.getParameter("codigoPac"));
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("primerejemploPU");
