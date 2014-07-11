@@ -14,7 +14,7 @@
         <title>Clínica Nazareth</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
-        <meta name="author" content="Angel">
+        <meta name="author" content="Zaid Archila">
         <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="../scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 
@@ -240,7 +240,7 @@
                                                     <input  name="codigoC" type="hidden" value="<%=list.getIdpaciente()%>" id="codigoC">
 
 
-                                                    <label name="lblApellido" > Correo </label><input name="txtCorreo" type="email"  size="20" />
+                                                    <label name="lblApellido" > Correo </label><input name="txtCorreo" type="email" size="20" />
                                                     <label name="lblApellido" > Motivo </label><input name="txtMotivo"  size="20" />
                                                 </div>
                                             </div>
@@ -252,7 +252,7 @@
                                     </div>
 
 
-                                    <input type="submit" name="cmdguardar" class="btn btn-link" value="Confirmar" POST="SUMIT"/>
+                                    <input type="submit" name="cmdguardar" class="btn btn-link" value="Crear" POST="SUMIT"/>
 
                                 </form>
 

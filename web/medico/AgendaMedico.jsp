@@ -7,8 +7,7 @@
     <title>Clinica Nazareth</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="Angel Alvarado">
-
+    <meta name="author" content="Marlon">
     <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../scripts/bootstrap/css/contenido.css" rel="stylesheet">
     <script src="../scripts/jquery.min.js" type="text/javascript"></script>

@@ -87,15 +87,8 @@
                                             <display:column property="apellido" title="Apellido" />
                                             <display:setProperty name="export.pdf" value="true" />
                                             <display:column title="Editar">
-                                                <form id="editPaciente" method="GET" action="../FrmSecretaria/editPaciente.jsp ">
-                                                    <input type="hidden" name="codigo" value="${fila.codigo}">
-                                                    <input type="hidden" name="cmdEdit" class="btn btn-link" value="Modificar" POST="SUMIT" />
-                                                </form>
-                                                <form id="updateCita" method="GET" action="../FrmSecretaria/editPaciente.jsp?">
-                                                    <input type="hidden" name="codigo" value="${fila.codigo}">
-                                                    <input type="submit" name="action" class="btn btn-link" value="EditarPaciente" POST="SUMIT" />
-                                                </form>
-                                                <form id="updateCita" method="GET" action="../FrmSecretaria/Agpaciente.jsp ">
+
+                                                <form id="updateCita" method="GET" action="../medico/Agpacientemedi.jsp ">
                                                     <input type="hidden" name="codigo" value="${fila.codigo}">
                                                     <input type="submit" name="action" class="btn btn-link" value="Crear Cita" POST="SUMIT" />
                                                 </form>

@@ -7,7 +7,7 @@
         <title>Clinica Nazareth</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
-        <meta name="author" content="Zaid Archila">
+        <meta name="author" content="Angel">
         <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="../scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 
@@ -65,16 +65,16 @@
 
 
             <div class="col-xs-12 col-sm-6 col-md-12">
+                <jsp:include page="menu.jsp"></jsp:include>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
 
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
 
+                        </div>
+                        <div class="panel-body">
 
-                    </div>
-                    <div class="panel-body">
-
-                        <div class="panel panel-default">
-                            <div class="panel-body">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
 
                                 <jsp:useBean id="listaM" scope="request" class="BAL.listaMedicamento" />
 
