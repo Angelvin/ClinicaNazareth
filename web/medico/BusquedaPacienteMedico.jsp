@@ -91,7 +91,7 @@
                                                     <input type="hidden" name="codigo" value="${fila.codigo}">
                                                     <input type="hidden" name="cmdEdit" class="btn btn-link" value="Modificar" POST="SUMIT" />
                                                 </form>
-                                                <form id="updateCita" method="GET" action="../medico/ConsultaMedico.jsp?">
+                                                <form id="updateCita" method="GET" action="../medico/CitaMedico.jsp?">
                                                     <input type="hidden" name="codigo" value="${fila.codigo}">
                                                     <input type="submit" name="action" class="btn btn-link" value="A Consulta" POST="SUMIT" />
                                                 </form>
