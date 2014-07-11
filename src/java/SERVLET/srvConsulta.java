@@ -30,8 +30,10 @@ public class srvConsulta extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         //VARIABLES DE SESION QUE TRAEN VALORES DESDE datosPre.jsp
-        int idcita = Integer.parseInt(request.getParameter("codigoCita"));
-        int idPaciente = Integer.parseInt(request.getParameter("codigoPac"));
+        HttpSession session = request.getSession(true);
+        int idcita = (Integer) session.getAttribute("sCitaID");
+        int idPaciente = (Integer) session.getAttribute("sPacienteID");
+
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("primerejemploPU");
         EntityManager em = emf.createEntityManager();
         try
@@ -47,7 +49,8 @@ public class srvConsulta extends HttpServlet {
             consul.setExamenes(request.getParameter("txtexamen"));
             consul.setSintomasConsulta(request.getParameter("txtsintomas"));
             consul.setFkcita(em.find(Cita.class, Integer.parseInt(request.getParameter(""))));
-            consul.setFkDetMedTrata(DetalleMedicina.class, Integer.parseInt(request.getParameter()));
+            consul.setFkDetMedTrata(null);
+//consul.setFkDetMedTrata(em.find(DetalleMedicina.class, Integer.parseInt(request.getParameter()));
 
             //agrega consulta
             em.getTransaction().begin();
