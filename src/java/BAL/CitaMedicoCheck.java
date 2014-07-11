@@ -15,6 +15,16 @@ import java.sql.*;
  */
 public class CitaMedicoCheck {
 
+    public int getExpediente;
+
+    public int getGetExpediente() {
+        return getExpediente;
+    }
+
+    public void setGetExpediente(int getExpediente) {
+        this.getExpediente = getExpediente;
+    }
+
     public static int getExpediente(int valor) {
         int num = 0;
         try
@@ -28,9 +38,11 @@ public class CitaMedicoCheck {
             rset = sta.executeQuery();
             while (rset.next())
             {
+                CitaMedicoCheck cmc = new CitaMedicoCheck();
                 num = Integer.parseInt(rset.getString("expediente"));
+                cmc.setGetExpediente(num);
             }
-            if (num == 0)
+            if (num > 0)
             {
             } else
             {
@@ -40,7 +52,7 @@ public class CitaMedicoCheck {
             // out.println(ex.getMessage());
         }
 
-        return 0;
+        return num;
     }
 
 }
