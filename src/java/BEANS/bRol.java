@@ -19,7 +19,7 @@ public class bRol extends cConexion {
     public static ResultSet getRol() {
         ResultSet rs = null;
         try {
-            String sql = "select * from rol";
+            String sql = "select * from rol where idRol>1";
             pst = conectar_ds().prepareStatement(sql);
             rs = pst.executeQuery();
         } catch (Exception e) {

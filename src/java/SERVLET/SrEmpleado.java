@@ -60,21 +60,18 @@ public class SrEmpleado extends HttpServlet {
             //insertando Login
             String usu = request.getParameter("txtUsu");
             String contra = request.getParameter("txtContra");
+            String rol = request.getParameter("txtrol");
 
 
-            if (usu.equals("")) {
-                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
-            } else if (contra.equals("")) {
-                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
-            } else {
-                lg.setUsuLogin(usu);
-                lg.setPassLogin(contra);
-                lg.setFkRol(em.find(Rol.class, 2));
 
-                em.getTransaction().begin();
-                em.persist(lg);
-                em.getTransaction().commit();
-            }
+            lg.setUsuLogin(usu);
+            lg.setPassLogin(contra);
+            lg.setFkRol(em.find(Rol.class, Integer.parseInt(rol)));
+
+            em.getTransaction().begin();
+            em.persist(lg);
+            em.getTransaction().commit();
+
 
             //para insertar persona
             String nombre = request.getParameter("txtPNombre");
@@ -83,68 +80,47 @@ public class SrEmpleado extends HttpServlet {
             String sapellido = request.getParameter("txtSApe");
             String fechan = request.getParameter("txtfecha");
             String genero = request.getParameter("comboSex");
-            if (nombre.equals("")) {
-                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
-            } else if (snombre.equals("")) {
-                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
-            } else if (apellido.equals("")) {
-                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
-            } else if (sapellido.equals("")) {
-                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
-            } else if (fechan.equals("")) {
-                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
-            } else if (genero.equals("")) {
-                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
-            } else {
 
 
-                pr.setPnombrePer(nombre);
-                pr.setSnombrePer(snombre);
-                pr.setPApellPer(apellido);
-                pr.setSApellPer(sapellido);
-                pr.setFechaNacPer(Date.valueOf(fechan));
-                pr.setSexo(genero);
-                pr.setIglesia("");
-                pr.setFkLogin(em.find(Login.class, lg.getIdLogin()));
 
-                em.getTransaction().begin();
-                em.persist(pr);
-                em.getTransaction().commit();
-            }
+            pr.setPnombrePer(nombre);
+            pr.setSnombrePer(snombre);
+            pr.setPApellPer(apellido);
+            pr.setSApellPer(sapellido);
+            pr.setFechaNacPer(Date.valueOf(fechan));
+            pr.setSexo(genero);
+            pr.setIglesia("");
+            pr.setFkLogin(em.find(Login.class, lg.getIdLogin()));
+
+            em.getTransaction().begin();
+            em.persist(pr);
+            em.getTransaction().commit();
+
             //insertando correo
             String correo = request.getParameter("txtCorreo");
             String tipoc = request.getParameter("comboTipoCorreo");
-            if (correo.equals("")) {
-                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
-            } else if (tipoc.equals("")) {
-                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
-            } else {
 
-                cr.setCorreo(correo);
-                cr.setTipo(tipoc);
-                cr.setFkPersona(em.find(Persona.class, pr.getIdPersona()));
+            cr.setCorreo(correo);
+            cr.setTipo(tipoc);
+            cr.setFkPersona(em.find(Persona.class, pr.getIdPersona()));
 
 
-                em.getTransaction().begin();
-                em.persist(cr);
-                em.getTransaction().commit();
-            }
+            em.getTransaction().begin();
+            em.persist(cr);
+            em.getTransaction().commit();
+
             String cel = request.getParameter("txtCel");
             String tipocel = request.getParameter("comboTipoCel");
             //Insertando telefono
-            if (cel.equals("")) {
-                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
-            } else if (tipocel.equals("")) {
-                out.println(Assets.DisplayExito("Debe de llenar todos los Cambos", "/ClinicaNazareth/FrmSecretaria/RegistroP.jsp", "80", "1em"));
-            } else {
-                tl.setNumero(cel);
-                tl.setTipo(tipocel);
-                tl.setIdPerson(em.find(Persona.class, pr.getIdPersona()));
 
-                em.getTransaction().begin();
-                em.persist(tl);
-                em.getTransaction().commit();
-            }
+            tl.setNumero(cel);
+            tl.setTipo(tipocel);
+            tl.setIdPerson(em.find(Persona.class, pr.getIdPersona()));
+
+            em.getTransaction().begin();
+            em.persist(tl);
+            em.getTransaction().commit();
+
             //insertando empleado
             String cargo = request.getParameter("comboCargo");
             String tiemp = request.getParameter("comboTipoE");
@@ -187,11 +163,11 @@ public class SrEmpleado extends HttpServlet {
                 em.persist(docu);
                 em.getTransaction().commit();
             }
-
+            out.println(Assets.DisplayExito("Nuevo empleado creado", "/FrmSecretaria/RegistroP.jsp", "80", "1em"));
         } finally {
             out.close();
         }
-        out.println(Assets.DisplayExito("Nuevo empleado creado", "/FrmSecretaria/RegistroP.jsp", "80", "1em"));
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
