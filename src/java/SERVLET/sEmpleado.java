@@ -39,7 +39,7 @@ public class sEmpleado extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        
         PrintWriter out = response.getWriter();
         String rol = request.getParameter("txtrol");
         String usuario = request.getParameter("txtUsu");
@@ -66,41 +66,83 @@ public class sEmpleado extends HttpServlet {
 
 
         /*if (tipo.equals("Guardar")){*/
+        
         try {
-            Connection cnn = cConexion.conectar_ds();
-            CallableStatement pst = cnn.prepareCall(registrarusuario.registroEmpleado);
-
-
-            pst.setInt(1, Integer.parseInt(rol));
-            pst.setString(2, usuario);
-            pst.setString(3, contra);
-            pst.setString(4, nombre);
-            pst.setString(5, sNombre);
-            pst.setString(6, pApe);
-            pst.setString(7, sApe);
-            pst.setDate(8, Date.valueOf(fecha));
-            pst.setString(9, sexo);
-            pst.setString(10, docu);
-            pst.setString(11, TipoDocu);
-            pst.setString(12, cel);
-            pst.setString(13, tipoCel);
-            pst.setString(14, calle);
-            pst.setString(15, casa);
-            pst.setInt(16, Integer.parseInt(muni));
-            pst.setString(17, correo);
-            pst.setString(18, TipoCorreo);
-            pst.setInt(19, Integer.parseInt(cargo));
-            pst.setInt(20, Integer.parseInt(tipoEmp));
-            pst.executeUpdate();
-            out.println(DisplayEnvio());
-
+            if (rol.equals("3")) {
+                
+                Connection cnn = cConexion.conectar_ds();
+                CallableStatement pst = cnn.prepareCall(registrarusuario.empleado);
+                
+                if (cargo.equals("1")) {
+                    out.print("se se perimiete inserta medico en rol administrativa");
+                } else {
+                    pst.setInt(1, Integer.parseInt(rol));
+                    pst.setString(2, usuario);
+                    pst.setString(3, contra);
+                    pst.setString(4, nombre);
+                    pst.setString(5, sNombre);
+                    pst.setString(6, pApe);
+                    pst.setString(7, sApe);
+                    pst.setDate(8, Date.valueOf(fecha));
+                    pst.setString(9, sexo);
+                    pst.setString(10, docu);
+                    pst.setString(11, TipoDocu);
+                    pst.setString(12, cel);
+                    pst.setString(13, tipoCel);
+                    pst.setString(14, calle);
+                    pst.setString(15, casa);
+                    pst.setInt(16, Integer.parseInt(muni));
+                    pst.setString(17, correo);
+                    pst.setString(18, TipoCorreo);
+                    pst.setInt(19, Integer.parseInt(cargo));
+                    pst.executeUpdate();
+                    out.println(DisplayEnvio());
+                }
+            } else if (rol.equals("2")) {
+                
+                
+                Connection cnn = cConexion.conectar_ds();
+                CallableStatement pst = cnn.prepareCall(registrarusuario.registroEmpleado);
+                
+                
+                pst.setInt(1, Integer.parseInt(rol));
+                pst.setString(2, usuario);
+                pst.setString(3, contra);
+                pst.setString(4, nombre);
+                pst.setString(5, sNombre);
+                pst.setString(6, pApe);
+                pst.setString(7, sApe);
+                pst.setDate(8, Date.valueOf(fecha));
+                pst.setString(9, sexo);
+                pst.setString(10, docu);
+                pst.setString(11, TipoDocu);
+                pst.setString(12, cel);
+                pst.setString(13, tipoCel);
+                pst.setString(14, calle);
+                pst.setString(15, casa);
+                pst.setInt(16, Integer.parseInt(muni));
+                pst.setString(17, correo);
+                pst.setString(18, TipoCorreo);
+                pst.setInt(19, Integer.parseInt(cargo));
+                pst.setInt(20, Integer.parseInt(tipoEmp));
+                pst.executeUpdate();
+                out.println(DisplayEnvio());
+                
+                
+                
+                
+                
+            }
+            
+            
+            
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
-
+        
+        
     }
-
+    
     private String DisplayEnvio() {
         //METODO QUE RETORNA UN ERROR CON FORMATO(BOOTSTRAP)
         String error = "<link href=\"scripts/bootstrap/css/bootstrap.css\" rel=\"stylesheet\"><style> #login{font-size:2em; width: 60%;margin:auto;margin-top:50px; }</style><div id='login' class='alert alert-success'>'Se creo un nuevo empleado'<br><a href='/ClinicaNazareth/FrmSecretaria/RegistroP.jsp'>Regresar</a></div>";
