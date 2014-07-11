@@ -9,20 +9,15 @@
         <meta name="description" content="">
         <meta name="author" content="Zaid Archila">
         <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
         <link href="../styles/custom.css" rel="stylesheet" type="text/css" />
-
-
+        <script src="../scripts/jquery.min.js" type="text/javascript"></script>
+        <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     </head>
     <body id="pageBody">
-
         <div id="divBoxed" class="container">
-
             <div class="divPanel notop nobottom">
                 <div class="row-fluid">
                     <div class="span12">
-
-
                         <!--Edit Site Name and Slogan here-->
                         <div id="divLogo">
                             <a href="index.html" id="divSiteTitle">Clinica Nazareth</a><br />
@@ -51,13 +46,19 @@
                         int idcita = Integer.parseInt(request.getParameter("codigoCita"));
                         int idPaciente = Integer.parseInt(request.getParameter("codigoPac"));
 
+                        HttpSession sCitaID = request.getSession();
+                        sCitaID.setAttribute("sCitaID", idcita);
+
+                        HttpSession sPacienteID = request.getSession();
+                        sPacienteID.setAttribute("sPacienteID", idPaciente);
+
                         int idExpediente = BAL.CitaMedicoCheck.getExpediente(idPaciente);
                         if (idExpediente > 0)
                         {
                             out.println("EL EXPEDIENTE:" + idExpediente);
                         } else
                         {
-                            out.println("Este paciente no posee expediente <a class='btn btn-primary' href='CrearExpedienre.jsp'>Clic para crear EXPEDIENTE</a><br>");
+                            out.println("Este paciente no posee expediente <a class='btn btn-primary' href='CrearExpediente.jsp'>Clic para crear EXPEDIENTE</a><br>");
                         }
                         out.println("UID CITA: " + idcita + " UID PAC:" + idPaciente);
 
@@ -141,7 +142,6 @@
 
         <br /><br /><br />
 
-        <script src="../scripts/jquery.min.js" type="text/javascript"></script>
-        <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
     </body>
 </html>
