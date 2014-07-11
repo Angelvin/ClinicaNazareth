@@ -63,7 +63,7 @@ public class cConsulta extends HttpServlet {
             } else if (tipo.equals("Confirmar")) {
                 try {
                     psta = cnn.prepareStatement(beanCita.Consulta);
-                    psta.setString(1, "Confirmar");
+                    psta.setString(1, "confirmado");
                     psta.setInt(2, codigo);
                     psta.executeUpdate();
                     out.println(DisplayError("Estado de cita confirmada...", "/ClinicaNazareth/FrmSecretaria/indexSecre.jsp"));
