@@ -78,7 +78,7 @@ public class srvSession extends HttpServlet {
                     Assets.RedirectToUrl("/Paciente/Perfil.jsp", response);
                 } else if (id_rol == 2) {
                     //ROL ASGINADO A MEDICO
-                    Assets.RedirectToUrl("/medico/CitaMedico.jsp", response);
+                    Assets.RedirectToUrl("/medico/indexmedico.jsp", response);
                 } else if (id_rol == 3) {
                     //ROL ASIGNADO A SECRETARIA
                     Assets.RedirectToUrl("/FrmSecretaria/indexSecre.jsp", response);
