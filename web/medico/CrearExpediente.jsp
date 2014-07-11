@@ -20,28 +20,27 @@
         </style>
     </head>
     <body>
-        <div class="container">
-            <div class="panel panel-primary">
-                <div class="panel panel-body">
+        <div class="row">
+            <div class="col-md-8 col-lg-offset-2 panel panel-default">
+                <div class='panel'>
+                    <h1>Confirmar creacion de expediente</h1>
+                    <%
+                        int idcita = (Integer) session.getAttribute("sCitaID");
+                        int idPaciente = (Integer) session.getAttribute("sPacienteID");
+                        int empleado = (Integer) session.getAttribute("uidLogin");
+                        int EmpleadoID = BAL.CitaMedicoCheck.getEmpleadoID(empleado);
+                        //out.println("<br>UID CITA: " + idcita + "<br> UID PAC:" + idPaciente + "<br>IDEMPLEADO: " + EmpleadoID);
 
-                    <div class="col-md-8 col-lg-offset-2">
-                        <h1>Confirmacion para la creacion de expedinte</h1>
-                        <%
-                            int idcita = (Integer) session.getAttribute("sCitaID");
-                            int idPaciente = (Integer) session.getAttribute("sPacienteID");
-                            int empleado = (Integer) session.getAttribute("uidLogin");
-                            int EmpleadoID = BAL.CitaMedicoCheck.getEmpleadoID(empleado);
-                            //out.println("<br>UID CITA: " + idcita + "<br> UID PAC:" + idPaciente + "<br>IDEMPLEADO: " + EmpleadoID);
+                    %>
 
-                        %>
-
-                        <form action="../CrearExpediente">
-                            Codigo del Paciente:<input type="text" class="form-control" name="txtPacienteID" value="<%= idPaciente%>" disabled>
-                            Codigo del Empleado:<input type="text" class="form-control" name="txtEmpleadoID" value="<%= EmpleadoID%>" disabled>
-                            <br>
-                            <input type="submit" class="btn btn-primary btn-block" value="Crear Expediente">
-                        </form>
-                    </div>
+                    <form action="../CrearExpediente">
+                        Codigo del Paciente:<input type="text" class="form-control" name="txtPacienteID" value="<%= idPaciente%>" disabled>
+                        Codigo del Empleado:<input type="text" class="form-control" name="txtEmpleadoID" value="<%= EmpleadoID%>" disabled>
+                        <br>
+                        <input type="submit" class="btn btn-primary btn-block" value="Crear Expediente">
+                        <br>
+                        <br>
+                    </form>
                 </div>
             </div>
         </div>
