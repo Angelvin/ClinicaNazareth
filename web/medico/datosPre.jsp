@@ -9,26 +9,8 @@
         <meta name="description" content="">
         <meta name="author" content="Zaid Archila">
         <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 
-        <!-- Icons -->
-        <link href="../scripts/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css" />  
-        <link href="../scripts/icons/social/stylesheets/social_foundicons.css" media="screen" rel="stylesheet" type="text/css" />
-        <!--[if lt IE 8]>
-            <link href="scripts/icons/general/stylesheets/general_foundicons_ie7.css" media="screen" rel="stylesheet" type="text/css" />
-            <link href="scripts/icons/social/stylesheets/social_foundicons_ie7.css" media="screen" rel="stylesheet" type="text/css" />
-        <![endif]-->
-        <link rel="stylesheet" href="../scripts/fontawesome/css/font-awesome.min.css">
-        <!--[if IE 7]>
-            <link rel="stylesheet" href="scripts/fontawesome/css/font-awesome-ie7.min.css">
-        <![endif]-->
-
-        <link href="../scripts/carousel/style.css" rel="stylesheet" type="text/css" /><link href="../scripts/camera/css/camera.css" rel="stylesheet" type="text/css" />
-        <link href="../scripts/wookmark/css/style.css" rel="stylesheet" type="text/css" />  <link href="../scripts/yoxview/yoxview.css" rel="stylesheet" type="text/css" />
-
-
-
-        <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
+        <link href="../styles/custom.css" rel="stylesheet" type="text/css" />
 
 
     </head>
@@ -36,11 +18,9 @@
 
         <div id="divBoxed" class="container">
 
-            <div class="transparent-bg" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: -1;zoom: 1;"></div>
-
             <div class="divPanel notop nobottom">
                 <div class="row-fluid">
-                    <div class="span12">    
+                    <div class="span12">
 
 
                         <!--Edit Site Name and Slogan here-->
@@ -50,74 +30,92 @@
                         </div>
 
                     </div>
-                </div> 
+                </div>
 
                 <div class="row-fluid">
                     <div class="span12">
                     </div>
                 </div>
             </div>
-            <!--DENTRO DE ESTE DIV CREAR EL FROMULARIO FAVOR NO UTILZAR 
-                TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE 
+            <!--DENTRO DE ESTE DIV CREAR EL FROMULARIO FAVOR NO UTILZAR
+                TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE
                 PUEDA VERSE EN CUALQUEIR TAMAÃ‘O
             -->
 
 
 
             <div class="col-xs-12 col-sm-6 col-md-12">
-              
+
+                <div class="panel panel-primary">
+                    <%
+                        int idcita = Integer.parseInt(request.getParameter("codigoCita"));
+                        int idPaciente = Integer.parseInt(request.getParameter("codigoPac"));
+
+                        int idExpediente = BAL.CitaMedicoCheck.getExpediente(idPaciente);
+                        if (idExpediente > 0)
+                        {
+                            out.println("EL EXPEDIENTE:" + idExpediente);
+                        } else
+                        {
+                            out.println("Este paciente no posee expediente <a class='btn btn-primary' href='CrearExpedienre.jsp'>Clic para crear EXPEDIENTE</a><br>");
+                        }
+                        out.println("UID CITA: " + idcita + " UID PAC:" + idPaciente);
+
+                    %>
+
+                </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
 
 
                     </div>
                     <div class="panel-body">
-                        
-<div class="panel panel-default">
-  <div class="panel-body">
-  <form method="post" action="../s???">
-<div class="row">
-  <div class="col-md-6"><label>Peso</label><input name="txtpeso" id="txtpeso" class="form-control"  placeholder="en numero"  required></div>
-  <div class="col-md-6"><label>Temperatura</label><input name="txttemperatura" id="txttemperatura" class="form-control"  placeholder="en numero" pattern="[a-z]" required></div>
-</div>
-  </div>
-</div>
-<div class="panel panel-default">
-  <div class="panel-body">
-<div class="row">
-  <div class="col-md-6"><label>Tension Arterial</label><input name="txttensionarterial" id="txttensionarterial" class="form-control"  placeholder="en numero " pattern="[a-z]" required></div>
-  <div class="col-md-6"><label>Causa de Cosulta</label><textarea name="txtconsultapor" id="txtconsultapor" placeholder="texto" placeholder="motivos  "  class="form-control" rows="3"></textarea></div>
-</div>
-  </div>
-</div>
-<div class="panel panel-default">
-  <div class="panel-body">
-<div class="row">
-  <div class="col-md-6"><label>Pulso</label><input name="txtpulso" id="txtpulso" class="form-control"  placeholder="en numero" pattern="[a-z]" required></div>
-  <div class="col-md-6"><label>Tipo Consulta</label><input name="txttipoconsulta" id="txttipoconsulta" class="form-control"  placeholder="texto" pattern="[a-z]" required></div>
-</div>
-  </div>
-</div>
-<div class="panel panel-default">
-  <div class="panel-body">
-<div class="row">
-  <div class="col-md-6"><label>Examenes</label><input name="txtexamen" id="txtexamen" class="form-control"  placeholder="examenes recomendados" pattern="[a-z]" required></div>
-  <div class="col-md-6"><label>Sintomas </label><textarea name="txtsintomas" id="txtsintomas" placeholder="texto" class="form-control" rows="3"></textarea>
-  </div>
-</div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4"><input name="cmdguardar"  class="btn btn-lg btn-primary" disabled="disabled" type="submit" id="cmdguardar" value="Guardar"></div>
-  <div class="col-md-4"></div>
-</div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <form method="post" action="../s???">
+                                    <div class="row">
+                                        <div class="col-md-6"><label>Peso</label><input name="txtpeso" id="txtpeso" class="form-control"  placeholder="en numero"  required></div>
+                                        <div class="col-md-6"><label>Temperatura</label><input name="txttemperatura" id="txttemperatura" class="form-control"  placeholder="en numero" pattern="[a-z]" required></div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-6"><label>Tension Arterial</label><input name="txttensionarterial" id="txttensionarterial" class="form-control"  placeholder="en numero " pattern="[a-z]" required></div>
+                                    <div class="col-md-6"><label>Causa de Cosulta</label><textarea name="txtconsultapor" id="txtconsultapor" placeholder="texto" placeholder="motivos  "  class="form-control" rows="3"></textarea></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-6"><label>Pulso</label><input name="txtpulso" id="txtpulso" class="form-control"  placeholder="en numero" pattern="[a-z]" required></div>
+                                    <div class="col-md-6"><label>Tipo Consulta</label><input name="txttipoconsulta" id="txttipoconsulta" class="form-control"  placeholder="texto" pattern="[a-z]" required></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-6"><label>Examenes</label><input name="txtexamen" id="txtexamen" class="form-control"  placeholder="examenes recomendados" pattern="[a-z]" required></div>
+                                    <div class="col-md-6"><label>Sintomas </label><textarea name="txtsintomas" id="txtsintomas" placeholder="texto" class="form-control" rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4"><input name="cmdguardar"  class="btn btn-lg btn-primary" disabled="disabled" type="submit" id="cmdguardar" value="Guardar"></div>
+                            <div class="col-md-4"></div>
+                        </div>
 
 
 
-</form>
+                        </form>
                     </div>
-                 
+
 
                 </div>
             </div>
@@ -130,7 +128,7 @@
             <div class="divPanel"><br /><br />
                 <div class="row-fluid">
                     <div class="span12">
-                        <p class="copyright"> 
+                        <p class="copyright">
                             Copyright © 2014 Clinica Nazareth. All Rights Reserved.
                         </p>
 
@@ -143,7 +141,7 @@
 
         <br /><br /><br />
 
-        <script src="../scripts/jquery.min.js" type="text/javascript"></script> 
+        <script src="../scripts/jquery.min.js" type="text/javascript"></script>
         <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="../scripts/default.js" type="text/javascript"></script>
 
