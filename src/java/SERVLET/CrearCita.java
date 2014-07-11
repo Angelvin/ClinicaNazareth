@@ -34,53 +34,56 @@ public class CrearCita extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-        try {
+
+        if (request.getParameter("fecha") == null || request.getParameter("thorario") == null || request.getParameter("motivo") == null || request.getParameter("txtLoginID") == null) {
+            out.println(BAL.Assets.DisplayError("No se admiten parametros nulos", "Paciente/NuevaCita.jsp", "100", "2em"));
+        } else {
+            try {
+                PreparedStatement pstm;
+                Date date = Date.valueOf(request.getParameter("fecha"));
+                int horario = Integer.parseInt(request.getParameter("thorario"));
+
+                Connection cnn = cConexion.conectar_ds();
+                int val = 0;
+
+                ResultSet rset = null;
+                PreparedStatement sta;
+                sta = cnn.prepareStatement(beanCita.validaCitapaciente);
+                sta.setDate(1, date);
+                sta.setInt(2, horario);
 
 
-            PreparedStatement pstm;
-            Date date = Date.valueOf(request.getParameter("fecha"));
-            int horario = Integer.parseInt(request.getParameter("thorario"));
+                rset = sta.executeQuery();
+                while (rset.next()) {
+                    val = Integer.parseInt(rset.getString("idCita"));
 
-            Connection cnn = cConexion.conectar_ds();
-            int val = 0;
+                }
 
-            ResultSet rset = null;
-            PreparedStatement sta;
-            sta = cnn.prepareStatement(beanCita.validaCitapaciente);
-            sta.setDate(1, date);
-            sta.setInt(2, horario);
+                if (val == 0) {
+                    pstm = cnn.prepareStatement(BEANS.beanCita.CrearCita);
 
-
-            rset = sta.executeQuery();
-            while (rset.next()) {
-                val = Integer.parseInt(rset.getString("idCita"));
+                    pstm.setDate(1, Date.valueOf(request.getParameter("fecha")));
+                    pstm.setString(2, "algunCorreo@correo.com");
+                    pstm.setInt(3, Integer.parseInt(request.getParameter("thorario")));
+                    pstm.setString(4, request.getParameter("motivo"));
+                    pstm.setInt(5, Integer.parseInt(request.getParameter("txtLoginID")));
+                    pstm.executeUpdate();
+                    out.println(BAL.Assets.DisplayExito("Cita creada correctamente :)", "Paciente/Perfil.jsp", "100", "2em"));
+                } else {
+                    out.println("nose puede");
+                }
+                rset.close();
+                sta.close();
+                cnn.close();
+            } catch (SQLException ex) {
+                System.out.println("El inserte se rompio en: " + ex.getMessage());
+            } finally {
+                Logger.getLogger(CrearCita.class.getName()).log(Level.FINEST, "Loking for a bug: ");
+                out.close();
 
             }
-
-            if (val == 0) {
-                pstm = cnn.prepareStatement(BEANS.beanCita.CrearCita);
-
-                pstm.setDate(1, Date.valueOf(request.getParameter("fecha")));
-                pstm.setString(2, "algunCorreo@correo.com");
-                pstm.setInt(3, Integer.parseInt(request.getParameter("thorario")));
-                pstm.setString(4, request.getParameter("motivo"));
-                pstm.setInt(5, Integer.parseInt(request.getParameter("txtLoginID")));
-                pstm.executeUpdate();
-                out.println(BAL.Assets.DisplayExito("Cita creada correctamente :)", "Paciente/Perfil.jsp", "100", "2em"));
-            } else {
-                out.println("nose puede");
-            }
-            rset.close();
-            sta.close();
-            cnn.close();
-        } catch (SQLException ex) {
-            System.out.println("El inserte se rompio en: " + ex.getMessage());
-        } finally {
-            Logger.getLogger(CrearCita.class.getName()).log(Level.FINEST, "Loking for a bug: ");
-            out.close();
 
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
