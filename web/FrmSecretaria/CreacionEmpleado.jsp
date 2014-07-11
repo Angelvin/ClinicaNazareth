@@ -1,3 +1,4 @@
+<%@page import="BEANS.Bfecha"%>
 <%@page import="librebeans.municipio"%>
 <%@page import="BEANS.btempleado"%>
 <%@page import="BEANS.bCargo"%>
@@ -52,7 +53,9 @@
             <div class="divPanel notop nobottom">
                 <div class="row-fluid">
                     <div class="span12">  
-
+                        <%
+                            Bfecha f = Bfecha.getFecha();
+                        %>
 
                         <!--Edit Site Name and Slogan here-->
                         <div id="divLogo">
@@ -151,7 +154,7 @@
                                         <div class="col-md-6"><label>Segundo Apellido</label><input name="txtSApe"id="txtSApe"  class="form-control" placeholder="apellido"   required></div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6"><label>fecha nacimiento</label> <input  name="txtfecha" type="date" id="txtfecha" class="form-control" required />
+                                        <div class="col-md-6"><label>fecha nacimiento</label> <input  name="txtfecha" max="<%=f.getFechalo()%>" type="date" id="txtfecha" class="form-control" required />
                                             <a>La fecha debe ser menor que la actual</a>
                                         </div>
                                         <div class="col-md-6"><label >genero </label><SELECT class="form-control" NAME="comboSex" id="comboSex" SIZE=1> 
