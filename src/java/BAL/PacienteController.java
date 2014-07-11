@@ -6,6 +6,7 @@ package BAL;
 
 import DAL.cConexion;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -21,6 +22,15 @@ public class PacienteController {
     private int idCita;
     private String motivo;
     private String estadoCita;
+    private Date fechaCita;
+
+    public Date getFechaCita() {
+        return fechaCita;
+    }
+
+    public void setFechaCita(Date fechaCita) {
+        this.fechaCita = fechaCita;
+    }
 
     public int getIdCita() {
         return idCita;
@@ -49,7 +59,7 @@ public class PacienteController {
      *
      * @param
      */
-    public static String TodasByIdPaciente = "select idCita, motivo, estadoCita from cita as c inner join paciente as paci on paci.idPaciente=c.fkPaciente inner join persona as p on p.idPersona=paci.fkpersona inner join login as lo on lo.idLogin=p.fkLogin where c.estadoCita='espera' and lo.idLogin=";
+    public static String TodasByIdPaciente = "select idCita, motivo,fechaCita, estadoCita from cita as c inner join paciente as paci on paci.idPaciente=c.fkPaciente inner join persona as p on p.idPersona=paci.fkpersona inner join login as lo on lo.idLogin=p.fkLogin where c.estadoCita='espera' and lo.idLogin=";
 
     public List<PacienteController> getListado(Integer queryParam) {
         String query = TodasByIdPaciente + Integer.toString(queryParam);
@@ -64,6 +74,7 @@ public class PacienteController {
                 PacienteController pc = new PacienteController();
                 pc.setIdCita(rs.getInt("idCita"));
                 pc.setMotivo(rs.getString("motivo"));
+                pc.setFechaCita(rs.getDate("fechaCita"));
                 pc.setEstadoCita(rs.getString("estadoCita"));
                 lista.add(pc);
             }
