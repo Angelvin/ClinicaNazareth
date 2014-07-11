@@ -18,14 +18,8 @@ import java.util.List;
  */
 public class CBusquedaAgendaMedico {
 
-    public static String busq = "select (paciente.idPaciente) as codigo, concat(persona.pnombrePer,' ',persona.snombrePer) as nombre,concat(persona.pApellPer,' ',persona.sApellPer) as apellido\n" +
-"  from cita inner join paciente on cita.fkPaciente=paciente.idPaciente inner join persona on paciente.fkpersona=persona.idPersona inner join login on login.idLogin=persona.fkLogin\n" +
-"				\n" +
-"  where cita.estadoCita=confirmado";
-    public static String busq2 = "select (paciente.idPaciente) as codigo, concat(persona.pnombrePer,' ',persona.snombrePer) as nombre,concat(persona.pApellPer,' ',persona.sApellPer) as apellido\n" +
-"  from cita inner join paciente on cita.fkPaciente=paciente.idPaciente inner join persona on paciente.fkpersona=persona.idPersona inner join login on login.idLogin=persona.fkLogin\n" +
-"				\n" +
-"  where cita.estadoCita=confirmado";
+    public static String busq = "select (paciente.idPaciente) as codigo, concat(persona.pnombrePer,' ',persona.snombrePer) as nombre,concat(persona.pApellPer,' ',persona.sApellPer) as apellido from cita inner join paciente on cita.fkPaciente=paciente.idPaciente inner join persona on paciente.fkpersona=persona.idPersona inner join login on login.idLogin=persona.fkLogin where login.fkRol=1";
+    public static String busq2 = "select (paciente.idPaciente) as codigo, concat(persona.pnombrePer,' ',persona.snombrePer) as nombre,concat(persona.pApellPer,' ',persona.sApellPer) as apellido from cita inner join paciente on cita.fkPaciente=paciente.idPaciente inner join persona on paciente.fkpersona=persona.idPersona inner join login on login.idLogin=persona.fkLogin where cita.estadoCita=confirmado";
     private int codigo;
     private String nombre;
 
@@ -61,7 +55,7 @@ public class CBusquedaAgendaMedico {
             ResultSet rs = null;
             Statement sta = cnn.createStatement();
             rs = sta.executeQuery(CBusquedaAgendaMedico.busq);
-            
+            rs = sta.executeQuery(CBusquedaAgendaMedico.busq2);
 
             while (rs.next()) {
                 cbusqueda cu = new cbusqueda();
