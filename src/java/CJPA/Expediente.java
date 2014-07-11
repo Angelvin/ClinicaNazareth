@@ -38,9 +38,7 @@ public class Expediente implements Serializable {
     @NotNull
     @Column(name = "idExpedi")
     private Integer idExpedi;
-    @JoinColumn(name = "fkDetMedTrata", referencedColumnName = "idDetMedTrata")
-    @ManyToOne
-    private DetalleMedicina fkDetMedTrata;
+   
     @JoinColumn(name = "fkEmpleado", referencedColumnName = "idEmpleado")
     @ManyToOne(optional = false)
     private Empleado fkEmpleado;
@@ -65,13 +63,7 @@ public class Expediente implements Serializable {
         this.idExpedi = idExpedi;
     }
 
-    public DetalleMedicina getFkDetMedTrata() {
-        return fkDetMedTrata;
-    }
 
-    public void setFkDetMedTrata(DetalleMedicina fkDetMedTrata) {
-        this.fkDetMedTrata = fkDetMedTrata;
-    }
 
     public Empleado getFkEmpleado() {
         return fkEmpleado;

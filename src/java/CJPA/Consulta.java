@@ -43,7 +43,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Consulta.findByConsultaPor", query = "SELECT c FROM Consulta c WHERE c.consultaPor = :consultaPor"),
     @NamedQuery(name = "Consulta.findByPulso", query = "SELECT c FROM Consulta c WHERE c.pulso = :pulso"),
     @NamedQuery(name = "Consulta.findByTipoConsulta", query = "SELECT c FROM Consulta c WHERE c.tipoConsulta = :tipoConsulta"),
-    @NamedQuery(name = "Consulta.findByMedicamentos", query = "SELECT c FROM Consulta c WHERE c.medicamentos = :medicamentos"),
+    
     @NamedQuery(name = "Consulta.findByExamenes", query = "SELECT c FROM Consulta c WHERE c.examenes = :examenes"),
     @NamedQuery(name = "Consulta.findBySintomasConsulta", query = "SELECT c FROM Consulta c WHERE c.sintomasConsulta = :sintomasConsulta")})
 public class Consulta implements Serializable {
@@ -71,9 +71,9 @@ public class Consulta implements Serializable {
     @Size(min = 1, max = 50)
     @Column(name = "temperatura")
     private String temperatura;
-    @Lob
+    @Size(max = 50)
     @Column(name = "tensionalterial")
-    private byte[] tensionalterial;
+    private String tensionalterial;
     @Size(max = 250)
     @Column(name = "consultaPor")
     private String consultaPor;
@@ -103,6 +103,9 @@ public class Consulta implements Serializable {
     @JoinColumn(name = "fkcita", referencedColumnName = "idCita")
     @OneToOne
     private Cita fkcita;
+     @JoinColumn(name = "fkDetMedTrata", referencedColumnName = "idDetMedTrata")
+    @ManyToOne
+    private DetalleMedicina fkDetMedTrata;
     @JoinColumn(name = "fkExpediente", referencedColumnName = "idExpedi")
     @ManyToOne
     private Expediente fkExpediente;
@@ -168,13 +171,15 @@ public class Consulta implements Serializable {
         this.temperatura = temperatura;
     }
 
-    public byte[] getTensionalterial() {
+    public String getTensionalterial() {
         return tensionalterial;
     }
 
-    public void setTensionalterial(byte[] tensionalterial) {
+    public void setTensionalterial(String tensionalterial) {
         this.tensionalterial = tensionalterial;
     }
+
+ 
 
     public String getConsultaPor() {
         return consultaPor;
@@ -241,6 +246,15 @@ public class Consulta implements Serializable {
         this.fkcita = fkcita;
     }
 
+    public DetalleMedicina getFkDetMedTrata() {
+        return fkDetMedTrata;
+    }
+
+    public void setFkDetMedTrata(DetalleMedicina fkDetMedTrata) {
+        this.fkDetMedTrata = fkDetMedTrata;
+    }
+
+    
     public Expediente getFkExpediente() {
         return fkExpediente;
     }
