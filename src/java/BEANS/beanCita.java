@@ -20,6 +20,6 @@ public class beanCita {
     public static String Consulta = "UPDATE Cita set estadoCita=? where idcita=?";
     public static String cancelado = "UPDATE Cita estadoCita=? where idcita=?";
     public static String validarhorario = "select count(idhorario)as idhorario from horario where fkempleado=?";
-    public static String expediente = "select count (idExpedi) as expediente from expediente where fkpaciente=?";
+    public static String expediente = "select idExpedi as expediente from expediente where fkpaciente=?";
     public static String inserexpe = "insert into expediente(fkempleado,fkpaciente)values((select (e.idEmpleado) as empleado  from persona as p inner join empleado as e on e.fkpersona=p.idPersona inner join login as l on l.idLogin=p.fkLogin where l.idLogin=?),?)";
 }
