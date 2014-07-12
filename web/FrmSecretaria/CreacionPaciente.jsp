@@ -14,10 +14,17 @@
         <title>Clínica Nazareth</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
-        <meta name="author" content="Zaid Archila">
+        <meta name="author" content="Angel">
         <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="../scripts/jqueryUI.css" rel="stylesheet" type="text/css" />
         <link href="../styles/custom.css" rel="stylesheet" type="text/css" />
+        <script src="../scripts/modernizr2.6.2.js" type="text/javascript" ></script>
+        <script>
+            // fallback para el datepicker con jquery
+            Modernizr.load({test: Modernizr.inputtypes.date, nope: ["http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js", "jquery-ui.css"], complete: function() {
+                    $("input[type=date]").datepicker({dateFormat: "yy-mm-dd"});
+                }});
+        </script>
     </head>
     <body id="pageBody">
         <div id="divBoxed" class="container">
@@ -165,7 +172,7 @@
 
                             <div class="row">
                                 <div class="col-xs-6 col-md-4"></div>
-                                <div class="col-xs-6 col-md-4"> <input name="cmdguardar"  class="btn btn-group-lg btn-primary" type="submit" id="cmdguardar" value="Guardar"></div>
+                                <div class="col-xs-6 col-md-4"> <input name="cmdguardar"  class="btn btn-group-lg btn-block" type="submit" id="cmdguardar" value="Guardar"></div>
                                 <div class="col-xs-6 col-md-4"></div>
                             </div>
 

@@ -37,8 +37,13 @@
 
         <link href="../styles/custom.css" rel="stylesheet" type="text/css" /> 
 
-
-
+        <script src="../scripts/modernizr2.6.2.js" type="text/javascript" ></script>
+        <script>
+            // fallback para el datepicker con jquery
+            Modernizr.load({test: Modernizr.inputtypes.date, nope: ["http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js", "jquery-ui.css"], complete: function() {
+                    $("input[type=date]").datepicker({dateFormat: "yy-mm-dd"});
+                }});
+        </script>
 
 
     </head>
@@ -343,7 +348,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-6 col-md-4"></div>
-                            <div class="col-xs-6 col-md-4"> <input name="cmdguardar"  class="btn btn-group-lg btn-primary" type="submit" id="cmdguardar" value="guardar"></div>
+                            <div class="col-xs-6 col-md-4"> <input name="cmdguardar"  class="btn btn-group-lg btn-block" type="submit" id="cmdguardar" value="guardar"></div>
                             <div class="col-xs-6 col-md-4"></div>
                         </div>
 
