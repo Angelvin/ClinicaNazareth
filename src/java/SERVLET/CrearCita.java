@@ -9,7 +9,14 @@ import BEANS.beanCita;
 import DAL.*;
 import java.io.*;
 import java.sql.*;
+import java.util.Properties;
 import java.util.logging.*;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -38,8 +45,27 @@ public class CrearCita extends HttpServlet {
         if (request.getParameter("fecha") == null || request.getParameter("thorario") == null || request.getParameter("motivo") == null || request.getParameter("txtLoginID") == null) {
             out.println(BAL.Assets.DisplayError("No se admiten parametros nulos", "Paciente/NuevaCita.jsp", "100", "2em"));
         } else {
+            //para email  
+            final String username = "redhood7086@gmail.com";
+            final String password = "matroshka70";
+
+            Properties props = new Properties();
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.host", "smtp.gmail.com");
+            props.put("mail.smtp.port", "587");
+
+            Session session = Session.getInstance(props,
+                    new javax.mail.Authenticator() {
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(username, password);
+                }
+            });
+
+            //termina email
             try {
                 PreparedStatement pstm;
+
                 Date date = Date.valueOf(request.getParameter("fecha"));
                 int horario = Integer.parseInt(request.getParameter("thorario"));
 
@@ -60,22 +86,48 @@ public class CrearCita extends HttpServlet {
                 }
 
                 if (val == 0) {
-                    pstm = cnn.prepareStatement(BEANS.beanCita.CrearCita);
+                    pstm = cnn.prepareStatement(BEANS.beanCita.CrearCita, Statement.RETURN_GENERATED_KEYS);
 
                     pstm.setDate(1, Date.valueOf(request.getParameter("fecha")));
                     pstm.setString(2, "algunCorreo@correo.com");
                     pstm.setInt(3, Integer.parseInt(request.getParameter("thorario")));
                     pstm.setString(4, request.getParameter("motivo"));
                     pstm.setInt(5, Integer.parseInt(request.getParameter("txtLoginID")));
+
                     pstm.executeUpdate();
                     out.println(BAL.Assets.DisplayExito("Cita creada correctamente :)", "Paciente/Perfil.jsp", "100", "2em"));
+
+
+
+                    int autoIncKeyFromApi = -1;
+                    rset = pstm.getGeneratedKeys();
+                    while (rset.next()) {
+                        autoIncKeyFromApi = rset.getInt(1);
+                    }
+                    out.println(autoIncKeyFromApi);
+                    //armando EMAIL
+                    Message message = new MimeMessage(session);
+                    message.setFrom(new InternetAddress("redhood7086@gmail.com"));
+                    message.setRecipients(Message.RecipientType.TO,
+                            InternetAddress.parse("redhood7086@gmail.com"));
+                    message.setSubject("Envio de link");
+                    message.setContent("<a href='http://localhost:8089/ClinicaNazareth/srvCambioEstado?idCita=" + autoIncKeyFromApi + "'>Confirma</a>", "text/html; charset=ISO-8859-1");
+
+                    Transport.send(message);
+
+
+
+                    out.println("Hecho");
                 } else {
                     out.println("nose puede");
                 }
+
+
+
                 rset.close();
                 sta.close();
                 cnn.close();
-            } catch (SQLException ex) {
+            } catch (Exception ex) {
                 System.out.println("El inserte se rompio en: " + ex.getMessage());
             } finally {
                 Logger.getLogger(CrearCita.class.getName()).log(Level.FINEST, "Loking for a bug: ");
