@@ -30,7 +30,7 @@
                         int EmpleadoID = BAL.CitaMedicoCheck.getEmpleadoID(empleado);
                         out.println("<br>UID CITA: " + idcita + "<br> UID PAC:" + idPaciente + "<br>IDEMPLEADO: " + EmpleadoID);
                     %>
-                    <form action="#">
+                    <form action="../CrearExpediente">
                         <input type="text" class="form-control">
                         <input type="text" class="form-control">
                         <input type="text" class="form-control">
