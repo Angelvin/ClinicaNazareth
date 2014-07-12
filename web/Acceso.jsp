@@ -24,12 +24,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><h3 class="panel-title"><strong>Acceso </strong></h3></div>
                     <div class="panel-body">
-                        <style>
-                            .form-group
-                            {
-                                font-size: 1.6em;
-                            }
-                        </style>
+                        <style> .form-group{font-size:1.6em} </style>
                         <form name="session" method="post" action="srvSession">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Ususario</label>
@@ -55,9 +50,11 @@
         </div>
         <div class="container">
             <%
-                if (session.getAttribute("errorCredentialsInvalid") == null) {
+                if (session.getAttribute("errorCredentialsInvalid") == null)
+                {
                     //la sesion es null, significa q no se ha intentado loguear.
-                } else {
+                } else
+                {
                     out.println(session.getAttribute("errorCredentialsInvalid"));
                     //la session de error retorno un mensaje, bad credentials.
                 }
