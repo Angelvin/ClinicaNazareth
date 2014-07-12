@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : indexmedico
     Created on : Jul 5, 2014, 10:35:53 PM
     Author     : Cesar
@@ -32,32 +32,37 @@
                         </div>
                     </div>
                     <div class="navbar-form navbar-right" role="search">
-                        Bienvenido Dr.:<b> <c:out  value="${userName}"></c:out>
+                        <h4>  Bienvenido Dr.:<b> <c:out  value="${userName}"></c:out>
                                 <a class="btn btn-link" href="../cerrarSesion.jsp">Cerra Sesion</a></b>
-                        </div>
+                        </h4>
                     </div>
-                    <div class="row-fluid">
-                        <div class="span12">
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> </div>
+                    <div class="panel-body">
+                        <div >
+                            <h2>Seleccione una opcion:</h2>
+                            <hr>
+                            <h3>
+                                <ul class="list-group">
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-arrow-right"></span><a href="../medico/CitaMedico.jsp">Ver Citas</a></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-list-alt"></span><a href="../medico/AgendaMedico.jsp">Agenda</a></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-search"></span><a href="../medico/BusquedaPacienteMedico.jsp">Busqueda de Paciente</a></li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-shopping-cart"></span><a href="../medico/FarmaciaMedico.jsp">Farmacia</a></li>
+
+                                </ul>
+                            </h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
+            </div>
 
-                        </div>
-                <div class="tab-pane" id="Menu">
-                                            <h3>Selecciones una opciòn</h3>
-                                            <ul class="list-group">
-
-                                                <li class="list-group-item"><span class="glyphicon glyphicon-list-alt"></span><a href="../medico/AgendaMedico.jsp">Agenda</a></li>
-                                                <li class="list-group-item"><span class="glyphicon glyphicon-search"></span><a href="../medico/BusquedaPacienteMedico.jsp">Busqueda de Paciente</a></li>
-                                                <li class="list-group-item"><span class="glyphicon glyphicon-shopping-cart"></span><a href="../medico/FarmaciaMedico.jsp">Farmacia</a></li>
-
-                                            </ul>
-                                        </div>
-                        
-                        
             <script src="../scripts/jquery.min.js" type="text/javascript"></script>
             <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
             <script src="../scripts/default.js" type="text/javascript"></script>

@@ -19,23 +19,21 @@
         <meta name="author" content="Angel">
         <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="../styles/custom.css" rel="stylesheet" type="text/css" />
+        <style>
+            .btn-link{font-size: 18px;font-weight: bold;}
+        </style>
     </head>
     <body id="pageBody">
 
         <div id="divBoxed" class="container">
-
-            <div class="transparent-bg" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: -1;zoom: 1;"></div>
-
             <div class="divPanel notop nobottom">
                 <div class="row-fluid">
                     <div class="span12">
-
-
                         <!--Edit Site Name and Slogan here-->
                         <div id="divLogo">
-                            <a href="index.html" id="divSiteTitle">Clinica Nazareth</a><br />
-                            <a href="index.html" id="divTagLine">Â¡<span class="camera_full_width">Consulta</span>!</a>
+                            <a href="indexmedico.jsp" id="divSiteTitle">Clinica Nazareth</a><br />
                         </div>
+                        <a href="indexmedico.jsp" id="divTagLine"><span class=" glyphicon glyphicon-home"> Ir a inicio</span>!</a>
 
                     </div>
                 </div>
@@ -57,7 +55,7 @@
 
                             <jsp:useBean id="estado2" scope="request" class="BAL.Bcitamedico" />
                             <c:set var="list" scope="request" value="${estado2.getlistado(uidPaciente)}" />
-                            <display:table name="list" export="true" id="fila" class="table table-condensed" pagesize="10">
+                            <display:table name="list" export="true" id="fila" class="table table-condensed">
                                 <display:setProperty name="export.rtf.filename" value="example.rtf" />
                                 <display:column property="idcita" title="Codigo Cita" />
                                 <display:column property="codipaciente" title="Codigo Paciente" />
@@ -74,9 +72,9 @@
                                         </html:link>
                                     </c:if>
                                     <form id="updateCita" method="POST" action="../medico/datosPre.jsp ">
-                                        <input type="text" name="codigoCita" value="${fila.idcita}">
-                                        <input type="text" name="codigoPac" value="${fila.codipaciente}">
-                                        <input type="submit" name="action" class="btn btn-link" value="A consulta" POST="SUMIT" />
+                                        <input type="hidden" name="codigoCita" value="${fila.idcita}">
+                                        <input type="hidden" name="codigoPac" value="${fila.codipaciente}">
+                                        <input type="submit" name="action" class="btn btn-link" value="Ir a Consulta" POST="SUMIT" />
                                     </form>
                                 </display:column>
                             </display:table>
