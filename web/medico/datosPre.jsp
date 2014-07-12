@@ -12,7 +12,7 @@
         <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     </head>
     <body >
-        <br><br>
+        <br>
         <div class="container">
             <div class="divPanel notop nobottom">
                 <div class="row-fluid">
@@ -22,11 +22,10 @@
                             <a href="indexmedico.jsp" id="divSiteTitle">Clinica Nazareth</a><br />
                             <a href="indexmedico.jsp" id="divTagLine">¡<span class="glyphicon glyphicon-home">Ir a inicio</span>!</a>
                         </div>
-
+                        <hr>
                     </div>
                 </div>
             </div>
-            <br>
             <div class="panel" style="width: 90%; margin:auto;">
                 <div clas="row">
                     <%
@@ -42,7 +41,7 @@
                         int idExpediente = BAL.CitaMedicoCheck.getExpediente(idPaciente);
                         if (idExpediente != 0)
                         {
-                            out.println("EL EXPEDIENTE:" + idExpediente);
+                            out.println("<h3>Expediente No.: <b>" + idExpediente + "</b></h3>");
                         } else
                         {
                             //out.println("<h4 class=' well well-sm'> Codigo Cita: " + idcita + " Codigo Paciente:" + idPaciente + "</h4>");
@@ -100,7 +99,7 @@
                                     <%                                        //
                                         if (idExpediente != 0)
                                         {
-                                            out.println("<input type='submit' id='cmdguardar' name='cmdguardar' value='Guardar' class='btn btn-lg btn-primary'>");
+                                            out.println("<input type='submit' id='cmdguardar' name='cmdguardar' value='Guardar Consulta' class='btn btn-lg btn-primary'>");
 
                                         } else
                                         {
