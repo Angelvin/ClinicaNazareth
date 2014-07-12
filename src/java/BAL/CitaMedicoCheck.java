@@ -31,11 +31,6 @@ public class CitaMedicoCheck {
                 CitaMedicoCheck cmc = new CitaMedicoCheck();
                 num = Integer.parseInt(rset.getString("expediente"));
             }
-            if (num > 0)
-            {
-            } else
-            {
-            }
         } catch (SQLException ex)
         {
             // out.println(ex.getMessage());
@@ -59,11 +54,6 @@ public class CitaMedicoCheck {
             {
                 CitaMedicoCheck cmc = new CitaMedicoCheck();
                 num = Integer.parseInt(rset.getString("EmpleadoID"));
-            }
-            if (num > 0)
-            {
-            } else
-            {
             }
         } catch (SQLException ex)
         {
