@@ -74,31 +74,31 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <legend><span class="badge">1</span> Eliga una especialidad:<a class="btn btn-lg btn-link glyphicon glyphicon-dashboard" data-toggle="tooltip" data-placement="right" title="" data-original-title="Clic para cambiar la especialidad ;) !" href="NuevaCita.jsp"></a></legend>
-                                        <%                                            Connection connection2 = cConexion.conectar_ds();
-                                            Statement pst2 = connection2.createStatement();
-                                            String query2 = "select te.idTipoEmpleado as ID, te.nombreTipoEmp as Nombre from tipo_empleado AS te where te.idTipoEmpleado between 4 and 8";
-                                            ResultSet rs2 = null;
-                                            try {
-                                                if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals("")) {
-                                                    rs2 = pst2.executeQuery(query2);
-                                                    out.println("<select class='form-control' name='cEspecialidad' id='cmbEspecialidadID'>");
-                                                    out.println("<option>Seleccione:</option>");
-                                                    while (rs2.next()) {
-                                                        out.println("<option value='" + rs2.getInt("ID") + "'>" + rs2.getString("Nombre") + "</option>");
+                                            <%                                            Connection connection2 = cConexion.conectar_ds();
+                                                Statement pst2 = connection2.createStatement();
+                                                String query2 = "select te.idTipoEmpleado as ID, te.nombreTipoEmp as Nombre from tipo_empleado AS te where te.idTipoEmpleado between 4 and 8";
+                                                ResultSet rs2 = null;
+                                                try {
+                                                    if (cmbEspecialidad.getAttribute("sEspecialidad") == null || cmbEspecialidad.getAttribute("sEspecialidad").equals("")) {
+                                                        rs2 = pst2.executeQuery(query2);
+                                                        out.println("<select class='form-control' name='cEspecialidad' id='cmbEspecialidadID'>");
+                                                        out.println("<option>Seleccione:</option>");
+                                                        while (rs2.next()) {
+                                                            out.println("<option value='" + rs2.getInt("ID") + "'>" + rs2.getString("Nombre") + "</option>");
+                                                        }
+                                                        out.println("</select>");
+                                                    } else {
+                                                        out.println("<input type='text' class='form-control well' name='cEspecialidad' value='" + cmbEspecialidad.getAttribute("sEspecialidad") + "' readonly >");
                                                     }
-                                                    out.println("</select>");
-                                                } else {
-                                                    out.println("<input type='text' class='form-control well' name='cEspecialidad' value='" + cmbEspecialidad.getAttribute("sEspecialidad") + "' readonly >");
+                                                } catch (Exception e) {
+                                                    System.out.print(e.getMessage());
+                                                } finally {
+                                                    connection2.close();
+                                                    pst2.close();
                                                 }
-                                            } catch (Exception e) {
-                                                System.out.print(e.getMessage());
-                                            } finally {
-                                                connection2.close();
-                                                pst2.close();
-                                            }
 
 
-                                        %>
+                                            %>
                                     </div>
                                     <div class="form-group">
                                         <legend><span class="badge">2</span> Seleccione un medico:</legend>
@@ -145,7 +145,7 @@
 
                                                 Connection connection = cConexion.conectar_ds();
                                                 Statement pst = connection.createStatement();
-                                                String query = "select DISTINCT(h.horaini) as HorasDisponibles, h.idhorario from  horario as h inner join cita as c on h.idhorario=c.fkhorario where h.fkempleado=" + cmbDoctor.getAttribute("sDoctor") + " order by HorasDisponibles asc";
+                                                String query = "select (h.horaini) as HorasDisponibles, h.idhorario from  horario as h inner join empleado as e on h.fkempleado=e.idEmpleado where h.fkempleado=" + cmbDoctor.getAttribute("sDoctor") + " order by HorasDisponibles asc";
                                                 ResultSet rs = null;
                                                 try {
                                                     rs = pst.executeQuery(query);
