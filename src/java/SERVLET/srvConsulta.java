@@ -48,7 +48,7 @@ public class srvConsulta extends HttpServlet {
             consul.setTipoConsulta(request.getParameter("txttipoconsulta"));
             consul.setExamenes(request.getParameter("txtexamen"));
             consul.setSintomasConsulta(request.getParameter("txtsintomas"));
-            consul.setFkcita(em.find(Cita.class, Integer.parseInt(request.getParameter(""))));
+            consul.setFkcita(em.find(Cita.class, idcita));
             consul.setFkDetMedTrata(null);
 //consul.setFkDetMedTrata(em.find(DetalleMedicina.class, Integer.parseInt(request.getParameter()));
 
