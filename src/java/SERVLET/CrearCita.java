@@ -40,7 +40,8 @@ public class CrearCita extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-
+        HttpSession sesion = request.getSession(true);
+        String usuarioName = (String) sesion.getAttribute("userName");
 
         if (request.getParameter("fecha") == null || request.getParameter("thorario") == null || request.getParameter("motivo") == null || request.getParameter("txtLoginID") == null) {
             out.println(BAL.Assets.DisplayError("No se admiten parametros nulos", "Paciente/NuevaCita.jsp", "100", "2em"));
@@ -108,7 +109,7 @@ public class CrearCita extends HttpServlet {
                     Message message = new MimeMessage(session);
                     message.setFrom(new InternetAddress("ClinicaNazarethES@gmail.com"));
                     message.setRecipients(Message.RecipientType.TO,
-                            InternetAddress.parse(request.getParameter("txtLoginID")));
+                            InternetAddress.parse(usuarioName));
                     message.setSubject("Confirmacion Cita");
                     message.setContent(" <body>\n"
                             + "        <h1>Clinica Nazareth</h1>\n"
