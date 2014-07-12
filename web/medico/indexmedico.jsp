@@ -14,13 +14,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="Cesar Cordova">
-        <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
         <link href="../scripts/panelTabs.css" rel="stylesheet" />
         <link href="../styles/custom.css" rel="stylesheet" type="text/css" />
+        <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <script type="text/javascript" charset="utf-8" src="../scripts/bootstrap/css/customtabs.js"></script>
 
     </head>
     <body>
+        <br>
         <div class="container">
             <div class="divPanel notop nobottom">
                 <div class="row-fluid">

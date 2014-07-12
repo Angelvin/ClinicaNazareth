@@ -23,9 +23,9 @@
             .btn-link{font-size: 18px;font-weight: bold;}
         </style>
     </head>
-    <body id="pageBody">
-
-        <div id="divBoxed" class="container">
+    <body>
+        <br>
+        <div  class="container">
             <div class="divPanel notop nobottom">
                 <div class="row-fluid">
                     <div class="span12">
@@ -71,7 +71,7 @@
                                             <b>TIENE ${fila.codipaciente}</b>
                                         </html:link>
                                     </c:if>
-                                    <form id="updateCita" method="POST" action="../medico/datosPre.jsp ">
+                                    <form id="updateCita" method="GET" action="../medico/datosPre.jsp ">
                                         <input type="hidden" name="codigoCita" value="${fila.idcita}">
                                         <input type="hidden" name="codigoPac" value="${fila.codipaciente}">
                                         <input type="submit" name="action" class="btn btn-link" value="Ir a Consulta" POST="SUMIT" />

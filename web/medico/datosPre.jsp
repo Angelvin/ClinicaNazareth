@@ -1,6 +1,4 @@
 <!DOCTYPE HTML>
-
-
 <html>
     <head>
         <meta charset="utf-8">
@@ -8,40 +6,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="Zaid Archila">
-        <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="../styles/custom.css" rel="stylesheet" type="text/css" />
+        <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <script src="../scripts/jquery.min.js" type="text/javascript"></script>
         <script src="../scripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     </head>
-    <body id="pageBody">
-        <div id="divBoxed" class="container">
+    <body >
+        <br><br>
+        <div class="container">
             <div class="divPanel notop nobottom">
                 <div class="row-fluid">
                     <div class="span12">
                         <!--Edit Site Name and Slogan here-->
                         <div id="divLogo">
-                            <a href="index.html" id="divSiteTitle">Clinica Nazareth</a><br />
-                            <a href="index.html" id="divTagLine">¡<span class="camera_full_width">Consulta</span>!</a>
+                            <a href="indexmedico.jsp" id="divSiteTitle">Clinica Nazareth</a><br />
+                            <a href="indexmedico.jsp" id="divTagLine">�<span class="glyphicon glyphicon-home">Ir a inicio</span>!</a>
                         </div>
 
                     </div>
                 </div>
-
-                <div class="row-fluid">
-                    <div class="span12">
-                    </div>
-                </div>
             </div>
-            <!--DENTRO DE ESTE DIV CREAR EL FROMULARIO FAVOR NO UTILZAR
-                TABLAS YA QUE EL FROMULARIO SE AJUSTA AL ESPACIO PARA QUE
-                PUEDA VERSE EN CUALQUEIR TAMAÃ‘O
-            -->
-
-
-
-            <div class="col-xs-12 col-sm-6 col-md-12">
-
-                <div class="panel panel-primary">
+            <br>
+            <div class="panel" style="width: 90%; margin:auto;">
+                <div clas="row">
                     <%
                         int idcita = Integer.parseInt(request.getParameter("codigoCita"));
                         int idPaciente = Integer.parseInt(request.getParameter("codigoPac"));
@@ -53,18 +40,20 @@
                         sPacienteID.setAttribute("sPacienteID", idPaciente);
 
                         int idExpediente = BAL.CitaMedicoCheck.getExpediente(idPaciente);
-                        if (idExpediente > 0)
+                        if (idExpediente != 0)
                         {
                             out.println("EL EXPEDIENTE:" + idExpediente);
                         } else
                         {
-                            out.println("Este paciente no posee expediente <a class='btn btn-primary' href='CrearExpediente.jsp'>Clic para crear EXPEDIENTE</a><br>");
+                            //out.println("<h4 class=' well well-sm'> Codigo Cita: " + idcita + " Codigo Paciente:" + idPaciente + "</h4>");
+                            out.println("<h4><div class='alert alert-danger'>Este paciente no posee expediente <a class='btn btn-link btn-lg' href='CrearExpediente.jsp'>Crear Expediente</a></div></h4>");
                         }
-                        out.println("UID CITA: " + idcita + " UID PAC:" + idPaciente);
 
                     %>
-
                 </div>
+            </div>
+            <br>
+            <div class="col-md-8 col-lg-offset-2">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
 
@@ -107,13 +96,21 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4"><input name="cmdguardar"  class="btn btn-lg btn-primary" disabled="disabled" type="submit" id="cmdguardar" value="Guardar"></div>
-                                <div class="col-md-4"></div>
+                                <div class="col-md-8 col-lg-offset-2">
+                                    <%                                        //
+                                        if (idExpediente != 0)
+                                        {
+                                            out.println("<input type='submit' id='cmdguardar' name='cmdguardar' value='Guardar' class='btn btn-lg btn-primary'>");
+
+                                        } else
+                                        {
+                                            out.println("<h3 class='alert alert-danger'>No puedes crear una consulta si no existe expediente</h3>");
+                                        }
+
+                                    %>
+
+                                </div>
                             </div>
-
-
-
                         </form>
                     </div>
 
@@ -121,27 +118,18 @@
                 </div>
             </div>
         </div>
-
-        <div id="footerOuterSeparator"></div>
-
+        <hr>
         <div id="divFooter" class="footerArea shadow">
-
             <div class="divPanel"><br /><br />
                 <div class="row-fluid">
                     <div class="span12">
                         <p class="copyright">
-                            Copyright © 2014 Clinica Nazareth. All Rights Reserved.
+                            Copyright � 2014 Clinica Nazareth. All Rights Reserved.
                         </p>
-
-                        <div class="social_bookmarks"></div>
                     </div>
                 </div>
-
             </div>
         </div>
-
-        <br /><br /><br />
-
-
+        <br />
     </body>
 </html>
