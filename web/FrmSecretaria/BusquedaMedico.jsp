@@ -117,12 +117,7 @@
 
 
                                             <display:setProperty name="export.pdf" value="true" />
-                                            <display:column title="Editar">
-                                                <form  id="updateCita" method="post" action="../FrmSecretaria/editPaciente.jsp ">
-                                                    <input type="hidden" name="codigo" value="${fila.idempleado}" >
-                                                    <input type="submit" name="cmdguardar" class="btn btn-link" value="Modificar" POST="SUMIT"/>
-                                                </form>
-                                            </display:column>
+
                                             <display:column title="Editar">
                                                 <form  id="updateCita" method="post" action="../Shorario ">
                                                     <input type="hidden" name="codigo" value="${fila.idempleado}" >

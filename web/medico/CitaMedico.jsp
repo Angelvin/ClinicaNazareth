@@ -44,12 +44,12 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-12">
-
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                    </div>
-                    <div class="panel-body">
-                        <table>
+                <jsp:include page="menu.jsp"></jsp:include>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                        </div>
+                        <div class="panel-body">
+                            <table>
 
 
 

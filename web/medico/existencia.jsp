@@ -65,16 +65,16 @@
 
 
             <div class="col-xs-12 col-sm-6 col-md-12">
+                <jsp:include page="menu.jsp"></jsp:include>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
 
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
 
+                        </div>
+                        <div class="panel-body">
 
-                    </div>
-                    <div class="panel-body">
-
-                        <div class="panel panel-default">
-                            <div class="panel-body">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
 
                                 <jsp:useBean id="listaM" scope="request" class="BAL.listaMedicamento" />
 
