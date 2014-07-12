@@ -108,7 +108,7 @@ public class CrearCita extends HttpServlet {
                     Message message = new MimeMessage(session);
                     message.setFrom(new InternetAddress("ClinicaNazarethES@gmail.com"));
                     message.setRecipients(Message.RecipientType.TO,
-                            InternetAddress.parse("redhood7086@gmail.com"));
+                            InternetAddress.parse(request.getParameter("txtLoginID")));
                     message.setSubject("Confirmacion Cita");
                     message.setContent(" <body>\n"
                             + "        <h1>Clinica Nazareth</h1>\n"
