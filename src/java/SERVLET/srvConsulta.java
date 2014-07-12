@@ -58,7 +58,7 @@ public class srvConsulta extends HttpServlet {
             em.getTransaction().commit();
             //actualiza cita
             cta = em.find(Cita.class, Integer.parseInt(request.getParameter("txtIDCita")));
-            cta.setEstadoCita("Finalizado");
+            cta.setEstadoCita("Iniciada");
             em.getTransaction().begin();
             em.merge(cta);
             em.getTransaction().commit();
