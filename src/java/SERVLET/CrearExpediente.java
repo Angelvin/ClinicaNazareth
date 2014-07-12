@@ -36,7 +36,7 @@ public class CrearExpediente extends HttpServlet {
         int EmpleadoID = (Integer) session.getAttribute("sEmpleado");
 
         String InsertExpediente = "INSERT INTO expediente(fkEmpleado, fkpaciente)values(";
-        InsertExpediente = InsertExpediente + PacienteID + "," + EmpleadoID + ")";
+        InsertExpediente = InsertExpediente + EmpleadoID + "," + PacienteID + ")";
 
         PreparedStatement pstm;
         Connection cnn = cConexion.conectar_ds();
@@ -45,11 +45,10 @@ public class CrearExpediente extends HttpServlet {
         {
             pstm = cnn.prepareStatement(InsertExpediente);
             returnVal = pstm.executeUpdate();
-            out.println("Valores en request: Paciente->" + PacienteID + "Empleado ->" + EmpleadoID);
-            out.println(BAL.Assets.DisplayExito("Expediente Creado correctamente :)", "medico/datosPre.jsp", "100", "2em"));
+            out.println(BAL.Assets.DisplayExito("Expediente Creado correctamente :)", "medico/CitaMedico.jsp", "100", "2em"));
         } catch (SQLException ex)
         {
-            out.println(BAL.Assets.DisplayError("Error al crear expediente :{", "medico/datosPre.jsp", "100", "2em"));
+            out.println(BAL.Assets.DisplayError("Error al crear expediente :{", "medico/CitaMedico.jsp", "100", "2em"));
             Logger.getLogger(Paciente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
