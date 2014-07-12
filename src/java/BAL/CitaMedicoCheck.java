@@ -28,7 +28,7 @@ public class CitaMedicoCheck {
             rset = sta.executeQuery();
             while (rset.next())
             {
-                CitaMedicoCheck cmc = new CitaMedicoCheck();
+                //CitaMedicoCheck cmc = new CitaMedicoCheck();
                 num = Integer.parseInt(rset.getString("expediente"));
             }
         } catch (SQLException ex)
@@ -52,7 +52,7 @@ public class CitaMedicoCheck {
             rset = sta.executeQuery();
             while (rset.next())
             {
-                CitaMedicoCheck cmc = new CitaMedicoCheck();
+                //  CitaMedicoCheck cmc = new CitaMedicoCheck();
                 num = Integer.parseInt(rset.getString("EmpleadoID"));
             }
         } catch (SQLException ex)
