@@ -1,3 +1,4 @@
+<%@page import="BEANS.Bfecha"%>
 <%@page import="librebeans.municipio"%>
 <%@page import="java.sql.ResultSet"%>
 ?<!DOCTYPE HTML>
@@ -13,7 +14,9 @@
         <link href="../scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="../styles/custom.css" rel="stylesheet" type="text/css" />
 
-
+        <%
+            Bfecha f = Bfecha.getFecha();
+        %>
 
     </head>
     <body id="pageBody">
@@ -74,7 +77,7 @@
                                 <div class="panel-heading">Fecha Nacimiento y Genero</div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-6"><label>Fecha </label><input class="form-control" name="txtfecha" type="date" id="txtfecha" size="10" maxlength="10" required> <a>La fecha debe ser menor a la actual</a></div>
+                                        <div class="col-md-6"><label>Fecha </label><input class="form-control" name="txtfecha" max="<%=f.getFechalo()%>" type="date" id="txtfecha" size="10" maxlength="10" required> <a>La fecha debe ser menor a la actual</a></div>
                                         <div class="col-md-6"><label>Genero</label><select class="form-control" name="txtgenero"  >
                                                 <option value="m">Masculino</option>
                                                 <option value="f">Femenino</option>
