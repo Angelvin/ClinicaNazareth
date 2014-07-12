@@ -34,8 +34,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Horario.findAll", query = "SELECT h FROM Horario h"),
     @NamedQuery(name = "Horario.findByIdhorario", query = "SELECT h FROM Horario h WHERE h.idhorario = :idhorario"),
-    @NamedQuery(name = "Horario.findByHoraini", query = "SELECT h FROM Horario h WHERE h.horaini = :horaini"),
-    @NamedQuery(name = "Horario.findByHorarifi", query = "SELECT h FROM Horario h WHERE h.horarifi = :horarifi")})
+    @NamedQuery(name = "Horario.findByHoraini", query = "SELECT h FROM Horario h WHERE h.horaini = :horaini")})
 public class Horario implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -46,9 +45,7 @@ public class Horario implements Serializable {
     @Column(name = "horaini")
     @Temporal(TemporalType.TIME)
     private Date horaini;
-    @Column(name = "horarifi")
-    @Temporal(TemporalType.TIME)
-    private Date horarifi;
+    
     @JoinColumn(name = "fkempleado", referencedColumnName = "idEmpleado")
     @ManyToOne(optional = false)
     private Empleado fkempleado;
@@ -78,13 +75,6 @@ public class Horario implements Serializable {
         this.horaini = horaini;
     }
 
-    public Date getHorarifi() {
-        return horarifi;
-    }
-
-    public void setHorarifi(Date horarifi) {
-        this.horarifi = horarifi;
-    }
 
     public Empleado getFkempleado() {
         return fkempleado;

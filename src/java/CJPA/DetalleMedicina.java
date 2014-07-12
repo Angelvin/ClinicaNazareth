@@ -40,7 +40,7 @@ public class DetalleMedicina implements Serializable {
     private Integer idDetMedTrata;
     @Column(name = "fkSalidaPro")
     private Integer fkSalidaPro;
-    @OneToMany(mappedBy = "fkDetMedTrata")
+    //@OneToMany(mappedBy = "fkDetMedTrata")
     private List<Expediente> expedienteList;
     @JoinColumn(name = "fkTratamiento", referencedColumnName = "idTratamiento")
     @ManyToOne

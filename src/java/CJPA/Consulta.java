@@ -87,9 +87,7 @@ public class Consulta implements Serializable {
     @Size(min = 1, max = 50)
     @Column(name = "tipoConsulta")
     private String tipoConsulta;
-    @Size(max = 50)
-    @Column(name = "Medicamentos")
-    private String medicamentos;
+    
     @Size(max = 250)
     @Column(name = "Examenes")
     private String examenes;
@@ -205,13 +203,7 @@ public class Consulta implements Serializable {
         this.tipoConsulta = tipoConsulta;
     }
 
-    public String getMedicamentos() {
-        return medicamentos;
-    }
-
-    public void setMedicamentos(String medicamentos) {
-        this.medicamentos = medicamentos;
-    }
+ 
 
     public String getExamenes() {
         return examenes;
