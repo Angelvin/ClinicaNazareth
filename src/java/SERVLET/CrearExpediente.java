@@ -30,9 +30,10 @@ public class CrearExpediente extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession(true);
 
-        int PacienteID = Integer.parseInt(request.getParameter("txtPacienteID"));
-        int EmpleadoID = Integer.parseInt(request.getParameter("txtEmpleadoID"));
+        int PacienteID = (Integer) session.getAttribute("sPacienteID");
+        int EmpleadoID = (Integer) session.getAttribute("sEmpleado");
 
         String InsertExpediente = "INSERT INTO expediente(fkEmpleado, fkpaciente)values(";
         InsertExpediente = InsertExpediente + PacienteID + "," + EmpleadoID + ")";
@@ -48,6 +49,7 @@ public class CrearExpediente extends HttpServlet {
             out.println(BAL.Assets.DisplayExito("Expediente Creado correctamente :)", "medico/datosPre.jsp", "100", "2em"));
         } catch (SQLException ex)
         {
+            out.println(BAL.Assets.DisplayError("Error al crear expediente :{", "medico/datosPre.jsp", "100", "2em"));
             Logger.getLogger(Paciente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

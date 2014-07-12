@@ -25,17 +25,19 @@
                 <div class='panel'>
                     <h1>Confirmar creacion de expediente</h1>
                     <%
+                        HttpSession sEmpleado = request.getSession();
                         int idcita = (Integer) session.getAttribute("sCitaID");
                         int idPaciente = (Integer) session.getAttribute("sPacienteID");
                         int empleado = (Integer) session.getAttribute("uidLogin");
                         int EmpleadoID = BAL.CitaMedicoCheck.getEmpleadoID(empleado);
+                        sEmpleado.setAttribute("sEmpleado", EmpleadoID);
                         //out.println("<br>UID CITA: " + idcita + "<br> UID PAC:" + idPaciente + "<br>IDEMPLEADO: " + EmpleadoID);
 
                     %>
 
-                    <form method="GET" action="../CrearExpediente">
-                        Codigo del Paciente:<input type="text" class="form-control" name="txtPacienteID" value="<%= idPaciente%>" disabled>
-                        Codigo del Empleado:<input type="text" class="form-control" name="txtEmpleadoID" value="<%= EmpleadoID%>" disabled>
+                    <form method="POST" action="../CrearExpediente">
+                        Codigo del Paciente:<input type="text" name="txtPacienteID" class="form-control"  value="<%= idPaciente%>" disabled>
+                        Codigo del Empleado:<input type="text" name="txtEmpleadoID" class="form-control"  value="<%= EmpleadoID%>" disabled>
                         <br>
                         <input type="submit" class="btn btn-primary btn-block" value="Crear Expediente">
                         <br>
