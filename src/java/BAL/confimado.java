@@ -5,7 +5,7 @@
  */
 package BAL;
 
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -76,7 +76,7 @@ public class confimado {
     }
 
     public static void main(String[] args) {
-        Connection bdconeccion = cConexion.conectar_ds();
+        Connection bdconeccion = MyDatabase.getConection();
         CallableStatement buscador = null;
         ResultSet rs = null;
         String query = "{call pacienteConfirmado}";
@@ -102,7 +102,7 @@ public class confimado {
 
     public List<confimado> getListado() {
         List< confimado> list = new ArrayList< confimado>(0);
-        Connection bdconeccion = cConexion.conectar_ds();
+        Connection bdconeccion = MyDatabase.getConection();
         CallableStatement buscador = null;
         ResultSet rs = null;
         String query = "{call pacienteConfirmado}";

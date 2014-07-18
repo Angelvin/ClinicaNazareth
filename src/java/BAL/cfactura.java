@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import DAL.cConexion;
+import DAL.MyDatabase;
 import BEANS.beanFactura;
 /**
  *
@@ -44,7 +44,7 @@ public static String select = "SELECT factura.idfactura as Codigo, concat(person
 
 public List<beanFactura> getlistado() {
         List<beanFactura> lista = new ArrayList<beanFactura>(0);
-        Connection cnn = cConexion.conectar_ds();
+        Connection cnn = MyDatabase.getConection();
         
         try {   
            Statement sta = cnn.createStatement();

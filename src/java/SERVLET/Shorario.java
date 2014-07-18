@@ -7,7 +7,7 @@ package SERVLET;
 import BAL.Assets;
 import BAL.registrarusuario;
 import BEANS.beanCita;
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -42,7 +42,7 @@ public class Shorario extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String medico = request.getParameter("codigo");
-        Connection cnn = cConexion.conectar_ds();
+        Connection cnn = MyDatabase.getConection();
         try {
             int val = 0;
             ResultSet rset = null;

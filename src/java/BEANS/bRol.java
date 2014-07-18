@@ -4,7 +4,7 @@
  */
 package BEANS;
 
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -12,7 +12,7 @@ import java.sql.ResultSet;
  *
  * @author Angel
  */
-public class bRol extends cConexion {
+public class bRol extends MyDatabase {
 
     static private PreparedStatement pst = null;
 
@@ -20,7 +20,7 @@ public class bRol extends cConexion {
         ResultSet rs = null;
         try {
             String sql = "select * from rol where idRol>1";
-            pst = conectar_ds().prepareStatement(sql);
+            pst = getConection().prepareStatement(sql);
             rs = pst.executeQuery();
         } catch (Exception e) {
             System.out.print(e.getMessage());

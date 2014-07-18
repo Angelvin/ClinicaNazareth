@@ -4,8 +4,8 @@
  */
 package BEANS;
 
-import DAL.cConexion;
-import static DAL.cConexion.conectar_ds;
+import DAL.MyDatabase;
+import static DAL.MyDatabase.getConection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -13,7 +13,7 @@ import java.sql.ResultSet;
  *
  * @author Marlon
  */
-public class sMedicamento extends cConexion {
+public class sMedicamento extends MyDatabase {
         static private  PreparedStatement pst =null;
     public  static ResultSet getMedicamento(){
         
@@ -21,7 +21,7 @@ public class sMedicamento extends cConexion {
         try{
             
             String sql="select * from medicamento";
-        pst=conectar_ds().prepareStatement(sql);
+        pst=getConection().prepareStatement(sql);
         rs=pst.executeQuery();
         }catch(Exception e){
             System.out.print(e.getMessage());

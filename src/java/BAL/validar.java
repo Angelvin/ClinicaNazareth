@@ -5,7 +5,7 @@
 package BAL;
 
 import BEANS.ingreso;
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +20,7 @@ public class validar {
     public int getUsuario(String usuario) {
         int registros = 0;
         try {
-            Connection cnn = cConexion.conectar_ds();
+            Connection cnn = MyDatabase.getConection();
             ResultSet rset = null;
             PreparedStatement sta;
             sta = cnn.prepareStatement(ingreso.verificar);

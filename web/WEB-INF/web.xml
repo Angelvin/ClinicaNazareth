@@ -28,6 +28,14 @@
         <servlet-name>srvCambioEstado</servlet-name>
         <servlet-class>SERVLET.srvCambioEstado</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CrearExpediente</servlet-name>
+        <servlet-class>SERVLET.CrearExpediente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>srvConsulta</servlet-name>
+        <servlet-class>SERVLET.srvConsulta</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Paciente</servlet-name>
         <url-pattern>/Paciente</url-pattern>
@@ -56,9 +64,24 @@
         <servlet-name>srvCambioEstado</servlet-name>
         <url-pattern>/srvCambioEstado</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearExpediente</servlet-name>
+        <url-pattern>/CrearExpediente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvConsulta</servlet-name>
+        <url-pattern>/srvConsulta</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <resource-ref>
+        <description>jdbc:sqlserver://localhost:1433;databaseName=clinica</description>
+        <res-ref-name>clinica2</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>
 </web-app>

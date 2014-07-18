@@ -5,7 +5,7 @@
  */
 
 package SERVLET;
-import DAL.cConexion;
+import DAL.MyDatabase;
 import BEANS.beanDespacho;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -40,7 +40,7 @@ public class srvDespacho extends HttpServlet {
     private void update(int value){
         
         try{    
-        Connection cnn = cConexion.conectar_ds();
+        Connection cnn = MyDatabase.getConection();
             PreparedStatement sta;
             sta = cnn.prepareStatement(beanDespacho.update);
             sta.setInt(1,value);
@@ -63,7 +63,7 @@ public class srvDespacho extends HttpServlet {
 
         int codigo = Integer.parseInt(request.getParameter("txtcodigo"));
         try {
-            Connection cnn = cConexion.conectar_ds();
+            Connection cnn = MyDatabase.getConection();
             PreparedStatement sta;
             this.update(codigo);
             sta = cnn.prepareStatement(beanDespacho.salida);

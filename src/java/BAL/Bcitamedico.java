@@ -81,7 +81,7 @@ public class Bcitamedico {
     public List< Bcitamedico> getlistado(Integer valor) {
         String query = CMedico + valor + ")";
         List< Bcitamedico> lista = new ArrayList< Bcitamedico>(0);
-        Connection cnn = cConexion.conectar_ds();
+        Connection cnn = MyDatabase.getConection();
         Statement ts;
         ResultSet rs;
 
@@ -116,7 +116,7 @@ public class Bcitamedico {
     }
     /*
      * public static void main(String[] args) { Connection bdconeccion =
-     * cConexion.conectar_ds(); CallableStatement buscador = null; ResultSet rs
+     * MyDatabase.getConection(); CallableStatement buscador = null; ResultSet rs
      * = null; Bfecha f = new Bfecha(); Statement stmt = null;
      *
      * try { stmt = bdconeccion.createStatement();

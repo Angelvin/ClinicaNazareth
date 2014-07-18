@@ -6,7 +6,7 @@
 
 package BAL;
 
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -38,7 +38,7 @@ public static String select = "SELECT factura.idfactura as Codigo, concat(person
         "where factura.estado='Cancelado'";
    public List<beanDespacho> getlistado() {
         List<beanDespacho> lista = new ArrayList<beanDespacho>(0);
-        Connection cnn = cConexion.conectar_ds();
+        Connection cnn = MyDatabase.getConection();
         
         try {   
            Statement sta = cnn.createStatement();

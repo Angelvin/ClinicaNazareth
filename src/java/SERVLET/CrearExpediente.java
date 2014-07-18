@@ -39,7 +39,7 @@ public class CrearExpediente extends HttpServlet {
         InsertExpediente = InsertExpediente + EmpleadoID + "," + PacienteID + ")";
 
         PreparedStatement pstm;
-        Connection cnn = cConexion.conectar_ds();
+        Connection cnn = MyDatabase.getConection();
         int returnVal;
         try
         {

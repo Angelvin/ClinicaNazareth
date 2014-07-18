@@ -5,7 +5,7 @@
 package SERVLET;
 
 import BEANS.bedipaciente;
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -50,7 +50,7 @@ public class Sedpaciente extends HttpServlet {
         String codigo = request.getParameter("codigoC");
 
 
-        Connection bdconeccion = cConexion.conectar_ds();
+        Connection bdconeccion = MyDatabase.getConection();
         try {
             PreparedStatement st = bdconeccion.prepareStatement(bedipaciente.Edipaciente);
             st.setString(1, nombre);

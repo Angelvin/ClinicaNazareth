@@ -5,7 +5,7 @@
  */
 package librebeans;
 
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -13,7 +13,7 @@ import java.sql.ResultSet;
  *
  * @author Angel
  */
-public class municipio extends cConexion {
+public class municipio extends MyDatabase {
 
     static private PreparedStatement pst = null;
 
@@ -23,7 +23,7 @@ public class municipio extends cConexion {
         try {
 
             String sql = "select * from municipio";
-            pst = conectar_ds().prepareStatement(sql);
+            pst = getConection().prepareStatement(sql);
             rst = pst.executeQuery();
         } catch (Exception e) {
             System.out.print(e.getMessage());

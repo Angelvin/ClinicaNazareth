@@ -5,7 +5,7 @@
  */
 package BAL;
 
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -86,7 +86,7 @@ public class Espera {
 
     public List<Espera> getListado() {
         List< Espera> lista = new ArrayList< Espera>(0);
-        Connection bdconeccion = cConexion.conectar_ds();
+        Connection bdconeccion = MyDatabase.getConection();
         CallableStatement buscador = null;
         ResultSet rs = null;
         String query = "{call PacienteEspera}";

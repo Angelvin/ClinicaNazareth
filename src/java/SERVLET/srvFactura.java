@@ -7,7 +7,7 @@
 package SERVLET;
 
 import BEANS.beanFactura;
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -42,7 +42,7 @@ public class srvFactura extends HttpServlet {
      */    
     private void update(int value){
         try{    
-        Connection cnn = cConexion.conectar_ds();
+        Connection cnn = MyDatabase.getConection();
             PreparedStatement sta;
             sta = cnn.prepareStatement(beanFactura.update);
             sta.setInt(1,value);
@@ -55,7 +55,7 @@ public class srvFactura extends HttpServlet {
     
     private void efectivo(int value){
         try{    
-        Connection cnn = cConexion.conectar_ds();
+        Connection cnn = MyDatabase.getConection();
             PreparedStatement sta;
             sta = cnn.prepareStatement(beanFactura.efectivo);
             sta.setInt(1,value);
@@ -66,7 +66,7 @@ public class srvFactura extends HttpServlet {
     }
     private void credito(int value){
         try{    
-        Connection cnn = cConexion.conectar_ds();
+        Connection cnn = MyDatabase.getConection();
             PreparedStatement sta;
             sta = cnn.prepareStatement(beanFactura.credito);
             sta.executeQuery();
@@ -76,7 +76,7 @@ public class srvFactura extends HttpServlet {
     }
     private void gratis(){
         try{    
-        Connection cnn = cConexion.conectar_ds();
+        Connection cnn = MyDatabase.getConection();
             PreparedStatement sta = cnn.prepareStatement(beanFactura.gratis);
             sta.executeQuery();
             sta.close();
@@ -94,7 +94,7 @@ throws ServletException, IOException {
         String pago=request.getParameter("cmbpago");
         int codigo = Integer.parseInt(request.getParameter("txtcodigo"));
         try {
-            Connection cnn = cConexion.conectar_ds();
+            Connection cnn = MyDatabase.getConection();
             if(pago.equals("Gratis")){
                 this.gratis();
                 this.update(codigo);

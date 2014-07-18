@@ -5,7 +5,7 @@
  */
 package BAL;
 
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -17,7 +17,7 @@ import java.sql.Statement;
  */
 public class cita {
 
-      Connection bdconeccion=cConexion.conectar_ds();
+      Connection bdconeccion=MyDatabase.getConection();
     CallableStatement buscador=null;
 
     
@@ -27,7 +27,7 @@ public class cita {
     public static DatoCita getDatos(int id) {
         DatoCita list = new DatoCita();
         try {
-            Connection cnn = cConexion.conectar_ds();
+            Connection cnn = MyDatabase.getConection();
             String SQL = "select c.idCita, (c.fechaCita) as fecha ,(h.horaini) as Horario,(c.correoCita) as  correo,(c.estadoCita) as Estado,(n.pnombrePer) as Nombre,(n.pApellPer)AS Apellido ,(p.pApellPer )as Medico  from Cita as c inner join horario as h on c.fkhorario=h.idhorario inner join empleado as e  on h.fkempleado=e.idEmpleado inner join persona as p on p.idPersona=e.fkpersona inner join paciente as  m on c.fkPaciente=m.idPaciente inner join persona as n on n.idPersona=m.fkpersona where idCita=" + id;
             Statement stmt = cnn.createStatement();
             ResultSet rs = stmt.executeQuery(SQL);

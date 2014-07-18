@@ -4,7 +4,7 @@
  */
 package SERVLET;
 
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -69,7 +69,7 @@ public class PacientePerfil extends HttpServlet {
 
         String updatepersona = "  update persona set pnombrePer='" + nombre + "', snombrePer='" + nombres + "', pApellPer='" + apellido + "', sApellPer='" + apellidos + "',fechaNacPer='" + fecha + "', sexo='" + genero + "' where idPersona=" + idpaciente;
         PreparedStatement pstm;
-        Connection cnn = cConexion.conectar_ds();
+        Connection cnn = MyDatabase.getConection();
         int returnVal;
         try {
             pstm = cnn.prepareStatement(updatepersona);

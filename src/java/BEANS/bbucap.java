@@ -6,7 +6,7 @@
 package librebeans;
 
 import BAL.cbusqueda;
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -53,7 +53,7 @@ public class bbucap {
   
      public static  List<bbucap> getListado() {
         List< bbucap> list = new ArrayList<  bbucap>(0);
-        Connection bdconeccion = cConexion.conectar_ds();
+        Connection bdconeccion = MyDatabase.getConection();
         String query = "{call buspacientedocu(?)}";
         CallableStatement buscador = null;
         ResultSet rs = null;

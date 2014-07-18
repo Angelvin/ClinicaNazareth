@@ -5,7 +5,7 @@
  */
 package BAL;
 
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -77,7 +77,7 @@ public class Confcita {
 
     public List<Confcita> getListado() {
         List<Confcita> list = new ArrayList<Confcita>(0);
-        Connection cnn = cConexion.conectar_ds();
+        Connection cnn = MyDatabase.getConection();
         CallableStatement buscar = null;
         ResultSet rs = null;
         String query = "{call ConsolaCita}";

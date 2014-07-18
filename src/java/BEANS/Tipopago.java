@@ -4,7 +4,7 @@
  */
 package librebeans;
 
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -40,7 +40,7 @@ public class Tipopago {
       public List<Tipopago > getListado() {
         List< Tipopago > lista = new ArrayList< Tipopago >(0);
         try {
-            Connection cnn = cConexion.conectar_ds();
+            Connection cnn = MyDatabase.getConection();
             ResultSet rset = null;
             Statement sta = cnn.createStatement();
             rset = sta.executeQuery(Tipopago.SELECT);

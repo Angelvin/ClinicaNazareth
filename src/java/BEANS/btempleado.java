@@ -4,8 +4,8 @@
  */
 package BEANS;
 
-import DAL.cConexion;
-import static DAL.cConexion.conectar_ds;
+import DAL.MyDatabase;
+import static DAL.MyDatabase.getConection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -13,7 +13,7 @@ import java.sql.ResultSet;
  *
  * @author Angel
  */
-public class btempleado extends cConexion {
+public class btempleado extends MyDatabase {
 
     static private PreparedStatement pst = null;
 
@@ -21,7 +21,7 @@ public class btempleado extends cConexion {
         ResultSet rs = null;
         try {
             String sql = "select * from tipo_empleado";
-            pst = conectar_ds().prepareStatement(sql);
+            pst = getConection().prepareStatement(sql);
             rs = pst.executeQuery();
         } catch (Exception e) {
             System.out.print(e.getMessage());

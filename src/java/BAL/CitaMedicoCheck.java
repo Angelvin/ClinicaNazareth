@@ -20,7 +20,7 @@ public class CitaMedicoCheck {
         try
         {
             // String valor = request.getParameter("idpaciente");
-            Connection cnn = cConexion.conectar_ds();
+            Connection cnn = MyDatabase.getConection();
             ResultSet rset = null;
             PreparedStatement sta;
             sta = cnn.prepareStatement(beanCita.expediente);
@@ -44,7 +44,7 @@ public class CitaMedicoCheck {
         try
         {
             // String valor = request.getParameter("idpaciente");
-            Connection cnn = cConexion.conectar_ds();
+            Connection cnn = MyDatabase.getConection();
             ResultSet rset = null;
             PreparedStatement sta;
             sta = cnn.prepareStatement(beanCita.getEmpleadoID);

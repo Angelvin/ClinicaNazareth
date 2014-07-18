@@ -5,7 +5,7 @@
  */
 package BAL;
 
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -51,7 +51,7 @@ public class CBusquedaAgendaMedico {
     public List<cbusqueda> getListado() {
         List<cbusqueda> list = new ArrayList<cbusqueda>(0);
         try {
-            Connection cnn = cConexion.conectar_ds();
+            Connection cnn = MyDatabase.getConection();
             ResultSet rs = null;
             Statement sta = cnn.createStatement();
             rs = sta.executeQuery(CBusquedaAgendaMedico.busq);
@@ -79,7 +79,7 @@ public class CBusquedaAgendaMedico {
     /*   public List<cbusqueda> getListado2() {
      List<cbusqueda> list = new ArrayList<cbusqueda>(0);
      try {
-     Connection cnn = cConexion.conectar_ds();
+     Connection cnn = MyDatabase.getConection();
      ResultSet rs = null;
      Statement sta = cnn.createStatement();
      rs = sta.executeQuery(cbusqueda.busq2);

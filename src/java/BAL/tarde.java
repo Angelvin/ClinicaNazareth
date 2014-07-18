@@ -6,7 +6,7 @@
 
 package BAL;
 
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -49,7 +49,7 @@ public class tarde {
     
     public List<tarde > getListado() {
         List<tarde > lis = new ArrayList<tarde>(0);
-    Connection bdconeccion=cConexion.conectar_ds();
+    Connection bdconeccion=MyDatabase.getConection();
     CallableStatement buscador=null;
     ResultSet rs =null;
     String query="{call PacienteTarde}";

@@ -5,7 +5,7 @@
  */
 package BEANS;
 
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -98,7 +98,7 @@ public class bedipaciente {
     public static bedipaciente getDatos(int id) {
         bedipaciente list = new bedipaciente();
         try {
-            Connection cnn = cConexion.conectar_ds();
+            Connection cnn = MyDatabase.getConection();
             String SQL = "select p.idPersona, pnombrePer,snombrePer,pApellPer,sApellper,fechaNacPer,sexo,iglesia from persona as p inner join paciente as pa on pa.fkpersona=p.idPersona where pa.idPaciente=" + id;
             Statement stmt = cnn.createStatement();
             ResultSet rs = stmt.executeQuery(SQL);

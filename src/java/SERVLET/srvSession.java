@@ -5,7 +5,7 @@
 package BEANS;
 
 import BAL.Assets;
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -52,7 +52,7 @@ public class srvSession extends HttpServlet {
             if (request.getParameter("txtuser") == null || request.getParameter("txtpass") == null) {
                 //si los valores llegan vacios, meanwhile, do nothing...
             } else {
-                Connection cnn = cConexion.conectar_ds();
+                Connection cnn = MyDatabase.getConection();
                 ResultSet rset = null;
                 PreparedStatement sta;
                 sta = cnn.prepareStatement(ingreso.session);

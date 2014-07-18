@@ -6,7 +6,7 @@
 package SERVLET;
 
 import BAL.registrarusuario;
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.CallableStatement;
@@ -70,7 +70,7 @@ public class sEmpleado extends HttpServlet {
         try {
             if (rol.equals("3")) {
                 
-                Connection cnn = cConexion.conectar_ds();
+                Connection cnn = MyDatabase.getConection();
                 CallableStatement pst = cnn.prepareCall(registrarusuario.empleado);
                 
                 if (cargo.equals("1")) {
@@ -101,7 +101,7 @@ public class sEmpleado extends HttpServlet {
             } else if (rol.equals("2")) {
                 
                 
-                Connection cnn = cConexion.conectar_ds();
+                Connection cnn = MyDatabase.getConection();
                 CallableStatement pst = cnn.prepareCall(registrarusuario.registroEmpleado);
                 
                 

@@ -5,7 +5,7 @@
  */
 package BAL;
 
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Statement;
@@ -16,7 +16,7 @@ import java.sql.Statement;
  */
 public class registrarusuario {
 
-    Connection bdconeccion = cConexion.conectar_ds();
+    Connection bdconeccion = MyDatabase.getConection();
     CallableStatement buscador = null;
     public static String registroEmpleado = "{call registroempleado(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
     public static String query = "{call registroUsuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";

@@ -7,7 +7,7 @@ package SERVLET;
 
 import BAL.Assets;
 import BAL.registrarusuario;
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -64,7 +64,7 @@ public class creapaciente extends HttpServlet {
         String tipo = request.getParameter("cmdguardar");
 
 
-        Connection bdconeccion = cConexion.conectar_ds();
+        Connection bdconeccion = MyDatabase.getConection();
 
         if (tipo.equals("Guardar")) {
 

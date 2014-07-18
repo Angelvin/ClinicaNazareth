@@ -5,18 +5,15 @@
  */
 package SERVLET;
 
-import BEANS.beanCita;
+import BEANS.*;
 import DAL.*;
 import java.io.*;
+import java.sql.Date;
 import java.sql.*;
-import java.util.Properties;
+import java.util.*;
 import java.util.logging.*;
-import javax.mail.Message;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+import javax.mail.*;
+import javax.mail.internet.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -27,9 +24,8 @@ import javax.servlet.http.*;
 public class CrearCita extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -37,7 +33,7 @@ public class CrearCita extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         HttpSession sesion = request.getSession(true);
@@ -46,7 +42,7 @@ public class CrearCita extends HttpServlet {
         if (request.getParameter("fecha") == null || request.getParameter("thorario") == null || request.getParameter("motivo") == null || request.getParameter("txtLoginID") == null) {
             out.println(BAL.Assets.DisplayError("No se admiten parametros nulos", "Paciente/NuevaCita.jsp", "100", "2em"));
         } else {
-            //para email  
+            //para email
             final String username = "ClinicaNazarethES@gmail.com";
             final String password = "clinica1";
 
@@ -58,10 +54,10 @@ public class CrearCita extends HttpServlet {
 
             Session session = Session.getInstance(props,
                     new javax.mail.Authenticator() {
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(username, password);
-                }
-            });
+                        protected PasswordAuthentication getPasswordAuthentication() {
+                            return new PasswordAuthentication(username, password);
+                        }
+                    });
 
             //termina email
             try {
@@ -70,7 +66,7 @@ public class CrearCita extends HttpServlet {
                 Date date = Date.valueOf(request.getParameter("fecha"));
                 int horario = Integer.parseInt(request.getParameter("thorario"));
 
-                Connection cnn = cConexion.conectar_ds();
+                Connection cnn = MyDatabase.getConection();
                 int val = 0;
 
                 ResultSet rset = null;
@@ -78,7 +74,6 @@ public class CrearCita extends HttpServlet {
                 sta = cnn.prepareStatement(beanCita.validaCitapaciente);
                 sta.setDate(1, date);
                 sta.setInt(2, horario);
-
 
                 rset = sta.executeQuery();
                 while (rset.next()) {
@@ -97,7 +92,6 @@ public class CrearCita extends HttpServlet {
 
                     pstm.executeUpdate();
                     out.println(BAL.Assets.DisplayExito("Cita creada correctamente :)", "Paciente/Perfil.jsp", "100", "2em"));
-
 
                     int idC = -1;
                     rset = pstm.getGeneratedKeys();
@@ -121,14 +115,10 @@ public class CrearCita extends HttpServlet {
 
                     Transport.send(message);
 
-
-
                     out.println("Hecho");
                 } else {
                     out.println("nose puede");
                 }
-
-
 
                 rset.close();
                 sta.close();
@@ -146,8 +136,7 @@ public class CrearCita extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Handles the HTTP
-     * <code>GET</code> method.
+     * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -157,12 +146,15 @@ public class CrearCita extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(CrearCita.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
-     * Handles the HTTP
-     * <code>POST</code> method.
+     * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -172,7 +164,11 @@ public class CrearCita extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(CrearCita.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 

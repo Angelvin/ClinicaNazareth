@@ -4,7 +4,7 @@
  */
 package BEANS;
 
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -44,7 +44,7 @@ public class bhorario {
         String query = "{call busmedico}";
         Statement stmt = null;
         try {
-            Connection bdconeccion = cConexion.conectar_ds();
+            Connection bdconeccion = MyDatabase.getConection();
 
             stmt = bdconeccion.createStatement();
             buscador = bdconeccion.prepareCall(query);

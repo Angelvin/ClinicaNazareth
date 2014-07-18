@@ -4,7 +4,7 @@
  */
 package BEANS;
 
-import DAL.cConexion;
+import DAL.MyDatabase;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -30,7 +30,7 @@ public class Bfecha {
 
     public static Bfecha getFecha() {
 
-        Connection bdconeccion = cConexion.conectar_ds();
+        Connection bdconeccion = MyDatabase.getConection();
         CallableStatement buscador = null;
         ResultSet rs = null;
         Bfecha f = new Bfecha();
